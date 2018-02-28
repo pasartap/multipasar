@@ -3,17 +3,11 @@
         <div class="col-sm-6">
             {{ request.myvar }}
             <div class="logo">
-                {% if settings.use_logo %}
-                    <a id="logo" href="/">
-                        {{ 'logo_189x48.png' | asset_url | img_tag: shop.name }}
-                    </a>
-                {% else %}
-                    <a class="logo-title" href="/">{{ settings.logo_text }}</a>
-                {% else %}
-                    <h1 id="site-title" {% if settings.use_logo %} class="hidden" {% endif %}>
-                        <a class="trs_color" href="/">{{ shop.name }}</a>
-                    </h1>
-                {% endif %}
+                <a id="logo" href="/">
+                    <img
+                        style='width:152px;height:40px'
+                        src="{{ 'logo_landingpage.png' | asset_img_url: '518x136' }}"/>
+                </a>
             </div>
         </div>
         <div class="col-sm-6"></div>
@@ -22,12 +16,8 @@
         <div class="col-sm-12 mobilepadding0">
             <center>
                 <div class="bannercontainer">
-                    <h1 class="landingtitle">Save time and leave the
-                        <br>groceries to us.</h1>
-                    <h3 class="landingsubtitle">Find the stores near by you!</h3>
+                    <div class="top-banner"></div>
                     <div class="formlocation text-left">
-                        <p class="currentlocation">You are currently shopping in
-                            <span class="locationname"></span></p>
                         <div id="locationField">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                             <div id="locationField">
@@ -51,18 +41,23 @@
                         <p id='address'></p>
                         <ul class="nav nav-tabs">
                             <li class="active">
-                                <a data-toggle="tab" href="#home">Market</a>
+                                <a data-toggle="tab" href="#home">Markets</a>
                             </li>
                         </ul>
                         <div class="tab-content">
                             <div id="home" class="tab-pane fade in active">
-                                <h3>Select Market to start shopping!</h3>
+                                <h3>Select a market below to start shopping!</h3>
                                 <ul class="mannualstore"></ul>
                             </div>
                             <div id="menu1" class="tab-pane fade">
-                                <h3>Select Market to start shopping!</h3>
+                                <h3>Select a market below to start shopping!</h3>
                                 <p>Some content in menu 1.</p>
                             </div>
+                        </div>
+                    </div>
+                    <div class="formlocation text-center" style="margin-top:10px">
+                        <div class="brand-header" style="margin-top:0px">
+                            <span>HOW TO PLACE AN ORDER</span>
                         </div>
                     </div>
                 </div>
@@ -120,7 +115,7 @@
         font-size: 12px !important;
     }
     .landingpage {
-        background: url("https://cdn.shopify.com/s/files/1/2168/1709/t/20/assets/HR4C5125-12.jpg?5676170823052302675");
+        background: url("https://cdn.shopify.com/s/files/1/1030/8703/files/landing_page.jpg?17503839264410292677");
         position: relative;
         height: 100%;
         width: 100%;
@@ -130,6 +125,14 @@
     }
     .bannercontainer {
         max-width: 750px;
+    }
+    .top-banner {
+        background: url("{{ 'landing_page_top_banner.png' | asset_url }}");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        height: 200px;
+        margin: 20px 0;
     }
     .landingtitle {
         font-size: 32px;
@@ -314,9 +317,21 @@
             z-index: 9999 !important;
         }
     }
+    @media only screen and (max-width:767px) {
+        .top-banner {
+            height: 100px;
+        }
+    }
     @media screen and (min-width: 480px) and (max-width: 767px) {
         .mm-page.mm-slideout.padding0high {
             margin-top: 0 !important;
+        }
+        .top-banner {
+            background: url("{{ 'landing_page_top_banner.png' | asset_url }}");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            height: 200px;
         }
         .landingtitle {
             font-size: 23px;
