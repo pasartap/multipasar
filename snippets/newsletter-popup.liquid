@@ -1,0 +1,61 @@
+ {% if settings.display_newsletter-popup %}
+ {% if settings.display_newsletter-popup != blank %}
+<div class="modal fade newsletterwrapper" id="myModal">
+<div class="modal-dialog" id="email-modal">
+  <div class="modal-content">
+    <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <div class="window-content">
+        <div class="left">
+          <h1 class="title">{{ settings.newsletter-title }}</h1>
+          <p class="sub-title">{{ settings.newsletter-desc }}</p>
+          {% include 'newsletter-form' %}
+          <h2 class="message">{{ settings.newsletter-msg }}</h2>
+        </div>
+      </div>
+      <!-- /.modal-content --> 
+    </div>
+    <!-- /.modal-dialog --> 
+  </div>
+  <!-- /.modal --> 
+  </div></div>
+<script>
+      // Delayed Modal Display + Cookie On Click
+  
+      $(document).ready(function() {
+        
+        
+   
+        // If no cookie with our chosen name (e.g. no_thanks)...
+        
+        if ($.cookie("no_thanks") == null) {
+                                            // Show the modal, with delay func.
+          $('#myModal').appendTo("body");
+          function show_modal(){
+            $('#myModal').modal();
+          }
+
+            $('#myModal').modal({
+            keyboard: false,
+           backdrop:false
+          })                                 
+                                             
+          // Set delay func. time in milliseconds
+          window.setTimeout(show_modal, 3000);
+                                                 
+                                            
+          }
+
+        // On click of specified class (e.g. 'nothanks'), trigger cookie, which expires in 100 years
+        $(".close").click(function() {  
+          $.cookie('no_thanks', 'true', { expires: 36500, path: '/' });
+          });
+
+        
+          
+  
+        
+      });
+    </script> 
+{% endif %}
+  {% endif %}

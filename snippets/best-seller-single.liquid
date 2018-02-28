@@ -1,0 +1,48 @@
+{% assign listing_cols = '1' %}
+{% assign image_size = 'original' %}
+   {% if settings.display_best-seller %}
+        {% if settings.display_best-seller != blank %}
+
+<div class="widget widget__best-sellers" id="new-pro-slider">
+  <div class="widget_header">
+    <h3><span>{{ settings.best_sellers_heading }}</span></h3>
+  </div>
+  <div class="widget_content">
+    <div class="product-listing product-listing__bestsellers">
+       <div id="best-seller-block" class="product-flexslider hidden-buttons">
+              <div class="slider-items slider-width-col4"> 
+                
+                <!-- Item -->
+               
+  {% for product in collections[settings.bestsellers_cat].products limit:6 %}
+                 <div class="item">
+    
+        {% include 'product-grid-item' with 'listing_cols' with 'image_size' %}
+                   </div>
+      {% endfor %}
+    </div>
+          </div>
+       </div>
+  </div>
+</div>
+  {% endif %}
+  {% endif %}
+
+
+<script type="text/javascript">
+//<![CDATA[
+ jQuery(document).ready(function(cash) {
+  jQuery("#best-seller-block .slider-items").owlCarousel({
+   items : 1, //10 items above 1000px browser width
+      itemsDesktop : [1024,1], //5 items between 1024px and 901px
+        itemsDesktopSmall : [900,1], // 3 items betweem 900px and 601px
+        itemsTablet: [767,2], //2 items between 600 and 0;
+        itemsMobile : [360,1],
+        navigation : true,
+        navigationText : ["<a class=\"flex-prev\"></a>","<a class=\"flex-next\"></a>"],
+        slideSpeed : 500,
+        pagination : false
+     });
+ }); 
+//]]>
+</script>

@@ -1,0 +1,50 @@
+<div class="container">
+
+  
+  <div class="col-1 parent-mega-menu">
+    {% for l in linklists[link.handle].links %}
+    <div class="inner">
+      <!-- Menu level 2 -->
+      <a href="{{ l.url }}"{% if l.active %} class="current"{% endif %}> <span>{{ l.title }} </span></a>
+      {% if  linklists[l.handle] != empty %}
+      <ul class="dropdown">
+      {% for child_l in linklists[l.handle].links %}
+      <!-- Menu level 3 -->
+        {% if linklists[child_l.handle] != empty %}
+        <li>
+          <a href="{{ child_l.url }}"{% if child_l.active %} class="current"{% endif %}> <span>{{ child_l.title }} </span></a>
+          <ul class="dropdown sub-menu">
+            {% for child_2 in linklists[child_l.handle].links %}            
+              <li>
+                <a href="{{ child_2.url }}" class="{% if link.active %} current{% endif %}"><span>{{ child_2.title }}</span></a>
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+		{% else %}
+        <li>
+          <a href="{{ child_l.url }}"{% if child_l.active %} class="current"{% endif %}> <span>{{ child_l.title }} </span></a>
+        </li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div> 
+  
+  {% comment %}
+  <div class="col-3">
+    <a href="{{ settings.menu_link_image }}" title="">{{ 'menu_image.jpg' | asset_url | img_tag }}</a>
+  </div>
+  
+  <div class="col-1 col-xs-9 sub-mega-menu">
+    <div class="parent-link"><a href=""></a> <span>/</span> <a href=""></a><span class="up">Up</span></div>
+    <div class="inner">
+    </div>
+  </div>
+  <div class="col-2 col-xs-3 visible-phone">
+    <a href="{{ settings.menu_link_image }}" title="Image" target="_blank">{{ 'menu_image.jpg' | asset_url | img_tag }}</a>
+  </div>
+  {% endcomment %}
+</div>

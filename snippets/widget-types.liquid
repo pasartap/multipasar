@@ -1,0 +1,21 @@
+ {% if settings.display_product_types %}
+        {% if settings.display_product_types != blank %}
+
+<!-- Widget: list all vendors -->
+  <div class="widget widget__types">
+    <div class="widget_header">
+      <h3><span>{{ settings.product_types_heading }}</span></h3>
+    </div>
+    <div class="widget_content">
+      <ul class="list">
+      {% for product_type in shop.types %}
+        <li>          
+          {{ product_type | link_to_type }}
+        </li>
+      {% endfor %}
+      </ul>
+    </div>    
+  </div><!-- /.widget -->
+
+ {% endif %}
+ {% endif %}

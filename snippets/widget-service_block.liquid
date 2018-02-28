@@ -1,0 +1,43 @@
+   {% if settings.display_offer_block %}
+        {% if settings.display_offer_block != blank %}
+
+
+<div class="our-features-box">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-xs-12 col-sm-6">
+            <div class="feature-box first"> <div class="icon-truck">&nbsp;</div>
+              <div class="content">
+                <h3>{{ settings.block_1_text }}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-12 col-sm-6">
+            <div class="feature-box"> <div class="icon-support">&nbsp;</div>
+              <div class="content">
+                <h3>{{ settings.block_2_text }}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-12 col-sm-6">
+            <div class="feature-box"> <div class="icon-money">&nbsp;</div>
+              <div class="content">
+                <h3>{{ settings.block_3_text }}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-12 col-sm-6">
+            <div class="feature-box last">  <div class="icon-dis">&nbsp;</div>
+              <div class="content">
+                <h3>{{ settings.block_4_text }}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  {% endif %}
+  {% endif %}

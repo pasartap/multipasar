@@ -1,0 +1,118 @@
+{{ '//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css' | stylesheet_tag }}
+{{ '//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js' | script_tag }}
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#wholesale-table').DataTable();
+  });
+</script>
+
+<div class="page_header">
+  <h1 class="page_title">{{ collection.title }}</h1>
+</div>  
+
+<div class="page_content">
+  <form action="/cart" method="post" class="" class="form-inline"> 
+    {% comment %}
+    For the checkout and update buttons to work, they need to use
+    a name attribute set to 'checkout' and 'update', respectively. That's case-sensitive.
+    {% endcomment %}   
+    <div class="cart_subtotal" style="padding-bottom:20px">
+      <p>
+        <input type="submit" name="update" value="Update cart" class="update-btn"/>
+        <span class="or">or</span>
+        <input type="submit" name="checkout" value="Check out" class="check-btn" />
+      </p>
+    </div> 
+    <div class="cart-list">
+      <table id="wholesale-table" class="data-table cart-table display">
+        <colgroup>
+          <col width="15%">
+          <col width="60%">
+          <col width="15%">
+          <col width="10%">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Qty in Cart</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in collection.products %}
+            <tr>
+              <td> 
+                <div class="item_image">
+                  <img src="{{ product.featured_image.src | product_img_url: 'medium' }}" class="preview" alt="{{ product.featured_image.alt | escape }}" />
+                </div>
+              </td>
+              <td> 
+                <h2 class="item_title">{{ product.title }}</h2>
+                <h3 class="item_vendor">{{ product.vendor }}</h3>
+              </td>
+              <td class="a-right hidden-table">
+                <span class="money">{{ item.price }}</span>
+              </td>
+              <td class="a-center movewishlist">
+                <label for="updates[]"><input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" class="form-control input-small"/></label>
+              </td>
+            </tr>                               
+          {% endfor %}
+        </tbody>
+      </table>
+      {% comment %}
+      <table id="wholesale-table" class="data-table cart-table">
+        <colgroup>
+          <col width="9%">
+          <col width="60%">
+          <col width="7%">
+          <col width="6%">
+          <col width="7%">
+          <col width="5%">
+        </colgroup>
+        <thead>
+          <tr class="first last">
+            <th rowspan="1">&nbsp;</th>
+            <th rowspan="2"><span class="nobr">Product Name</span></th>
+            <th class="a-center">Unit Price</th>
+            <th rowspan="1" class="a-center">Qty</th>
+            <th class="a-center" colspan="1">Total</th>
+            <th rowspan="1" class="a-center">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in collection.products %}
+            <tr class="first last odd">
+              <td class="image hidden-table"> 
+                <div class="item_image">
+                  <img src="{{ product.featured_image.src | product_img_url: 'medium' }}" class="preview" alt="{{ product.featured_image.alt | escape }}" />
+                </div>
+              </td>
+              <td> 
+                <h2 class="item_title">{{ product.title }}</h2>
+                <h3 class="item_vendor">{{ product.vendor }}</h3>
+              </td>
+              <td class="a-right hidden-table">
+                <span class="money">{{ item.price }}</span>
+              </td>
+              <td class="a-center movewishlist">
+                <label for="updates[]"><input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" class="form-control input-small"/></label>
+              </td>
+              <td class="a-right movewishlist">
+                <span class="money">{{ item.line_price | money }}</span>
+              </td>
+              <td class="a-center last">
+                <div class="item_remove pull-right">
+                  <a href="/cart/change?line={{ forloop.index }}&quantity=0"></a>
+                </div>
+              </td>
+            </tr>                               
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endcomment %}
+    </div>          
+  </form>
+</div>

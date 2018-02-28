@@ -1,0 +1,31 @@
+
+ {% if settings.display_categores %}
+        {% if settings.display_categores != blank %}
+<!-- Widget: list all collections -->
+  <div class="widget widget__collections">
+    <div class="widget_header category">
+      <h3><span>{{ settings.category_heading }}</span></h3>
+    </div>
+    <div class="widget_content">
+   
+      
+           
+      
+      <ul class="list">
+        
+      {% for collection in collections %}
+        <li>
+         
+          <a href="{{ collection.url }}" title="{{ collection.title | escape }}">{{ collection.title | escape }}</a>
+          <p class="count-products">({{ collection.all_products_count }})</p>
+        
+        </li>
+      {% endfor %}
+      </ul>
+    </div>    
+  </div><!-- /.widget -->
+
+
+
+ {% endif %}
+ {% endif %}

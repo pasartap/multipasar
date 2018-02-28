@@ -1,0 +1,246 @@
+<div id="sticky-mmenu" class="mm-fixed-top Fixed">
+    <div class="mh-head">
+        <span class="mh-btns-left">
+            <a href="#sticky-menu"><i class="fa fa-bars" style="color:white" aria-hidden="true"></i></a>
+        </span>
+        <a href="/"> <img style="width:150px;height:32px;margin-top:4px;" src="{{ 'logo_white_ptwholesale.png' | asset_img_url: '3508x763' }}" /> </a>
+        <span class="mh-btns-right">
+            <a id="sticky-cart-button" href="#sticky-cart">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <span class="notification-badge count" {% if cart.item_count == 0 %} style="display:none" {% endif %}>{{ cart.item_count }}</span>
+            </a>
+        </span>
+    </div>
+    <div class="mh-head mobile-shadow">
+        <form class="mh-form search-form form-inline" action="/search" method="get">
+            <input placeholder="Search" type="text" name="q" />
+            <a href="#" class="fa fa-search" onclick="$(this).closest('form').submit()"></a>
+        </form>
+    </div>
+</div>
+<nav id="sticky-menu">
+    <ul>
+        <li><span>Account</span>
+            <ul>
+                {% if customer %}
+                    <div>
+                        <br />
+                        <h3 style="padding-left:20px">{{ customer.name }}</h3>
+                        <p style="padding-left:20px">{{ customer.email }}</p>
+                    </div>
+                    <li><a href="/account"><span>Account</span></a></li>
+                    <li>{{ '<span>Log out</span>' | customer_logout_link }}</li>
+                {% else %}
+                    <li>{{ "<span>Login</span>" | customer_login_link }}</li>
+                    <li>{{ "<span>Register</span>" | customer_register_link }}</li>
+                {% endif %}
+            </ul>
+        </li>
+        {% if settings.main_nav_wholesale != blank %}
+            <li><span>Products</span>
+                <ul>
+                    {% for link in linklists[settings.main_nav_wholesale].links %}
+                        <li><a href="{{ link.url }}"><span>{{ link.title }}</span></a>                       
+                            {% if linklists[link.handle].links.size > 0 %}
+                                <ul>
+                                    {% for childlink in linklists[link.handle].links %}
+                                        <li><a href="{{ childlink.url }}"><span>{{ childlink.title }}</span></a>
+                                            {% if linklists[childlink.handle].links.size > 0 %}
+                                                <ul>
+                                                    {% for childlink2 in linklists.[childlink.handle].links %}
+                                                        <li>
+                                                            <a href="{{ childlink2.url }}" ><span>{{ childlink2.title }}</span></a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li> 
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+        <li><span>Information</span>
+            <ul>
+                {% for link in linklists.information.links %}
+                    <li><a href="{{ link.url }}"><span>{{ link.title }}</span></a></li> 
+                {% endfor %}
+            </ul>
+        </li>
+        <li><span>Customer Service</span>
+            <ul>
+                {% for link in linklists.customer-service.links %}
+                    <li><a href="{{ link.url }}"><span>{{ link.title }}</span></a></li> 
+                {% endfor %}
+            </ul>
+        </li>
+     </ul>
+</nav>
+<nav id="sticky-cart">
+    <div class="wrapper-top-cart">
+        <!-- shopping cart -->
+        <div id="mobile-cart" class="cart-container" style="display:block">
+          <form action="/checkout" method="POST" id="cart-form">           
+            <div class="no-items">
+                <img class="empty-cart-icon" src="{{ 'empty_cart_icon.png' | asset_img_url: '4612x4644' }}" />
+                <h3>It appears that your cart is currently empty!</h3>
+                <p class="empty-cart-text" >Continue shopping to add items to your cart.</p>
+            </div>
+            <div class="has-items">
+                <ol class="mini-products-list"></ol>
+                <div class="summary-mobile">
+                    <span>SUBTOTAL</span> 
+                    <span class="money amount" style="float:right">{{cart.total_price | money}}</span>
+                </div>
+                <div class="cart-info">
+                    <p>{{ settings.cart_information_wholesale }}</p>
+                </div>  
+                <div id="order-delivery">  
+                    <h3 class="heading--add-small">DELIVERY TIME</h3>      
+                    <div id="order-delivery-form-wrapper" class="clearfix">
+                      <p class="cart-total__info clearfix">When would you like your order delivered?</p>
+                      <input id="wholesale-date" class="form-control wholesale-date" type="text" name="attributes[date]" value="{{ cart.attributes.date }}" placeholder="Date" readonly="readonly" />
+                      
+                      {% if settings.wholesale_time_slots != blank %}
+                        <select id="wholesale-time" class="form-control wholesale-time" name="time" name="attributes[time]" value="{{ cart.attributes.time }}" >                             
+
+                          {% assign time_slots = settings.wholesale_time_slots | split: ',' %}
+                          
+                          {% if time_slots.size > 1 %}
+                            <option disabled selected>Time slot</option>
+                            {% for time_slot in time_slots %}
+                              {% if time_slot != blank %}
+                                <option>{{ time_slot }}</option>
+                              {% endif %}
+                            {% endfor %} 
+                          {% else %}
+                            <option selected>{{ time_slots[0] }}</option>
+                          {% endif %}
+                       
+                        </select> 
+                      {% endif %}
+                    </div>  
+                    <div id="wrapper-response"></div>
+                </div> 
+                {% comment %}
+                For the special instructions to be submitted with order,
+                they need to use a name attribute set to 'note'. That's case-sensitive.
+                {% endcomment %}
+                <div class="cart_instructions">
+                  <span>Add instructions</span>
+                  <br />
+                  <textarea class="form-control" rows="1" id="cart-note" name="note">{{ cart.note }}</textarea>
+                </div>
+                <div class="actions">
+                    <button class="btn-checkout-mobile" style="width:100%" onclick="window.location='/checkout'" disabled="disabled">Checkout</button>
+                    {% comment %}<p class="text-cart"><a href="/cart">View Cart</a></p>{% endcomment %}
+                </div>          
+            </div>
+          </form>
+        </div>
+    </div>
+</nav>
+<script type="text/javascript">
+$(document).ready(function(){
+    // fix to set only one local delivery instance 
+    var isMobile = navigator.userAgent.match(/Mobile/i) != null;
+    if (isMobile) {
+        var order_delivery = $("#dropdown-cart").find("#order-delivery");
+        if (order_delivery.length > 0) {
+            order_delivery[0].remove();
+        }
+    } else {
+        var order_delivery = $("#mobile-cart").find("#order-delivery");
+        if (order_delivery.length > 0) {
+            order_delivery[0].remove();
+        }
+    }
+
+    $('#sticky-cart-button').click(function(){
+        if ($("#toTop").is(':visible')) {
+            $("#toTop").hide();
+        }       
+    });
+
+    $('#mobile-cart-close').click(function(){
+        $("#toTop").show();
+    });
+
+    $("#sticky-menu").mmenu({
+        extensions: [
+            "theme-white",
+            "multiline",
+            "pagedim-black",
+            "border-none"
+        ],
+        navbar: {
+            title: ""
+        },
+        navbars: [
+            {
+                height: 2,
+                position: "top",
+                content: [
+                  "<a href='/'> <img style='width:150px;height:32px;' src='{{ 'logo_green_ptwholesale.png' | asset_img_url: '3508x763' }}' /> </a>"
+               ]
+            },
+            {
+               position: "bottom",
+               content: [
+                  "{% if settings.show_twitter %} <a class='fa fa-twitter' target='_blank' href='{{ settings.header_social_1_twi }}'</a>{% endif %}",
+                  "{% if settings.show_facebook %} <a class='fa fa-facebook' target='_blank' href='{{ settings.header_social_3_fcb }}'</a>{% endif %}",
+                  "{% if settings.show_linkedin %} <a class='fa fa-linkedin' target='_blank' href='{{ settings.header_social_4_linkedin }}'</a>{% endif %}",
+                  "{% if settings.show_instagram1 %} <a class='fa fa-instagram' target='_blank' href='{{ settings.header_social_4_instagram }}'</a>{% endif %}"
+               ]
+            }
+        ],
+        offCanvas: {
+            position: "left"
+        }
+    });
+
+    $("#sticky-cart").mmenu({
+        extensions: [
+            "theme-white",
+            "multiline",
+            "pagedim-black",
+            "fullscreen",
+            "border-full"
+        ],
+        navbar: {
+            title: ""
+        },
+        navbars: [{
+            position: "top",
+            content: [
+              "<div style='color:white'><a class='mobile-cart-close' href='#mm-0' aria-owns='mm-0'><i class='fa fa-chevron-left' aria-hidden='true'></i></a></div><div style='float:right'><a href='#' style='float:right;'><span class='carttop sticky-cart-total'> <span class='cart-total-items'><span id='cart-count' class='count'>{{ cart.item_count }}</span> </span> | <span id='cart-total' class='money amount' data-total-price='{{ cart.total_price }}'> {{ cart.total_price | money }}</span><i class='fa fa-shopping-cart' style='color:white;margin-right:5px;margin-top:1px'></i> </span></a></div>"
+            ]
+        }],
+        offCanvas: {
+            position: "right"
+        }
+    });
+
+    $(".mh-head.mm-sticky").mhead({
+        scroll: {
+            hide: 200
+        }
+    });
+    
+    $(".mh-head:not(.mm-sticky)").mhead({
+        scroll: false
+    });
+
+    // remove left border issue
+    $(".mm-next").addClass("mm-fullsubopen");
+
+    // change sticky cart css class
+    $("#sticky-cart").find('.mm-navbars-top').addClass("mobile-shadow");
+
+    // remove quick view class
+    $('li').removeClass('sca-qv-image');
+});
+</script>

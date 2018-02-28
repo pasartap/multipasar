@@ -1,0 +1,63 @@
+{% paginate collection.products by settings.pagination_limit %}
+
+{% assign has_sidebar = false %}
+{% if collection.all_tags.size > 0 %}
+  {% assign has_sidebar = true %}
+{% endif %}
+
+<div class="grid grid-border">
+  <div class="grid-item{% if has_sidebar %} large--four-fifths grid-border--left{% endif %}">
+    {% comment %}
+      Different markup if description is set
+    {% endcomment %}
+    <div class="des-img">
+      {% if collection.image %} 
+        <img src="{{ collection.image.src | img_url: 'original' }}">
+      {% endif %}
+    </div>    
+    {% comment %}{% if collection.description.size > 0 %}
+      <div class="rte desc-section">
+        {{ collection.description }}
+      </div>
+    {% endif %}{% endcomment %}
+    
+    <header class="section-header">
+      <h1 class="section-header-title section-header-left">{{ collection.title | downcase | replace: '(wholesale)', '' }} </h1>
+      {% include 'collection-views' %}
+      <div class="section-header-right">
+        {% include 'collection-filtering' %}
+        {% include 'collection-sorting' %}
+      </div>
+    </header>
+
+   {% assign listing_cols = settings.collection_listing_cols %}
+    <div class="grid-uniform">
+      {% for product in collection.products %}
+        {% if has_sidebar %}
+          {% assign grid_item_width = 'large--one-quarter medium--one-third small--one-half' %}
+        {% else %}
+          {% assign grid_item_width = 'large--one-fifth medium--one-third small--one-half' %}
+        {% endif %}
+        {% include 'product-grid-item' %}
+      {% else %}
+        <div class="grid-item">
+          <p>{{ 'collections.general.no_matches' | t }}</p>
+        </div>
+      {% endfor %}  
+    </div>
+  </div>
+
+  {% if paginate.pages > 1 %}
+    <div class="grid-item pagination-border-top">
+      <div class="grid">
+        <div class="grid-item{% if has_sidebar %} large--four-fifths push--large--one-fifth{% endif %}">
+            <div class="text-center">
+              {% include 'pagination-custom' %}
+            </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+{% endpaginate %}

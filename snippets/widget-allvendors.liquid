@@ -1,0 +1,15 @@
+<!-- Widget: list all vendors -->
+  <div class="widget widget__vendors">
+    <div class="widget_header">
+      <h3>Product Vendors</h3>
+    </div>
+    <div class="widget_content">
+      <ul class="list">
+      {% for vendor in shop.vendors %}
+        <li>
+          {{ vendor | link_to_vendor }}
+        </li>
+      {% endfor %}
+      </ul>
+    </div>    
+  </div><!-- /.widget -->

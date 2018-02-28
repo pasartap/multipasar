@@ -1,0 +1,12 @@
+ {% if settings.display_cms_block %}
+        {% if settings.display_cms_block != blank %}
+<div class="widget widget__CMS">
+  <div class="widget_header">
+    <h3><span>{{ settings.cms_block_heading }}</span></h3>
+    </div>
+  <div class="widget_content">    
+    {{ settings.cms-desc }}
+  </div>
+</div>
+  {% endif %}
+  {% endif %}

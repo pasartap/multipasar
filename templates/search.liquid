@@ -1,0 +1,120 @@
+{% comment %}
+The search.liquid template is not a required template.
+That search.liquid template is included in the current theme to make it easier for you 
+to customize your /search page.
+Whether you are using your own template for the search page or not,
+the {{ content_for_header }} tag in theme.liquid will always output the following on the /search page:
+<link rel="stylesheet" href="/global/search.css" type="text/css" />
+So the /search page is always styled by a globally-hosted stylesheet called search.css.
+You may override and complement that CSS in your theme's stylesheet.
+We are using a div#searchresults below so that the styles defined in search.css get
+applied to the elements on this page; the 'searchresults' id is used in the CSS
+selectors inside search.css.
+{% endcomment %}
+
+<div id="searchresults" class="search-scope grid-uniform">
+  <h1 class="page_title">
+    <div class="search-result-title">Results for "<span class="search-result-highlight">{{ search.terms }}</span>"</div>
+    <div class="search-result-count"><span class="search-result-highlight" >{{ search.results_count }}</span> item{% if search.results_count > 1 %}s{% endif %}</div>
+  </h1>
+  {% comment %}
+  <form action="/search" method="get" class="search-form form-inline">
+    
+    <div class="search-bar">
+      <input type="text" name="q" value="{{ search.terms | escape }}" />
+      <input type="submit" value="Search store..." class="btn btn-primary"/>
+    </div>
+  </form>
+  {% endcomment %}
+  {% comment %}
+  search.performed is false when accessing the /search page without a 'q' parameter set
+  in the URL. A shop-owner can link to the /search page from one of his link lists.
+  It is important to show a search form on that page if search.performed is false.
+  {% endcomment %}
+  
+  {% if search.performed %}
+    
+    {% paginate search.results by 48 %}
+    
+      {% comment %}
+      Common pitfall to avoid: search.results should never be accessed before the opening 
+      paginate tag. Move the opening and closing paginate tags to the very top and bottom of your
+      search.liquid template if you need to.
+      If you fail to do the above, the pagination of search results will be broken.
+      search.results_count is fine to access in or out of the paginate block.
+      {% endcomment %}
+    
+      {% if search.results_count == 0 %}  
+        <p class="alert alert-error">Your search did not yield any results.</p>
+      {% else %}
+        <ul class="search-results grid-uniform">
+        {% assign listing_cols = settings.collection_listing_cols %}
+        {% for product in search.results %} 
+          {% assign is_wholesale_product = false %}
+          {% assign product_tags = product.tags | downcase %}
+        
+          {% if product_tags contains 'wholesale' %}
+            {% assign is_wholesale_product = true %}
+          {% endif %}
+
+          {% assign customer_tags = customer.tags | downcase %}
+          {% if customer and customer_tags contains 'wholesale' %}
+            {% if is_wholesale_product == true %}
+        
+              {% include 'product-grid-item' %}
+            {% endif %}
+          {% else %}
+            {% if is_wholesale_product == false %}
+              {% include 'product-grid-item' %}
+          
+            {% endif %}
+          {% endif %}        
+          
+      {% endfor %}
+        </ul>
+      {% endif %}    
+
+      <div class="clearfix"></div>
+      
+      {% if paginate.pages > 1 %}
+        <div class="pagination">
+          {{ paginate | default_pagination }}
+        </div>
+      {% endif %}
+    
+    {% endpaginate %}    
+    
+  {% endif %}  
+
+</div>
+<script type="text/javascript">
+$('.product_title').each(function() {
+  var product_title = $(this).html();
+  var term = $('.search-result-highlight').html();
+
+  if (term.indexOf(',') !== -1) {
+      var terms = term.split(',');
+      for (var i = 0; i < terms.length; i++) {
+          var trimmed_term = terms[i].trim();
+          if (trimmed_term != '') {
+              var reg = new RegExp('('+ trimmed_term + ')', 'gi');
+              product_title = product_title.replace(reg, '<span class="search-highlight">$1</span>');
+          }
+      }
+  } else if (term.indexOf(' ') !== -1) {
+      var terms = term.split(' ');
+      for (var i = 0; i < terms.length; i++) {
+          var trimmed_term = terms[i].trim();
+          if (trimmed_term != '') {
+              var reg = new RegExp('('+ trimmed_term + ')', 'gi');
+              product_title = product_title.replace(reg, '<span class="search-highlight">$1</span>');
+          }
+      }
+  } else {
+      var reg = new RegExp('('+ term + ')', 'gi');
+      product_title = product_title.replace(reg, '<span class="search-highlight">$1</span>');
+  }
+
+  $(this).html(product_title);
+});
+</script>

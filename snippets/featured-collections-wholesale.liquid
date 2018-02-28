@@ -1,0 +1,98 @@
+{% assign listing_cols = '1' %}
+{% assign image_size = 'original' %}
+{% assign featured_collections = 'all' %}
+{% assign coll_num = 1 %}
+
+{% if settings.homepage_featured_collections != blank %}
+  {% assign featured_collections = settings.wholesale_homepage_featured_collections | split:"," %}
+{% endif %}
+
+{% if settings.display_featured_collections == true and featured_collections.size > 0 %}
+  <!-- Featured Collections Slider -->
+  {% for featured_collection in featured_collections %}
+    {% assign coll = featured_collection | strip %}
+    {% assign coll_relative_link = '/collections/' | append: collections[featured_collection].handle %}
+    {% assign collection_count = collections[coll].all_products_count | times: 1 %}
+
+    {% if coll != blank and collection_count != nil and collection_count > 0 %}  
+      <section class="bestsell-pro">
+        <div class="container"> 
+          <div class="block-title">
+            <h2><a href= "{{ coll_relative_link }}">{{ collections[coll].title | downcase | replace: '(wholesale)', '' }}</a></h2>
+          </div>
+          <div class="slider-items-products">
+            <div class="bestsell-block">
+              <div id="featured-slider_{{ coll_num }}" class="product-flexslider hidden-buttons">
+                <div class="slider-items slider-width-col4 products-grid block-content"> 
+                  <!-- Item --> 
+                  {% for product in collections[coll].products limit:15 %}
+                    <div class="item"> {% include 'product-grid-item' with 'listing_cols' with 'image_size' %} </div>
+                  {% endfor %} 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% assign coll_num = coll_num | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+  <!-- End Featured Collections Slider --> 
+
+  <script type="text/javascript">
+    //<![CDATA[
+    jQuery(document).ready(function(cash) {
+
+    for (i = 1; i <= {{ coll_num }}; i++) { 
+      index = "#featured-slider_" + i;
+      jQuery(index + " .slider-items").owlCarousel({
+      items: 5, //10 items above 1000px browser width
+      itemsDesktop: [1024, 4], //4 items between 1024px and 901px
+      itemsDesktopSmall: [900, 3], // 4 items betweem 900px and 601px
+      itemsTablet: [640, 2], //3 items between 600 and 0;
+      itemsMobile: [375, 2],
+      navigation : true,
+      navigationText : ["<a class=\"flex-prev\"></a>","<a class=\"flex-next\"></a>"],
+      slideSpeed : 500,
+      pagination : true,
+      autoPlay: false,
+      responsive: {
+            0: {
+              items: 2,
+              navigation: true,
+              nav: true,
+              slideBy: 1 // <!-- HERE
+            },
+            640: {
+              items: 2,
+              navigation: true,
+              nav: true,
+              slideBy: 2 // <!-- HERE
+            },
+            900: {
+              items: 4,
+              navigation: true,
+              nav: true,
+              slideBy: 4 // <!-- HERE
+            },
+            1024: {
+              items: 4,
+              navigation: true,
+              nav: true,
+              slideBy: 4 // <!-- HERE
+            },
+            1600: {
+              items: 5,
+              navigation: true,
+              nav: true,
+              slideBy: 5 // <!-- HERE
+            }
+          },
+      });
+    }
+
+    }); 
+    //]]>
+  </script>  
+
+{% endif %}

@@ -1,0 +1,81 @@
+
+<div class="hidden-desktop" id="mob-menu" >
+
+  
+      <ul class="navmenu">
+        
+         <li>
+          <div class="menutop">
+            <div class="toggle"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></div>
+          <h2>Menu</h2>
+          </div>
+   <ul style="display:none;" class="submenu">
+      <li>
+              <ul class="topnav">
+    {% for link in linklists[settings.main_nav].links %}
+    {% assign child_list_handle = link.title | handle %}
+    {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+    <li class="has-dropdown">
+      {{ link.title | link_to: link.url }}
+      <ul>
+        {% for child_link in linklists[child_list_handle].links %}
+        {% assign grand_child_list_handle = child_link.title | handle %}
+        {% if linklists[grand_child_list_handle] and linklists[grand_child_list_handle].links.size > 0 %}
+        <li class="has-dropdown">
+          {{ child_link.title | link_to: child_link.url }}
+          <ul>
+            {% for grand_child_link in linklists[grand_child_list_handle].links %}
+            <li>
+              {{ grand_child_link.title | link_to: grand_child_link.url }}
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% else %}
+        <li>
+          {{ child_link.title | link_to: child_link.url }}
+        </li>
+        {% endif %}
+        {% endfor %}        
+      </ul>
+    </li>
+    {% else %}
+    <li>
+      {{ link.title | link_to: link.url }}
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+                </li>
+      </ul>
+        </li>
+  </ul>
+  
+   
+
+    </div>
+
+
+  <script type="text/javascript">
+jQuery(document).ready(function() {
+jQuery('.toggle').click(function() {
+if (jQuery('.submenu').is(":hidden"))
+{
+jQuery('.submenu').slideDown("fast");
+} else {
+jQuery('.submenu').slideUp("fast");
+}
+return false;
+});
+});
+
+/*Phone Menu*/
+jQuery(document).ready(function() {
+jQuery(".topnav").accordion({
+accordion:false,
+speed: 300,
+closedSign: '+',
+openedSign: '-'
+});
+});
+</script>

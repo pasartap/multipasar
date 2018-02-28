@@ -1,0 +1,266 @@
+{{ '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' | stylesheet_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.bootstrap.min.css' | stylesheet_tag }} 
+{{ '//cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.min.js' | script_tag }}
+
+{% comment %}
+Get all wholesale products
+{% endcomment %}
+{%- capture 'wholesale_products' -%}
+{% paginate collections['ptwholesale'].products by collections['ptwholesale'].all_products_count %}
+  {{ collections['ptwholesale'].products | json }}
+{% endpaginate %}
+{%- endcapture -%}
+
+{% paginate collections['ptwholesale'].products by collections['ptwholesale'].all_products_count %}
+  {% assign categories = "" %}
+  {% for product in collections['ptwholesale'].products %}
+
+    {% comment %}
+    Get weight of all products
+    {% endcomment %}
+    {% if product.first_available_variant.option1 != nil and product.first_available_variant.option1 != 'Default Title' and product.first_available_variant.option1 != 'Normal Price' %}
+      {% assign weight_with_unit = product.first_available_variant.option1 %}
+      <input type=hidden id='{{ product.id }}' name='{{ product.id }}' value='{{ weight_with_unit }}'>
+    {% else %}
+      {% assign weight_with_unit = product.first_available_variant.weight | weight_with_unit %}
+      <input type=hidden id='{{ product.id }}' name='{{ product.id }}' value='{{ weight_with_unit }}'>
+    {% endif %} 
+
+    {% comment %}
+    Get unique product type of all products
+    {% endcomment %}
+    {% comment %}{% unless categories contains product.type %}
+      {{ categories | append: product.type }}
+      {{ categories | append: '|' }}
+    {% endunless %}{% endcomment %}
+
+  {% endfor %}
+{% endpaginate %}
+
+<style type="text/css">
+body {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    line-height: 1;
+    color: #333333;
+}
+
+/* Apply CSS to iOS affected versions only */
+body.iosBugFixCaret.modal-open { position: fixed; width: 100%; }
+
+/* disable search column selection */
+.footable-filtering-search .btn.dropdown-toggle {
+    display: none;
+}
+
+@media only screen and (max-width:767px) {
+  .modal-dialog {
+    top: 80px;
+  }
+}
+</style>
+
+<div class="page-scope" style="text-align:center;">
+	<div class="ptwholesale-logo"></div>
+	<div class="brand-header">
+		<h1>Sourcing &amp; inventory management</h1>
+	</div>
+	<br /><br />
+	<div>
+		<p>As a <strong>food supply chain specialist</strong> focusing on local products &amp; producers,</p>
+	</div>
+	<div>
+		<p>PasarTap offers a full suite of <strong>supply &amp; inventory management services</strong> ranging from</p>
+	</div>
+	<div>
+		<p><strong>developing inventory strategy</strong> for restaurants to <strong>managing sourcing of products &amp; services.</strong></p>
+	</div>
+	<br />
+	<div>
+		<div class="brand-header">
+            <h1>Why PTWholeSale?</h1>
+        </div>
+        <br /><br />	
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<img src="//cdn.shopify.com/s/files/1/2168/1709/files/40-512.png?v=1511756239" alt="Trusted Network"  width="93" height="93" />       
+					<h3>Trusted Network</h3>
+					<p>Our <strong>trained buyers</strong> will work with suitable suppliers and products in developing a <strong>sustainable inventory</strong> and sourcing strategy for your business. </p>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<img src="//cdn.shopify.com/s/files/1/2168/1709/files/dollar-exchange-rate-usd-arrows-512.png?v=1511756353" alt="Standard Rate"  width="93" height="93" />
+					<h3>Standard rate</h3>
+					<p>Our delivery rate is standard throughout Klang Valley at <strong>RM10</strong> for <strong>12-24 hour</strong> turnaround time after an order is placed.  We save you hassle and time.</p>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<img src="//cdn.shopify.com/s/files/1/2168/1709/files/charIcon-pay.png?v=1511756489" alt="Flexible Payment" width="93" height="93" />       
+					<h3>Flexi-payment</h3>
+					<p>flexi-payment program provide credit facility for our clients. A fully integrated <strong>cashless</strong> <strong>solution</strong> for    restaurants and cafés.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br />
+	<div>
+    <section class="ptwholesale-steps">
+      <div class="container">
+        <div class="brand-header">
+	    		<h1>What are the procedures?</h1>
+        </div>
+        <div style="padding:20px"></div>
+        <div class="container-fluid ptwholesale-steps-container-fluid">
+          <div class="row ptwholesale-steps-row">
+            <div class="ptwholesale-step col-xs-6 col-sm-4 col-md-2 col-lg-2">
+              <img src="//cdn.shopify.com/s/files/1/2168/1709/files/ptwholesale_1.png?9280955080980759428" title="Sign Up" alt="Sign Up">
+              <span>Fill up and submit the inquiry form <a href="https://www.formlets.com/forms/uQwSuGLGr57BA3e5/" style="padding:0px;text-transform:none;" target="_blank" >here</a>.</span>
+            </div>
+            <div class="ptwholesale-step col-xs-6 col-sm-4 col-md-2 col-lg-2">
+              <img src="//cdn.shopify.com/s/files/1/2168/1709/files/ptwholesale_2.png?6448542473246858682" title="Receive contact" alt="Receive contact">
+              <span>PasarTap will receive your request and contact you.<span>
+            </div>
+            <div class="ptwholesale-step col-xs-6 col-sm-4 col-md-2 col-lg-2">
+              <img src="//cdn.shopify.com/s/files/1/2168/1709/files/ptwholesale_3.png?6448542473246858682" title="Receive credentials" alt="Receive credentials"> 
+              <span>Once your details have been verified, PasarTap will send you an <i>account invite</i>.</span>
+            </div>
+            <div class="ptwholesale-step col-xs-6 col-sm-4 col-md-2 col-lg-2">
+              <img src="//cdn.shopify.com/s/files/1/2168/1709/files/ptwholesale_4.png?6448542473246858682" title="Login" alt="Login">
+              <span>Activate your account and proceed with login.</span>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid ptwholesale-steps-container-fluid">
+          <div class="row ptwholesale-steps-row">
+            <div class="ptwholesale-step col-xs-6 col-sm-4 col-md-2 col-lg-2">
+              <img src="//cdn.shopify.com/s/files/1/2168/1709/files/ptwholesale_5.png?6448542473246858682" title="Shop" alt="Shop">  
+              <span>Search your required items, add to cart and proceed with payment.</span>
+            </div>
+            <div class="ptwholesale-step col-xs-6 col-sm-4 col-md-2 col-lg-2">
+              <img src="//cdn.shopify.com/s/files/1/2168/1709/files/ptwholesale_6.png?6448542473246858682" title="Receive delivery!" alt="Receive delivery!">
+              <span>PasarTap delivery at your doorstep!</span>
+            </div>
+          </div>
+        </div>  
+		  </div>
+  	</section>
+	</div>
+  <div>
+		<div class="brand-header">
+      <h1>PTWholeSale Catalog</h1>
+    </div>
+    <br /><br />
+    <div>
+			<p>Click the button below to browse through our current collection of wholesale products.</p>
+		</div>
+		<div>
+      <button type="button" id="btn-catalog" class="btn-catalog" data-toggle="modal" data-target="#catalogModal">
+    	 <span>Browse Collection</span>
+	    </button>
+  	</div>
+    <br /><br />
+  </div>	
+</div>
+<div class="modal fade" id="catalogModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">PTWholesale Catalog</h4>
+      </div>
+      <div class="modal-body">
+        <table id="modal-catalog" class="table" data-paging="true" data-filtering="true" data-sorting="true"></table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+  /* Assign product weight & type */
+  var product_types = [];
+  var json = {{ wholesale_products }};
+
+  $(json).each(function(i,elem) {
+    var id = '#' + elem.id;
+    var weight = $(id).val();
+    elem.weight_with_unit = weight;
+
+    if ($.inArray(elem.type, product_types) == -1) {
+      product_types.push(elem.type);
+    }
+  });
+
+  /* Init FooTable */
+  FooTable.MyFiltering = FooTable.Filtering.extend({
+    construct: function(instance){
+      this._super(instance);
+      this.types = product_types.sort();
+      this.def = 'All';
+      this.$type = null;
+    },
+    $create: function(){
+      this._super();
+      var self = this,
+        $form_grp = $('<div/>', {'class': 'form-group'})
+          .append($('<label/>', {'class': 'sr-only', text: 'type'}))
+          .prependTo(self.$form);
+
+      self.$type = $('<select/>', { 'class': 'form-control' })
+        .on('change', {self: self}, self._ontypeDropdownChanged)
+        .append($('<option/>', {text: self.def}))
+        .appendTo($form_grp);
+
+      $.each(self.types, function(i, type){
+        self.$type.append($('<option/>').text(type));
+      });
+    },
+    _ontypeDropdownChanged: function(e){
+      var self = e.data.self,
+        selected = $(this).val();
+      if (selected !== self.def){
+        self.addFilter('type', selected, ['type']);
+      } else {
+        self.removeFilter('type');
+      }
+      self.filter();
+    },
+    draw: function(){
+      this._super();
+      var type = this.find('type');
+      if (type instanceof FooTable.Filter){
+        this.$type.val(type.query.val());
+      } else {
+        this.$type.val(this.def);
+      }
+    }
+  });
+
+  FooTable.components.register('filtering', FooTable.MyFiltering)
+
+  $('#modal-catalog').footable({
+    "useParentWidth": true,
+    "columns": $.ajax('{{ 'columns.json' | asset_url }}', {dataType: 'json'}),
+    "rows": json
+  });
+
+  // Detect ios 11_0_x affected 
+  // NEED TO BE UPDATED if new versions are affected
+  var ua = navigator.userAgent,
+  iOS = /iPad|iPhone|iPod/.test(ua),
+  iOS11 = /OS 11_0_1|OS 11_0_2|OS 11_0_3|OS 11_1|OS 11_1_1|OS 11_1_2|OS 11_2|OS 11_2_1/.test(ua);
+
+  // ios 11 bug caret position
+  if ( iOS && iOS11 ) {
+      // Add CSS class to body
+      $("body").addClass("iosBugFixCaret");
+  }
+});
+</script>
+<script type="text/javascript">
+    function currency_format(value){
+      var price = Shopify.formatMoney(value, window.formatMoney);
+      price = price.replace('$', 'RM');
+      return price;
+    }
+</script>

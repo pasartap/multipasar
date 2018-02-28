@@ -1,0 +1,64 @@
+{% layout settings.customer_layout %}
+<div class="account-login">
+  <div id="admin_header" class="customer customer__account">
+    
+    <div class="template_header">
+    	<h2 class="page_title">Account Details and Order History</h2>
+    </div>
+  </div>
+
+   <div class="template_content">	
+
+    <div id="customer_sidebar">
+      <div id="customer_detail" class="group">
+        <h2 class="name">{{ customer.name }}</h2>
+        <p class="email note">{{ customer.email }}</p>
+        <div class="address note">
+          {% if customer.default_address != nil %}
+            <p>{{ customer.default_address.address1 }}</p>
+            {% if customer.default_address.address2 != "" %}
+              <p>{{ customer.default_address.address2 }}</p>
+            {% endif %}
+            <p>{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}</p>
+            <p>{{ customer.default_address.zip}}</p>
+            <p>{{ customer.default_address.phone }}</p>
+          {% endif %}
+          <a id="edit_customer_detail" href="/tools/customr" class="btn btn-primary">Edit Details</a>
+          <a id="view_address" href="/account/addresses" class="btn btn-primary">View Addresses ({{ customer.addresses_count }})</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="customer_orders">
+      {% if customer.orders.size != 0 %}
+        <table>
+          <thead>
+            <tr>
+              <th class="order_number">Order</th>
+              <th class="date">Date</th>
+              <th class="payment_status">Payment Status</th>
+              <th class="fulfillment_status">Fulfillment Status</th>
+              <th class="order_status">Status</th>
+              <th class="total">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+            <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
+              <td>{{ order.name | link_to: order.customer_url }}</td>
+              <td class="note"><span>{{ order.created_at | date: "%b %d, %Y" }}</span></td>
+              <td class="payment_status"><span>{{ order.financial_status | replace: '_', ' ' }}</span></td>
+              <td class="fulfillment_status"><span>{{ order.fulfillment_status }}</span></td>
+              <td class="order_status"><span>{{ order.financial_status | replace: '_', ' ' }} / {{ order.fulfillment_status }}</span></td>
+              <td class="total money"><span>{{ order.total_price | money }}</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>You haven't placed any orders yet.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>

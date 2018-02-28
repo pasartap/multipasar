@@ -1,0 +1,95 @@
+body{background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/body_bg_1.png?11891598687326378541") repeat left top transparent !important;}
+
+#tagline{
+  margin-bottom: 20px;
+}
+
+#tagline span.title{
+  display: block;
+  float: left;
+  margin-right: 20px;
+  text-transform: uppercase;
+}
+
+  
+
+    #tagline span.title{
+      display: block;
+      float: left;
+      margin-right: 20px;
+      background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/logo.png?11891598687326378541") no-repeat left top transparent !important;
+      width: 240px;
+      height: 43px;
+      text-indent: -9999px;
+    }
+
+  
+
+#overview {
+background: none;
+border-bottom: 1px solid #ece5e3;
+padding: 10px;
+margin: 0;
+}
+
+#container {
+width: 940px;
+max-width:100%;
+margin: 20px auto 0px auto;
+text-align: left;
+font-size: 80%;
+}
+
+#main {
+width: 940px;
+max-width: 90%;
+padding: 0 10px;
+background:  #fff !important;
+box-sizing: border-box;
+    -moz-box-sizing: border-box; /*Firefox 1-3*/
+    -webkit-box-sizing: border-box; /* Safari */
+}
+
+#header {
+width: 940px;
+padding: 8px 5px;
+background:  #fff !important;
+max-width: 90%;
+box-sizing: border-box;
+    -moz-box-sizing: border-box; /*Firefox 1-3*/
+    -webkit-box-sizing: border-box; /* Safari */
+}
+
+#footer {
+width: 940px;
+max-width: 100%;
+padding: 25px 5px 10px 5px;
+margin: 0 auto;
+background: none !important;
+text-align: center;
+color: #888;
+font-size: 80%;
+box-sizing: border-box;
+    -moz-box-sizing: border-box; /*Firefox 1-3*/
+    -webkit-box-sizing: border-box; /* Safari */
+}
+
+#products {
+float: left;
+width: 59%;
+border-right: 1px solid #ece5e3;
+}
+
+#wallet {
+margin: 0;
+padding:0;
+text-align: center;
+width: 40%;
+background: none !important;
+float: left;
+}
+
+#thumbs img{
+  float: left;
+  margin-right: 12px;
+}

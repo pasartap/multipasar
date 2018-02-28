@@ -1,0 +1,66 @@
+{% assign listing_cols = '1' %}
+{% assign image_size = 'original' %}
+{% if settings.display_bestseller %}
+{% if settings.display_bestseller != blank %} 
+
+ {%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+  {%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.myshopify.com' | last |
+     replace:'\/','/' | 
+     replace:'%20',' ' | 
+     replace:'\u0026','&'
+  -%}
+  {%- for i in (1..1) -%}
+    {%- unless pageUrl contains "?" -%}{% break %}{%- endunless -%}
+    {%- assign pageQuerystring = pageUrl | split:'?' | last -%}
+    {%- assign parts = pageQuerystring | split:'&' -%}
+    {%- for part in parts -%}
+      {% assign keyAndValue = part | split:'=' %}
+    {%- endfor -%}
+  {%- endfor -%}
+<!-- bestsell Slider -->
+<section class="bestsell-pro {{keyAndValue}}">
+  <div class="container"> {% if shop.products_count < 1 %}
+    <div class="hero-unit">
+      <p class="text-center">This section displays new products. Unfortunately you don't have any products in your store yet. </p>
+      <p class="text-center"> <a class="btn btn-primary" href="/admin/products/new">Would you like to add some?</a> </p>
+    </div>
+    {% endif %}
+    <div class="block-title">
+      <h2>{{ settings.bestseller_title }} </h2>
+    </div>
+    <div class="slider-items-products">
+      <div class="bestsell-block">
+        <div id="bestsell-slider" class="product-flexslider hidden-buttons">
+          <div class="slider-items slider-width-col4 products-grid block-content"> 
+            <!-- Item --> 
+            
+            {% for product in collections[settings.bestsellers_cat].products limit:8 %}
+            <div class="item"> {% include 'product-grid-item' with 'listing_cols' with 'image_size' %} </div>
+            {% endfor %} </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Bestsell Slider --> 
+
+{% endif %}
+{% endif %} 
+<script type="text/javascript">
+//<![CDATA[
+jQuery(document).ready(function(cash) {
+jQuery("#bestsell-slider .slider-items").owlCarousel({
+items: 5, //10 items above 1000px browser width
+itemsDesktop: [1024, 4], //4 items between 1024px and 901px
+itemsDesktopSmall: [900, 3], // 4 items betweem 900px and 601px
+itemsTablet: [640, 2], //3 items between 600 and 0;
+itemsMobile: [375, 2],
+navigation : true,
+navigationText : ["<a class=\"flex-prev\"></a>","<a class=\"flex-next\"></a>"],
+slideSpeed : 500,
+pagination : false,
+autoPlay: false
+});
+}); 
+//]]>
+</script> 

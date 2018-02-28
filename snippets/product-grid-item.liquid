@@ -1,0 +1,68 @@
+{% comment %}Is this product on sale?{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available  %}
+  {% assign sold_out = false %}
+{% endif %}
+
+{% assign item_width = 4 %}
+
+{% case listing_cols %}
+  {% when '1' %}
+    {% assign item_width = 12 %}
+  {% when '2' %}
+    {% assign item_width = 6 %}
+  {% when '3' %}
+    {% assign item_width = 4 %}
+  {% when '4' %}
+    {% assign item_width = 3 %}
+  {% when '6' %}
+    {% assign item_width = 2 %}
+{% endcase %}
+
+
+
+      <div data-id="{{ product.id }}" class=" {% for tag in product.tags %} {{tag}} {% endfor %}  product-{{ product.id }} product product__product-grid-item product-item col-sm-{{ item_width }} {% case listing_cols %}{% when '1' %}{% cycle : '', 'alpha' %}{% when '2' %}{% cycle : '', '', 'alpha' %}{% when '3' %}{% cycle : '', '', '', 'alpha' %}{% when '4' %}{% cycle : '', '', '', '', 'alpha' %}{% when '6' %}{% cycle : '', '', '', '', '', '', 'alpha' %}{% endcase %}{% cycle 'odd_even': 'item_odd', 'item_even' %} {% cycle 'step3': 'step3-1', 'step3-2', 'step3-3' %} {% cycle 'step4': 'step4-1', 'step4-2', 'step4-3', 'step4-4' %}">
+          <div class="item-inner" >
+            <div class="product_image-wrap item-img">    
+                      <a href="{{ product.url | within: collection }}" class="product-grid-image">
+                        <img src="{{ product.featured_image.src | product_img_url: 'large' }}" title="{{ product.title }}" alt="{{ product.featured_image.alt | escape }}">  
+                      </a>
+                    </div><!-- .prod-image-wrap -->
+                    <div class="box-hover">
+                      <ul class="add-to-links">
+                        <li>      
+                        <!--{% include 'wishlist-product' %} -->
+                        </li>  
+                      </ul>
+                    </div>  
+            {% include 'color-switch' %}
+                    <div class="product_title-wrap">
+                      <a href="{{ product.url | within: collection }}" class="product_title">
+                        {{ product.title }}
+                      </a>
+                    </div>
+                    <span style="color:grey">
+                      {% if product.first_available_variant.option1 != nil and product.first_available_variant.option1 != 'Default Title' %}
+                        {{ product.first_available_variant.option1 }}
+                      {% else %}
+                        {{ product.first_available_variant.weight | weight_with_unit }}
+                      {% endif %}
+                    </span>
+                    <div class="product_price">
+                      {% if product.price < product.compare_at_price_min %}
+                        <span class="money"> {{ product.price | money }}</span> 
+                        <del><span class="money"> {{ product.compare_at_price_min | money }}</span></del> 
+                        <span class="sale-badge">Save {{ product.compare_at_price | minus: product.price | money }}!</span>
+                      {% else %}
+                        <span class="money">{{ product.first_available_variant.price | money }}</span>
+                      {% endif %}
+                    </div>    
+                  {% include 'snippet-add-to-cart' %}   
+        </div>
+    
+    </div> 

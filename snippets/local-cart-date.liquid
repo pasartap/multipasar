@@ -1,0 +1,102 @@
+<div class="localheadercart">
+  <h3>DELIVERY TIME</h3>
+  <p >When would you like your order delivered?</p>
+  
+  <input class="datepicker "  type="text"> 
+  <div class='ordertime'>
+  	<select class='ordertimelist form-control' name='attributes[Time]'>
+  	</select>
+     <div class="loadingtime" style="display:none;">Finding available delivery times...</div>
+  <div class="selecttimeslot"  style="display:none;">Please select a time slot below:</div>
+    <input type="hidden" name="attributes[Date]" class='orderdate' value=''>
+  </div>
+</div>
+
+<style>
+  .ordertimelist{
+ 	 display:none;
+     width:185px;
+     margin-top:20px;
+  }
+  .selecttimeslot{
+  	margin:10px 0px;
+  }
+  .errormsg{
+  	color:red;
+    margin:10px 0px;
+     width: 100%;
+      float: left;
+  }
+  .cart-container .ordertimelist{
+    display:inline-block;
+    width:50%;
+    float:right;
+    margin-top:0px;
+  }
+  .cart-container .selecttimeslot {
+	margin: 10px 0px;
+	float: left;
+	width: 100%;
+  }
+  .cart-container .errormsg {
+      color: red;
+      margin: 10px 0px;
+      width: 100%;
+      float: left;
+  }
+  .cart-container .datepicker{
+  	height:34px !important;
+    float:left;
+  }
+  .datepicker{
+  	height:34px !important;   
+  }
+    .localheadercart {
+      padding: 10px;
+  }
+  @media screen and (max-width: 479px){
+	.cart-container .ordertimelist {
+        display: inline-block;
+        width: 100%;
+        float: right;
+        margin-top: 10px;
+    }
+    .cart-container .datepicker {
+        height: 34px !important;
+        float: left;
+        width: 100%;
+    }
+    
+  }
+
+  @media screen and (min-width: 480px) and (max-width: 767px){
+	.cart-container .ordertimelist {
+        display: inline-block;
+        width: 100%;
+        float: right;
+        margin-top: 10px;
+    }
+    .cart-container .datepicker {
+        height: 34px !important;
+        float: left;
+        width: 100%;
+    }
+    
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 959px) {
+    .cart-container .ordertimelist {
+            display: inline-block;
+            width: 100%;
+            float: right;
+            margin-top: 10px;
+        }
+        .cart-container .datepicker {
+            height: 34px !important;
+            float: left;
+            width: 100%;
+        }
+    
+  }
+  
+</style>

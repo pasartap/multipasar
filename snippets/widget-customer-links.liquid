@@ -1,0 +1,21 @@
+{% if shop.customer_accounts_enabled %}
+<div class="widget widget__customer-links">
+  <div class="widget_header">
+   <h3> User Links</h3>
+  </div>
+  <div class="widget_content">
+    <ul class="list">      
+        {% if customer %}
+          <li><a href="/account">Account</a></li> 
+          <li>{{ 'Log out' | customer_logout_link }}</li>
+        {% else %}
+          <li>{{ 'Log in' | customer_login_link }}</li>
+          {% if shop.customer_accounts_optional %}
+          <li>{{ 'Create an account' | customer_register_link }}</li>
+          {% endif %}
+        {% endif %} 
+        <li><a href="/cart">Cart</a></li>        
+    </ul>
+  </div>
+</div>
+{% endif %}

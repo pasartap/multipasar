@@ -1,0 +1,1 @@
+[{"name":"title","title":"Title"},{"name":"type","title":"Category","breakpoints":"xs","style":{"overflow":"hidden","textOverflow":"ellipsis","wordBreak":"keep-all","whiteSpace":"nowrap"}},{"name":"weight_with_unit","title":"Unit","breakpoints":"xs"},{"name":"price","title":"Price","type":"number","formatter":"currency_format"}]

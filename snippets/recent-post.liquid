@@ -1,0 +1,15 @@
+
+<div class="recent-post">
+  <h3><span>Recent Posts</span></h3>
+  {% for article in blogs.news.articles limit: 5 %}
+<ul>
+
+  <li class="img">  {% assign src = article.content | split: 'src="' %}
+              {% assign src = src[1] | split: '"' | first | replace: '//cdn', 'http://cdn'; | replace: 'http:http://';, 'http://'; | remove: 'https:' %}
+              <a href="{{ article.url }}" ><div class="article-img">
+        <img src="{{ article.image.src | img_url: 'original' }}"></div></a></li>  
+<li class="blog-title"><a href="{{ article.url }}">{{ article.title | strip_html | truncatewords: 3}}</a> <span>{{ article.created_at | date: "%d.%m.%Y" }}</span></li>
+
+</ul>
+{% endfor %}  
+</div> 

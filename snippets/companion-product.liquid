@@ -1,0 +1,61 @@
+{% comment %} 
+To add a companion product to the cart automatically if a primary product is in cart: 
+  1. Create a new link list under your Navigation tab. 
+  2. In that link list, make the first link point to companion product. 
+  3. Copy your link list handle where indicated at line 9 
+  4. Set the minimum cart total required for the bonus product on line 10 
+{% endcomment %} 
+
+{% assign linklist = linklists['companion-product'] %} 
+{% assign min_total = 100 %} 
+
+{% comment %} You're done. Include this code in cart.liquid at the top or bottom. {% endcomment %} 
+
+{% if linklist.links.size > 0 %}
+  <script>!window.jQuery && document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"><\/script>') </script>
+  <script>
+    if (typeof Shopify === 'undefined') var Shopify = {};
+    Shopify.cart = {{ cart | json }};
+    Shopify.toAdd = {{ linklist.links.first.object.variants.first.id }};
+    var pleaseAdd = false;
+    var pleaseRemove = false;
+    Shopify.idsInCart = [];
+
+    for (var i = 0; i < Shopify.cart.items.length; i++) {
+        Shopify.idsInCart.push(Shopify.cart.items[i].id);
+        if (Shopify.cart.items[i].id !== Shopify.toAdd) {
+            if (Shopify.cart.total_price >= {{ min_total | times: 100 }}) {
+                pleaseAdd = true;
+            }
+        } else { // Bonus item is in cart
+            if (Shopify.cart.total_price < {{ min_total | times: 100 }}) {
+                pleaseRemove = true;
+            }
+        }
+    }
+
+    if (pleaseAdd && (jQuery.inArray(Shopify.toAdd, Shopify.idsInCart) === -1)) {
+        var params = {
+            type: 'POST',
+            url: '/cart/add.js',
+            data: 'quantity=1&id=' + Shopify.toAdd,
+            dataType: 'json',
+            success: function(line_item) {
+                window.location.href = '/cart';
+            }
+        };
+        jQuery.ajax(params);
+    } else if (pleaseRemove) {
+        var params = {
+            type: 'POST',
+            url: '/cart/update.js',
+            data: 'updates[' + Shopify.toAdd + ']=0',
+            dataType: 'json',
+            success: function(line_item) {
+                window.location.href = '/cart';
+            }
+        };
+        jQuery.ajax(params);
+    }
+  </script>
+{% endif %}

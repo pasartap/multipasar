@@ -1,0 +1,253 @@
+/* 
+ * 	Core Owl Carousel CSS File
+ *	v1.3.3
+ */
+
+/* clearfix */
+.owl-carousel .owl-wrapper:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+/* display none until init */
+.owl-carousel {
+	display: none;
+	position: relative;
+	width: 100%;
+	-ms-touch-action: pan-y;
+}
+.owl-carousel .owl-wrapper {
+	display: none;
+	position: relative;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+}
+.owl-carousel .owl-wrapper-outer {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.owl-carousel .owl-wrapper-outer.autoHeight {
+	-webkit-transition: height 500ms ease-in-out;
+	-moz-transition: height 500ms ease-in-out;
+	-ms-transition: height 500ms ease-in-out;
+	-o-transition: height 500ms ease-in-out;
+	transition: height 500ms ease-in-out;
+}
+.owl-carousel .owl-item {
+	float: left;
+}
+.owl-controls .owl-page, .owl-controls .owl-buttons div {
+	cursor: pointer;
+}
+.owl-controls {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* mouse grab icon */
+.grabbing {
+	cursor: url(grabbing.png) 8 8, move;
+}
+/* fix */
+.owl-carousel .owl-wrapper, .owl-carousel .owl-item {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+}
+
+
+/* PRODUCTS SLIDER = */
+.owl-item .item {
+	margin: 0 10px;
+}
+.slider-items {
+	position: relative;
+}
+.slider-items .item {
+	text-align: center;
+}
+.owl-buttons {
+	opacity: 1;
+}
+.slider-items .owl-buttons .owl-prev {
+	position: absolute;
+	right: 50px;
+	top: -42px;
+}
+.slider-items .owl-buttons .owl-next {
+	position: absolute;
+	right: 22px;
+	top: -42px;
+}
+.slider-items .owl-buttons .owl-prev a {
+	background-position: 0 100%;
+	left: 0;
+	top: 50%;
+}
+.slider-items .owl-buttons .owl-next a {
+	background-position: 100% 100%;
+	left: 0;
+	top: 50%;
+}
+.slider-items .owl-buttons .owl-next a:before {
+	    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    content: "\f105";
+    text-transform: none;
+    font-size: 16px;
+  padding: 6px 4px;
+    line-height: 20px;
+}
+.slider-items .owl-buttons .owl-prev a:before {
+	font-family: 'FontAwesome';
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	content: "\f104";
+	text-transform: none;
+	font-size: 16px;
+	padding: 6px 4px;
+	line-height: 20px;
+}
+.slider-items .owl-buttons a {
+	background: #fff;
+	display: block;
+	height: 22px;
+	margin: 0px 0 0;
+	position: absolute;
+	top: 50%;
+	width: 22px;
+	z-index: 5;
+	border: 1px solid #ddd;
+	color: #999;
+}
+.product-flexslider {
+	margin:5px -10px;
+}
+
+
+.owl-theme .owl-controls {
+margin-top: 10px;
+text-align: center;
+}
+
+.owl-carousel .col-lg-4, .owl-carousel .col-md-3, .owl-carousel .col-sm-4, .owl-carousel .col-xs-6-12{ width:100%}
+
+.owl-carousel .product{padding:0px!important;}
+
+.owl-carousel .product .product_info {top:32%!important;}
+
+
+.owl-item .item {
+	margin: 0 12x;
+}
+.slider-items-products {
+	position: relative;
+}
+.slider-items-products .item {
+	text-align: center;
+}
+.slider-items-products .item .product-image {
+	display: block;
+	overflow: hidden;
+}
+.slider-items-products .item .product-image img {
+	-webkit-transition-duration: 500ms;
+	transition-duration: 500ms;
+	-webkit-transition-property: transform;
+	transition-property: transform;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	transform: translateZ(0);
+}
+.slider-items-products .item .product-image:hover img {
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+	-moz-transform: scale(1.2);
+}
+#category-desc-slider img {
+	width: 100%
+}
+.owl-buttons {
+	opacity: 1;
+}
+.slider-items-products .owl-buttons .owl-prev {
+	position: absolute;
+	left: -18px;
+	top: 40%;
+	margin-top: -20px;
+}
+.slider-items-products .owl-buttons .owl-next {
+	position: absolute;
+	right: -40px;
+	top: 40%;
+	margin-top: -20px;
+}
+.slider-items-products .owl-buttons .owl-prev a {
+	background-position: 0 100%;
+}
+.slider-items-products .owl-buttons .owl-next a {
+	background-position: 100% 100%;
+	top: 40%;
+}
+.slider-items-products .owl-buttons .owl-next a:before {
+	font-family: 'FontAwesome';
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	content: "\f105";
+	text-transform: none;
+	font-size: 32px;
+	line-height: 38px;
+}
+.slider-items-products .owl-buttons .owl-prev a:before {
+	font-family: 'FontAwesome';
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	content: "\f104";
+	text-transform: none;
+	font-size: 32px;
+	line-height: 38px;
+}
+.slider-items-products .owl-buttons a {
+	background: #fff;
+	display: block;
+	height: 40px;
+	margin: 0px 0 0 -30px;
+	position: absolute;
+	top: 40%;
+	width: 40px;
+	z-index: 5;
+	color: #666;
+
+}
+.product-flexslider {
+	margin: 0px 0px;
+	margin-top: 0px;
+}
+.owl-theme .owl-controls .owl-buttons div {
+	background: none !important;
+}
+.slider-items-products .owl-buttons a:hover {
+	text-decoration: none;
+	color: #fff;
+
+}
+.slider-items-products .owl-buttons .owl-prev a {
+	background-position: 0 100%;
+}

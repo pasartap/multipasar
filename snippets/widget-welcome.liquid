@@ -1,0 +1,9 @@
+<div class="widget widget__welcome">
+  <div class="widget_title">
+    <h3>{{ pages.frontpage.title }}</h3>
+  </div>
+  <div class="widget_content">
+    {{ pages.frontpage.content | strip_html | strip_newlines | truncatewords: 45 }}
+    <a href="/pages/frontpage">Read More</a>
+  </div>
+</div>

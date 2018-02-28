@@ -1,0 +1,64 @@
+{{ 'instafeed.min.js' | asset_url | script_tag }}
+
+{% if settings.show_instagram %}
+<section class="home-instagram">
+  <div class="container">
+    <div class="instagram-inner">
+    
+    <div class="widget-title">   
+      <h3>
+        {% if settings.instagram_title != blank %}
+        {{ settings.instagram_title }}
+        {% endif %}        
+      </h3>
+      
+    </div>
+    <div id="instafeed"></div>  
+    <p class="instagram-des">
+        {% if settings.instagram_des != blank %}
+        {{ settings.instagram_des }}
+        {% endif %}  
+      </p>
+    {% if settings.display_instagram_button %}
+    {% if settings.instagram_button_text != blank %}
+    <a href="{{ settings.instagram_button_link }}" title="{{ settings.instagram_button_text }}" class="btn"  target="_blank">
+      {{ settings.instagram_button_text }}
+      <span class="arrow">arrow</span>
+    </a>		
+    {% endif %}
+    {% endif %}
+  </div></div>
+</section>
+
+<script>
+  var feed = new Instafeed({
+    get: "{{ settings.instagram_get }}",    
+    {% if settings.instagram_tag != blank %} tagName: "{{ settings.instagram_tag }}", {% endif %}
+    {% if settings.locationId != blank %} locationId: "{{ settings.instagram_locationId }}", {% endif %}
+    {% if settings.user-id != blank %} userId: {{ settings.user-id }}, {% endif %}
+    {% if settings.accessToken != blank %}accessToken: '{{ settings.accessToken }}', {% endif %}
+    resolution: "{{ settings.resolution_images }}",
+    clientId: "{{ settings.client-id }}",
+    limit: "{{ settings.limit }}",
+    after: function() {
+      jQuery("#instafeed").owlCarousel({
+    	navigation : true,
+    	items: {{ settings.images_per_row }},
+        itemsDesktop : [1024,4], //5 items between 1024px and 901px
+	    itemsDesktopSmall : [900,3], // 3 items betweem 900px and 601px
+	    itemsTablet: [600,2], //2 items between 600 and 0;
+	    itemsMobile : [320,1],
+        navigationText : ["<a class=\"flex-prev\"></a>","<a class=\"flex-next\"></a>"]
+    
+  	  });
+  	}
+  });
+  feed.run();
+</script>
+
+
+
+
+
+
+{% endif %}

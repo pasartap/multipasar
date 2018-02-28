@@ -1,0 +1,6 @@
+{% comment %} Products ratings data - for AggregateRating rich snippets {% endcomment %}
+{% assign hasRatingData = true %}
+{% case product.id %}
+    {% else %}
+        {% assign hasRatingData = false %}
+{% endcase %}

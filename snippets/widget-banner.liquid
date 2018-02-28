@@ -1,0 +1,10 @@
+
+ {% if settings.display_custom_banner %}
+        {% if settings.display_custom_banner != blank %}
+<div class="widget widget__banner">
+  <div class="widget_content">    
+    <a href="{{ settings.custom_banner_link }}"><img src="{{ "custom_banner.jpg" | asset_url }}" alt="" /></a>
+  </div>
+</div>
+  {% endif %}
+  {% endif %}

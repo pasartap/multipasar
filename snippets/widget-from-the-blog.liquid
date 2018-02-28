@@ -1,0 +1,12 @@
+<div class="widget widget__from-the-blog">
+  <div class="widget_title">
+    <h3>From The Blog</h3>
+  </div>
+  <div class="widget_content">
+    {% for article in blogs.news.articles limit: 1 %}
+    	<h5>{{ article.title }}</h5>
+    	<div class="article article_content">{{ article.content | strip_html | strip_newlines | truncatewords: 30 }}</div>
+		<a class="readmore" href="{{ article.url }}">Read More</a>
+    {% endfor %}
+  </div>
+</div>

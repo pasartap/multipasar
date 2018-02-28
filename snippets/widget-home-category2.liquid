@@ -1,0 +1,23 @@
+{% assign listing_cols = '1' %}
+{% assign image_size = 'original' %}
+   {% if settings.display_new-arrivals-products %}
+        {% if settings.display_new-arrivals-products != blank %}
+
+
+
+<ul class="pdt-list products-grid">
+
+    {% for product in collections[settings.home-tab-2-category].products limit:4 %}
+                 <li class="item">
+    
+        {% include 'product-grid-item' with 'listing_cols' with 'image_size' %}
+                   </li>
+                
+      {% endfor %}
+    <!--item-inner-->
+
+</ul>
+
+ 
+  {% endif %}
+  {% endif %}

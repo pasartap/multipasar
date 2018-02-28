@@ -1,0 +1,55 @@
+{% if settings.display_brandlogo %} 
+    {% if settings.display_brandlogo != blank %}
+    <div class="brand-logo">
+        <div class="container" style="text-align: center">
+            <div class="brand-header">
+                <span>AS SEEN ON</span>
+            </div>
+            <div class="slider-items-products">
+                <div id="brand-logo-slider" class="product-flexslider hidden-buttons">
+                    <div class="slider-items slider-width-col6">
+                        <!-- Item -->
+                        <div class="item"><a href="{{ settings.logo1_link }}" target="_blank"><img src="{{ "b-logo1.png" | asset_url }}" alt="" /></a></div>
+                        <!-- End Item -->
+                        <!-- Item -->
+                        <div class="item"><a href="{{ settings.logo2_link }}" target="_blank"><img src="{{ "b-logo3.png" | asset_url }}" alt="" /></a></div>
+                        <!-- End Item -->
+                        <!-- Item -->
+                        <div class="item"><a href="{{ settings.logo3_link }}" target="_blank"><img src="{{ "b-logo2.png" | asset_url }}" alt="" /></a></div>
+                        <!-- End Item -->
+                        <!-- Item -->
+                        <div class="item"><a href="{{ settings.logo4_link }}" target="_blank"><img src="{{ "b-logo4.png" | asset_url }}" alt="" /></a></div>
+                        <!-- End Item -->
+                        <!-- Item -->
+                        <div class="item"><a href="{{ settings.logo5_link }}" target="_blank"><img src="{{ "b-logo5.png" | asset_url }}" alt="" /></a></div>
+                        <!-- End Item -->
+                        <!-- Item -->
+                        <div class="item"><a href="{{ settings.logo6_link }}" target="_blank"><img src="{{ "b-logo6.png" | asset_url }}" alt="" /></a></div>
+                        <!-- End Item -->
+                        <!-- Item -->
+                        <div class="item"><a href="{{ settings.logo7_link }}" target="_blank"><img src="{{ "b-logo7.png" | asset_url }}" alt="" /></a></div>
+                        <!-- End Item -->
+                        <!-- Item -->
+                        <div class="item"><a href="{{ settings.logo8_link }}" target="_blank"><img src="{{ "b-logo8.png" | asset_url }}" alt="" /></a></div>
+                        <!-- End Item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %} 
+{% endif %}
+<script type="text/javascript">
+jQuery("#brand-logo-slider .slider-items").owlCarousel({
+    autoPlay: true,
+    items: 6, //10 items above 1000px browser width
+    itemsDesktop: [1024, 4], //5 items between 1024px and 901px
+    itemsDesktopSmall: [900, 3], // 3 items betweem 900px and 601px
+    itemsTablet: [600, 2], //2 items between 600 and 0;
+    itemsMobile: [320, 2],
+    navigation: false,
+    navigationText: ["<a class=\"flex-prev\"></a>", "<a class=\"flex-next\"></a>"],
+    slideSpeed: 500,
+    pagination: false
+});
+</script>

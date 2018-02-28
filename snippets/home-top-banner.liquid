@@ -1,0 +1,57 @@
+{% if settings.display_home_banner_1 %}
+{% if settings.display_home_banner_1 != blank %}
+<div class=" home-top-banner">
+<div class="container">
+  <div class="row">
+  
+  <div class="col col-xs-12 col-sm-4 col-md-4">
+    <div class="banner banner1">
+   <a class="overlay" href="{{ settings.home_banner_1_link }}"></a>
+        <img src="{{ "banner_1.jpg" | asset_url }}" alt="" />
+        <div class="info">
+       
+          <div class="normal-text">{{ settings.home_banner_1_normal_text }}</div>
+          <div class="header-text">{{ settings.home_banner_1_bold_text }}</div>
+          <a href="{{ settings.home_banner_1_link }}"><div class="footer-text">{{ settings.home_banner_1_footer_text }}</div></a>
+         
+    
+     </div>
+    </div>
+  
+  
+  </div>
+  
+  
+  <div class="col-1 col-xs-12 col-sm-4 col-md-4">
+    <div class="banner banner2">
+   <a class="overlay"  href="{{ settings.home_banner_2_link }}"></a>
+     <div class="info">
+       <div class="normal-text">{{ settings.home_banner_2_normal_text }}</div>
+          <div class="header-text">{{ settings.home_banner_2_bold_text }}</div>
+       <a href="{{ settings.home_banner_2_link }}"><div class="footer-text">{{ settings.home_banner_2_footer_text }}</div></a>
+         
+    
+     </div>
+        <img src="{{ "banner_2.jpg" | asset_url }}" alt="" />
+        </div>
+    </div>
+  
+ <div class="col col-xs-12 col-sm-4 col-md-4">
+   <div class="banner banner3">
+   <a class="overlay"  href="{{ settings.home_banner_3_link }}"></a>
+        <img src="{{ "banner_3.jpg" | asset_url }}" alt="" />
+        <div class="info">          
+          <div class="normal-text">{{ settings.home_banner_3_normal_text }}</div>
+          <div class="header-text">{{ settings.home_banner_3_bold_text }}</div>
+          <a href="{{ settings.home_banner_3_link }}"><div class="footer-text">{{ settings.home_banner_3_footer_text }}</div></a>
+         
+    
+     </div>
+   </div>
+   </div>
+  </div>
+  </div>
+
+ {% endif %}
+  {% endif %}
+</div>

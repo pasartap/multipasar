@@ -1,0 +1,10 @@
+<div id="payment-methods">
+  <ul>
+    <li>  {% if settings.show_paypal %}     {{ 'cc-paypal.png' | asset_url | img_tag }} {% endif %}</li>
+    <li>  {% if settings.show_visa %}       {{ 'cc-visa.png' | asset_url | img_tag }} {% endif %}</li>
+    <li>  {% if settings.show_amex %}       {{ 'cc-amex.png' | asset_url | img_tag }} {% endif %}</li>    
+    <li>  {% if settings.show_mastercard %} {{ 'cc-mastercard.png' | asset_url | img_tag }} {% endif %}</li>
+    
+
+  </ul>
+</div>

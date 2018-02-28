@@ -1,0 +1,56 @@
+{% paginate collection.products by settings.pagination_limit %}
+
+{% assign has_sidebar = false %}
+{% if collection.all_tags.size > 0 %}
+  {% assign has_sidebar = true %}
+{% endif %}
+
+<div class="grid grid-border">
+  <div class="grid-item{% if has_sidebar %} large--four-fifths grid-border--left{% endif %}">
+    {% comment %}{% if collection.description.size > 0 %}
+      <div class="rte desc-section">
+        {{ collection.description }}
+      </div>
+    {% endif %}{% endcomment %}
+    <header class="section-header">
+      <h1 class="section-header-title section-header-left">{{ collection.title }}</h1>
+      {% include 'collection-views' %}
+      <div class="section-header-right">
+        {% include 'collection-filtering' %}
+        {% include 'collection-sorting' %}
+      </div>
+    </header>
+    <div class="grid-uniform">
+      {% for product in collection.products %}
+        {% assign is_wholesale_product = false %}
+        {% assign product_tags = product.tags | downcase %}
+        
+        {% if product_tags contains 'wholesale' %}
+          {% assign is_wholesale_product = true %}
+        {% endif %}
+
+        {% if is_wholesale_product == false %}
+          {% include 'product-list-item' %}
+        {% endif %}
+        {% comment %}{% include 'product-list-item' %}{% endcomment %}
+      {% else %}
+        <div class="grid-item">
+          <p>{{ 'collections.general.no_matches' | t }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% if paginate.pages > 1 %}
+  <div class="grid-item pagination-border-top">
+    <div class="grid">
+      <div class="grid-item{% if has_sidebar %} large--four-fifths push--large--one-fifth{% endif %}">
+          <div class="text-center">
+            {% include 'pagination-custom' %}
+          </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% endpaginate %}

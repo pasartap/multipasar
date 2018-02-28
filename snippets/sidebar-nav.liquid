@@ -1,0 +1,74 @@
+ {% if settings.display_categores %}
+ {% if settings.display_categores != blank %}
+    <div id="sidebar-nav" class="widget widget__collections">
+      <div class="widget_header category">
+      <h3><span>{{ settings.category_heading }}</span></h3>
+    </div>
+      <div class="block-content">
+     <ul class="sidebar-topnav">
+    {% for link in linklists.main-menu.links %}
+    {% assign child_list_handle = link.title | handle %}
+    {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+       
+    <li class="has-dropdown">
+      {{ link.title | link_to: link.url }}
+      <ul>
+        {% for child_link in linklists[child_list_handle].links %}
+        {% assign grand_child_list_handle = child_link.title | handle %}
+        {% if linklists[grand_child_list_handle] and linklists[grand_child_list_handle].links.size > 0 %}
+        <li class="has-dropdown">
+          {{ child_link.title | link_to: child_link.url }}
+          <ul>
+            {% for grand_child_link in linklists[grand_child_list_handle].links %}
+            <li>
+              {{ grand_child_link.title | link_to: grand_child_link.url }}
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% else %}
+        <li>
+          {{ child_link.title | link_to: child_link.url }}
+        </li>
+        {% endif %}
+        {% endfor %}        
+      </ul>
+    </li>
+    {% else %}
+    <li>
+      {{ link.title | link_to: link.url }}
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+      
+        
+      </div>
+    </div>
+  {% endif %}
+ {% endif %}
+
+
+ <script type="text/javascript">
+jQuery(document).ready(function() {
+jQuery('.toggle').click(function() {
+if (jQuery('.sidebar-submenu').is(":hidden"))
+{
+jQuery('.sidebar-submenu').slideDown("fast");
+} else {
+jQuery('.sidebar-submenu').slideUp("fast");
+}
+return false;
+});
+});
+
+/*Phone Menu*/
+jQuery(document).ready(function() {
+jQuery(".sidebar-topnav").accordion({
+accordion:false,
+speed: 300,
+closedSign: '+',
+openedSign: '-'
+});
+});
+</script>

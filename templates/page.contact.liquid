@@ -1,0 +1,62 @@
+
+
+<div class="contact-scope">
+
+  <div class="page_header">
+    <h1 class="page_title">{{ page.title }}</h1>
+  </div>
+
+  <div class="page_content">
+
+    {{ page.content }}
+    
+    {% form 'contact' %}
+
+      {% if form.posted_successfully? %}
+      <div class="alert alert-success feedback">
+        <p>Thanks for contacting us! We'll get back to you as soon as possible.</p>
+      </div>
+      {% endif %}
+
+      {% if form.errors %}
+      <div class="alert alert-warning feedback">
+        <!-- {{ form.errors.size }} or {{ form.errors | size }} -->
+        <p>Oops, sorry. We were unable to submit your inquiry because it contained {{ form.errors | size | pluralize: 'an error', 'a few errors' }}. Please correct the following and submit again:</p>
+        {% for field in form.errors %}
+          <p>The {{ field | capitalize | replace: 'Body', 'Message' }} field {{ form.errors.messages[field] }}.</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+   
+      <div id="contactFormWrapper">
+        <div class="row">
+          <div class="col-sm-4">
+            <label>Your Name:</label>
+            <input class="form-control" type="text" id="contactFormName" name="contact[name]" placeholder="Your name..." />
+          </div>
+          <div class="col-sm-4">
+            <label>Email:</label>
+            <input class="form-control" type="email" id="contactFormEmail" name="contact[email]" placeholder="Your email..." />
+          </div>
+          <div class="col-sm-4">
+            <label>Phone Number:</label>
+            <input class="form-control" type="telephone" id="contactFormTelephone" name="contact[phone]" placeholder="Your phone number..." />
+          </div>
+        </div>
+
+        <label>Message:</label>
+        <textarea class="form-control" rows="10" cols="75" id="contactFormMessage" name="contact[body]" placeholder="Your Message..."></textarea>
+
+        <div class="btn-toolbar">
+          <input type="reset" value="Clear" class="btn btn-info">
+          <input type="submit" id="contactFormSubmit" value="Send" class="btn btn-primary" />          
+        </div>
+      </div><!-- contactWrapper -->
+
+  {% endform %}
+  </div>   
+</div>
+
+<div class="google-map">
+<iframe width="500" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{ settings.google-map-address}}&key={{ settings.google-map-api}}"></iframe>
+</div>

@@ -1,0 +1,89 @@
+{% assign slide1 = 'slide_1_image.png' %}
+{% assign slide2 = 'slide_2_image.png' %}
+{% assign slide3 = 'slide_3_image.png' %}
+
+
+{% if settings.slide1_toggle or settings.slide2_toggle or settings.slide3_toggle %}
+
+<div id="slider"> 
+    
+  {% if settings.slide1_toggle %}
+  <div class="slide" data-src="{{ slide1 | asset_url }}">
+    <div class="camera_caption">
+      <div class="slidelabel">
+        <span class="line1">{{ settings.slide_1_caption_label_line1 }}</span>
+        <span class="line2">{{ settings.slide_1_caption_label_line2 }}</span>
+      </div>
+      <div class="desc"><p>{{ settings.slide_1_caption_desc }}</p></div>
+      <div class="price">
+        <span class="price-main money">{{ settings.slide_1_caption_price_main | times: 100.0 | money }}</span>
+        <span class="price-cross money">{{ settings.slide_1_caption_price_cross | times: 100.0 | money }}</span>
+      </div>
+      <div class="button">
+        <a href="{{ settings.slide_1_caption_link }}" class="link">{{ settings.slide_1_caption_link_text }}</a>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  
+  {% if settings.slide2_toggle %}
+  <div class="slide"  data-src="{{ slide2 | asset_url }}">
+    <div class="camera_caption">
+      <div class="slidelabel">
+        <span class="line1">{{ settings.slide_2_caption_label_line1 }}</span>
+        <span class="line2">{{ settings.slide_2_caption_label_line2 }}</span>
+      </div>
+      <div class="desc"><p>{{ settings.slide_2_caption_desc }}</p></div>
+      <div class="price">
+        <span class="price-main money">{{ settings.slide_2_caption_price_main | times: 100.0 | money  }}</span>
+        <span class="price-cross money">{{ settings.slide_2_caption_price_cross | times: 100.0 | money  }}</span>
+      </div>
+      <div class="button">
+        <a href="{{ settings.slide_2_caption_link }}" class="link">{{ settings.slide_2_caption_link_text }}</a>
+      </div>
+    </div>  
+  </div>
+  {% endif %}
+  
+  {% if settings.slide3_toggle %}
+  <div class="slide"  data-src="{{ slide3 | asset_url }}">
+    <div class="camera_caption">
+      <div class="slidelabel">
+        <span class="line1">{{ settings.slide_3_caption_label_line1 }}</span>
+        <span class="line2">{{ settings.slide_3_caption_label_line2 }}</span>
+      </div>
+      <div class="desc"><p>{{ settings.slide_3_caption_desc }}</p></div>
+      <div class="price">
+        <span class="price-main money">{{ settings.slide_3_caption_price_main | times: 100.0 | money  }}</span>
+        <span class="price-cross money">{{ settings.slide_3_caption_price_cross | times: 100.0 | money  }}</span>
+      </div>
+      <div class="button">
+        <a href="{{ settings.slide_3_caption_link }}" class="link">{{ settings.slide_3_caption_link_text }}</a>
+      </div>
+    </div>  
+  </div>
+  {% endif %}
+  
+</div>
+
+  <script>
+    jQuery(function(jQuery){
+      jQuery('div#slider').camera({
+        fx: 'simpleFade',
+        height: '55.6%',
+        navigation: false,
+        {% if settings.slider_toggle %}
+          pagination: true,          
+          autoAdvance: true,
+        {% else %}
+          pagination: false,          
+          autoAdvance: false,
+        {% endif %}
+        playPause: false,
+  	  time: 7000,
+  	  transPeriod: 1500      
+      });
+    });
+  </script>
+
+{% endif %}

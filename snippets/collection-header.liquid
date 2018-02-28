@@ -1,0 +1,24 @@
+
+{% if collection.handle == 'all' %}
+ {% if settings.display_top_banner %}
+        {% if settings.display_top_banner != blank %}
+                <div class="pro-head">
+                    <figure>
+                            
+                      <img src="{{ "category-banner.jpg" | asset_url }}" alt="" />
+          
+                      
+                </figure>         
+                        <div class="collection-desc">
+                            <h1>{{ settings.collection-title }}</h1>
+                            
+                            <div class="clear"></div>  
+                          <p class="collection-description"> {{ settings.collection-desc }} </p>
+                        </div>                   
+                </div>
+  {% endif %}
+  {% endif %}
+
+  
+
+  {% endif %}

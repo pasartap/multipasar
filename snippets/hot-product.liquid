@@ -1,0 +1,56 @@
+{% assign listing_cols = '1' %}
+{% assign image_size = 'original' %}
+   {% if settings.display_hot-product %}
+        {% if settings.display_hot-product != blank %}
+<div class="col-md-3 col-xs-12 hot-deal">
+<div class="widget widget__hot-product">
+  
+  <div class="widget_header">
+    </div>
+  <div class="widget_content">
+    <div class="product-listing product-listing__hot-product">
+   
+              
+                
+                <!-- Item -->
+     
+      
+      
+ {% assign handle = settings.hot-product_cat %}
+      
+ {% assign product = all_products[handle] %}
+
+{% assign date_now = 'now' | date:'%Y/%m/%d' %}      
+            
+                 <div class="item">
+                   
+    <div class="hot-label hot-top-left">Hot</div>
+                   
+        {% include 'product-grid-item' with 'listing_cols' with 'image_size' %}
+     
+                 {% if settings.start_date != blank and settings.end_date != blank  %}
+                      <div class="box-timer">
+                      <div class="timer-grid countbox_1" data-time="{{settings.end_date}}">
+                      </div>
+                    </div>
+                {% endif %}
+                   
+                   </div>
+      
+
+     
+       </div>
+  </div>
+
+  </div></div>
+ 
+  {% endif %}
+  {% endif %}
+
+<!-- Hot Deals Timer 1--> 
+<script type="text/javascript">
+ //countdown js filter
+jQuery('.timer-grid').each(function(){
+    var countTime=jQuery(this).attr('data-time');jQuery(this).countdown(countTime,function(event){jQuery(this).html('<div class="day box-time-date"><span class="number">'+event.strftime('%D')+' </span>days</div> <div class="hour box-time-date"><span class="number">'+event.strftime('%H')+'</span>Hrs</div><div class="min box-time-date"><span class="number">'+event.strftime('%M')+'</span> MINS</div> <div class="sec box-time-date"><span class="number">'+event.strftime('%S')+' </span>SEC</div>');});
+});
+</script>

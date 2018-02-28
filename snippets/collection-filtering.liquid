@@ -1,0 +1,74 @@
+
+<div class="form-horizontal" >
+  <label for="filterBy" class="small--hide">Filter By</label>
+  <select name="filterBy" class="coll-filter">
+    <option value="">All</option>
+    {% for tag in collection.all_tags %}
+      {% unless tag == 'Freebie' or tag == 'Max-1' or tag == 'Wholesale' %}
+    {% if tag != 'Bayan Baru' %}
+        {% if current_tags contains tag %}
+          <option value="{{ tag | handle }}" selected>{{ tag }}</option>
+        {% else %}
+          <option value="{{ tag | handle }}">{{ tag }}</option>
+      {% endif %}
+   
+     {% endif %}
+      {% endunless %}
+    {% endfor %}
+  </select>
+</div>
+
+<script>
+  /* Product Tag Filters - Good for any number of filters on any type of collection page.
+     Give you product tag filter select element a class of coll-filter.
+     Give your collection select a class of coll-picker.
+     Brought to you by Caroline Schnapp. */
+  Shopify.queryParams = {};
+  if (location.search.length) {
+    for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+      aKeyValue = aCouples[i].split('=');
+      if (aKeyValue.length > 1) {
+        Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+      }
+    }
+  }
+  
+  var collFilters = jQuery('.coll-filter');
+  collFilters.change(function() {
+   
+    delete Shopify.queryParams.page;
+    var newTags = [];
+    collFilters.each(function() {
+      if (jQuery(this).val()) {
+        newTags.push(jQuery(this).val());
+      }
+    });
+    {% if collection.handle %}
+    var newURL = '/collections/{{ collection.handle }}';
+    if (newTags.length) {
+      newURL += '/' + newTags.join('+');
+    }
+    var search = jQuery.param(Shopify.queryParams);
+    if (search.length) {
+      newURL += '?' + search;
+    }
+    if(jQuery(this).val() != ''){
+      var addtgfilter = $.trim($.cookie('PasarStoreName')).toLowerCase().replace(/\s+/g, "-");
+      location.href = newURL+'+'+addtgfilter;
+    }else{
+    location.href = newURL;	
+    }
+    
+    {% else %}
+    if (newTags.length) {
+      Shopify.queryParams.constraint = newTags.join('+');
+    }
+    else {
+      delete Shopify.queryParams.constraint;
+    }
+    location.search = jQuery.param(Shopify.queryParams);
+    {% endif %}
+  });
+</script>
+
+

@@ -1,0 +1,101 @@
+{% comment %}
+  List out your main-menu linklist (default)
+  More info on linklists:
+    - http://docs.shopify.com/themes/liquid-variables/linklists
+{% endcomment %}
+
+{% if settings.display_megamenu %}
+  {% assign items_list = settings.megamenu_items | split:"," | strip | downcase %}
+{% endif %}
+
+{% if settings.main_nav != blank %}
+  <div class="container top-nav">
+  <ul class="site-nav">
+    {% assign menu_handle = settings.main_nav %}
+    {% assign customer_tags = customer.tags | downcase %}
+
+    {% if customer and customer_tags contains 'wholesale' and settings.main_nav_wholesale != blank %}
+      {% assign menu_handle = settings.main_nav_wholesale %}
+    {% endif %}
+
+    {% for link in linklists[menu_handle].links %}
+      {% if linklists[link.handle] != empty %}
+      {% assign cat = link.title | downcase %}
+      <li class="dropdown {% if settings.display_megamenu and items_list contains cat %} mega-menu {% endif %}">
+        
+        <a href="{{ link.url }}" class="{% if link.active %} current{% endif %}"><span>{{ link.title | downcase | replace: '(wholesale)', '' }}</span></a> 	    
+        {% comment %}
+        Check if menu item is Mega menu
+        {% endcomment %}
+        {% if settings.display_megamenu and items_list contains cat %}
+          <div class="site-nav-dropdown">
+          {% include 'mega-menu' %}
+          </div>
+        {% else %}
+          {% comment %} normal menu {% endcomment %}
+        	<ul class="site-nav-dropdown">
+            {% for childlink in linklists[link.handle].links %}
+              {% if linklists[childlink.handle] != empty %}
+                <li class="dropdown">
+                  <a href="{{ childlink.url }}" class="{% if childlink.active %} current{% endif %}"><span>{{ childlink.title }}</span></a>
+                  <ul class="site-nav-dropdown">
+                    
+                    {% for childlink2 in linklists.[childlink.handle].links %}
+                      {% if linklists[childlink2.handle] != empty %}
+                        <li class="dropdown">
+                          <a href="{{ childlink2.url }}" class="{% if childlink2.active %} current{% endif %}"><span>{{ childlink2.title }}</span></a>
+                          <ul class="site-nav-dropdown">
+                            {% for childlink3 in linklists.[childlink2.handle].links %}
+                              <li><a href="{{ childlink3.url }}" class="{% if link.active %} current{% endif %}">{{ childlink3.title | escape }}</a></li>
+                            {% endfor %}
+                          </ul>
+                        </li>
+                        
+                      {% else %}
+                        <li><a href="{{ childlink2.url }}" class="{% if link.active %} current{% endif %}">{{ childlink2.title | escape }}</a></li>
+                      {% endif %}
+                    {% endfor %}
+
+                  </ul>
+                </li>
+              {% else %}
+                <li><a href="{{ childlink.url }}" class="{% if link.active %} current{% endif %}">{{ childlink.title | escape }}</a></li>
+              {% endif %}      
+            {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+      {% else %}
+          <li><a href="{{ link.url }}" class="{% if link.active %} current{% endif %}"><span>{{ link.title }}</span></a></li>
+      {% endif %}
+    {% endfor %}   
+  </ul>
+  </div>
+{% endif %}
+
+{% if settings.display_megamenu %}
+  <script>
+    jQuery(document).ready(function() {
+      jQuery("ul.dropdown li").has("ul.dropdown").find('>span').click(function(e) {
+        if (!jQuery(".visible-phone").is(":visible")) {
+          e.preventDefault();
+
+          var currentParentMenu = jQuery(this).parents(".parent-mega-menu");
+          var subMegaMenu = jQuery(this).parents(".row").find(".sub-mega-menu");
+          var parentLink = jQuery(this).prev();
+          var grandParentLink = jQuery(this).parents(".inner").find(">a");
+
+          subMegaMenu.find(".inner").html(jQuery(this).next().clone());
+          subMegaMenu.find(".parent-link a:eq(0)").attr("href", grandParentLink.attr("href")).text(grandParentLink.text());
+          subMegaMenu.find(".parent-link a:eq(1)").attr("href", parentLink.attr("href")).text(parentLink.text());
+          subMegaMenu.find(".parent-link span.up").click(function(){
+            subMegaMenu.slideUp();
+            currentParentMenu.slideDown();
+          });
+          currentParentMenu.slideUp();
+          subMegaMenu.slideDown();
+        }      
+      });
+    });
+  </script>
+{% endif %}

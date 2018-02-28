@@ -1,0 +1,58 @@
+{% assign listing_cols = '1' %}
+{% assign image_size = 'original' %}
+
+{% if settings.display_featured_products %}
+  {% if settings.display_featured_products != blank %} 
+
+    <!-- featured Slider -->
+    <section class="featured-pro">
+      <div class="container"> {% if shop.products_count < 1 %}
+        <div class="hero-unit">
+          <p class="text-center">This section displays Featured products. Unfortunately you don't have any products in your store yet. </p>
+          <p class="text-center"> <a class="btn btn-primary" href="/admin/products/new">Would you like to add some?</a> </p>
+        </div>
+        {% endif %}
+        <div class="slider-items-products">
+          <div class="featured-block">
+            <div id="featured-slider" class="product-flexslider hidden-buttons">
+              <div class="home-block-inner">
+                <div class="block-title">
+                  <h2>{{ settings.featured_title }} </h2>
+                </div>
+                <div class="pretext">{{ settings.featured_pretext_text }}</div>
+                <a href="{{ settings.featured_link }}">
+                <div class="view_more_bnt">{{ settings.featured_button_text }}</div>
+                </a> </div>
+              <div class="slider-items slider-width-col4 products-grid block-content"> 
+                <!-- Item --> 
+                
+                {% for product in collections[settings.featured-category].products limit:8 %}
+                <div class="item"> {% include 'product-grid-item' with 'listing_cols' with 'image_size' %} </div>
+                {% endfor %} </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End featured Slider --> 
+
+  {% endif %}
+{% endif %} 
+<script type="text/javascript">
+//<![CDATA[
+jQuery(document).ready(function(cash) {
+  jQuery("#featured-slider .slider-items").owlCarousel({
+  items : 4, //10 items above 1000px browser width
+  itemsDesktop : [1260,3], //5 items between 1024px and 901px
+  itemsDesktopSmall : [900,3], //3 items betweem 900px and 768px
+  itemsTablet: [768,3], //3 items between 768px and 360px
+  itemsMobile : [360,2], //3 items between 360px and 0
+  navigation : true,
+  navigationText : ["<a class=\"flex-prev\"></a>","<a class=\"flex-next\"></a>"],
+  slideSpeed : 500,
+  pagination : false,
+  autoPlay: false
+  });
+}); 
+//]]>
+</script> 

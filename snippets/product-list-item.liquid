@@ -1,0 +1,61 @@
+{% unless current_collection %}
+  {% assign current_collection = collection %}
+{% endunless %}
+
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available  %}
+  {% assign sold_out = false %}
+{% endif %}
+
+{% assign image_size = settings.collection_prod_image_sizes %}
+
+<div class="grid-item{% if sold_out %} sold-out{% endif %}{% if on_sale %} on-sale{% endif %}">
+  <div data-id="{{ product.id }}" class="product-{{ product.id }} product-item product-list-item">
+    <div class="col-sm-4">
+      <div class="product_image-wrap">  
+        <a href="{{ product.url | within: collection }}" class="product-grid-image">
+          <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+        </a>
+        {% if settings.display_quickview %}
+          {% if settings.display_quickview != blank %}
+            <div style="display: none !important" >
+              <a class="sca-qv-button"  href="#sca-qv-showqv" title="Quick View" handle="{{product.handle}}" ></a>
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="product_title-wrap">
+        <a href="{{ product.url | within: collection }}" class="product_title">
+          {{ product.title }}
+        </a>
+      </div>
+      <span style="color:grey">
+        {% if product.first_available_variant.option1 != nil and product.first_available_variant.option1 != 'Default Title' %}
+          {{ product.first_available_variant.option1 }}
+        {% else %}
+          {{ product.first_available_variant.weight | weight_with_unit }}
+        {% endif %}            
+      </span>
+      {% include 'color-switch' %}
+      <div id="product_description"> {{ product.description | truncatewords: 35 }} </div>
+      <div class="product_price">
+      {% if product.price < product.compare_at_price_min %}
+         <span class="money"> {{ product.price | money }}</span> 
+         <del><span class="money"> {{ product.compare_at_price_min | money }}</span></del> 
+         <span class="sale-badge">Sale</span>
+      {% else %}
+        <span class="money">{{ product.price | money }}</span>
+      {% endif %}  
+      </div>
+      {% include 'snippet-add-to-cart' %}
+      {% comment %}{% include 'wishlist-product' %}{% endcomment %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<!-- BEGIN: Rating-Widget -->
+{% include 'rw-ratings-data' %}
+{% if hasRatingData == true %}
+<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+{% endif %}
+    <div 
+        class="rw-ui-container rw-urid-{{ product.id }} rw-class-product"
+        data-domain="{{ shop.permanent_domain | escape }}"
+        data-urid="{{ product.id }}"
+        data-title="{{ product.title | escape | strip_html }}"
+        data-description="{{ product.description | escape | strip_html }}"
+        data-url="{{ page.url }}"
+        data-img="{{ product.featured_image | product_img_url: 'large'  |replace: '?', '%3F' | replace: '&','%26'}}"
+        data-tags="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+    </div>
+{% if hasRatingData == true %}
+    <meta itemprop="ratingValue" content="{{ rate }}" />
+    <meta itemprop="ratingCount" content="{{ votes }}" />
+</div>
+{% endif %}
+<!-- END: Rating-Widget -->

@@ -1,0 +1,22 @@
+ {% if settings.display_collections %}
+        {% if settings.display_collections != blank %}
+
+<!-- Widget: list all collections -->
+  <div class="widget widget__collections">
+    <div class="widget_header">
+      <h3><a href="/collections">Collections</a></h3>
+    </div>
+    <div class="widget_content">
+      <ul class="list">
+      {% for collection in collections %}
+        <li class="{{ collection.handle }}{% if page_title == collection.title %} active{% endif %}">          
+          <a href="{{ collection.url }}" title="{{ collection.title | escape }}">{{ collection.title | escape }} 
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>    
+  </div><!-- /.widget -->
+
+ {% endif %}
+ {% endif %}

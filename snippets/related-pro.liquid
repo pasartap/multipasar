@@ -1,0 +1,142 @@
+
+
+<!-- Solution brought to you by Caroline Schnapp -->
+<!-- See this: https://docs.shopify.com/support/your-store/products/can-i-recommend-related-products -->
+ 
+{% comment %}
+  Number of related items per row,
+  and number of rows.
+{% endcomment %}
+ 
+{% assign number_of_related_products_to_show = 20 %}
+
+ 
+{% comment %}
+  Heading.
+  Leave blank if you don't need one.
+{% endcomment %}
+ 
+{% assign heading = 'Other fine products' %}
+ 
+{% comment %}
+  Set either or both to true, if you want
+  to limit yourself to items with same vendor, and/or type.
+{% endcomment %}
+ 
+{% assign same_vendor = false %}
+{% assign same_type = false %}
+ 
+{% comment %}
+  Collections to ignore.
+  Never pick related items from those.
+{% endcomment %}
+ 
+{% assign exclusions = 'frontpage,all' | split: ',' %}
+ 
+{% comment %}
+  Looking for a relevant collection.
+{% endcomment %}
+ 
+{% assign found_a_collection = false %}
+{% if collection and collection.all_products_count > 1 %}
+  {% unless exclusions contains collection.handle %}
+    {% assign found_a_collection = true %}
+  {% endunless %}
+{% endif %}
+{% unless found_a_collection %}
+  {% for c in product.collections %}
+    {% unless exclusions contains c.handle or c.all_products_count < 2 %}
+      {% assign found_a_collection = true %}
+      {% assign collection = c %}
+      {% break %}
+    {% endunless %}
+  {% endfor %}
+{% endunless %}
+ 
+{% comment %}
+  If we have a relevant collection.
+{% endcomment %}
+ 
+{% if found_a_collection %}
+ 
+  {% assign counter = 0 %}
+  {% assign break_at = number_of_rows | times: number_of_related_products_per_row %}
+  {% assign current_product = product %}
+ 
+ 
+ 
+  {% capture related_items %}
+    {% for product in collection.products %}
+      {% unless product.handle == current_product.handle %}
+         {% unless same_vendor and current_product.vendor != product.vendor %}
+           {% unless same_type and current_product.type != product.type %}
+             {% include 'product-grid-item' %}
+             {% assign counter = counter | plus: 1 %}
+             {% if counter == break_at %}
+               {% break %}
+             {% endif %}
+           {% endunless %}
+        {% endunless %}
+      {% endunless %}
+    {% endfor %}
+  {% endcapture %}
+ 
+  {% assign related_items = related_items | trim %}
+{% if settings.display_other_pro %}
+        {% if settings.display_other_pro != blank %}
+<div class="widget widget__related-products">
+  {% if collection and collection.products_count > 1 %}
+
+  <div class="widget_header">
+    <h2>{{ settings.fine-pro-title }}</h2>
+  </div>
+  <div class="widget_content">
+     <div class="product-listing product-listing__bestsellers">
+       <div id="related-slider" class="product-flexslider hidden-buttons">
+              <div class="slider-items slider-width-col4"> 
+        {% assign current_product_found = false %}
+        {% for prod in collection.products limit: number_of_related_products_to_fetch %}
+        {% if prod.title == product.title %}
+           {% assign current_product_found = true %}
+        {% else %}
+           {% unless current_product_found == false and forloop.last %}
+        <div class="item">
+              
+               {{ related_items }}
+             
+          
+         
+          
+          
+          
+            </div>
+                
+           {% endunless %}
+        {% endif %}
+        {% endfor %}
+                 </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+ {% endif %}
+ {% endif %}
+ {% endif %}
+<script type="text/javascript">
+//<![CDATA[
+ jQuery(document).ready(function(cash) {
+  jQuery("#related-slider .slider-items").owlCarousel({
+   items : 4, //10 items above 1000px browser width
+      itemsDesktop : [1024,3], //5 items between 1024px and 901px
+        itemsDesktopSmall : [900,2], // 3 items betweem 900px and 601px
+        itemsTablet: [600,2], //2 items between 600 and 0;
+        itemsMobile : [360,1],
+        navigation : true,
+        navigationText : ["<a class=\"flex-prev\"></a>","<a class=\"flex-next\"></a>"],
+        slideSpeed : 500,
+        pagination : false
+     });
+ }); 
+//]]>
+</script>

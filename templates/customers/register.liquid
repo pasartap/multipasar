@@ -1,0 +1,45 @@
+{% layout settings.customer_layout %}
+<div id="template" class="customer customer__register">
+
+  <div id="customer">
+	  <!-- Create Customer -->
+	  <div id="create-customer">
+	    <div class="template_header">
+	      <h2 class="page_title">Create Account</h2>
+	    </div>
+
+	    <div class="template_content row">	
+      <div class="form_customer col-sm-12">    
+              {% form 'create_customer' %}
+                {{ form.errors | default_errors }}
+        
+                <div id="first_name" class="clearfix large_form control-group">
+                  <label for="first_name" class="login control-label">First Name</label>
+                  <div class="controls"><input class="form-control" type="text" value="" name="customer[first_name]" id="first_name" class="large" size="30" /></div>
+                </div>
+        
+                <div id="last_name" class="clearfix large_form control-group">
+                  <label for="last_name" class="login control-label">Last Name</label>
+                  <div class="controls"><input class="form-control" type="text" value="" name="customer[last_name]" id="last_name" class="large" size="30" /></div>
+                </div>
+        
+                <div id="email" class="clearfix large_form control-group">
+                  <label for="email" class="login control-label">Email Address</label>
+                  <div class="controls"><input class="form-control" type="email" value="" name="customer[email]" id="email" class="large" size="30" /></div>
+                </div>
+        
+                <div id="password" class="clearfix large_form control-group">
+                  <label for="password" class="login control-label">Password</label>
+                  <div class="controls"><input class="form-control" type="password" value="" name="customer[password]" id="password" class="large password" size="30" /></div>
+                </div>
+        
+                <div class="action_bottom">
+                  <input class="btn btn-primary" type="submit" value="Create" />
+                  <span class="note">or <a href="{{ shop.url }}">Return to Store</a></span>
+                </div>
+              {% endform %}
+      </div>
+  	  </div>
+	  </div><!-- /#create-customer -->
+  </div>
+</div>

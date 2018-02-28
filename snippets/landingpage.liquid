@@ -1,0 +1,715 @@
+<div id="wrapper" class="landingpagediv">
+    <div class="container">
+        <div class="col-sm-6">
+            {{ request.myvar }}
+            <div class="logo">
+                {% if settings.use_logo %}
+                    <a id="logo" href="/">
+                        {{ 'logo_189x48.png' | asset_url | img_tag: shop.name }}
+                    </a>
+                {% else %}
+                    <a class="logo-title" href="/">{{ settings.logo_text }}</a>
+                {% else %}
+                    <h1 id="site-title" {% if settings.use_logo %} class="hidden" {% endif %}>
+                        <a class="trs_color" href="/">{{ shop.name }}</a>
+                    </h1>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-sm-6"></div>
+    </div>
+    <div class="container">
+        <div class="col-sm-12 mobilepadding0">
+            <center>
+                <div class="bannercontainer">
+                    <h1 class="landingtitle">Save time and leave the
+                        <br>groceries to us.</h1>
+                    <h3 class="landingsubtitle">Find the stores near by you!</h3>
+                    <div class="formlocation text-left">
+                        <p class="currentlocation">You are currently shopping in
+                            <span class="locationname"></span></p>
+                        <div id="locationField">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <div id="locationField">
+                                <input
+                                    id="autocomplete"
+                                    placeholder="Enter your address"
+                                    onfocus="geolocate()"
+                                    type="text"
+                                    class="form-control currentlocation"></input>
+
+                                <button class="btn btn-success " id="getallprdt">
+                                    Use address</button>
+                            </div>
+                        </div>
+                        <h4 class="chooselocation">
+                            Or use
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <a href="javascript:" class="getlocation">current location</a>
+                        </h4>
+                        <p id='latitudeAndLongitude'></p>
+                        <p id='address'></p>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#home">Market</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane fade in active">
+                                <h3>Select Market to start shopping!</h3>
+                                <ul class="mannualstore"></ul>
+                            </div>
+                            <div id="menu1" class="tab-pane fade">
+                                <h3>Select Market to start shopping!</h3>
+                                <p>Some content in menu 1.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table id="address" style="display: none;" class="landingpagepost">
+                    <tr>
+                        <td class="label">Street address</td>
+                        <td class="slimField"><input class="field" id="street_number" disabled="true"></td>
+                        <td class="wideField" colspan="2"><input class="field" id="route" disabled="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="label">City</td>
+                        <!-- Note: Selection of address components in this example is typical. You may
+                        need to adjust it for the locations relevant to your app. See
+                        https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+                        -->
+                        <td class="wideField" colspan="3"><input class="field" id="locality" disabled="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="label">State</td>
+                        <td class="slimField"><input class="field" id="administrative_area_level_1" disabled="true"></td>
+                        <td class="label">Zip code</td>
+                        <td class="wideField"><input class="field" id="postal_code" disabled="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Country</td>
+                        <td class="wideField" colspan="3"><input class="field" id="country" disabled="true"></td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .changestore .fa.fa-map-marker {
+        float: left;
+        position: relative;
+        font-size: 16px;
+        z-index: 999;
+        color: #50a746;
+        margin-left: 0;
+        margin-right: 0;
+        line-height: 40px;
+        height: 40px;
+        width: 40px;
+        border-right: 1px solid #f1f1f1 !important;
+        margin-top: -3px;
+    }
+    .seprater {
+        display: inline-block;
+        width: 1px;
+        float: left;
+        position: relative;
+        left: 20px;
+        top: 31%;
+        font-size: 12px !important;
+    }
+    .landingpage {
+        background: url("https://cdn.shopify.com/s/files/1/2168/1709/t/20/assets/HR4C5125-12.jpg?5676170823052302675");
+        position: relative;
+        height: 100%;
+        width: 100%;
+        z-index: 9999;
+        background-size: cover;
+        background-position: center;
+    }
+    .bannercontainer {
+        max-width: 750px;
+    }
+    .landingtitle {
+        font-size: 32px;
+        line-height: 1.3;
+        color: #fff;
+    }
+    .landingsubtitle {
+        font-size: 22px;
+        line-height: 1.6;
+        margin: 10px 0;
+        color: #fff;
+    }
+    .formlocation {
+        background: #fff;
+        padding: 2%;
+    }
+    #autocomplete {
+        float: left;
+        max-width: 84%;
+        height: 40px;
+        position: relative;
+        padding-left: 30px;
+    }
+    .btn.btn-success {
+        float: right;
+        height: 40px;
+    }
+    #locationField {
+        position: relative;
+        float: left;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #locationField .fa.fa-map-marker {
+        position: absolute;
+        left: 10px;
+        z-index: 9;
+        top: 10px;
+        font-size: 20px;
+        color: green;
+    }
+    .mannualstore li {
+        display: inline-block;
+        max-width: 32%;
+        text-align: center;
+        font-size: 15px;
+    }
+    .chooselocation {
+        float: left;
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .mannualstore li {
+        display: inline-block;
+        width: 30%;
+        text-align: center;
+        font-size: 15px;
+        margin-right: 2%;
+        background: #333;
+        border-radius: 10px;
+        color: #fff;
+        padding: 10px 2%;
+        cursor: pointer;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+    .mannualstore span {
+        line-height: 2px !important;
+        font-size: 11px;
+    }
+    .mannualstore {
+        padding: 0;
+        list-style: none;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .pac-container {
+        z-index: 99999;
+    }
+    .hideall {
+        display: none;
+    }
+    .showall {
+        display: block !important;
+    }
+    #footer,
+    .sitecontainers {
+        display: none;
+    }
+    #getallprdt {
+        font-size: 14px;
+    }
+    .changestore {
+        float: left;
+        margin-top: 10px;
+        width: 170px;
+        text-align: center;
+        border: 2px solid #e0e0e0;
+        border-radius: 6px;
+        height: 44px;
+        cursor: pointer;
+        padding: 3px;
+        position: relative;
+    }
+    .changestore span {
+        font-size: 11px;
+    }
+    .changestore h3 {
+        line-height: 1.4;
+        font-size: 12px;
+        font-weight: bold;
+        margin: 0;
+        text-transform: uppercase;
+    }
+    #myModal .landingsubtitle,
+    #myModal .landingtitle {
+        display: none;
+    }
+    #myModal .customfloat {
+        float: none;
+    }
+    .sticky-topbar .changestore {
+
+        background: #fff;
+    }
+    footer {
+        float: left;
+    }
+    #sticky-topbar .changestore {
+        width: 150px;
+    }
+    .changestore h3 {
+        line-height: 2.7;
+    }
+
+    @media screen and (max-width: 479px) {
+        .mm-page.mm-slideout.padding0high {
+            margin-top: 0 !important;
+        }
+        .landingtitle {
+            font-size: 23px;
+        }
+        .landingsubtitle {
+            font-size: 17px;
+        }
+        #autocomplete {
+            max-width: 57%;
+        }
+        .mannualstore li {
+            max-width: 48%;
+            width: 48%;
+        }
+        .formlocation {
+            padding: 4%;
+        }
+        .mobilepadding0 {
+            padding: 0;
+        }
+        #logo {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .mobilemenustore {
+            font-size: 20px;
+            color: #fff;
+            max-width: 30px;
+            float: right;
+            margin-top: 12px;
+            width: 30px !important;
+            display: inline-block;
+            cursor: pointer;
+        }
+        #myModal .modal-body {
+            padding: 5px;
+        }
+        #sticky-mmenu {
+            z-index: 999;
+        }
+        #myModal {
+            z-index: 9999 !important;
+        }
+    }
+    @media screen and (min-width: 480px) and (max-width: 767px) {
+        .mm-page.mm-slideout.padding0high {
+            margin-top: 0 !important;
+        }
+        .landingtitle {
+            font-size: 23px;
+        }
+        .landingsubtitle {
+            font-size: 17px;
+        }
+        #autocomplete {
+            max-width: 60%;
+        }
+        .mannualstore li {
+            max-width: 48%;
+            width: 48%;
+        }
+        .formlocation {
+            padding: 2% 3%;
+        }
+        .mobilepadding0 {
+            padding: 0;
+        }
+        #logo {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .mobilemenustore {
+            font-size: 20px;
+            color: #fff;
+            max-width: 30px;
+            float: right;
+            margin-top: 12px;
+            width: 30px !important;
+            display: inline-block;
+            cursor: pointer;
+        }
+        #myModal .modal-body {
+            padding: 5px;
+        }
+        #sticky-mmenu {
+            z-index: 999;
+        }
+        h1.landingtitle br {
+            display: none;
+        }
+        .landingsubtitle {
+            margin: 5px 0;
+        }
+        #logo {
+            margin-top: 0;
+        }
+        #myModal {
+            z-index: 9999 !important;
+        }
+    }
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+        h1.landingtitle br {
+            display: block;
+        }
+        .landingsubtitle {
+            margin: 10px 0;
+        }
+        .changestore {
+            width: 113px;
+            font-size: 11px;
+        }
+        .top-header {
+            width: 115px;
+        }
+
+        .changestore h3 {
+            line-height: 1.4;
+            font-size: 12px;
+        }
+        .tile_cart {
+            padding: 0 0 14px;
+        }
+        .tile_cart a {
+            padding: 0 2px 0 0;
+        }
+        .tile_cart a .fa-shopping-cart {
+            width: 25px;
+            float: left;
+        }
+        .tile_cart a span {
+            float: left;
+            height: 30px;
+            line-height: 3.4;
+        }
+        .tile_cart a span span.count {
+            line-height: 40px;
+        }
+        .tile_cart a span.money {
+            margin-left: 4px;
+        }
+        .tile_cart a span span.count {
+            width: 20px;
+        }
+        #sticky-topbar .changestore {
+            width: 113px !important;
+        }
+
+        .changestore h3 {
+            line-height: 2.7;
+        }
+        .tile_cart a .fa-shopping-cart {
+            margin-right: 0;
+        }
+        .changestore .fa.fa-map-marker {
+            width: 30px;
+        }
+    }
+    @media only screen and (min-width: 960px) and (max-width: 1024px) {
+        .changestore {
+            float: left !important;
+        }
+        .tile_cart {
+            padding: 0 0 14px;
+        }
+        #autocomplete {
+            max-width: 79%;
+        }
+        .mgk-top-cart {
+            padding-right: 5px !important;
+        }
+        .changestore {
+            width: auto !important;
+        }
+
+        .changestore span {
+            font-size: 10px;
+        }
+
+        .tile_cart a {
+            padding: 0 3px 0 0;
+        }
+        .tile_cart a .fa-shopping-cart {
+            width: 30px;
+        }
+        .tile_cart a span span.count {
+            width: 20px;
+        }
+        #sticky-topbar .changestore h3 {
+            font-size: 14px;
+        }
+        .changestore .fa.fa-map-marker {
+            width: 30px;
+        }
+        .changestore h3 {
+            line-height: 2.7;
+            float: left;
+        }
+
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".landingpagediv").css("min-height", $(window).height());
+        if ($.cookie("PasarStoreName")) {
+            $(".landingpagediv").remove();
+        }
+
+        var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
+        showLoading()
+        $(document).on("click", ".mannualstore li", function () {
+            var url = window.location.href;
+            if (!$(this).parent("ul").hasClass("withemptycart")) {
+                $.cookie("PasarStoreName", $(this).text());
+                window.location.href = url;
+            }
+        });
+        $(document).on("click", ".getlocation", function () {
+
+            var latitudeAndLongitude = document.getElementById("latitudeAndLongitude"),
+                location             = {
+                    latitude : '',
+                    longitude: ''
+                };
+            if (navigator.geolocation) {
+                navigator
+                    .geolocation
+                    .getCurrentPosition(showPosition);
+
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+            function showPosition(position) {
+                location.latitude  = position.coords.latitude;
+                location.longitude = position.coords.longitude;
+                var geocoder = new google
+                    .maps
+                    .Geocoder();
+                var latLng = new google
+                    .maps
+                    .LatLng(location.latitude, location.longitude);
+                if (geocoder) {
+                    geocoder.geocode({
+                        'latLng': latLng
+                    }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+
+                            var addresnew = '';
+                            for (var i = 0; i < results[0].address_components.length; i++) {
+                                for (var b = 0; b < results[0].address_components[i].types.length; b++) {
+                                    if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
+                                        addresnew += results[0]
+                                            .address_components[i]
+                                            .long_name;
+                                    }
+                                    if (results[0].address_components[i].types[b] == "postal_code") {
+                                        addresnew += " " + results[0]
+                                            .address_components[i]
+                                            .long_name;
+                                        $("#postal_code").val(results[0].address_components[i].long_name);
+                                    }
+                                    if (results[0].address_components[i].types[b] == "country") {
+                                        addresnew += " " + results[0]
+                                            .address_components[i]
+                                            .long_name;
+                                    }
+                                }
+                            }
+                            //$('.autocomplete').val(results[0].formatted_address);
+                            $('.currentlocation').val(addresnew);
+                            //$('.autocomplete').val('Klang Selangor Malaysia');
+                            $("#getallprdt").click();
+
+                        } else {
+                            alert(status);
+                        }
+                    }); //geocoder.geocode()
+                }
+            } //showPosition
+        });
+
+        $(document).on("click", "#getallprdt", function () {
+            $(".nostoremsg").remove();
+            var tag = $("#autocomplete").val();
+            var postcode = $("#postal_code").val();
+            if (tag != '') {
+                $.ajax({
+                    data    : {
+                        postcode : postcode,
+                        shop_name: "1",
+                        tag      : tag
+                    },
+                    dataType: "json",
+                    success : function (response) {
+                        console.log(response);
+
+                        var total = response.data.length;
+                        if (response.result == "true") {
+                            var storelist = '';
+                            if (response.slot != 'No') {
+                                var timeslot = 'Next available slot ' + response.slot;
+                                $(".changestore")
+                                    .find("span")
+                                    .html(timeslot);
+                            } else {
+                                var timeslot = '';
+                            }
+                            $.each(response.data, function (i, item) {
+                                if (item.id != '17') {
+                                    storelist += '<li ><strong>' + item.market + '</strong><br><span>' + timeslot +
+                                            '</span></li>';
+                                }
+                            });
+                            //console.log(storelist);
+                            $(".mannualstore").html(storelist);
+                            if (total == 1) {
+                                $("ul.mannualstore li:first-child").click();
+                            }
+                        } else {
+                            var msgnostore = 'Sorry, PasarTap does not provide service at this location. Please select a mar' +
+                                    'ket below to continue browsing our products.';
+                            if (postcode == '') {
+                                msgnostore += '<br>Sorry, your location could not be determined. Please select a market manua' +
+                                        'lly below.';
+                            }
+                            $(".mannualstore").before(
+                                "<p class='nostoremsg'><strong>" + msgnostore + "</strong></p>"
+                            );
+                            var storelist = '';
+                            if (response.slot != 'No') {
+                                var timeslot = 'Next available slot ' + response.slot;
+                                $(".changestore")
+                                    .find("span")
+                                    .html(timeslot);
+                            } else {
+                                var timeslot = '';
+                            }
+                            $.each(response.data, function (i, item) {
+                                if (item.id != '17') {
+                                    storelist += '<li ><strong>' + item.market + '</strong><br><span>' + timeslot +
+                                            '</span></li>';
+                                }
+                            });
+                            //console.log(storelist);
+                            $(".mannualstore").html(storelist);
+                        }
+                    },
+                    type    : "POST",
+                    url     : appurl + "ajax_store.php"
+                });
+            }
+        });
+        if ($("input[type='hidden'][name='market']").val() == '' && $.cookie('PasarStoreName') != undefined) {
+            $("input[type='hidden'][name='market']").val($.cookie('PasarStoreName'))
+        }
+    });
+    $(window).load(function () {
+
+        var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
+        $.ajax({
+            data    : {
+                shop_name: "1"
+            },
+            dataType: "json",
+            success : function (response) {
+                if (response.result == "true") {
+                    var storelist = '';
+                    if (response.slot != 'No') {
+                        var timeslot = 'Next available slot ' + response.slot;
+                        $(".changestore")
+                            .find("span")
+                            .html(timeslot);
+                    } else {
+                        var timeslot = '';
+                    }
+                    $.each(response.data, function (i, item) {
+                        if (item.id != "17") {
+                            storelist += '<li ><strong>' + item.market + '</strong><br><span>' + timeslot +
+                                    '</span></li>';
+                            $(".coll-filter option").each(function () {
+                                if (this.text == item.market) {
+                                    $(this).remove();
+                                }
+                                console.log(this.text + "==" + item.market);
+                            });
+                        }
+                    });
+                    //console.log(storelist);
+                    $(".mannualstore").html(storelist);
+                }
+            },
+            type    : "POST",
+            url     : appurl + "ajax_get_stores.php"
+        });
+        if ($.cookie('PasarStoreName') == undefined) {
+            $(".sitecontainers").addClass("hideall");
+            $("#footer").addClass("hideall");
+            $(".landingpage").addClass("showall");
+            $("#sticky-mmenu").addClass("hideall");
+            $(".mm-page").addClass("padding0high");
+            $("#myModal").remove();
+            $(".innerpagepost").remove();
+
+        } else {
+            $(".sitecontainers").addClass("showall");
+            $(".landingpage").addClass("hideall");
+            $("#footer").addClass("showall");
+            $("#sticky-mmenu").addClass("showall");
+            $(".landingpagepost").remove();
+        }
+        hideLoading();
+        if ($.cookie('PasarStoreName') != undefined) {
+            $(".changestore")
+                .find("h3")
+                .text($.cookie('PasarStoreName'));
+            $(".locationname")
+                .find("strong")
+                .text($.cookie('PasarStoreName'));
+        }
+    });
+    function showLoading() {
+        $(".loading").show();
+    }
+    function hideLoading() {
+        $(".loading").hide();
+    }
+    function reload_collection() {
+        var collectionurl = window.location.href;
+        var addtg = $
+            .trim($.cookie('PasarStoreName'))
+            .toLowerCase()
+            .replace(/\s+/g, "-");
+
+        if (collectionurl.indexOf(addtg) != -1) {
+            console.log("found");
+        } else {
+            window.location.href = collectionurl + "/" + addtg;
+        }
+
+    }
+    {% if  template == 'collection' %}
+        reload_collection();
+    {% endif %}
+</script>

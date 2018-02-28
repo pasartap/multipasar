@@ -1,0 +1,101 @@
+{% assign listing_cols = '1' %}
+{% assign image_size = 'original' %}
+   {% if settings.enable_home-tabs %}
+   {% if settings.enable_home-tabs != blank %}
+<div id="home-tab-section">    
+<div class="home-tab col-md-12 column col-xs-12">
+  <div class="category-product">
+          <ul class="nav home-nav-tabs home-product-tabs">
+            <li> <div class="new_title center"> <h2>{{ settings.home-tabs-title }}</h2> </div> </li>
+          
+            <li class="active"><a href="#home-tab-1" data-toggle="tab" aria-expanded="false">{{ settings.tab-1-header }}</a></li>
+         
+             <li class=""> <a href="#home-tab-2" data-toggle="tab" aria-expanded="false">{{ settings.tab-2-header }}</a> </li>
+         
+            <li class=""> <a href="#home-tab-3" data-toggle="tab" aria-expanded="false">{{ settings.tab-3-header }}</a> </li>
+         
+            <li class=""> <a href="#home-tab-4" data-toggle="tab" aria-expanded="false">{{ settings.tab-4-header }}</a> </li>
+        
+            
+            
+          </ul>
+          <div id="productTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="home-tab-1">
+              <div class="best-seller-pro">
+              {% include 'widget-home-category1' %}
+              </div>
+            </div>
+            <div class="tab-pane fade" id="home-tab-2">
+              <div class="new-arrivals-products-pro">
+                
+         
+             {% include 'widget-home-category2' %}   
+                
+          
+                
+              </div>
+            </div>
+            
+            <div class="tab-pane fade" id="home-tab-3">
+              <div class="featured-products-pro">
+                
+         
+             {% include 'widget-home-category3' %}   
+                
+          
+                
+              </div>
+            </div>
+            
+            <div class="tab-pane fade" id="home-tab-4">
+              <div class="featured-products-pro">
+                
+         
+             {% include 'widget-home-category4' %}   
+                
+          
+                
+              </div>
+            </div>
+            <div class="tab-pane fade" id="home-tab-5">
+              <div class="featured-products-pro">
+                
+         
+             {% include 'widget-home-category5' %}   
+                
+          
+                
+              </div>
+            </div>
+            
+         
+          </div></div>
+  
+        </div>
+
+
+
+
+</div>
+  {% endif %}
+  {% endif %}
+
+
+<script type="text/javascript">
+
+jQuery(document).ready(function() {
+	
+	jQuery(".tab_content_best-seller").hide();
+	jQuery(".tab_content_best-seller:first").show(); 
+
+	jQuery("ul.tabs-best-seller li").click(function() {
+		jQuery("ul.tabs-best-seller li").removeClass("active");
+		jQuery(this).addClass("active");
+		jQuery(".tab_content_best-seller").hide();
+		var activeTab = $jq(this).attr("rel"); 
+		jQuery("#"+activeTab).fadeIn(); 
+	});
+});
+
+</script>
+

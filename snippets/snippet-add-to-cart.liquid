@@ -1,0 +1,54 @@
+{% assign item_in_cart = false %}
+{% assign item_quantity = 0 %}
+
+{% for item in cart.items %}
+  {% if item.product_id == product.id %}
+    {% assign item_in_cart = true %}
+    {% assign item_quantity = item.quantity %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+<!-- 
+    This is just a regular add product form. 
+    You should be able to add any valid input fields to it 
+-->
+{% assign variantCount = product.variants | size %}
+<form id="addToCartContainer" action="/cart/add" method="post" enctype="multipart/form-data" data-id="{{ product.id }}" class="addToCartForm product-actions-{{ product.id }}">
+  
+  {% if item_in_cart == true %}
+    <div class="cart-buttons">
+      <input type="hidden" name="id" value="{{ product.variants[0].id }}" />
+      <button type="submit" name="minus" class="btn-remove-from-cart"><i class="fa fa-minus" aria-hidden="true"></i></button>
+      <input type="text" id="quantity" name="quantity" value="{{ item_quantity }}" class="add-to-cart-quantity-cart" readonly>
+      <button type="submit" name="add" class="btn-add-to-cart"><i class="fa fa-plus" aria-hidden="true"></i></button>
+    </div>
+    <div class="single-add-to-cart-button" style="display:none">
+      {% if sold_out %}
+        <input class="btn btn-primary addToCart add-to-cart-btn" type="submit" value="Unavailable" disabled="disabled" /> 
+      {% else %} 
+        <input type="hidden" name="id" value="{{ product.variants[0].id }}" />
+        <button type="submit" name="add" class="btn btn-primary addToCart add-to-cart-btn">
+            <span class="addToCartText">Add to cart</span>
+        </button>
+      {% endif %}
+    </div>
+  {% else %}
+    <div class="cart-buttons" style="display:none">
+      <input type="hidden" name="id" value="{{ product.variants[0].id }}" />
+      <button type="submit" name="minus" class="btn-remove-from-cart"><i class="fa fa-minus" aria-hidden="true"></i></button>
+      <input type="text" id="quantity" name="quantity" value="1" class="add-to-cart-quantity-cart" readonly>
+      <button type="submit" name="add" class="btn-add-to-cart"><i class="fa fa-plus" aria-hidden="true"></i></button>
+    </div>
+    <div class="single-add-to-cart-button">
+      {% if sold_out %}
+        <input class="btn btn-primary addToCart add-to-cart-btn" type="submit" value="Unavailable" disabled="disabled" /> 
+      {% else %} 
+        <input type="hidden" name="id" value="{{ product.variants[0].id }}" />
+        <button type="submit" name="add" class="btn btn-primary addToCart add-to-cart-btn">
+            <span class="addToCartText">Add to cart</span>
+        </button>
+      {% endif %}
+    </div>
+  {% endif %}
+</form>

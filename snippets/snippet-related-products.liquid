@@ -1,0 +1,216 @@
+<!-- Solution brought to you by Caroline Schnapp -->
+<!-- See this: https://docs.shopify.com/support/your-store/products/can-i-recommend-related-products -->
+ 
+{% comment %}
+  Number of related items per row,
+  and number of rows.
+{% endcomment %}
+ 
+{% assign number_of_related_products_per_row = 20 %}
+{% assign number_of_rows = 1 %}
+ 
+{% comment %}
+  Heading.
+  Leave blank if you don't need one.
+{% endcomment %}
+ 
+{% assign heading = 'Other fine products' %}
+ 
+{% comment %}
+  Set either or both to true, if you want
+  to limit yourself to items with same vendor, and/or type.
+{% endcomment %}
+ 
+{% assign same_vendor = false %}
+{% assign same_type = false %}
+ 
+{% comment %}
+  Collections to ignore.
+  Never pick related items from those.
+{% endcomment %}
+ 
+{% assign exclusions = 'frontpage,all' | split: ',' %}
+ 
+{% comment %}
+  Looking for a relevant collection.
+{% endcomment %}
+ 
+{% assign found_a_collection = false %}
+{% if collection and collection.all_products_count > 1 %}
+  {% unless exclusions contains collection.handle %}
+    {% assign found_a_collection = true %}
+  {% endunless %}
+{% endif %}
+{% unless found_a_collection %}
+  {% for c in product.collections %}
+    {% unless exclusions contains c.handle or c.all_products_count < 2 %}
+      {% assign found_a_collection = true %}
+      {% assign collection = c %}
+      {% break %}
+    {% endunless %}
+  {% endfor %}
+{% endunless %}
+ 
+{% comment %}
+  If we have a relevant collection.
+{% endcomment %}
+ 
+{% if found_a_collection %}
+ 
+  {% assign counter = 0 %}
+  {% assign break_at = number_of_rows | times: number_of_related_products_per_row %}
+  {% assign current_product = product %}
+ 
+  {% case number_of_related_products_per_row %}
+    {% when 1 %}
+      {% assign grid_item_width = '' %}
+    {% when 2 %}
+      {% assign grid_item_width = 'large--one-half medium--one-half' %}
+    {% when 3 %}
+      {% assign grid_item_width = 'large--one-third medium--one-half' %}
+    {% when 4 %}
+      {% assign grid_item_width = 'col-4' %}
+    {% when 5 %}
+      {% assign grid_item_width = 'large--one-fifth medium--one-third small--one-half' %}
+    {% when 6 %}
+      {% assign grid_item_width = 'large--one-sixth medium--one-third small--one-half' %}
+    {% else %}
+      {% assign grid_item_width = 'large--one-quarter medium--one-third small--one-half' %}
+  {% endcase %}
+ 
+  {% capture related_items %}
+    {% for product in collection.products %}
+      {% unless product.handle == current_product.handle %}
+         {% unless same_vendor and current_product.vendor != product.vendor %}
+           {% unless same_type and current_product.type != product.type %}
+<div data-id="{{ product.id }}" class="product-{{ product.id }} product product__product-grid-item product-item col-sm-{{ item_width }}">
+<div class="item-inner">
+  <div class="product_image-wrap item-img">  
+  
+     <a href="{{ product.url | within: collection }}" class="product-grid-image">
+        <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+   
+      </a>
+     
+  </div><!-- .prod-image-wrap -->
+  <div class="box-hover">
+    <ul class="add-to-links">
+      <li>
+    {% comment %}
+   {% include 'wishlist-product' %}
+    {% endcomment %} 
+      </li>
+  
+    </ul>
+  </div>   
+  
+ {% include 'color-switch' %}
+        <div class="product_title-wrap">
+          <a href="{{ product.url | within: collection }}" class="product_title">
+            {{ product.title }}
+          </a>
+         
+        </div>
+<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+  <div class="product_price">
+       {% if product.price < product.compare_at_price_min %}
+ <span class="money"> {{ product.price | money }}</span> <del><span class="money"> {{ product.compare_at_price_min | money }}</span></del> <span class="sale-badge">Sale</span>
+{% else %}
+ <span class="money">{{ product.price | money }}</span>
+{% endif %}
+		   
+          
+    	</div>
+   {% assign variantCount = product.variants | size %}
+  <form action="/cart/add" method="post" enctype="multipart/form-data" data-id="{{ product.id }}" class="addToCartForm product-actions-{{ product.id }}">
+           {% if sold_out %}
+            <input class="btn btn-primary addToCart add-to-cart-btn" type="submit" value="Unavailable" disabled="disabled" />
+            {% else %}
+              {% if variantCount > 1 %}    
+              <input class="btn btn-primary addToCart add-to-cart-btn" type="button" onclick="window.location.href='{{product.url}}'" value="Select options" />
+              {% else %}
+         
+             <input type="hidden" name="id" value="{{ product.variants[0].id }}" />  
+        <button type="submit" name="add" class="btn btn-primary addToCart add-to-cart-btn">
+          <span class="addToCartText">Add to cart</span>
+        </button>
+    
+      {% endif %}
+            {% endif %}
+           
+            </form>
+ 
+      
+  
+  
+  
+  
+  </div>
+</div>
+
+
+
+
+             {% assign counter = counter | plus: 1 %}
+             {% if counter == break_at %}
+               {% break %}
+             {% endif %}
+           {% endunless %}
+        {% endunless %}
+      {% endunless %}
+    {% endfor %}
+  {% endcapture %}
+ 
+  {% assign related_items = related_items | trim %}
+ <div class="widget__related-products">
+     <div class="widget-title">   
+                <div class="home-block-inner">
+    
+              <div class="block-title">
+                <h2>{{ settings.related_title }} </h2>
+              </div>
+              <div class="pretext">{{ settings.related_pretext_text }}</div>
+             
+              <a href="{{ settings.related_view_all_link }}"><div class="view_more_bnt">{{ settings.related_view_all_button_text }}</div></a> </div>
+      
+    </div>
+   
+    <div class="widget_content">
+     <div class="product-listing product-listing__bestsellers">
+     <div id="related-slider" class="product-flexslider hidden-buttons">
+         {% unless related_items == blank %}      
+       <div class="slider-items slider-width-col4"> 
+      {% unless heading == blank %}
+
+      {% endunless %}
+    
+        {{ related_items }}
+    
+    </div>
+         {% endunless %}
+       
+  </div>
+</div>
+      </div>
+  </div>
+     
+{% endif %}
+
+
+<script type="text/javascript">
+//<![CDATA[
+ jQuery(document).ready(function(cash) {
+  jQuery("#related-slider .slider-items").owlCarousel({
+   items : 4, //10 items above 1000px browser width
+      itemsDesktop : [1024,3], //5 items between 1024px and 901px
+        itemsDesktopSmall : [900,2], // 3 items betweem 900px and 601px
+        itemsTablet: [600,2], //2 items between 600 and 0;
+        itemsMobile : [360,2],
+        navigation : true,
+        navigationText : ["<a class=\"flex-prev\"></a>","<a class=\"flex-next\"></a>"],
+        slideSpeed : 500,
+        pagination : false
+     });
+ }); 
+//]]>
+</script>
