@@ -17,6 +17,8 @@
             <center>
                 <div class="bannercontainer">
                     <div class="top-banner"></div>
+                    <h1 class="landingtitle">We've got you covered!</h1>
+                    <h3 class="landingsubtitle">Fresh groceries at your fingertips!</h3>
                     <div class="formlocation text-left">
                         <div id="locationField">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -58,6 +60,24 @@
                     <div class="formlocation text-center" style="margin-top:10px">
                         <div class="brand-header" style="margin-top:0px">
                             <span>HOW TO PLACE AN ORDER</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 box-image">
+                              <img src="{{ 'order_step_1.png' | asset_img_url: '1333x1333' }}"/>
+                              <span>Browse products<span>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 box-image">
+                              <img src="{{ 'order_step_2.png' | asset_img_url: '1333x1333' }}"/>
+                              <span>Add to cart<span>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 box-image">
+                              <img src="{{ 'order_step_3.png' | asset_img_url: '1333x1333' }}"/>
+                              <span>Pick delivery date and time slot<span>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 box-image">
+                              <img src="{{ 'order_step_4.png' | asset_img_url: '1333x1333' }}"/>
+                              <span>Make payment<span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -131,8 +151,22 @@
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
-        height: 200px;
-        margin: 20px 0;
+        height: 160px;
+        margin-bottom: 20px;
+    }
+    .box-image {
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
+        background-position: center !important;
+        margin-top: 10px !important;
+    }
+    .box-image img {
+        width: 80px;
+        height: 80px;
+    }
+    .box-image span   {
+        display: block;
+        margin: 10px 0;
     }
     .landingtitle {
         font-size: 32px;
