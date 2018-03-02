@@ -413,6 +413,7 @@
 </body>
   <script>
   $(window).load(function() {
+    
     $( ".item " ).each(function( index ) {
       if(!$(this).hasClass($.cookie('PasarStoreName'))){
       	$(this).parent(".product-item").remove();
@@ -426,11 +427,15 @@
       }
     });
     {% endif %}
-    $("input[name='attributes[Market]']").val($.cookie('PasarStoreName'));
-    {% if  template == 'index' %}
-    InitCarousal();
+    {% if template != 'index' %}
+    hideLoading();
     {% endif %}
-    
+    $("input[name='attributes[Market]']").val($.cookie('PasarStoreName'));
+    $(document).on("click",".homeaddtocart",function(e){
+    	e.preventDefault();
+      $(this).closest(".single-add-to-cart-button").hide();
+      $(this).closest(".addToCartForm").find(".cart-buttons").show();
+    });
   });
   
   </script>

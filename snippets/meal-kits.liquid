@@ -27,7 +27,7 @@
                 <!-- Item --> 
                 
                 {% for product in collections[settings.featured-category].products limit:8 %}
-                <div class="item"> {% include 'product-grid-item' with 'listing_cols' with 'image_size' %} </div>
+                <div class="item {% for tag in product.tags %}  {{tag}} {% endfor %} "> {% include 'product-grid-item' with 'listing_cols' with 'image_size' %} </div>
                 {% endfor %} </div>
             </div>
           </div>

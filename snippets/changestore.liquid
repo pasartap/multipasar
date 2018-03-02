@@ -76,6 +76,7 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
     var url      = window.location.href;
     var cartitm = $("#cart-count").text();    
     var markgetstore = $(this).text();
+     var marketid = $(this).attr("data-id");
     if(cartitm != 0){
     if (confirm('You have items in your shopping cart. Switching to a different market will empty the shopping cart. Do you want to proceed?')) {
         $.ajax({
@@ -83,7 +84,8 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
           dataType: 'json',
           url: '/cart/clear.js',
           success: function(){
-            $.cookie("PasarStoreName", markgetstore,{ path: '/' });       
+            $.cookie("PasarStoreName", markgetstore,{ path: '/' });    
+            $.cookie("PasarStoreId", marketid,{ path: '/' });   
             window.location.href='{{ shop.url }}';
           }      
         });
@@ -92,6 +94,7 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
       }
     }else{
         $.cookie("PasarStoreName", markgetstore,{ path: '/' });
+        $.cookie("PasarStoreId", marketid,{ path: '/' });
         window.location.href='{{ shop.url }}';
     
     }

@@ -62,21 +62,26 @@
                             <span>HOW TO PLACE AN ORDER</span>
                         </div>
                         <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 box-image">
-                              <img src="{{ 'order_step_1.png' | asset_img_url: '1333x1333' }}"/>
+                            <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 box-image dot-five">
+                              <img src="{{ 'order_step_1.png' | asset_img_url: '2667x2667' }}"/>
                               <span>Browse products<span>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 box-image">
-                              <img src="{{ 'order_step_2.png' | asset_img_url: '1333x1333' }}"/>
+                            <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 box-image dot-five">
+                              <img src="{{ 'order_step_2.png' | asset_img_url: '2667x2667' }}"/>
                               <span>Add to cart<span>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 box-image">
-                              <img src="{{ 'order_step_3.png' | asset_img_url: '1333x1333' }}"/>
+                            <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 box-image dot-five">
+                              <img src="{{ 'order_step_3.png' | asset_img_url: '2667x2667' }}"/>
                               <span>Pick delivery date and time slot<span>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 box-image">
-                              <img src="{{ 'order_step_4.png' | asset_img_url: '1333x1333' }}"/>
+                            <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 box-image dot-five">
+                              <img src="{{ 'order_step_4.png' | asset_img_url: '2667x2667' }}"/>
                               <span>Make payment<span>
+                            </div>
+                            <div class="clearfix visible-xs"></div>
+                            <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 box-image dot-five">
+                              <img src="{{ 'order_step_5.png' | asset_img_url: '2667x2667' }}"/>
+                              <span>Your groceries are delivered!<span>
                             </div>
                         </div>
                     </div>
@@ -144,7 +149,7 @@
         background-position: center;
     }
     .bannercontainer {
-        max-width: 750px;
+        max-width: 850px;
     }
     .top-banner {
         background: url("{{ 'landing_page_top_banner.png' | asset_url }}");
@@ -153,6 +158,9 @@
         background-position: center;
         height: 160px;
         margin-bottom: 20px;
+    }
+    .dot-five {
+        width: 20%;
     }
     .box-image {
         background-repeat: no-repeat !important;
@@ -355,6 +363,10 @@
     @media only screen and (max-width:767px) {
         .top-banner {
             height: 100px;
+        }
+
+        .dot-five {
+            width: 50%;
         }
     }
     @media screen and (min-width: 480px) and (max-width: 767px) {

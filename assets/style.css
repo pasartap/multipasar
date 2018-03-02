@@ -855,7 +855,7 @@ padding-left: 15px;border-radius: 2px;height: 30px;line-height: 30px;}
     border-left: 1px #f1f1f1 solid;}
 
 .searchIconNew {
-  background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/search-icon.png?11891598687326378541") no-repeat scroll center center;
+  background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/search-icon.png?1727701318504412920") no-repeat scroll center center;
   width: 25px;
   height: 30px;
   left: 4px;
@@ -1114,7 +1114,7 @@ text-transform: none;background-color: #f0f0f0; font-family:"Open Sans",sans-ser
 	-ms-transform: scale(0.5) rotateY(180deg);
 	-o-transform: scale(0.5) rotateY(180deg);
 	transform: scale(0.5) rotateY(180deg);
-  background-image:url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/plus-img.png?11891598687326378541");
+  background-image:url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/plus-img.png?1727701318504412920");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-color: #666;
@@ -1137,7 +1137,7 @@ text-transform: none;background-color: #f0f0f0; font-family:"Open Sans",sans-ser
 }
 
 .widget__newsletter{ 
-  // background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/newsletter_bg.png?11891598687326378541") repeat left top transparent; 
+  // background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/newsletter_bg.png?1727701318504412920") repeat left top transparent; 
   background: #50a746;
   padding: 20px;
 }
@@ -3111,7 +3111,7 @@ margin-right: 5px;
 	-ms-transform: scale(0.5) rotateY(180deg);
 	-o-transform: scale(0.5) rotateY(180deg);
 	transform: scale(0.5) rotateY(180deg);
-	 background-image:url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/plus-img.png?11891598687326378541");
+	 background-image:url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/plus-img.png?1727701318504412920");
 	 background-repeat: no-repeat;
 	 background-position:center;
 	background-color:#666;
@@ -3582,7 +3582,7 @@ font-size: 14px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-image:  url(//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/download.svg?11891598687326378541);
+  background-image:  url(//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/download.svg?1727701318504412920);
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-color: transparent;
@@ -3608,7 +3608,7 @@ font-size: 14px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-image:  url(//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/download.svg?11891598687326378541);
+  background-image:  url(//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/download.svg?1727701318504412920);
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-color: transparent;
@@ -3665,7 +3665,7 @@ font-size: 14px;
   transition: opacity 0.15s ease-out;
 }
 .collection-view .button-list {
-  background: #f8f8f8 url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/icon_list.png?11891598687326378541") no-repeat 12px center;
+  background: #f8f8f8 url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/icon_list.png?1727701318504412920") no-repeat 12px center;
   text-transform: none;
   padding: 16px 18px;
   color: #333;
@@ -3675,7 +3675,7 @@ font-size: 14px;
 }
 
 .collection-view a.button-grid {
-  background: #f8f8f8 url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/icon_grid_over.png?11891598687326378541") no-repeat 12px center;
+  background: #f8f8f8 url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/icon_grid_over.png?1727701318504412920") no-repeat 12px center;
   border: 1px #eaeaea solid;
   color: #333;
   padding: 16px 18px;
@@ -3684,7 +3684,7 @@ font-size: 14px;
 }
 
 .collection-view .collection-view-active-list {
-  background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/icon_list_act.png?11891598687326378541") no-repeat 10px center!important;
+  background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/icon_list_act.png?1727701318504412920") no-repeat 10px center!important;
   background-color: #60be74 !important;
   color: #fff!important;
   padding: 16px 18px!important;
@@ -3694,7 +3694,7 @@ font-size: 14px;
 }
 
 .collection-view .collection-view-active-grid {
-  background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/icon_grid_act.png?11891598687326378541") no-repeat 12px center!important;
+  background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/icon_grid_act.png?1727701318504412920") no-repeat 12px center!important;
   background-color: #60be74 !important;
   color: #fff!important;
   padding:16px 18px!important;
@@ -3783,7 +3783,7 @@ font-size: 14px;
 #email-modal .modal-overlay { background: rgba(45,45,50,0.8); height:100%; position:absolute; width:100%; }   
 #email-modal .window-background { opacity: 0.8; filter:alpha(opacity=80);}
 #email-modal .modal-content { position:relative;
-  background-image:url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/newsletter-bg.png?11891598687326378541" );    
+  background-image:url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/newsletter-bg.png?1727701318504412920" );    
   float: left; background-size: cover;    
    background-color:  #50a746; 
     border-radius: 0px;
@@ -5666,7 +5666,7 @@ transition: all 0.3s ease-out !important;
 	background-size: cover;
 }
 .parallax-2 {
-	background-image: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/parralax-bg.jpg?11891598687326378541");
+	background-image: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/parralax-bg.jpg?1727701318504412920");
 	padding-top: 100px;
 	padding-bottom: 50px;
 }
@@ -6612,7 +6612,7 @@ border: none; margin:0px;}
     background-repeat:no-repeat;
     background-position:top left;
     background-size: cover;
-    background-image: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/featured-bg.jpg?11891598687326378541")
+    background-image: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/featured-bg.jpg?1727701318504412920")
 
      
 }
@@ -7740,7 +7740,7 @@ ul.product-photo-thumbs li a img{max-width: 100%;}
   height: 100%;
 }
 
-.loading{position: absolute;background-color: #000000;opacity: 1;top: 0;left: 0;width: 100%;height: 100%;display: none;z-index: 999999;}
+.loading{position: fixed;background-color: #fff;opacity: 1;top: 0;left: 0;width: 100%;height: 100%;display: none;z-index: 999999;}
         .spinner{width: 40px;height: 40px;position: relative;margin: 25% auto;}
         .double-bounce1, .double-bounce2 {width: 100%;height: 100%;border-radius: 50%;background-color: red;opacity: 0.6;position: absolute;top: 0;left: 0;-webkit-animation: sk-bounce 2.0s infinite ease-in-out;animation: sk-bounce 2.0s infinite ease-in-out;}
         .double-bounce2 {-webkit-animation-delay: -1.0s;animation-delay: -1.0s;background-color: yellow;}

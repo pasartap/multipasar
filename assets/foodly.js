@@ -540,7 +540,7 @@
 					item = item.replace(/\{QUANTITY\}/g, cart.items[i].quantity);
 					if ( cart.items[i].image == null ) {
 						// Item without image
-						item = item.replace(/\{IMAGE\}/g, Shopify.resizeImage("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/img_no_image_sm.jpg?11891598687326378541", 'small'));
+						item = item.replace(/\{IMAGE\}/g, Shopify.resizeImage("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/img_no_image_sm.jpg?1727701318504412920", 'small'));
 					} else {
 						// Item with image
 						item = item.replace(/\{IMAGE\}/g, Shopify.resizeImage(cart.items[i].image, 'compact'));

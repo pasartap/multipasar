@@ -351,7 +351,7 @@ solid!important;
 }
 .sf-menu ul a.sf-with-ul {
 	min-width: 1px;
-	background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/submenu-arrow.png?11891598687326378541") no-repeat right 7px transparent !important;
+	background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/submenu-arrow.png?1727701318504412920") no-repeat right 7px transparent !important;
 	margin-right: 10px;
 }
 .sf-menu a.sf-with-ul {
@@ -905,7 +905,7 @@ settings.color_1
 
 .bx-wrapper .bx-loading {
 	min-height: 50px;
- background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/bx_loader.gif?11891598687326378541") center center no-repeat { {
+ background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/bx_loader.gif?1727701318504412920") center center no-repeat { {
 settings.color_1
 }
 }
@@ -952,12 +952,12 @@ settings.color_1
 
 .bx-wrapper .bx-prev {
 	left: -5px;
-	background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/prev-img.png?11891598687326378541") no-repeat top left;
+	background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/prev-img.png?1727701318504412920") no-repeat top left;
 	opacity: 0.9
 }
 .bx-wrapper .bx-next {
 	right: -5px;
-	background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/next-img.png?11891598687326378541") no-repeat top left;
+	background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/next-img.png?1727701318504412920") no-repeat top left;
 	opacity: 0.9
 }
 .bx-wrapper .bx-prev:hover {
@@ -990,7 +990,7 @@ settings.color_1
 	width: 10px;
 	height: 11px;
 	outline: 0;
-	background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/bx_controls.png?11891598687326378541") -86px -11px no-repeat;
+	background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/bx_controls.png?1727701318504412920") -86px -11px no-repeat;
 	margin: 0 3px;
 }
 .bx-wrapper .bx-controls-auto .bx-start:hover, .bx-wrapper .bx-controls-auto .bx-start.active {
@@ -1002,7 +1002,7 @@ settings.color_1
 	width: 9px;
 	height: 11px;
 	outline: 0;
-	background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/bx_controls.png?11891598687326378541") -86px -44px no-repeat;
+	background: url("//cdn.shopify.com/s/files/1/2168/1709/t/20/assets/bx_controls.png?1727701318504412920") -86px -44px no-repeat;
 	margin: 0 3px;
 }
 .bx-wrapper .bx-controls-auto .bx-stop:hover, .bx-wrapper .bx-controls-auto .bx-stop.active {
