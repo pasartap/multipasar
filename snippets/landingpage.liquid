@@ -3,11 +3,11 @@
         <div class="col-sm-6">
             {{ request.myvar }}
             <div class="logo">
-                <a id="logo" href="/">
-                    <img
-                        style='width:152px;height:40px'
-                        src="{{ 'logo_landingpage.png' | asset_img_url: '518x136' }}"/>
-                </a>
+              <a id="logo" href="/">
+                  <img
+                      style='width:152px;height:40px'
+                      src="{{ 'logo_landingpage.png' | asset_img_url: '518x136' }}"/>
+              </a>
             </div>
         </div>
         <div class="col-sm-6"></div>
@@ -48,11 +48,11 @@
                         </ul>
                         <div class="tab-content">
                             <div id="home" class="tab-pane fade in active">
-                                <h3>Select a market below to start shopping!</h3>
+                                <h3>Select a market to start shopping!</h3>
                                 <ul class="mannualstore"></ul>
                             </div>
                             <div id="menu1" class="tab-pane fade">
-                                <h3>Select a market below to start shopping!</h3>
+                                <h3>Select a market to start shopping!</h3>
                                 <p>Some content in menu 1.</p>
                             </div>
                         </div>
@@ -252,7 +252,6 @@
         list-style: none;
         margin-top: 10px;
         margin-bottom: 10px;
-        text-align: center;
     }
     .pac-container {
         z-index: 99999;
@@ -360,25 +359,9 @@
             z-index: 9999 !important;
         }
     }
-    @media only screen and (max-width:767px) {
-        .top-banner {
-            height: 100px;
-        }
-
-        .dot-five {
-            width: 50%;
-        }
-    }
     @media screen and (min-width: 480px) and (max-width: 767px) {
         .mm-page.mm-slideout.padding0high {
             margin-top: 0 !important;
-        }
-        .top-banner {
-            background: url("{{ 'landing_page_top_banner.png' | asset_url }}");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            height: 200px;
         }
         .landingtitle {
             font-size: 23px;
@@ -430,6 +413,14 @@
         }
         #myModal {
             z-index: 9999 !important;
+        }
+    }
+    @media only screen and (max-width:767px) {
+        .top-banner {
+            height: 100px;
+        }
+        .dot-five {
+            width: 50%;
         }
     }
     @media only screen and (min-width: 768px) and (max-width: 959px) {
@@ -545,6 +536,7 @@
             var url = window.location.href;
             if (!$(this).parent("ul").hasClass("withemptycart")) {
                 $.cookie("PasarStoreName", $(this).text());
+                $.cookie("PasarStoreId", $(this).attr("data-id"));
                 window.location.href = url;
             }
         });
@@ -639,10 +631,8 @@
                                 var timeslot = '';
                             }
                             $.each(response.data, function (i, item) {
-                                if (item.id != '17') {
-                                    storelist += '<li ><strong>' + item.market + '</strong><br><span>' + timeslot +
-                                            '</span></li>';
-                                }
+                                storelist += '<li data-id=' + item.id + '><strong>' + item.market + '</strong><br><span>' +
+                                        timeslot + '</span></li>';
                             });
                             //console.log(storelist);
                             $(".mannualstore").html(storelist);
@@ -653,7 +643,7 @@
                             var msgnostore = 'Sorry, PasarTap does not provide service at this location. Please select a mar' +
                                     'ket below to continue browsing our products.';
                             if (postcode == '') {
-                                msgnostore += '<br>Sorry, your location could not be determined. Please select a market manua' +
+                                msgnostore = '<br>Sorry, your location could not be determined. Please select a market manua' +
                                         'lly below.';
                             }
                             $(".mannualstore").before(
@@ -669,10 +659,8 @@
                                 var timeslot = '';
                             }
                             $.each(response.data, function (i, item) {
-                                if (item.id != '17') {
-                                    storelist += '<li ><strong>' + item.market + '</strong><br><span>' + timeslot +
-                                            '</span></li>';
-                                }
+                                storelist += '<li data-id=' + item.id + '><strong>' + item.market + '</strong><br><span>' +
+                                        timeslot + '</span></li>';
                             });
                             //console.log(storelist);
                             $(".mannualstore").html(storelist);
@@ -707,16 +695,14 @@
                         var timeslot = '';
                     }
                     $.each(response.data, function (i, item) {
-                        if (item.id != "17") {
-                            storelist += '<li ><strong>' + item.market + '</strong><br><span>' + timeslot +
-                                    '</span></li>';
-                            $(".coll-filter option").each(function () {
-                                if (this.text == item.market) {
-                                    $(this).remove();
-                                }
-                                console.log(this.text + "==" + item.market);
-                            });
-                        }
+                        storelist += '<li data-id=' + item.id + '><strong>' + item.market + '</strong><br><span>' +
+                                timeslot + '</span></li>';
+                        $(".coll-filter option").each(function () {
+                            if (this.text == item.market) {
+                                $(this).remove();
+                            }
+
+                        });
                     });
                     //console.log(storelist);
                     $(".mannualstore").html(storelist);
@@ -741,7 +727,7 @@
             $("#sticky-mmenu").addClass("showall");
             $(".landingpagepost").remove();
         }
-        hideLoading();
+
         if ($.cookie('PasarStoreName') != undefined) {
             $(".changestore")
                 .find("h3")
