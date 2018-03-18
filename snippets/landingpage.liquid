@@ -49,7 +49,7 @@
                         <div class="tab-content">
                             <div id="home" class="tab-pane fade in active">
                                 <h3>Select a market to start shopping!</h3>
-                                <ul class="mannualstore"></ul>
+                                <ul class="manualstore"></ul>
                             </div>
                             <div id="menu1" class="tab-pane fade">
                                 <h3>Select a market to start shopping!</h3>
@@ -216,7 +216,7 @@
         font-size: 20px;
         color: green;
     }
-    .mannualstore li {
+    .manualstore li {
         display: inline-block;
         max-width: 32%;
         text-align: center;
@@ -229,7 +229,7 @@
         font-size: 20px;
         font-weight: 500;
     }
-    .mannualstore li {
+    .manualstore li {
         display: inline-block;
         width: 30%;
         text-align: center;
@@ -243,11 +243,11 @@
         line-height: 1.5;
         margin-bottom: 10px;
     }
-    .mannualstore span {
+    .manualstore span {
         line-height: 2px !important;
         font-size: 11px;
     }
-    .mannualstore {
+    .manualstore {
         padding: 0;
         list-style: none;
         margin-top: 10px;
@@ -326,7 +326,7 @@
         #autocomplete {
             max-width: 57%;
         }
-        .mannualstore li {
+        .manualstore li {
             max-width: 48%;
             width: 48%;
         }
@@ -373,7 +373,7 @@
         #autocomplete {
             max-width: 60%;
         }
-        .mannualstore li {
+        .manualstore li {
             max-width: 48%;
             width: 48%;
         }
@@ -533,7 +533,7 @@
 
         var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
         showLoading()
-        $(document).on("click", ".mannualstore li", function () {
+        $(document).on("click", ".manualstore li", function () {
             var url = window.location.href;
             if (!$(this).parent("ul").hasClass("withemptycart")) {
                 $.cookie("PasarStoreName", $(this).text());
@@ -636,9 +636,9 @@
                                         timeslot + '</span></li>';
                             });
                             //console.log(storelist);
-                            $(".mannualstore").html(storelist);
+                            $(".manualstore").html(storelist);
                             if (total == 1) {
-                                $("ul.mannualstore li:first-child").click();
+                                $("ul.manualstore li:first-child").click();
                             }
                         } else {
                             var msgnostore = 'Sorry, PasarTap does not provide service at this location. Please select a mar' +
@@ -647,7 +647,7 @@
                                 msgnostore = '<br>Sorry, your location could not be determined. Please select a market manua' +
                                         'lly below.';
                             }
-                            $(".mannualstore").before(
+                            $(".manualstore").before(
                                 "<p class='nostoremsg'><strong>" + msgnostore + "</strong></p>"
                             );
                             var storelist = '';
@@ -664,7 +664,7 @@
                                         timeslot + '</span></li>';
                             });
                             //console.log(storelist);
-                            $(".mannualstore").html(storelist);
+                            $(".manualstore").html(storelist);
                         }
                     },
                     type    : "POST",
@@ -678,7 +678,7 @@
     });
     $(window).load(function () {
 
-        var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
+        {% comment %} var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
         $.ajax({
             data    : {
                 shop_name: "1"
@@ -706,12 +706,52 @@
                         });
                     });
                     //console.log(storelist);
-                    $(".mannualstore").html(storelist);
+                    $(".manualstore").html(storelist);
                 }
             },
             type    : "POST",
             url     : appurl + "ajax_get_stores.php"
+        }); {% endcomment %}
+
+        // Get next available timeslots
+        var now = new Date(Date.now());
+        var month = ("0" + (now.getMonth() + 1)).slice(-2);
+        var hours = ("0" + now.getHours()).slice(-2);
+        var minutes = ("0" + now.getMinutes()).slice(-2);
+
+        var date = now.getFullYear() + '-' + month + '-' + now.getDate();
+        var formattedDateTime = date + "/" + hours + minutes;
+
+        $.ajax({
+            dataType: "json",
+            success : function (response) {
+                {% comment %} if (response.slot != 'No') {
+                    var timeslot = 'Next available slot: ' + response.slot;
+                    $(".changestore")
+                        .find("span")
+                        .html(timeslot);
+                } else {
+                    var timeslot = '';
+                } {% endcomment %}
+
+                var storelist = '';                
+                $.each(response.data, function (i, item) {
+                    storelist += '<li data-id=' + item.id + '><strong>' + item.market_name + '</strong><br><span>' +
+                            timeslot + '</span></li>';
+                    $(".coll-filter option").each(function () {
+                        if (this.text == item.market_name) {
+                            $(this).remove();
+                        }
+
+                    });
+                });
+                //console.log(storelist);
+                $(".manualstore").html(storelist);
+            },
+            type    : "GET",
+            url     : "https://pt-deliveries.herokuapp.com/api/markets/1"
         });
+
         if ($.cookie('PasarStoreName') == undefined) {
             $(".sitecontainers").addClass("hideall");
             $("#footer").addClass("hideall");

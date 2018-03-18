@@ -21,7 +21,7 @@
       <div class="tab-content">
         <div id="home" class="tab-pane fade in active">
           <h3>Select Market to start shopping!</h3>
-          <ul class="mannualstore withemptycart">
+          <ul class="manualstore withemptycart">
           </ul>
         </div>
         <div id="menu1" class="tab-pane fade">
@@ -71,7 +71,7 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
    $(document).on("click",".changestore, .mobilemenustore",function(){
     $('#myModal').modal('toggle');
   });
-  $(document).on("click",".mannualstore.withemptycart li",function(e){
+  $(document).on("click",".manualstore.withemptycart li",function(e){
     e.preventDefault();
     var url      = window.location.href;
     var cartitm = $("#cart-count").text();    
