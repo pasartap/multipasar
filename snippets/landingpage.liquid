@@ -734,7 +734,7 @@
                     var timeslot = '';
                 } {% endcomment %}
 
-                var storelist = '';                
+                var timeslot = '', storelist = '';                
                 $.each(response.data, function (i, item) {
                     storelist += '<li data-id=' + item.id + '><strong>' + item.market_name + '</strong><br><span>' +
                             timeslot + '</span></li>';
