@@ -1,9 +1,9 @@
+{% layout 'theme.wholesale' %}
+
 {% assign quantity = 0 %}
-{% assign line_price = 0 %}
 {% for item in cart.items %}
   {% if item.product_id == product.id %}
     {% assign quantity = item.quantity %}
-    {% assign line_price = item.line_price %}
     {% break %}
   {% endif %}
 {% endfor %}
@@ -103,16 +103,7 @@
                 {% endif %} 
               </span>
               <form action="/cart/add" method="post" enctype="multipart/form-data" data-id="{{ product.id }}" class="addToCartForm product-actions-{{ product.id }}">
-                <div class="options clearfix">
-                  <div id="product_price">
-                      <p class="price product-price" style="float:left;font-weight:normal;">{{ product.price | money }}</p> 
-                      <div class="line-item-details">
-                        <p id="line-item-details" class="product-price pull-right">
-                          <span id="line-quantity" style="color:#50a746;">{{ quantity }}</span> / <span id="line-price" >{{ line_price | money }}
-                        </p>
-                        <i class="fa fa-shopping-cart item-in-cart" aria-hidden="true"></i>                        
-                      </div>
-                  </div>
+                <div class="options clearfix">    
                   {% if settings.show_product_quantity %} 
                     {% if settings.show_product_quantity != blank %}
                       <div id="variant-inventory">
@@ -129,49 +120,18 @@
                     {% endif %} 
                   {% endif %} 
 
-                  {% if product.available and product.variants.size > 1 %} 
-                    {% for option in product.options %} 
-                      {% unless option == 'Price Type' %}
-                        {% include 'swatch' with option %} 
-                      {% endunless %}
-                    {% endfor %} 
-                  {% endif %}
-
                   <div class="variants-wrapper clearfix {% if hide_default_title %}visuallyhidden{% endif %}" style="display:none">
                     <select id="product-select" name="id">
                       {% for variant in product.variants %}
-                        <option value="{{ variant.id }}">{{ variant.title | escape }} - {{ variant.price | money }}</option>
+                        <option value="{{ variant.id }}">{{ variant.title | escape }} </option>
                       {% endfor %}
                     </select>
                   </div>
+
                   <div id="purchase">
-                    {% comment %}<div class="add-quantity">
-                      <label for="quantity">Quantity: </label>
-                      <div class="dec button"><i class="fa fa-minus" aria-hidden="true"></i></div>
-                      <input type="text" id="quantity" name="quantity" value="1" style="border:none; width:40px" readonly>
-                      <div class="inc button"><i class="fa fa-plus" aria-hidden="true"></i></div>
-                      <script>
-                        jQuery(".button").on("click", function() {
-                          var oldValue = jQuery("#quantity").val(),
-                              newVal = 1;
-
-                            if (jQuery(this).text() == "+") {
-                                newVal = parseInt(oldValue) + 1;
-                            } else if (oldValue > 1) {
-                                newVal = parseInt(oldValue) - 1;
-                            }
-
-                            jQuery("#quantity").val(newVal); {% if settings.display_subtotal and product.available %}
-                            updatePricing(); {% endif %}
-                        });
-                      </script>
-                    </div>{% endcomment %}
-                    <input type="number" min=1 id="quantity" name="quantity" value="1" style="">                   
-                    <button title="Add to Cart" type="submit" name="add" id="add-to-cart" value="Add to Cart"><span>Add to Cart</span></button>
-                    {% comment %}
-                    {% include 'wishlist-product' %} 
-                    {% endcomment %}
+                    <input type="number" min=1 id="quantity" name="quantity" value="1" style="">                 
                   </div>
+                  
                   <div id="product_description"> {{ product.description | truncatewords: 65 }} </div>     
                 </div>
                   <!-- /.options -->
@@ -179,7 +139,7 @@
             {% else %}
               <div id="product-actions" class="sold-out">
                 <div id="purchase">
-                  <p class="price">Sold out.</p>
+                  <p class="price">Unavailable.</p>
                 </div>
               </div>
             {% endif %}
@@ -346,23 +306,6 @@ if (variant) {
 // END SWATCHES
 
       
-      if (variant && variant.available) {
-        // selected a valid variant
-        $('#add-to-cart').removeClass('disabled').removeAttr('disabled'); // remove unavailable class from add-to-cart button, and re-enable button
-        if(variant.compare_at_price == null){
-          $('#product_price .price').html('<span class="money"><strong>'+Shopify.formatMoney(variant.price, "{{shop.money_with_currency_format}}")+'</strong></span>');
-                                                                                             
-                                                                                             
-        } else {
-                                                                                             
-          $('#product_price .price').html('<span class="money"><strong>'+Shopify.formatMoney(variant.price, "{{shop.money_with_currency_format}}") + '</strong></span> <span class="money compare_at_price">(was <del>' + Shopify.formatMoney(variant.compare_at_price, "{{shop.money_with_currency_format}}") + '</del>)</span>');
-        }
-      } else {
-        $('#add-to-cart').addClass('disabled').attr('disabled', 'disabled'); // set add-to-cart button to unavailable class and disable button
-        var message = variant ? "" : "Unavailable";
-        $('#product_price .price').text(message); // update price-field message
-      }
-    };
 
     // initialize multi selector for product
     $(function() {
@@ -449,23 +392,7 @@ Place this in your product.liquid template, at the bottom.
     var selectCallback = function(variant, selector) { 
                                                       
       
-      if (variant && variant.available) {
-       
-        
-        // selected a valid variant
-        $('#add-to-cart').removeClass('disabled').removeAttr('disabled'); // remove unavailable class from add-to-cart button, and re-enable button
-        if(variant.compare_at_price == null || variant.compare_at_price == 0){
-          $('#product_price .price').html('<span class="money"><strong>'+Shopify.formatMoney(variant.price, "{{shop.money_with_currency_format}}")+'</strong></span>');
-        } else {
-          $('#product_price .price').html('<span class="money"><strong>'+Shopify.formatMoney(variant.price, "{{shop.money_with_currency_format}}") + '</strong></span> <span class="money compare_at_price"><del>' + Shopify.formatMoney(variant.compare_at_price, "{{shop.money_with_currency_format}}") + '</del></span>');
-        }
-      } else {
-                                                                                             
-        $('#add-to-cart').addClass('disabled').attr('disabled', 'disabled'); // set add-to-cart button to unavailable class and disable button
-        var message = variant ? "" : "Unavailable";
-                                      
-       }
-                                          
+                                
          if (variant && variant.featured_image) {
            
         var originalImage = jQuery("#product-featured-image");

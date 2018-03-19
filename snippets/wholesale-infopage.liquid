@@ -1,0 +1,99 @@
+{{ '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' | stylesheet_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.bootstrap.min.css' | stylesheet_tag }} 
+{{ '//cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.min.js' | script_tag }}
+
+{% comment %}
+Get all wholesale products
+{% endcomment %}
+{%- capture 'wholesale_products' -%}
+{% paginate collections['ptwholesale'].products by collections['ptwholesale'].all_products_count %}
+  {{ collections['ptwholesale'].products | json }}
+{% endpaginate %}
+{%- endcapture -%}
+
+{% paginate collections['ptwholesale'].products by collections['ptwholesale'].all_products_count %}
+  {% assign categories = "" %}
+  {% for product in collections['ptwholesale'].products %}
+
+    {% comment %}
+    Get weight of all products
+    {% endcomment %}
+    {% if product.first_available_variant.option1 != nil and product.first_available_variant.option1 != 'Default Title' and product.first_available_variant.option1 != 'Normal Price' %}
+      {% assign weight_with_unit = product.first_available_variant.option1 %}
+      <input type=hidden id='{{ product.id }}' name='{{ product.id }}' value='{{ weight_with_unit }}'>
+    {% else %}
+      {% assign weight_with_unit = product.first_available_variant.weight | weight_with_unit %}
+      <input type=hidden id='{{ product.id }}' name='{{ product.id }}' value='{{ weight_with_unit }}'>
+    {% endif %} 
+
+    {% comment %}
+    Get unique product type of all products
+    {% endcomment %}
+    {% comment %}{% unless categories contains product.type %}
+      {{ categories | append: product.type }}
+      {{ categories | append: '|' }}
+    {% endunless %}{% endcomment %}
+
+  {% endfor %}
+{% endpaginate %}
+
+<style type="text/css">
+body {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    line-height: 1;
+    color: #333333;
+}
+
+/* Apply CSS to iOS affected versions only */
+body.iosBugFixCaret.modal-open { position: fixed; width: 100%; }
+
+/* disable search column selection */
+.footable-filtering-search .btn.dropdown-toggle {
+    display: none;
+}
+
+@media only screen and (max-width:767px) {
+  .modal-dialog {
+    top: 80px;
+  }
+}
+</style>
+
+<div class="page-scope" style="text-align:center;">
+	<br />
+	<div>
+<section class="ptwholesale-steps">
+
+    <div class="container">
+      <div class="brand-header">
+          <h1>What are the procedures?</h1>
+      </div>
+      <div class="container-fluid ptwholesale-steps-container-fluid">
+        <div class="row ptwholesale-steps-row">
+        <br  />
+            <div class="ptwholesale-step col-xs-6 col-sm-3 col-md-3 col-lg-3">
+              <img src="//cdn.shopify.com/s/files/1/2168/1709/files/SEARCH_ITEM-01_large.png?v=1520999716" title="Shop" alt="Shop">  
+              <span>Search required items.</span>
+            </div>
+            <div class="ptwholesale-step col-xs-6 col-sm-3 col-md-3 col-lg-3">
+              <img src="//cdn.shopify.com/s/files/1/2168/1709/files/GET_THE_QUOTATION-01_large.png?v=1520999729" title="Get Quotation" alt="Get Quotation">
+              <span>Prepare Quotation.</span>
+            </div>
+            <div class="ptwholesale-step col-xs-6 col-sm-3 col-md-3 col-lg-3">
+              <img src="//cdn.shopify.com/s/files/1/2168/1709/files/PROCEED_THE_ORDER-01_large.png?v=1520999734" title="Procced with order" alt="Procced with order">
+              <span>Request Quotation.</span>
+            </div>
+            <div class="ptwholesale-step col-xs-6 col-sm-3 col-md-3 col-lg-3">
+              <img src="//cdn.shopify.com/s/files/1/2168/1709/files/RECEIVED_THE_ITEM_-01_large.png?v=1520999738" title="Received Delivery!" alt="Received Delivery!">
+              <span>PasarTap delivery at your doorstep!</span>
+            </div>
+
+        </div>
+      </div>  
+		</div>
+</section>
+<br  />
+<br  />
+<br  />
+</div>
+</div>

@@ -1,0 +1,48 @@
+{% unless current_collection %}
+  {% assign current_collection = collection %}
+{% endunless %}
+
+{% assign sold_out = true %}
+{% if product.available  %}
+  {% assign sold_out = false %}
+{% endif %}
+
+{% assign image_size = settings.collection_prod_image_sizes %}
+
+<div class="grid-item{% if sold_out %} sold-out{% endif %}{% if on_sale %} on-sale{% endif %}">
+  <div data-id="{{ product.id }}" class="product-{{ product.id }} product-item product-list-item">
+
+    <div class="col-sm-3">
+      <div class="product_title-wrap">
+        <a href="{{ product.url | within: collection }}" class="product_title">
+          {{ product.title }}
+        </a>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+       <span style="color:grey">
+        {% if product.first_available_variant.option1 != nil and product.first_available_variant.option1 != 'Default Title' %}
+          {{ product.first_available_variant.option1 }}
+        {% else %}
+          {{ product.first_available_variant.weight | weight_with_unit }}
+        {% endif %}            
+       </span>
+      {% include 'color-switch' %}
+    </div>
+
+    <div class="col-sm-3">
+          <div id="product_description"> {{ product.description | truncatewords: 35 }} </div>
+    </div>
+
+    <div class="col-sm-3 col-md-">
+      <div id="purchase">
+         <input type="number" min=1 id="quantity" name="quantity" value="1" style="">                 
+                  
+         {% include 'rfq_button' %}  
+      </div>
+    </div>
+
+       
+
+</div>
