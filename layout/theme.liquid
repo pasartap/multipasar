@@ -336,36 +336,54 @@
     });
   });
     
-    //Date and time local cart
-    
-     $(document).ready(function(){
+    // Date and time local cart  
+    $(document).ready(function(){
       var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
       var shop_name = "pasartap-dev.myshopify.com";
       var disabledate = '';
-        $.ajax({
-            url: appurl+"ajax_get_date.php",
-            type: "POST",
-            data: {shop_name: shop_name},
-            dataType: "json",
-            success: function(response) {
-             GetDatePicker(response); 
-            }  
-        });
+      $.ajax({
+          url: appurl+"ajax_get_date.php",
+          type: "POST",
+          data: {shop_name: shop_name},
+          dataType: "json",
+          success: function(response) {
+            GetDatePicker(response); 
+          }  
+      });
     });
-    function GetDatePicker(disabledate){
-      var array = disabledate;
-    $( ".datepicker" ).datepicker({
+    
+    {% comment %} function getDisabledDays(date) {
+        var m = date.getMonth();
+        var d = date.getDate();
+        var y = date.getFullYear();
+    
+        for (var i = 0; i < disabledSpecificDays.length; i++) {
+            if ($.inArray((m + 1) + '-' + d + '-' + y, disabledSpecificDays) != -1 || new Date() &gt; date) {
+                return [false];
+            }
+        }
+    
+        var noWeekend = $.datepicker.noWeekends(date);
+        return !noWeekend[0] ? noWeekend : [true];
+    } {% endcomment %}
+
+    
+    /** Days to be disabled as an array */
+    //var disabledDays = ["2018-03-28", "2018-03-29"];
+    function GetDatePicker(response){ 
+      var disabledDays = ["2018-03-28", "2018-03-29"] 
+      /* Init datepicker */
+      $( "#datepicker" ).datepicker({
       startDate: new Date(), 
       dateFormat: "D, dd/mm/yy",
       minDate: 0,
       firstDay: 1 ,
       beforeShowDay: function(date){
-        var day = date.getDay();
-		    return [day != 0,''];
-        {% comment %} var string = jQuery.datepicker.formatDate('D, dd/mm/yy', date);
-        return [ array.indexOf(string) == -1 ]  {% endcomment %}
-        
-    }, 
+        {% comment %} var day = date.getDay();
+		    return [day != 0,'']; {% endcomment %}
+        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        return [ disabledDays.indexOf(string) == -1 ]    
+      }, 
       onSelect: function(dateText, inst) {  
         $('.orderdate').val(dateText);
         $('.loadingtime').show();
@@ -396,19 +414,21 @@
                 $('.ordertimelist').before("<p class='errormsg'>We do not delivery on "+dateText+"</p>");
               }
             }
+          });
+        }
+      }).position({
+          my: "left top",
+          at: "left bottom",
+          of: $("#datepicker"),
+          collision: "none"
         });
     }
-    });
-    }
- 
-  
   </script> 
 
   {% include 'linked-options' %}
   {% include 'search-autocomplete' %}
- {% include 'sweettooth-initializer' %}
-
- {% include 'sweettooth-tab-widget' %}
+  {% include 'sweettooth-initializer' %}
+  {% include 'sweettooth-tab-widget' %}
 
 </body>
   <script>
