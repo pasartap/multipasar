@@ -1,3 +1,4 @@
+{% layout 'theme.wholesale' %}
 {% paginate collection.products by settings.pagination_limit %}
 
 {% assign has_sidebar = false %}
@@ -23,7 +24,6 @@
     
     <header class="section-header">
       <h1 class="section-header-title section-header-left">{{ collection.title | downcase | replace: '(wholesale)', '' }} </h1>
-      {% include 'collection-views' %}
       <div class="section-header-right">
         {% include 'collection-filtering' %}
         {% include 'collection-sorting' %}
@@ -38,7 +38,7 @@
         {% else %}
           {% assign grid_item_width = 'large--one-fifth medium--one-third small--one-half' %}
         {% endif %}
-        {% include 'product-grid-item' %}
+        {% include 'product-list-item-wholesale' %}
       {% else %}
         <div class="grid-item">
           <p>{{ 'collections.general.no_matches' | t }}</p>
