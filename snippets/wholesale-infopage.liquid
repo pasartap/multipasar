@@ -2,40 +2,6 @@
 {{ '//cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.bootstrap.min.css' | stylesheet_tag }} 
 {{ '//cdnjs.cloudflare.com/ajax/libs/jquery-footable/3.1.6/footable.min.js' | script_tag }}
 
-{% comment %}
-Get all wholesale products
-{% endcomment %}
-{%- capture 'wholesale_products' -%}
-{% paginate collections['ptwholesale'].products by collections['ptwholesale'].all_products_count %}
-  {{ collections['ptwholesale'].products | json }}
-{% endpaginate %}
-{%- endcapture -%}
-
-{% paginate collections['ptwholesale'].products by collections['ptwholesale'].all_products_count %}
-  {% assign categories = "" %}
-  {% for product in collections['ptwholesale'].products %}
-
-    {% comment %}
-    Get weight of all products
-    {% endcomment %}
-    {% if product.first_available_variant.option1 != nil and product.first_available_variant.option1 != 'Default Title' and product.first_available_variant.option1 != 'Normal Price' %}
-      {% assign weight_with_unit = product.first_available_variant.option1 %}
-      <input type=hidden id='{{ product.id }}' name='{{ product.id }}' value='{{ weight_with_unit }}'>
-    {% else %}
-      {% assign weight_with_unit = product.first_available_variant.weight | weight_with_unit %}
-      <input type=hidden id='{{ product.id }}' name='{{ product.id }}' value='{{ weight_with_unit }}'>
-    {% endif %} 
-
-    {% comment %}
-    Get unique product type of all products
-    {% endcomment %}
-    {% comment %}{% unless categories contains product.type %}
-      {{ categories | append: product.type }}
-      {{ categories | append: '|' }}
-    {% endunless %}{% endcomment %}
-
-  {% endfor %}
-{% endpaginate %}
 
 <style type="text/css">
 body {
@@ -58,6 +24,8 @@ body.iosBugFixCaret.modal-open { position: fixed; width: 100%; }
   }
 }
 </style>
+
+{% include 'home-slider-wholesale' %}
 
 <div class="page-scope" style="text-align:center;">
 	<br />
@@ -97,3 +65,6 @@ body.iosBugFixCaret.modal-open { position: fixed; width: 100%; }
 <br  />
 </div>
 </div>
+
+{% include 'home-bottom-banner' %}
+{% include 'widget-logo_brand' %} 
