@@ -361,9 +361,9 @@
       firstDay: 1 ,
       beforeShowDay: function(date){
         var day = date.getDay();
-		return [day != 0,''];
-        var string = jQuery.datepicker.formatDate('D, dd/mm/yy', date);
-        return [ array.indexOf(string) == -1 ] 
+		    return [day != 0,''];
+        {% comment %} var string = jQuery.datepicker.formatDate('D, dd/mm/yy', date);
+        return [ array.indexOf(string) == -1 ]  {% endcomment %}
         
     }, 
       onSelect: function(dateText, inst) {  
@@ -412,24 +412,26 @@
 
 </body>
   <script>
-  $(window).load(function() {
-    
+  $(window).load(function() {  
     $( ".item " ).each(function( index ) {
-      if(!$(this).hasClass($.cookie('PasarStoreName'))){
+      {% comment %} if(!$(this).hasClass($.cookie('PasarStoreName'))){
       	$(this).parent(".product-item").remove();
         $(this).remove();
-      }
+      } {% endcomment %}
     });
-    {% if  template != 'product' %}
- 	$( ".product-item " ).each(function( index ) {
-      if(!$(this).hasClass($.cookie('PasarStoreName'))){
-      	$(this).remove();
-      }
-    });
-    {% endif %}
+
+    {% comment %} {% if  template != 'product' %}
+ 	    $( ".product-item " ).each(function( index ) {
+        if(!$(this).hasClass($.cookie('PasarStoreName'))){
+          $(this).remove();
+        }
+      });
+    {% endif %} {% endcomment %}
+
     {% if template != 'index' %}
-    hideLoading();
+      hideLoading();
     {% endif %}
+
     $("input[name='attributes[Market]']").val($.cookie('PasarStoreName'));
     $(document).on("click",".homeaddtocart",function(e){
     	e.preventDefault();
@@ -437,7 +439,6 @@
       $(this).closest(".addToCartForm").find(".cart-buttons").show();
     });
   });
-  
   </script>
   
 </html>
