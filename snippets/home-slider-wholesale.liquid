@@ -1,15 +1,35 @@
-
-<div id="magik-slideshow" class="magik-slideshow">
   <div class="container">
-    <div class="row"> {% if settings.display_home_slider %}
+    <div class="row">  
+      
+      {% comment %}
+{% if settings.display_ads_banner %}
+{% if settings.display_ads_banner != blank %}
+      
+         
+<div class="col-lg-3 col-md-2 col-sm-12 col-xs-12">
+        <div class="image-item"> <a href="{{ settings.ads_banner1_link }}" title="Image">
+          <div class="banner-details">
+            <div class="banner-title">{{ settings.ads_banner_title_txt }}</div>
+            <div class="line"></div>
+            <div class="banner-sub-title">{{ settings.ads_banner_normal_txt }}</div>
+          </div>
+          <img src="{{ "ads-banner1.jpg" | asset_url }}" alt="ads banner 1" /></a> </div>
+      </div>
+{% endif %}
+{% endif %}
+{% endcomment %}      
+      
+      
+      <div id="magik-slideshow" class="magik-slideshow">
+      {% if settings.display_home_slider %}
       {% if settings.display_home_slider != blank %}
-      <div class="col-md-12 col-sm-12">
+      <div class="col-md- col-sm-12 col-xs-12">
         <div id='rev_slider_4_wrapper' class='rev_slider_wrapper fullwidthbanner-container'>
           <div id='rev_slider_4' class='rev_slider fullwidthabanner'>
             <ul>
               {% if settings.display_home_slide1 %}
               {% if settings.display_home_slide1 != blank %}
-              <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb='{{ "slide_one_image.jpg" | asset_url }}'><img src="{{ "slide_one_image.jpg" | asset_url }}" alt="" data-bgposition='left top'  data-bgfit='cover' data-bgrepeat='no-repeat'  />
+              <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb='{{ "slide_one_image.jpg" | asset_url }}'><img src="{{ "slide_one_image.jpg" | asset_url }}" alt="" data-bgposition='left top'  data-bgfit='cover' data-bgrepeat='no-repeat' style=' object-fit: contain' />
                 <div class="info">
                   <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='55'  data-y='110'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;max-width:auto;max-height:auto;white-space:nowrap;'>
                     <h3>{{ settings.slide_one_caption_line2 }}</h3>
@@ -97,73 +117,75 @@
               </li>
               {% endif %}
               {% endif %}
-
+              
             </ul>
+            
           </div>
         </div>
       </div>
       {% endif %}
-      {% endif %}    
-  </div>
+      {% endif %}  
+      </div>  
+</div>
 </div>
 {{ 'revslider.js' | asset_url | script_tag }}
 
 {{ 'countdown.js' | asset_url | script_tag }} 
 <script type='text/javascript'>
 jQuery(document).ready(function() {
-	jQuery('#rev_slider_4').show().revolution({
-	dottedOverlay: 'none',
-	delay: 5000,
-	startwidth: 600,
-	startheight: 500,
-	hideThumbs: 200,
-	thumbWidth: 200,
-	thumbHeight: 50,
-	thumbAmount: 2,
-	navigationType: 'thumb',
-	navigationArrows: 'solo',
-	navigationStyle: 'round',
-	touchenabled: 'on',
-	onHoverStop: 'on',
-	swipe_velocity: 0.7,
-	swipe_min_touches: 1,
-	swipe_max_touches: 1,
-	drag_block_vertical: false,
-	spinner: 'spinner0',
-	keyboardNavigation: 'off',
-	navigationHAlign: 'center',
-	navigationVAlign: 'bottom',
-	navigationHOffset: 0,
-	navigationVOffset: 20,
-	soloArrowLeftHalign: 'left',
-	soloArrowLeftValign: 'center',
-	soloArrowLeftHOffset: 20,
-	soloArrowLeftVOffset: 0,
-	soloArrowRightHalign: 'right',
-	soloArrowRightValign: 'center',
-	soloArrowRightHOffset: 20,
-	soloArrowRightVOffset: 0,
-	shadow: 0,
-	fullWidth: 'on',
-	fullScreen: 'off',
-	stopLoop: 'off',
-	stopAfterLoops: -1,
-	stopAtSlide: -1,
-	shuffle: 'off',
-	autoHeight: 'off',
-	forceFullWidth: 'on',
-	fullScreenAlignForce: 'off',
-	minFullScreenHeight: 0,
-	hideNavDelayOnMobile: 1500,
-	hideThumbsOnMobile: 'off',
-	hideBulletsOnMobile: 'off',
-	hideArrowsOnMobile: 'off',
-	hideThumbsUnderResolution: 0,
-	hideSliderAtLimit: 0,
-	hideCaptionAtLimit: 0,
-	hideAllCaptionAtLilmit: 0,
-	startWithSlide: 0,
-	fullScreenOffsetContainer: ''
+  jQuery('#rev_slider_4').show().revolution({
+  dottedOverlay: 'none',
+  delay: 5000,
+  startwidth: 1080,
+  startheight: 539,
+  hideThumbs: 200,
+  thumbWidth: 200,
+  thumbHeight: 50,
+  thumbAmount: 2,
+  navigationType: 'thumb',
+  navigationArrows: 'solo',
+  navigationStyle: 'round',
+  touchenabled: 'on',
+  onHoverStop: 'on',
+  swipe_velocity: 0.7,
+  swipe_min_touches: 1,
+  swipe_max_touches: 1,
+  drag_block_vertical: false,
+  spinner: 'spinner0',
+  keyboardNavigation: 'off',
+  navigationHAlign: 'center',
+  navigationVAlign: 'bottom',
+  navigationHOffset: 0,
+  navigationVOffset: 20,
+  soloArrowLeftHalign: 'left',
+  soloArrowLeftValign: 'center',
+  soloArrowLeftHOffset: 20,
+  soloArrowLeftVOffset: 0,
+  soloArrowRightHalign: 'right',
+  soloArrowRightValign: 'center',
+  soloArrowRightHOffset: 20,
+  soloArrowRightVOffset: 0,
+  shadow: 0,
+  fullWidth: 'on',
+  fullScreen: 'off',
+  stopLoop: 'off',
+  stopAfterLoops: -1,
+  stopAtSlide: -1,
+  shuffle: 'off',
+  autoHeight: 'off',
+  forceFullWidth: 'on',
+  fullScreenAlignForce: 'off',
+  minFullScreenHeight: 0,
+  hideNavDelayOnMobile: 1500,
+  hideThumbsOnMobile: 'off',
+  hideBulletsOnMobile: 'off',
+  hideArrowsOnMobile: 'off',
+  hideThumbsUnderResolution: 0,
+  hideSliderAtLimit: 0,
+  hideCaptionAtLimit: 0,
+  hideAllCaptionAtLilmit: 0,
+  startWithSlide: 0,
+  fullScreenOffsetContainer: ''
 });
 });
 </script> 

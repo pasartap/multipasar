@@ -167,7 +167,7 @@
         "label": "Time slots",
         "info": "Comma-separated time slots. Example: 11AM - 2PM,2PM - 5PM"
       },
-      {
+     {
         "type": "header",
         "content": "Slide show"
     },
@@ -191,9 +191,7 @@
         "type": "image",
         "id": "slide_one_image.jpg",
         "label": "Image",
-        "max-width": 1229,
-        "max-height": 502,
-        "info": "Maximum slide image dimensions are 1229px wide by 502px high. Your uploaded file will be resized to fit within those constraints."
+       "info": "Maximum slide image dimensions are 1080px wide by 539px high. Your uploaded file will be resized to fit within those constraints."
     },
     {
         "type": "text",
@@ -275,9 +273,7 @@
         "type": "image",
         "id": "slide_two_image.jpg",
         "label": "Image",
-        "max-width": 1229,
-        "max-height": 502,
-        "info": "Maximum slide image dimensions are 1229px wide by 502px high. Your uploaded file will be resized to fit within those constraints."
+       "info": "Maximum slide image dimensions are 1080px wide by 539px high. Your uploaded file will be resized to fit within those constraints."
     },
     {
         "type": "text",
@@ -359,9 +355,7 @@
         "type": "image",
         "id": "slide_three_image.jpg",
         "label": "Image",
-        "max-width": 1229,
-        "max-height": 502,
-        "info": "Maximum slide image dimensions are 1229px wide by 502px high. Your uploaded file will be resized to fit within those constraints."
+       "info": "Maximum slide image dimensions are 1080px wide by 539px high. Your uploaded file will be resized to fit within those constraints."
     },
     {
         "type": "text",
@@ -443,9 +437,7 @@
         "type": "image",
         "id": "slide_four_image.jpg",
         "label": "Image",
-        "max-width": 1229,
-        "max-height": 502,
-        "info": "Maximum slide image dimensions are 1229px wide by 502px high. Your uploaded file will be resized to fit within those constraints."
+       "info": "Maximum slide image dimensions are 1080px wide by 539px high. Your uploaded file will be resized to fit within those constraints."
     },
     {
         "type": "text",
@@ -512,7 +504,96 @@
         "type": "text",
         "id": "slide-four_button_link",
         "label": "Button Link"
-    }]
+    },
+
+    {
+        "type": "header",
+        "content": "ads banner"
+    },
+     {
+        "type": "checkbox",
+        "id": "display_ads_banner",
+        "label": "Display ads Banner",
+        "default": true
+    },
+    {
+        "type": "image",
+        "id": "ads-banner1.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 500,
+        "info": "Maximum slide image dimensions are 285px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+    },
+    {
+        "type": "text",
+        "id": "ads_banner_title_txt",
+        "label": "ads banner title text"
+    },
+    {
+        "type": "color",
+        "id": "ads_banner_title_txt_color",
+        "label": "ads banner title text color"
+    },
+    {
+        "type": "color",
+        "id": "ads_banner_line_color",
+        "label": "ads banner line color"
+    },
+    {
+        "type": "text",
+        "id": "ads_banner_normal_txt",
+        "label": "ads banner normal text"
+    },
+    {
+        "type": "color",
+        "id": "ads_banner_normal_txt_color",
+        "label": "ads banner normal text color"
+    },
+    {
+        "type": "text",
+        "id": "ads_banner1_link",
+        "label": "Home Right banner1 link"
+    },
+
+     {
+        "type": "image",
+        "id": "ads-banner2.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 500,
+        "info": "Maximum slide image dimensions are 285px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+    },
+    {
+        "type": "text",
+        "id": "ads_banner2_title_txt",
+        "label": "ads banner title text"
+    },
+    {
+        "type": "color",
+        "id": "ads_banner2_title_txt_color",
+        "label": "ads banner title text color"
+    },
+    {
+        "type": "color",
+        "id": "ads_banner2_line_color",
+        "label": "ads banner line color"
+    },
+    {
+        "type": "text",
+        "id": "ads_banner2_normal_txt",
+        "label": "ads banner normal text"
+    },
+    {
+        "type": "color",
+        "id": "ads_banner2_normal_txt_color",
+        "label": "ads banner normal text color"
+    },
+    {
+        "type": "text",
+        "id": "ads_banner2_link",
+        "label": "ads banner1 link"
+    }
+     ]
   },
   {
     "name": "Spend Rules",
@@ -1324,6 +1405,157 @@
       }
     ]
   },
+
+  {
+    "name": "Bundles / Hot bundles",
+    "settings": [
+    {
+        "type": "checkbox",
+        "id": "display_hot_bundle_with_tabs",
+        "label": "Display?",
+        "default": true
+    },
+    {
+        "type": "header",
+        "content": "Hot Bundle"
+    },
+    {
+        "type": "product",
+        "id": "hot-bundle_cat",
+        "label": "Please select the hot product."
+    },
+    {
+        "type": "text",
+        "id": "start_sale_date",
+        "label": "Start date in Y\/M\/D format"
+    },
+    {
+        "type": "text",
+        "id": "end_sale_date",
+        "label": "End date in Y\/M\/D format"
+    },
+    {
+        "type": "text",
+        "id": "hot_bundle_discount",
+        "label": "Discount in percentage"
+    },
+    {
+        "type": "header",
+        "content": "Hot Bundle Colors"
+    },
+    {
+        "type": "color",
+        "id": "discount-box-txt-color",
+        "label": "Discount box text color"
+    },
+    {
+        "type": "color",
+        "id": "discount-box-background-color",
+        "label": "Discount box background color"
+    },
+    {
+        "type": "color",
+        "id": "date-box-txt-color",
+        "label": "Date box text color"
+    },
+    {
+        "type": "color",
+        "id": "date-box-background-color",
+        "label": "Date box background color"
+    },
+    {
+        "type": "color",
+        "id": "timer-box-txt-color",
+        "label": "Timer box text color"
+    },
+    {
+        "type": "color",
+        "id": "timer-box-background-color",
+        "label": "Timer box bg color"
+    },
+    {
+        "type": "header",
+        "content": "Bundle description"
+      },
+      {
+        "type": "paragraph",
+        "content": "The bundle description is disabled."
+    },
+      {
+        "type": "text",
+        "id": "bundle-description",
+        "label": "bundle description"
+      },
+      {
+        "type": "text",
+        "id": "bundle-item-1",
+        "label": "bundle item 1 name"
+      },      
+      {
+        "type": "text",
+        "id": "bundle-item-2",
+        "label": "bundle item 2 name"
+      },
+      {
+        "type": "text",
+        "id": "bundle-item-3",
+        "label": "bundle item 3 name"
+      },
+    {
+        "type": "header",
+        "content": "Tab Section"
+    },
+    {
+        "type": "text",
+        "id": "home-tab-title",
+        "label": "Tab Section Title"
+    },
+    {
+        "type": "header",
+        "content": "Tab Section Colors"
+    },
+    {
+        "type": "color",
+        "id": "tab-txt-color",
+        "label": "Tab text color"
+    },
+    {
+        "type": "color",
+        "id": "tab-background-color",
+        "label": "Tab background color"
+    },
+    {
+        "type": "header",
+        "content": "Tab 1"
+    },
+    {
+        "type": "text",
+        "id": "tab-one-header",
+        "label": "Tab 1 Header"
+    },
+    {
+        "type": "collection",
+        "id": "home-tab-one-category",
+        "label": "Tab 1 Collection",
+        "info": "Max 4 items only in a collection"
+    },
+    {
+        "type": "header",
+        "content": "Tab 2"
+    },
+    {
+        "type": "text",
+        "id": "tab-two-header",
+        "label": "Tab 2 Header"
+    },
+    {
+        "type": "collection",
+        "id": "home-tab-two-category",
+        "label": "Tab 2 Collection",
+        "info": "Max 4 items only in a collection"
+    }]
+},
+
   {
     "name": "Hot Product",
     "settings": [
