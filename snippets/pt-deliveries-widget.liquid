@@ -1,9 +1,9 @@
 <div id="order-delivery">  
-    <h3 class="heading--add-small">DELIVERY TIME</h3>      
+    <h3 class="heading--add-small">DELIVERY DATE & TIME</h3>      
     <div id="order-delivery-form-wrapper" class="clearfix">
         <p class="cart-total__info clearfix">When would you like your order delivered?</p>
         <div>
-            <input id="datepicker" class="form-control pt-date pt-datepicker" type="text" name="attributes[Delivery Date]" value="{{ cart.attributes.delivery_date }}" placeholder="Select a date" readonly="readonly" />
+            <input id="datepicker" class="form-control pt-date pt-datepicker" type="text" name="attributes[Delivery Date]" value="{{ cart.attributes.delivery_date }}" placeholder="Date" readonly="readonly" />
             <select class="form-control pt-time" name="time" name="attributes[Delivery Time]" value="{{ cart.attributes.delivery_time }}" style="display:none;"> 
             </select> 
         </div> 
