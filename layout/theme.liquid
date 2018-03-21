@@ -336,18 +336,35 @@
     });
   });
     
-    // Date and time local cart  
+    /* Datepicker initialization */
+    /* ------------------------- */
+    // Set query parameters 
+    var cookieValue = $.cookie("PasarStoreId");
+    var currentDate = new Date();
+    var currentHours = currentDate.getHours().toString();
+    var currentMinutes = currentDate.getMinutes().toString();
+
+    if (currentHours < 10) {
+      currentHours = '0' + currentHours;
+    }
+
+     if (currentMinutes < 10) {
+      currentMinutes = '0' + currentMinutes;
+    }
+
+    var currentTime = currentHours + currentMinutes;
+
     $(document).ready(function(){
-      var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
-      var shop_name = "pasartap-dev.myshopify.com";
-      var disabledate = '';
       $.ajax({
-          url: appurl+"ajax_get_date.php",
-          type: "POST",
-          data: {shop_name: shop_name},
+          url: 'https://pt-deliveries.herokuapp.com/api/timeslots/getNextAvailableTimeslot',
+          type: "GET",
+          data: {
+                  shop_id: 1,
+                  market_id: cookieValue
+                },
           dataType: "json",
           success: function(response) {
-            GetDatePicker(response); 
+            InitDatePicker(response); 
           }  
       });
     });
@@ -370,7 +387,7 @@
     
     /** Days to be disabled as an array */
     //var disabledDays = ["2018-03-28", "2018-03-29"];
-    function GetDatePicker(response){ 
+    function InitDatePicker(response){ 
       var disabledDays = ["2018-03-28", "2018-03-29"] 
       /* Init datepicker */
       $( "#datepicker" ).datepicker({
@@ -382,7 +399,7 @@
         {% comment %} var day = date.getDay();
 		    return [day != 0,'']; {% endcomment %}
         var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-        return [ disabledDays.indexOf(string) == -1 ]    
+        return [ disabledDays.indexOf(string) == -1 && date.getDay() != 0 ]    
       }, 
       onSelect: function(dateText, inst) {  
         $('.orderdate').val(dateText);
