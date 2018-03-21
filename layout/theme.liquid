@@ -356,11 +356,12 @@
 
     $(document).ready(function(){
       $.ajax({
-          url: 'https://pt-deliveries.herokuapp.com/api/timeslots/getNextAvailableTimeslot',
+          url: 'https://pt-deliveries.herokuapp.com/api/timeslots/getNextAvailableTimeslots',
           type: "GET",
           data: {
                   shop_id: 1,
-                  market_id: cookieValue
+                  market_id: cookieValue,
+                  time: currentTime
                 },
           dataType: "json",
           success: function(response) {
@@ -369,76 +370,71 @@
       });
     });
     
-    {% comment %} function getDisabledDays(date) {
-        var m = date.getMonth();
-        var d = date.getDate();
-        var y = date.getFullYear();
-    
-        for (var i = 0; i < disabledSpecificDays.length; i++) {
-            if ($.inArray((m + 1) + '-' + d + '-' + y, disabledSpecificDays) != -1 || new Date() &gt; date) {
-                return [false];
-            }
-        }
-    
-        var noWeekend = $.datepicker.noWeekends(date);
-        return !noWeekend[0] ? noWeekend : [true];
-    } {% endcomment %}
-
-    
-    /** Days to be disabled as an array */
-    //var disabledDays = ["2018-03-28", "2018-03-29"];
-    function InitDatePicker(response){ 
-      var disabledDays = ["2018-03-28", "2018-03-29"] 
-      /* Init datepicker */
+    function InitDatePicker(response){  
       $( "#datepicker" ).datepicker({
-      startDate: new Date(), 
-      dateFormat: "D, dd/mm/yy",
-      minDate: 0,
-      firstDay: 1 ,
-      beforeShowDay: function(date){
-        {% comment %} var day = date.getDay();
-		    return [day != 0,'']; {% endcomment %}
-        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-        return [ disabledDays.indexOf(string) == -1 && date.getDay() != 0 ]    
-      }, 
-      onSelect: function(dateText, inst) {  
-        $('.orderdate').val(dateText);
-        $('.loadingtime').show();
-         var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
-        var date = $.datepicker.parseDate(inst.settings.dateFormat || $.datepicker._defaults.dateFormat, dateText, inst.settings);
-        var dateText = $.datepicker.formatDate("DD", date, inst.settings);
-        var date = $.datepicker.formatDate("mm/dd/yy", date, inst.settings);
-         $.ajax({
-            url: appurl+"ajax_get_date_time.php",
-            type: "POST",
-           data: {day: dateText,date:date,marketid:$.cookie('PasarStoreName')},
-            dataType: "json",
-            success: function(response) {
-              $('.loadingtime').hide();
-              $('.errormsg').remove();
-              if(response.result =='true'){
-                $('.selecttimeslot').show();
-                 $(".ordertimelist option").remove();
-                 $.each(response.time, function( index, value ) {                 
-                   $(".ordertimelist").append("<option >"+ value+"</option>" );
-                 });
-                $(".ordertimelist").show();
-              }else if(response.result =='false' && response.msg != ''){
-              	$('.selecttimeslot ,.ordertimelist').hide();
-                $('.ordertimelist').before("<p class='errormsg'>"+response.msg+"</p>");
-              }else{
-                $('.selecttimeslot ,.ordertimelist').hide();
-                $('.ordertimelist').before("<p class='errormsg'>We do not delivery on "+dateText+"</p>");
+        startDate: new Date(), 
+        dateFormat: "D, dd/mm/yy",
+        minDate: response.min_date,
+        maxDate: 21,
+        firstDay: 1 ,
+        beforeShowDay: function(date){
+          var dayId = date.getDay();
+          var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+          return [ response.blackout_days.indexOf(dateString) == -1 && response.inactive_days.indexOf(dayId) == -1 ]    
+        }, 
+        onSelect: function(dateText, inst) {  
+          {% comment %} $('.orderdate').val(dateText);
+            $('.loadingtime').show();
+            var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
+            var date = $.datepicker.parseDate(inst.settings.dateFormat || $.datepicker._defaults.dateFormat, dateText, inst.settings);
+            var dateText = $.datepicker.formatDate("DD", date, inst.settings);
+            var date = $.datepicker.formatDate("mm/dd/yy", date, inst.settings);
+            $.ajax({
+              url: appurl+"ajax_get_date_time.php",
+              type: "POST",
+              data: {day: dateText,date:date,marketid:$.cookie('PasarStoreName')},
+              dataType: "json",
+              success: function(response) {
+                $('.loadingtime').hide();
+                $('.errormsg').remove();
+                if(response.result =='true'){
+                  $('.selecttimeslot').show();
+                  $(".ordertimelist option").remove();
+                  $.each(response.time, function( index, value ) {                 
+                    $(".ordertimelist").append("<option >"+ value+"</option>" );
+                  });
+                  $(".ordertimelist").show();
+                }else if(response.result =='false' && response.msg != ''){
+                  $('.selecttimeslot ,.ordertimelist').hide();
+                  $('.ordertimelist').before("<p class='errormsg'>"+response.msg+"</p>");
+                }else{
+                  $('.selecttimeslot ,.ordertimelist').hide();
+                  $('.ordertimelist').before("<p class='errormsg'>We do not delivery on "+dateText+"</p>");
+                }
               }
-            }
+            }); {% endcomment %}
+
+            // TODO: Call API & populate timeslots
+            $(".pt-time").hide();
+            $(".pt-time option").remove();
+            $(".pt-time").append("<option >Select a timeslot</option>" );
+            $(".pt-time").show(); 
+
+          }
+        }).position({
+            my: "left top",
+            at: "left bottom",
+            of: $("#datepicker"),
+            collision: "none"
           });
-        }
-      }).position({
-          my: "left top",
-          at: "left bottom",
-          of: $("#datepicker"),
-          collision: "none"
+
+        // Load timeslots
+        $(".pt-time option").remove();
+        $(".pt-time").append("<option >Select a timeslot</option>" );
+        $.each(response.timeslots, function( index, timeslot ) {                 
+          $(".pt-time").append("<option >"+ timeslot +"</option>" );
         });
+        $(".pt-time").show(); 
     }
   </script> 
 
