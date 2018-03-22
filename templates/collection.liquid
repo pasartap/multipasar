@@ -46,7 +46,7 @@
         {% include 'product-grid-item' %}
       {% else %} 
         <div class="grid-item">
-          <p>{{ 'collections.general.no_matches' | t }}</p>
+          <p>{{ settings.no_matches }}</p>
         </div>
       {% endfor %}  
     </div>

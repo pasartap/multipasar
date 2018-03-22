@@ -18,6 +18,18 @@
       {% assign menu_handle = settings.main_nav_wholesale %}
     {% endif %}
 
+    <script>
+      // Load the correct navigation by market 
+      var market = $.cookie("PasarStoreName");
+      if (market === "Bayan Baru") {
+        {% assign menu_handle = settings.main_nav-bayan-baru %}
+      } else if (market === "Chow Kit") {
+        {% assign menu_handle = settings.main_nav %}
+      } else if (market === "Serdang") {
+        {% assign menu_handle = settings.main_nav %}
+      }
+    </script>
+    
     {% for link in linklists[menu_handle].links %}
       {% if linklists[link.handle] != empty %}
       {% assign cat = link.title | downcase %}

@@ -678,41 +678,6 @@
     });
     $(window).load(function () {
 
-        {% comment %} var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
-        $.ajax({
-            data    : {
-                shop_name: "1"
-            },
-            dataType: "json",
-            success : function (response) {
-                if (response.result == "true") {
-                    var storelist = '';
-                    if (response.slot != 'No') {
-                        var timeslot = 'Next available slot ' + response.slot;
-                        $(".changestore")
-                            .find("span")
-                            .html(timeslot);
-                    } else {
-                        var timeslot = '';
-                    }
-                    $.each(response.data, function (i, item) {
-                        storelist += '<li data-id=' + item.id + '><strong>' + item.market + '</strong><br><span>' +
-                                timeslot + '</span></li>';
-                        $(".coll-filter option").each(function () {
-                            if (this.text == item.market) {
-                                $(this).remove();
-                            }
-
-                        });
-                    });
-                    //console.log(storelist);
-                    $(".manualstore").html(storelist);
-                }
-            },
-            type    : "POST",
-            url     : appurl + "ajax_get_stores.php"
-        }); {% endcomment %}
-
         // Get next available timeslots
         var now = new Date(Date.now());
         var month = ("0" + (now.getMonth() + 1)).slice(-2);
