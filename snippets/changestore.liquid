@@ -78,7 +78,7 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
     var markgetstore = $(this).text();
      var marketid = $(this).attr("data-id");
     if(cartitm != 0){
-    if (confirm('You have items in your shopping cart. Switching to a different market will empty the shopping cart. Do you want to proceed?')) {
+      if (confirm('You have items in your shopping cart. Switching to a different market will empty the shopping cart. Do you want to proceed?')) {
         $.ajax({
           type: "POST",
           dataType: 'json',
@@ -86,17 +86,46 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
           success: function(){
             $.cookie("PasarStoreName", markgetstore,{ path: '/' });    
             $.cookie("PasarStoreId", marketid,{ path: '/' });   
-            window.location.href='{{ shop.url }}';
+
+            /* Send the value as a cart attribute via the AJAX API */
+            $.ajax({
+              type: "POST",
+              url: '/cart.js',
+              data: {"attributes[market]": markgetstore}, /* We are using an attribute named "market" */
+              success: function(d){
+                /* 
+                On sucess, reload the page.  
+                Warning: If you have scripts on the page that auto trigger the change even the page may reload forever.
+                If you do, be sure to add code to account for that.
+                */
+                window.location.href='{{ shop.url }}';
+              },
+              dataType: 'json'
+            });
           }      
         });
       }else{
         return false;
       }
-    }else{
+    } else {
         $.cookie("PasarStoreName", markgetstore,{ path: '/' });
         $.cookie("PasarStoreId", marketid,{ path: '/' });
-        window.location.href='{{ shop.url }}';
-    
+        
+        /* Send the value as a cart attribute via the AJAX API */
+        $.ajax({
+          type: "POST",
+          url: '/cart.js',
+          data: {"attributes[market]": markgetstore}, /* We are using an attribute named "market" */
+          success: function(d){
+            /* 
+            On sucess, reload the page.  
+            Warning: If you have scripts on the page that auto trigger the change even the page may reload forever.
+            If you do, be sure to add code to account for that.
+            */
+            window.location.href='{{ shop.url }}';
+          },
+          dataType: 'json'
+        });
     }
     });
   });
