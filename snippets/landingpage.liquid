@@ -543,7 +543,7 @@
                 $.ajax({
                     type: "POST",
                     url: '/cart.js',
-                    data: {"attributes[market]": markgetstore}, /* We are using an attribute named "market" */
+                    data: { "attributes[market]": $(this).text() }, /* We are using an attribute named "market" */
                     success: function(d){
                         /* 
                         On sucess, reload the page.  
