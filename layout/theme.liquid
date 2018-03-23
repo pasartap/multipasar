@@ -155,18 +155,8 @@
     <!-- main content -->
     <!-- IF frontpage -->    
     {% if page == pages.frontpage %} 
-      <!-- slider -->    
-      {% if customer and customer_tags contains 'wholesale' %}
-      {% else %}
-        {% include 'home-slider' %} 
-      {% endif %}
-
       <div id="main_content" class="col-main col-sm-12 col-sm-push-3-{{ content_width }}"> 
-      {% if template == 'collection' %}
-        {% include 'collection.list' %}
-      {% else %}
-        {{ content_for_layout }}
-      {% endif %} 
+        {{ content_for_layout }} 
       </div>
     {% endif %} 
     
