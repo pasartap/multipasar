@@ -743,7 +743,7 @@
     "checkout_call_to_action_color": "#8fc243",
     "cart-text-color": "#ffffff",
     "main_nav": "main-menu",
-	"main_nav-bayan-baru": "main-menu-bayan-baru",
+	  "main_nav-bayan-baru": "main-menu-bayan-baru",
     "main_nav_wholesale": "main-menu-wholesale",
     "enable_breadcrumbs": "true",
     "btn_primary_bg_t": "#ffffff",

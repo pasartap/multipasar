@@ -4,7 +4,7 @@
     "settings": [
       {
         "type": "text",
-        "id": "nav_menu-bayan-baru",
+        "id": "main_nav-bayan-baru",
         "label": "Navigation handle"
       }
     ]
