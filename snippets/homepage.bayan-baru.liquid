@@ -1,12 +1,12 @@
-{% comment %} 
-  <div class="container">
-    <div class="row"> {% include 'hot-product' %}
-      {% include 'home-tabs' %} </div>
-  </div>
-  
-  {% include 'widget-best-sellers' %}
-{% endcomment %}
-{% include 'home-slider' %} 
-{% include 'featured-collections' %}
-{% include 'home-bottom-banner' %}
-{% include 'widget-logo_brand' %} 
+{% if settings.custom_slider_bayan_baru == true %}
+  {% include 'home-slider.bayan-baru' %}
+{% else %}
+  {% include 'home-slider' %} 
+{% endif %}
+
+{% if settings.feat_coll_bayan_baru != blank %}
+  {% include 'featured-collections.bayan-baru' %}
+{% else %}
+  {% include 'featured-collections' %} 
+{% endif %}
+

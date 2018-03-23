@@ -1,12 +1,11 @@
-{% comment %} 
-  <div class="container">
-    <div class="row"> {% include 'hot-product' %}
-      {% include 'home-tabs' %} </div>
-  </div>
-  
-  {% include 'widget-best-sellers' %}
-{% endcomment %}
-{% include 'home-slider' %} 
-{% include 'featured-collections' %}
-{% include 'home-bottom-banner' %}
-{% include 'widget-logo_brand' %} 
+{% if settings.custom_slider_serdang == true %}
+  {% include 'home-slider.serdang' %}
+{% else %}
+  {% include 'home-slider' %} 
+{% endif %}
+
+{% if settings.feat_coll_serdang != blank %}
+  {% include 'featured-collections.serdang' %}
+{% else %}
+  {% include 'featured-collections' %} 
+{% endif %}

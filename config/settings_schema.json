@@ -3,9 +3,505 @@
     "name": "Bayan Baru",
     "settings": [
       {
+        "type": "header",
+        "content": "Navigation"
+      },
+      {
         "type": "text",
         "id": "main_nav-bayan-baru",
         "label": "Navigation handle"
+      },
+      {
+        "type": "header",
+        "content": "Customized featured collections",
+        "info": "Leave empty if no customization is required."
+      },
+      {
+        "type": "textarea",
+        "id": "feat_coll_bayan_baru",
+        "label": "Collections",
+        "info": "Comma-separated collections using handle. Example: meat,poultry,chicken,fish-seafood"
+      },
+      {
+        "type": "header",
+        "content": "Customized Home Slider"
+      },
+      {
+        "type": "checkbox",
+        "id": "custom_slider_bayan_baru",
+        "label": "Customize Slider?",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Slide 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider1_bayan_baru",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_1_image_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_line2_bayan_baru",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide1_small_caption_color_bayan_baru",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_line1_bayan_baru",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide1_large_caption_color_bayan_baru",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_text_bayan_baru",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide1_normal_text_color_bayan_baru",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide1_button_display_bayan_baru",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide1_button1_text_bayan_baru",
+        "label": "Button 1"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_border_bayan_baru",
+        "label": "Button 1 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_text_color_bayan_baru",
+        "label": "Button 1 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_bgcolor_bayan_baru",
+        "label": "Button 1 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_bghover_bayan_baru",
+        "label": "Button 1 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide1_button1_link_bayan_baru",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider2_bayan_baru",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_2_image_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_line2_bayan_baru",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide2_small_caption_color_bayan_baru",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_line1_bayan_baru",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide2_large_caption_color_bayan_baru",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_text_bayan_baru",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide2_normal_text_color_bayan_baru",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide2_button_display_bayan_baru",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide2_button2_text_bayan_baru",
+        "label": "Button 2"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_border_bayan_baru",
+        "label": "Button 2 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_text_color_bayan_baru",
+        "label": "Button 2 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_bgcolor_bayan_baru",
+        "label": "Button 2 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_bghover_bayan_baru",
+        "label": "Button 2 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide2_button2_link_bayan_baru",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider3_bayan_baru",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_3_image_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_line2_bayan_baru",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide3_small_caption_color_bayan_baru",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_line1_bayan_baru",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide3_large_caption_color_bayan_baru",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_text_bayan_baru",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide3_normal_text_color_bayan_baru",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide3_button_display_bayan_baru",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide3_button3_text_bayan_baru",
+        "label": "Button 3"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_border_bayan_baru",
+        "label": "Button 3 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_text_color_bayan_baru",
+        "label": "Button 3 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_bgcolor_bayan_baru",
+        "label": "Button 3 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_bghover_bayan_baru",
+        "label": "Button 3 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide3_button3_link_bayan_baru",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider4_bayan_baru",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_4_image_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_line2_bayan_baru",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide4_small_caption_color_bayan_baru",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_line1_bayan_baru",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide4_large_caption_color_bayan_baru",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_text_bayan_baru",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide4_normal_text_color_bayan_baru",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide4_button_display_bayan_baru",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_text_bayan_baru",
+        "label": "Button 4"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_border_bayan_baru",
+        "label": "Button 4 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_text_color_bayan_baru",
+        "label": "Button 4 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_bgcolor_bayan_baru",
+        "label": "Button 4 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_bghover_bayan_baru",
+        "label": "Button 4 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_link_bayan_baru",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Middle Banner 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_middle_banner_bayan_baru",
+        "label": "Display Middle Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "mid-banner1_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_normal_text_bayan_baru",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_normal_text_color_bayan_baru",
+        "label": "Middle banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_title_text_bayan_baru",
+        "label": "Middle banner title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_title_text_color_bayan_baru",
+        "label": "Middle banner title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner1_link_bayan_baru",
+        "label": "Middle banner1 link"
+      },
+      {
+        "type": "header",
+        "content": "Middle Banner 2"
+      },
+      {
+        "type": "image",
+        "id": "mid-banner2_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_normal_text_bayan_baru",
+        "label": "Middle banner2 normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_normal_text_color_bayan_baru",
+        "label": "Middle banner2 normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_title_text_bayan_baru",
+        "label": "Middle banner2 title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_title_text_color_bayan_baru",
+        "label": "Middle banner2 title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_link_bayan_baru",
+        "label": "Middle banner2 link"
+      },
+      {
+        "type": "header",
+        "content": "Home Right Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_right_banner_bayan_baru",
+        "label": "Display Home Right Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "right-banner_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_title_text_bayan_baru",
+        "label": "Home Right banner title text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_title_text_color_bayan_baru",
+        "label": "Home Right banner title text color"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_line_color_bayan_baru",
+        "label": "Home Right banner line color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_normal_text_bayan_baru",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_normal_text_color_bayan_baru",
+        "label": "Home Right banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner1_link_bayan_baru",
+        "label": "Home Right banner1 link"
       }
     ]
   },
@@ -271,8 +767,7 @@
         "type": "checkbox",
         "id": "use_custom_logo",
         "label": "Use Custom Logo?",
-        "info":
-          "Note: Duplicate logo_green.png and logo_white.png in the /assets folder and customize accordingly."
+        "info": "Note: Duplicate logo_green.png and logo_white.png in the /assets folder and customize accordingly."
       },
       {
         "type": "image",
@@ -2591,6 +3086,512 @@
         "type": "text",
         "id": "slide-four_button_link",
         "label": "Button Link"
+      }
+    ]
+  },
+  {
+    "name": "Serdang",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Navigation"
+      },
+      {
+        "type": "text",
+        "id": "main_nav-serdang",
+        "label": "Navigation handle"
+      },
+      {
+        "type": "header",
+        "content": "Customized featured collections",
+        "info": "Leave empty if no customization is required."
+      },
+      {
+        "type": "textarea",
+        "id": "feat_coll_serdang",
+        "label": "Collections",
+        "info": "Comma-separated collections using handle. Example: meat,poultry,chicken,fish-seafood"
+      },
+      {
+        "type": "header",
+        "content": "Customized Home Slider"
+      },
+      {
+        "type": "checkbox",
+        "id": "custom_slider_serdang",
+        "label": "Customize Slider?",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Slide 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider1_serdang",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_1_image_serdang.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_line2_serdang",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide1_small_caption_color_serdang",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_line1_serdang",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide1_large_caption_color_serdang",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_text_serdang",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide1_normal_text_color_serdang",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide1_button_display_serdang",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide1_button1_text_serdang",
+        "label": "Button 1"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_border_serdang",
+        "label": "Button 1 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_text_color_serdang",
+        "label": "Button 1 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_bgcolor_serdang",
+        "label": "Button 1 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_bghover_serdang",
+        "label": "Button 1 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide1_button1_link_serdang",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider2_serdang",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_2_image_serdang.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_line2_serdang",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide2_small_caption_color_serdang",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_line1_serdang",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide2_large_caption_color_serdang",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_text_serdang",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide2_normal_text_color_serdang",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide2_button_display_serdang",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide2_button2_text_serdang",
+        "label": "Button 2"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_border_serdang",
+        "label": "Button 2 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_text_color_serdang",
+        "label": "Button 2 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_bgcolor_serdang",
+        "label": "Button 2 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_bghover_serdang",
+        "label": "Button 2 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide2_button2_link_serdang",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider3_serdang",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_3_image_serdang.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_line2_serdang",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide3_small_caption_color_serdang",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_line1_serdang",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide3_large_caption_color_serdang",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_text_serdang",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide3_normal_text_color_serdang",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide3_button_display_serdang",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide3_button3_text_serdang",
+        "label": "Button 3"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_border_serdang",
+        "label": "Button 3 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_text_color_serdang",
+        "label": "Button 3 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_bgcolor_serdang",
+        "label": "Button 3 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_bghover_serdang",
+        "label": "Button 3 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide3_button3_link_serdang",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider4_serdang",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_4_image_serdang.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_line2_serdang",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide4_small_caption_color_serdang",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_line1_serdang",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide4_large_caption_color_serdang",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_text_serdang",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide4_normal_text_color_serdang",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide4_button_display_serdang",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_text_serdang",
+        "label": "Button 4"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_border_serdang",
+        "label": "Button 4 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_text_color_serdang",
+        "label": "Button 4 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_bgcolor_serdang",
+        "label": "Button 4 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_bghover_serdang",
+        "label": "Button 4 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_link_serdang",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Middle Banner 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_middle_banner_serdang",
+        "label": "Display Middle Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "mid-banner1_serdang.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_normal_text_serdang",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_normal_text_color_serdang",
+        "label": "Middle banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_title_text_serdang",
+        "label": "Middle banner title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_title_text_color_serdang",
+        "label": "Middle banner title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner1_link_serdang",
+        "label": "Middle banner1 link"
+      },
+      {
+        "type": "header",
+        "content": "Middle Banner 2"
+      },
+      {
+        "type": "image",
+        "id": "mid-banner2_serdang.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_normal_text_serdang",
+        "label": "Middle banner2 normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_normal_text_color_serdang",
+        "label": "Middle banner2 normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_title_text_serdang",
+        "label": "Middle banner2 title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_title_text_color_serdang",
+        "label": "Middle banner2 title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_link_serdang",
+        "label": "Middle banner2 link"
+      },
+      {
+        "type": "header",
+        "content": "Home Right Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_right_banner_serdang",
+        "label": "Display Home Right Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "right-banner_serdang.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_title_text_serdang",
+        "label": "Home Right banner title text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_title_text_color_serdang",
+        "label": "Home Right banner title text color"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_line_color_serdang",
+        "label": "Home Right banner line color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_normal_text_serdang",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_normal_text_color_serdang",
+        "label": "Home Right banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner1_link_serdang",
+        "label": "Home Right banner1 link"
       }
     ]
   },

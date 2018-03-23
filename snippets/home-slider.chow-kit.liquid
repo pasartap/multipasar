@@ -1,0 +1,205 @@
+
+<div id="magik-slideshow" class="magik-slideshow">
+  <div class="container">
+    <div class="row"> {% if settings.display_home_slider %}
+      {% if settings.display_home_slider != blank %}
+      <div class="col-md-6 col-sm-12">
+        <div id='rev_slider_4_wrapper' class='rev_slider_wrapper fullwidthbanner-container'>
+          <div id='rev_slider_4' class='rev_slider fullwidthabanner'>
+            <ul>
+              {% if settings.display_home_slider1 %}
+              {% if settings.display_home_slider1 != blank %}
+              <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb='{{ "slide_1_image.jpg" | asset_url }}'><img src="{{ "slide_1_image.jpg" | asset_url }}" alt="" data-bgposition='left top'  data-bgfit='cover' data-bgrepeat='no-repeat'  />
+                <div class="info">
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='55'  data-y='110'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;max-width:auto;max-height:auto;white-space:nowrap;'>
+                    <h3>{{ settings.slide_1_caption_line2 }}</h3>
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='55'  data-y='150'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;max-width:auto;max-height:auto;white-space:nowrap;'>
+                    <h2>{{ settings.slide_1_caption_line1 }}</h2>
+                  </div>
+                  {% if settings.slide1_button_display %}
+                  {% if settings.slide1_button_display != blank %}
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='55'  data-y='310'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'><a class="shop-btn" href="{{ settings.slide1_button1_link }}">{{ settings.slide1_button1_text }}</a></div>
+                  {% endif %}
+                  {% endif %}
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='55'  data-y='240'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'>
+                    <p>{{ settings.slide_1_caption_text }}</p>
+                  </div>
+                </div>
+              </li>
+              {% endif %}
+              {% endif %}   
+              {% if settings.display_home_slider2 %}
+              {% if settings.display_home_slider2 != blank %}
+              <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb='{{ "slide_2_image.jpg" | asset_url }}'><img src="{{ "slide_2_image.jpg" | asset_url }}" alt="" data-bgposition='left top'  data-bgfit='cover' data-bgrepeat='no-repeat'  />
+                <div class="info1">
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='55'  data-y='110'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;max-width:auto;max-height:auto;white-space:nowrap;'>
+                    <h3>{{ settings.slide_2_caption_line2 }}</h3>
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='55'  data-y='150'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;max-width:auto;max-height:auto;white-space:nowrap;'>
+                    <h2>{{ settings.slide_2_caption_line1 }}</h2>
+                  </div>
+                  {% if settings.slide2_button_display %}
+                  {% if settings.slide2_button_display != blank %}
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='55'  data-y='310'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'><a class="buy-btn" href="{{ settings.slide2_button2_link }}">{{ settings.slide2_button2_text }}</a></div>
+                  {% endif %}
+                  {% endif %}
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='55'  data-y='240'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'>
+                    <p>{{ settings.slide_2_caption_text }}</p>
+                  </div>
+                </div>
+              </li>
+              {% endif %}
+              {% endif %}
+              
+               {% if settings.display_home_slider3 %}
+              {% if settings.display_home_slider3 != blank %}
+              <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb='{{ "slide_3_image.jpg" | asset_url }}'><img src="{{ "slide_3_image.jpg" | asset_url }}" alt="" data-bgposition='left top'  data-bgfit='cover' data-bgrepeat='no-repeat'  />
+                <div class="info1">
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='55'  data-y='110'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;max-width:auto;max-height:auto;white-space:nowrap;'>
+                    <h3>{{ settings.slide_3_caption_line1 }}</h3>
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='55'  data-y='150'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;max-width:auto;max-height:auto;white-space:nowrap;'>
+                    <h2>{{ settings.slide_3_caption_line1 }}</h2>
+                  </div>
+                  {% if settings.slide3_button_display %}
+                  {% if settings.slide3_button_display != blank %}
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='55'  data-y='310'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'><a class="buy-btn" href="{{ settings.slide3_button3_link }}">{{ settings.slide3_button3_text }}</a></div>
+                  {% endif %}
+                  {% endif %}
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='55'  data-y='240'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'>
+                    <p>{{ settings.slide_3_caption_text }}</p>
+                  </div>
+                </div>
+              </li>
+              {% endif %}
+              {% endif %}
+              
+              {% if settings.display_home_slider4 %}
+              {% if settings.display_home_slider4 != blank %}
+              <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb='{{ "slide_4_image.jpg" | asset_url }}'><img src="{{ "slide_4_image.jpg" | asset_url }}" alt="" data-bgposition='left top'  data-bgfit='cover' data-bgrepeat='no-repeat'  />
+                <div class="info1">
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='55'  data-y='110'  data-endspeed='500'  data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2;max-width:auto;max-height:auto;white-space:nowrap;'>
+                    <h3>{{ settings.slide_4_caption_line1 }}</h3>
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='55'  data-y='150'  data-endspeed='500'  data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3;max-width:auto;max-height:auto;white-space:nowrap;'>
+                    <h2>{{ settings.slide_4_caption_line1 }}</h2>
+                  </div>
+                  {% if settings.slide4_button_display %}
+                  {% if settings.slide4_button_display != blank %}
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='55'  data-y='310'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'><a class="buy-btn" href="{{ settings.slide4_button_link }}">{{ settings.slide4_button_text }}</a></div>
+                  {% endif %}
+                  {% endif %}
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='55'  data-y='240'  data-endspeed='500'  data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'>
+                    <p>{{ settings.slide_4_caption_text }}</p>
+                  </div>
+                </div>
+              </li>
+              {% endif %}
+              {% endif %}
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endif %}
+      
+      {% if settings.display_middle_banner %}
+      {% if settings.display_middle_banner != blank %}
+      <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12 col-mid">
+        <div class="col-inner ">
+          <div class="img-block"> <a href="{{ settings.middle_banner1_link }}" class="img-animation" title="Image">
+            <div class="banner-details">
+              <div class="banner-sub-title">{{ settings.middle_banner_normal_text }}</div>
+              <div class="banner-title">{{ settings.middle_banner_title_text }}</div>
+            </div>
+            <img src="{{ "mid-banner1.jpg" | asset_url }}" /></a> </div>
+          <div class="img-block1"> <a href="{{ settings.middle_banner2_link }}" class="img-animation" title="Image">
+            <div class="banner-details">
+              <div class="banner-sub-title">{{ settings.middle_banner2_normal_text }}</div>
+              <div class="banner-title">{{ settings.middle_banner2_title_text }}</div>
+            </div>
+            <img src="{{ "mid-banner2.jpg" | asset_url }}" /></a> </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endif %}
+      
+      {% if settings.display_home_right_banner %}
+      {% if settings.display_home_right_banner != blank %}
+      <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12 col-right">
+        <div class="image-item"> <a href="{{ settings.home_right_banner1_link }}" title="Image">
+          <div class="banner-details">
+            <div class="banner-title">{{ settings.home_right_banner_title_text }}</div>
+            <div class="line"></div>
+            <div class="banner-sub-title">{{ settings.home_right_banner_normal_text }}</div>
+          </div>
+          <img src="{{ "right-banner.jpg" | asset_url }}" alt="right banner" /></a> </div>
+      </div>
+      {% endif %}
+      {% endif %} </div>
+  </div>
+</div>
+{{ 'revslider.js' | asset_url | script_tag }}
+
+{{ 'countdown.js' | asset_url | script_tag }} 
+<script type='text/javascript'>
+jQuery(document).ready(function() {
+	jQuery('#rev_slider_4').show().revolution({
+	dottedOverlay: 'none',
+	delay: 5000,
+	startwidth: 600,
+	startheight: 500,
+	hideThumbs: 200,
+	thumbWidth: 200,
+	thumbHeight: 50,
+	thumbAmount: 2,
+	navigationType: 'thumb',
+	navigationArrows: 'solo',
+	navigationStyle: 'round',
+	touchenabled: 'on',
+	onHoverStop: 'on',
+	swipe_velocity: 0.7,
+	swipe_min_touches: 1,
+	swipe_max_touches: 1,
+	drag_block_vertical: false,
+	spinner: 'spinner0',
+	keyboardNavigation: 'off',
+	navigationHAlign: 'center',
+	navigationVAlign: 'bottom',
+	navigationHOffset: 0,
+	navigationVOffset: 20,
+	soloArrowLeftHalign: 'left',
+	soloArrowLeftValign: 'center',
+	soloArrowLeftHOffset: 20,
+	soloArrowLeftVOffset: 0,
+	soloArrowRightHalign: 'right',
+	soloArrowRightValign: 'center',
+	soloArrowRightHOffset: 20,
+	soloArrowRightVOffset: 0,
+	shadow: 0,
+	fullWidth: 'on',
+	fullScreen: 'off',
+	stopLoop: 'off',
+	stopAfterLoops: -1,
+	stopAtSlide: -1,
+	shuffle: 'off',
+	autoHeight: 'off',
+	forceFullWidth: 'on',
+	fullScreenAlignForce: 'off',
+	minFullScreenHeight: 0,
+	hideNavDelayOnMobile: 1500,
+	hideThumbsOnMobile: 'off',
+	hideBulletsOnMobile: 'off',
+	hideArrowsOnMobile: 'off',
+	hideThumbsUnderResolution: 0,
+	hideSliderAtLimit: 0,
+	hideCaptionAtLimit: 0,
+	hideAllCaptionAtLilmit: 0,
+	startWithSlide: 0,
+	fullScreenOffsetContainer: ''
+});
+});
+</script> 
+ 

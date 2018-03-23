@@ -150,6 +150,7 @@
     }
     .bannercontainer {
         max-width: 850px;
+        padding-bottom: 40px;
     }
     .top-banner {
         background: url("{{ 'landing_page_top_banner.png' | asset_url }}");
@@ -740,7 +741,6 @@
             $(".mm-page").addClass("padding0high");
             $("#myModal").remove();
             $(".innerpagepost").remove();
-
         } else {
             $(".sitecontainers").addClass("showall");
             $(".landingpage").addClass("hideall");
@@ -757,6 +757,8 @@
                 .find("strong")
                 .text($.cookie('PasarStoreName'));
         }
+
+        hideLoading();
     });
     function showLoading() {
         $(".loading").show();
