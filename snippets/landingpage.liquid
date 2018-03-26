@@ -532,8 +532,7 @@
             $(".landingpagediv").remove();
         }
 
-        var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
-        showLoading()
+        showLoading();
         $(document).on("click", ".manualstore li", function () {
             var url = window.location.href;
             if (!$(this).parent("ul").hasClass("withemptycart")) {
@@ -628,34 +627,31 @@
             if (tag != '') {
                 $.ajax({
                     data    : {
-                        postcode : postcode,
-                        shop_name: "1",
-                        tag      : tag
+                        shop_name: "1"
                     },
                     dataType: "json",
                     success : function (response) {
                         console.log(response);
-
-                        var total = response.data.length;
-                        if (response.result == "true") {
+                        
+                        if (response.data.length > 0) {
                             var storelist = '';
-                            if (response.slot != 'No') {
+                            {% comment %} if (response.slot != 'No') {
                                 var timeslot = 'Next available slot ' + response.slot;
                                 $(".changestore")
                                     .find("span")
                                     .html(timeslot);
                             } else {
                                 var timeslot = '';
-                            }
-                            $.each(response.data, function (i, item) {
-                                storelist += '<li data-id=' + item.id + '><strong>' + item.market + '</strong><br><span>' +
+                            } {% endcomment %}
+
+                            storelist = '<li data-id=' + response.data.market_id + '><strong>' + response.data.market_name + '</strong><br><span>' +
                                         timeslot + '</span></li>';
-                            });
-                            //console.log(storelist);
+
+                            console.log(storelist);
                             $(".manualstore").html(storelist);
-                            if (total == 1) {
+                            {% comment %} if (total == 1) {
                                 $("ul.manualstore li:first-child").click();
-                            }
+                            } {% endcomment %}
                         } else {
                             var msgnostore = 'Sorry, PasarTap does not provide service at this location. Please select a mar' +
                                     'ket below to continue browsing our products.';
@@ -666,7 +662,7 @@
                             $(".manualstore").before(
                                 "<p class='nostoremsg'><strong>" + msgnostore + "</strong></p>"
                             );
-                            var storelist = '';
+                            {% comment %} var storelist = '';
                             if (response.slot != 'No') {
                                 var timeslot = 'Next available slot ' + response.slot;
                                 $(".changestore")
@@ -679,15 +675,16 @@
                                 storelist += '<li data-id=' + item.id + '><strong>' + item.market + '</strong><br><span>' +
                                         timeslot + '</span></li>';
                             });
-                            //console.log(storelist);
-                            $(".manualstore").html(storelist);
+                            console.log(storelist);
+                            $(".manualstore").html(storelist); {% endcomment %}
                         }
                     },
-                    type    : "POST",
-                    url     : appurl + "ajax_store.php"
+                    type    : "GET",
+                    url     : "https://pt-deliveries.herokuapp.com/api/postcode/" + postcode
                 });
             }
         });
+
         if ($("input[type='hidden'][name='market']").val() == '' && $.cookie('PasarStoreName') != undefined) {
             $("input[type='hidden'][name='market']").val($.cookie('PasarStoreName'))
         }
