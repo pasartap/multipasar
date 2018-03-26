@@ -2,7 +2,12 @@
 {% assign image_size = 'original' %}
 {% assign featured_collections = 'all' %}
 {% assign coll_num = 1 %}
-{% if settings.homepage_featured_collections != blank %}
+
+{% if cart.attributes.market == "Bayan Baru" and settings.feat_coll_bayan_baru != blank %}
+  {% assign featured_collections = settings.feat_coll_bayan_baru | split:"," %}
+{% elsif cart.attributes.market == "Serdang" and settings.feat_coll_serdang != blank %}
+  {% assign featured_collections = settings.feat_coll_serdang | split:"," %}
+{% else settings.homepage_featured_collections != blank %}
   {% assign featured_collections = settings.homepage_featured_collections | split:"," %}
 {% endif %}
 
@@ -47,7 +52,7 @@
           var market = $.cookie('PasarStoreName');
           var appendplace = '.newslider{{ forloop.index }}';
           ajaxCall++;
-          
+          console.log(collectionno);
           $.ajax({
             url: "https://www.shopifyappexperts.com/localdelivery/ajax_home_feature.php",
             type: "POST",
