@@ -624,10 +624,57 @@
             $(".nostoremsg").remove();
             var tag = $("#autocomplete").val();
             var postcode = $("#postal_code").val();
-            if (tag != '') {
+
+            if (postcode != '') {
                 $.ajax({
                     data    : {
-                        shop_name: "1"
+                        shop_id: "1"
+                    },
+                    dataType: "json",
+                    success : function(response) {
+                        console.log(response);
+                        
+                        if (response.data != null) {
+                            var storelist = '';
+                            {% comment %} if (response.slot != 'No') {
+                                var timeslot = 'Next available slot ' + response.slot;
+                                $(".changestore")
+                                    .find("span")
+                                    .html(timeslot);
+                            } else {
+                                var timeslot = '';
+                            } {% endcomment %}
+
+                            var timeslot = '';
+                            storelist = '<li data-id=' + response.data.market_id + '><strong>' + response.data.market_name + '</strong><br><span>' +
+                                        timeslot + '</span></li>';
+
+                            console.log(storelist);
+                            $(".manualstore").html(storelist);
+                            $("ul.manualstore li:first-child").click();
+                        } else {
+                            var msgnostore = 'Sorry, PasarTap does not provide service at this location. Please select a mar' +
+                                    'ket below to continue browsing our products.';
+                            $(".manualstore").before(
+                                "<p class='nostoremsg'><strong>" + msgnostore + "</strong></p>"
+                            );
+                        }
+                    },
+                    type    : "GET",
+                    url     : "https://pt-deliveries.herokuapp.com/api/postcode/" + postcode
+                });
+            } else {
+                var msgnostore = '<br>Sorry, your location could not be determined. Please select a market manua' +
+                            'lly below.';
+                $(".manualstore").before(
+                    "<p class='nostoremsg'><strong>" + msgnostore + "</strong></p>"
+                );
+            }
+
+            {% comment %} if (tag != '') {
+                $.ajax({
+                    data    : {
+                        shop_id: "1"
                     },
                     dataType: "json",
                     success : function (response) {
@@ -682,7 +729,7 @@
                     type    : "GET",
                     url     : "https://pt-deliveries.herokuapp.com/api/postcode/" + postcode
                 });
-            }
+            } {% endcomment %}
         });
 
         if ($("input[type='hidden'][name='market']").val() == '' && $.cookie('PasarStoreName') != undefined) {
