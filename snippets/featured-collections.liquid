@@ -39,7 +39,7 @@
                   {% paginate collections[coll].products by 250 %}
                   
                   {% for product in collections[coll].products %} 
-                    {% if product_count > 15 %}
+                    {% if product_count > settings.featured_collections_limit %}
                       {% break %}
                     {% endif %}
 

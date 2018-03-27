@@ -327,6 +327,7 @@
     "bestseller_title-text-bg-color": "#ffffff",
     "bestsellers_cat": "deals",
     "display_featured_collections": true,
+    "featured_collections_limit": 15,
     "homepage_featured_collections": "deals,meat,poultry,fish-seafood,vegetables-ulam,fruits,cooking-ingredients,spices,noodles-beancurd-cooking-supplements,fruit-vegetables-juices",
     "feat_coll_bayan_baru": "deals,meat,poultry,fish-seafood,vegetables-ulam,fruits,cooking-ingredients,spices,noodles-beancurd-cooking-supplements",
     "feat_coll_serdang": "",
