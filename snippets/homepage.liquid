@@ -1,9 +1,9 @@
 {% if cart.attributes.market == "Bayan Baru" %}
   {% include 'homepage.bayan-baru' %}
-{% elsif cart.attributes.market == "Chow Kit" %}
-  {% include 'homepage.chow-kit' %}
 {% elsif cart.attributes.market == "Serdang" %}
   {% include 'homepage.serdang' %}
+{% else %}
+  {% include 'homepage.chow-kit' %}
 {% endif %}
 
 {% include 'home-bottom-banner' %}

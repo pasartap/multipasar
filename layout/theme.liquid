@@ -154,14 +154,12 @@
 
     <!-- main content -->
     <!-- IF frontpage -->    
-    {% if page == pages.frontpage %} 
+    {% if template == 'index' %}
       <div id="main_content" class="col-main col-sm-12 col-sm-push-3-{{ content_width }}"> 
         {{ content_for_layout }} 
       </div>
-    {% endif %} 
-    
-    <!-- IF NOT frontpage -->         
-    {% if template != 'index' %}
+    {% else %}    
+      <!-- IF NOT frontpage -->    
       {% if settings.enable_breadcrumbs %}
         <div class="breadcrumbs">{% include 'snippet-breadcrumbs' %}</div>
       {% endif %}
@@ -336,26 +334,22 @@
 </body>
   <script>
   $(window).load(function() {  
-    $( ".item " ).each(function( index ) {
-      {% comment %} if(!$(this).hasClass($.cookie('PasarStoreName'))){
-      	$(this).parent(".product-item").remove();
-        $(this).remove();
-      } {% endcomment %}
-    });
-
-    {% comment %} {% if  template != 'product' %}
- 	    $( ".product-item " ).each(function( index ) {
-        if(!$(this).hasClass($.cookie('PasarStoreName'))){
-          $(this).remove();
-        }
+    hideLoading();  
+    
+    {% if cart.attributes.market == blank %}
+      $("input[name='attributes[market]']").val($.cookie('PasarStoreName'));
+      /* Send the value as a cart attribute via the AJAX API */
+      $.ajax({
+        type: "POST",
+        url: '/cart.js',
+        data: {"attributes[market]": $.cookie('PasarStoreName')}, /* We are using an attribute named "market" */
+        success: function(d){
+          console.log($.cookie('PasarStoreName') + ' assigned as cart.attributes.market.');
+        },
+        dataType: 'json'
       });
-    {% endif %} {% endcomment %}
-
-    {% if template != 'index' %}
-      hideLoading();
     {% endif %}
 
-    $("input[name='attributes[Market]']").val($.cookie('PasarStoreName'));
     $(document).on("click",".homeaddtocart",function(e){
     	e.preventDefault();
       $(this).closest(".single-add-to-cart-button").hide();
