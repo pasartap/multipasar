@@ -5,30 +5,29 @@ jQuery(document).ready(function() {
   });
 
   // set checkout button enablement when timeslot is selected
-  (function ($) {
-    $.each(['show', 'hide'], function (i, ev) {
-      var el = $.fn[ev];
-      $.fn[ev] = function () {
-        this.trigger(ev);
+  $('.pt-time').change(function(){
+      toggleCheckoutButton();
+  }); 
 
-        {% if settings.order_minimum != blank %}
-          if ($(this).is('#timeDiv')) {
-            var totalPrice  = parseFloat(document.querySelector('.money').innerHTML.replace('RM', ''));        
-            var order_minimum = parseFloat({{ settings.order_minimum }}).toFixed(2);
-            if (ev == 'show' && totalPrice >= order_minimum) {
-              $("#dropdown-cart").find('.btn').removeAttr('disabled');
-              $("#mobile-cart").find('.btn-checkout-mobile').removeAttr('disabled'); 
-            } else if (ev == 'hide') {
-              $("#dropdown-cart").find('.btn').attr('disabled', 'disabled');
-              $("#mobile-cart").find('.btn-checkout-mobile').attr('disabled', 'disabled');   
-            }           
-          }
-        {% endif %}
+  function toggleCheckoutButton () {
+    $("#dropdown-cart").find('.btn').attr('disabled', 'disabled');
+    $("#mobile-cart").find('.btn-checkout-mobile').attr('disabled', 'disabled');   
+    
+    if ($('.pt-time').val() !== 'Timeslot') {
+      $("#dropdown-cart").find('.btn').removeAttr('disabled');
+      $("#mobile-cart").find('.btn-checkout-mobile').removeAttr('disabled'); 
+    } 
 
-        return el.apply(this, arguments);
-      };
-    });
-  })(jQuery);
+    {% if settings.order_minimum != blank %}
+      var totalPrice  = parseFloat(document.querySelector('.money').innerHTML.replace('RM', ''));        
+      var order_minimum = parseFloat({{ settings.order_minimum }}).toFixed(2);
+
+      if (totalPrice < order_minimum) {
+        $("#dropdown-cart").find('.btn').attr('disabled', 'disabled');
+        $("#mobile-cart").find('.btn-checkout-mobile').attr('disabled', 'disabled');   
+      } 
+    {% endif %}
+  }
   
   // fix issue of clicking prev/next datepicker buttons closes the cart
   $(".ui-datepicker-prev").live('click', function(e) {
