@@ -48,29 +48,9 @@ selectors inside search.css.
         <p class="alert alert-error">Your search did not yield any results.</p>
       {% else %}
         <ul class="search-results grid-uniform">
-          {% assign listing_cols = settings.collection_listing_cols %}
-          {% assign count = 0 %}
-          
+          {% assign listing_cols = settings.collection_listing_cols %}         
           {% for product in search.results %} 
-
-            {% assign show = false %}
-            {% assign product_tags = product.tags | downcase %}
-            {% assign customer_tags = customer.tags | downcase %}
-            {% assign market = cart.attributes.market | downcase %}
-
-            {% if customer and customer_tags contains 'wholesale' and product_tags contains 'wholesale' %}
-              {% assign show = true %}
-            {% endif %}   
-
-            {% if product_tags contains market %}
-              {% assign show = true %}
-            {% endif %}   
-
-            {% if show %}
-              {% include 'product-grid-item' %}
-              {% assign count = count | plus: 1 %}
-            {% endif %}
-
+            {% include 'product-grid-item' %}
           {% endfor %}
         </ul>
       {% endif %}    
@@ -117,6 +97,10 @@ $('.product_title').each(function() {
   }
 
   $(this).html(product_title);
-  $('.search-result-count .search-result-highlight').html('{{ count }}');
 });
+
+var market = $.cookie("PasarStoreName").toLowerCase();
+var html = $('.search-result-title span').html();
+html = html.replace(' ' + market, '');
+$('.search-result-title span').html(html);
 </script>

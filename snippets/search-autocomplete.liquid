@@ -24,7 +24,7 @@ $(function() {
             // What's the search form?
             var form = $(this).closest('form');
             // What's the search URL?
-            var searchURL = '/search?type=product&q=' + term;
+            var searchURL = '/search?type=product&q=' + term + ' ' + market;
             // What's the search results list?
             var resultsList = form.find('.search-result-ajax');
             // What's the max # of search results items?
@@ -49,27 +49,8 @@ $(function() {
                         var count = 0;
                         //console.log(data);
                         $.each(data.results, function(index, item) {
-
-                            var show = false;
-
-                            // Check if wholesale product and user
-                            {% assign tags = customer.tags | downcase %}
-                            {% if customer and tags contains 'wholesale' %}
-                                if (item.tags.indexOf('wholesale') !== -1) {
-                                    show = true;
-                                    count++;
-                                }
-                            {% endif %}
-
-                            // Check if product belongs to the current market
-                            if (item.tags.indexOf(market) !== -1) {
-                                show = true;
-                                count++;
-                            } else {
-                                console.log(item.title + ' / ' + item.tags);
-                            }                     
                                
-                            if (show && count <= searchItemsMax) {
+                            if (count < searchItemsMax) {
                                 var price = Shopify.formatMoney(item.price, window.formatMoney);
                                 var link = $('<a></a>').attr('href', item.url);
                                 
@@ -100,16 +81,13 @@ $(function() {
                                 link.append('<span class="title">' + item.title + '</span>');
                                 link.append('<span style="width:auto;float:right;padding-right:5px;font-weight:bold">' + price + '</span>');
                                 link.wrap('<li></li>');
+
                                 resultsList.append(link.parent()); 
-                            }                           
+                                count++;
+                            }                         
                         });                       
 
-                        if (count == 0) {
-                            resultsList.html('<li><span class="title">No results.</span></li>');
-                        } else {
-                            resultsList.append('<li><span class="title"><a href="' + searchURL + '">See all results (' + count + ')</a></span></li>');        
-                        }
-
+                        resultsList.append('<li><span class="title"><a href="' + searchURL + '">See all results (' + data.results_count + ')</a></span></li>');        
                         resultsList.fadeIn(200);
                     }
                 });
