@@ -48,7 +48,7 @@
                   {% endif %}
                 {% endif %}
                 
-                {% if settings.display_wishlist_link %}
+                {% comment %} {% if settings.display_wishlist_link %}
                   {% if settings.display_wishlist_link != blank %}
                     <div class="wishlist"> 
                       {% if customer %} 
@@ -64,7 +64,7 @@
                   {% if settings.display_checkout_link != blank %}
                     <div class="check"><a href="/checkout" title="Checkout"><span>Checkout</span></a></div>
                   {% endif %} 
-                {% endif %} 
+                {% endif %}  {% endcomment %}
                 
                 {% if settings.display_login_link %}
                   {% if settings.display_login_link != blank %}
@@ -177,7 +177,7 @@
                                 <input type="hidden" name="attributes[Market]" value="{{keyAndValue}}">
         				      </div>
                       <div class="actions" style="padding:0 10px">
-                        <button class="btn" style="width:100%;margin-bottom:10px;" type="submit" id="checkout" disabled="disabled">Checkout</button>
+                        <button class="btn btn-checkout" style="width:100%;margin-bottom:10px;" type="submit" id="checkout" disabled="disabled">Checkout</button>
                         {% comment %}<p class="text-cart"><a href="/cart">View Cart</a></p>{% endcomment %}
                       </div>              		  
                     </div>
@@ -293,12 +293,10 @@ jQuery(document).ready(function() {
 				}, 5e3)
 			},
       toggleCheckoutButton: function() {
-        $("#dropdown-cart").find('.btn').attr('disabled', 'disabled');
-        $("#mobile-cart").find('.btn-checkout-mobile').attr('disabled', 'disabled');   
+        $('.btn-checkout').attr('disabled', 'disabled');   
         
-        if ($('.pt-time').val() !== 'Timeslot') {
-          $("#dropdown-cart").find('.btn').removeAttr('disabled');
-          $("#mobile-cart").find('.btn-checkout-mobile').removeAttr('disabled'); 
+        if ($('.pt-date').val() !== '' && $('.pt-time').val() !== 'Timeslot') {
+          $('.btn-checkout').removeAttr('disabled'); 
         } 
 
         {% if settings.order_minimum != blank %}
@@ -306,8 +304,7 @@ jQuery(document).ready(function() {
           var order_minimum = parseFloat({{ settings.order_minimum }}).toFixed(2);
 
           if (totalPrice < order_minimum) {
-            $("#dropdown-cart").find('.btn').attr('disabled', 'disabled');
-            $("#mobile-cart").find('.btn-checkout-mobile').attr('disabled', 'disabled');   
+            $('.btn-checkout').attr('disabled', 'disabled');   
           } 
         {% endif %}
       },
@@ -1240,99 +1237,4 @@ jQuery(document).ready(function() {
     Currency.convertAll(shopCurrency, Currency.cookie.read(), id, window.formatMoney);
   }
   
-</script>
-
-<script>
-/* Datepicker initialization */
-/* ------------------------- */
-// Set query parameters 
-var cookieValue = $.cookie("PasarStoreId");
-var currentDate = new Date();
-var currentHours = currentDate.getHours().toString();
-var currentMinutes = currentDate.getMinutes().toString();
-
-if (currentHours < 10) {
-  currentHours = '0' + currentHours;
-}
-
-  if (currentMinutes < 10) {
-  currentMinutes = '0' + currentMinutes;
-}
-
-var currentTime = currentHours + currentMinutes;
-
-$(document).ready(function(){
-  $.ajax({
-      url: 'https://pt-deliveries.herokuapp.com/api/timeslots',
-      type: "GET",
-      data: {
-              shop_id: 1,
-              market_id: cookieValue,
-              time: currentTime
-            },
-      dataType: "json",
-      success: function(response) {
-        InitDatePicker(response); 
-      }  
-  });
-});
-
-function InitDatePicker(response){  
-  $( "#datepicker" ).datepicker({
-    startDate: new Date(), 
-    dateFormat: "D, dd/mm/yy",
-    minDate: response.min_date,
-    maxDate: 21,
-    firstDay: 1 ,
-    beforeShowDay: function(date){
-      var dayId = date.getDay();
-      var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
-      return [ response.blackout_days.indexOf(dateString) == -1 && response.inactive_days.indexOf(dayId) == -1 ]    
-    }, 
-    onSelect: function(dateText, inst) {  
-      var appurl = 'https://pt-deliveries.herokuapp.com/api/timeslots/';
-      var date = $.datepicker.parseDate(inst.settings.dateFormat || $.datepicker._defaults.dateFormat, dateText, inst.settings);
-      var day = $.datepicker.formatDate("DD", date, inst.settings);
-      var date = $.datepicker.formatDate("yy-mm-dd", date, inst.settings);       
-
-      $.ajax({
-        url: appurl + day,
-        type: "GET",
-        data: { 
-                shop_id: 1,
-                market_id: $.cookie('PasarStoreId'),
-                day: day
-              },
-        dataType: "json",
-        success: function(response) {
-          // Load timeslots
-          $(".pt-time").hide();
-          $(".pt-time option").remove();
-          $(".pt-time").append("<option >Timeslot</option>" );
-
-          $.each(response, function( index, timeslot ) {                 
-            $(".pt-time").append("<option >" + timeslot + "</option>" );
-          });
-          
-          $(".pt-time").show(); 
-        }
-      });
-    }
-  }).position({
-      my: "left top",
-      at: "left bottom",
-      of: $("#datepicker"),
-      collision: "none"
-    });
-
-  // Load timeslots
-  $(".pt-time option").remove();
-  $(".pt-time").append("<option >Timeslot</option>" );
-
-  $.each(response.timeslots, function( index, timeslot ) {                 
-    $(".pt-time").append("<option >"+ timeslot +"</option>" );
-  });
-  
-  $(".pt-time").show(); 
-}
 </script>

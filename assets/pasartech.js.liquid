@@ -3,31 +3,6 @@ jQuery(document).ready(function() {
   $("product-grid-image").hover(function() {
       $('.sca-qv-button').contents().remove('');
   });
-
-  // set checkout button enablement when timeslot is selected
-  $('.pt-time').change(function(){
-      toggleCheckoutButton();
-  }); 
-
-  function toggleCheckoutButton () {
-    $("#dropdown-cart").find('.btn').attr('disabled', 'disabled');
-    $("#mobile-cart").find('.btn-checkout-mobile').attr('disabled', 'disabled');   
-    
-    if ($('.pt-time').val() !== 'Timeslot') {
-      $("#dropdown-cart").find('.btn').removeAttr('disabled');
-      $("#mobile-cart").find('.btn-checkout-mobile').removeAttr('disabled'); 
-    } 
-
-    {% if settings.order_minimum != blank %}
-      var totalPrice  = parseFloat(document.querySelector('.money').innerHTML.replace('RM', ''));        
-      var order_minimum = parseFloat({{ settings.order_minimum }}).toFixed(2);
-
-      if (totalPrice < order_minimum) {
-        $("#dropdown-cart").find('.btn').attr('disabled', 'disabled');
-        $("#mobile-cart").find('.btn-checkout-mobile').attr('disabled', 'disabled');   
-      } 
-    {% endif %}
-  }
   
   // fix issue of clicking prev/next datepicker buttons closes the cart
   $(".ui-datepicker-prev").live('click', function(e) {
