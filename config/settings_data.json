@@ -449,7 +449,7 @@
     "related_pretext_text": "Actual product packaging and materials may contain more and different information than what is shown on our website. We recommend that you do not rely solely on the information presented and that you always read labels.",
     "related_view_all_button_text": "View All",
     "related_view_all_link": "collections\/",
-    "display_breadcrumbs": true,
+    "display_breadcrumbs": false,
     "breadcrumbs_txt": "#666666",
     "display_categores": false,
     "category_heading": "MEGA MENU",
