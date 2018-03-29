@@ -295,8 +295,9 @@ jQuery(document).ready(function() {
       toggleCheckoutButton: function() {
         $('.btn-checkout').attr('disabled', 'disabled');   
         
-        if ($('.pt-date').val() !== '' && $('.pt-time').val() !== 'Timeslot') {
+        if ($('.pt-date').val() !== '' && $('.pt-time').is(":visible") && $('.pt-time').val() !== 'Timeslot') {
           $('.btn-checkout').removeAttr('disabled'); 
+          alert('heyy');
         } 
 
         {% if settings.order_minimum != blank %}

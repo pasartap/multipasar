@@ -39,7 +39,8 @@ $(document).ready(function(){
             },
         dataType: "json",
         success: function(response) {
-            InitDatePicker(response); 
+            initDatePicker(response); 
+            loadTimeslots(response.timeslots);
         }  
     });
 
@@ -49,7 +50,7 @@ $(document).ready(function(){
     }); 
 });
 
-function InitDatePicker(response){  
+function initDatePicker(response){  
     $( "#datepicker" ).datepicker({
         startDate: new Date(), 
         dateFormat: "D, dd/mm/yy",
@@ -78,17 +79,7 @@ function InitDatePicker(response){
                     },
                 dataType: "json",
                 success: function(response) {
-                    // Load timeslots
-                    $(".pt-time").hide();
-                    $(".pt-time option").remove();
-                    $(".pt-time").append("<option >Timeslot</option>" );
-
-                    $.each(response, function( index, timeslot ) { 
-                        $(".pt-time").append("<option >" + timeslot + "</option>" );
-                    });
-                    
-                    $(".pt-time").show();
-                    $('.btn-checkout').attr('disabled', 'disabled');   
+                    loadTimeslots(response);
                 }
             });
         }
@@ -100,10 +91,23 @@ function InitDatePicker(response){
     });
 }
 
+function loadTimeslots (timeslots) {
+    $(".pt-time").hide();
+    $(".pt-time option").remove();
+    $(".pt-time").append("<option >Timeslot</option>" );
+
+    $.each(timeslots, function( index, timeslot ) { 
+        $(".pt-time").append("<option >" + timeslot + "</option>" );
+    });
+    
+    $(".pt-time").show();
+    $('.btn-checkout').attr('disabled', 'disabled');   
+}
+
 function toggleCheckoutButton () {
     $('.btn-checkout').attr('disabled', 'disabled');   
         
-    if ($('.pt-date').val() !== '' && $('.pt-time').val() !== 'Timeslot') {
+    if ($('.pt-date').val() !== '' && $('.pt-time').is(":visible") && $('.pt-time').val() !== 'Timeslot') {
         $('.btn-checkout').removeAttr('disabled'); 
     } 
 

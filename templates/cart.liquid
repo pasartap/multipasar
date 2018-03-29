@@ -1,110 +1,118 @@
-
 <div class="cart-scope">
     <div class="page_header">
         <h1 class="page_title">Shopping Cart</h1>
     </div>
     <div class="page_content">
         {% if cart.item_count > 0 %}
-        <form action="/cart" method="post" class="" class="form-inline">
-            <div class="cart-list">
-                <table id="shopping-cart-table" class="data-table cart-table">
-                    <colgroup>
-                        <col width="9%">
-                        <col width="60%">
-                        <col width="7%">
-                        <col width="6%">
-                        <col width="7%">
-                        <col width="5%">
-                    </colgroup>
-                    <thead>
-                        <tr class="first last">
-                            <th rowspan="1">&nbsp;</th>
-                            <th rowspan="2"><span class="nobr">Product Name</span></th>
-                            <th class="a-center">Unit Price</th>
-                            <th rowspan="1" class="a-center">Qty</th>
-                            <th class="a-center" colspan="1">Total</th>
-                            <th rowspan="1" class="a-center">&nbsp;</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for item in cart.items %} {% comment %} Determining the handle of the collection that was last seen for the 'continue shopping' link. {% endcomment %} {% if forloop.first %} {% assign collection_url = item.product.collections.first.url %} {% if collection_url == '/collections/frontpage' or collection_url == '' %}{% assign collection_url = '/collections/all' %}{% endif %} {% endif %}
-                        <tr class="first last odd">
-                            <td class="image hidden-table">
-                                <div class="item_image">
-                                    <a href="{{ item.url }}">
-                        <img src="{{ item | img_url: 'medium' }}" class="preview" alt="{{ item.alt | escape }}" />
-                      </a>
-                                </div>
-                            </td>
-                            <td>
-                                <h2 class="item_title">
-            <a href="{{ item.product.url | within: collections.all }}">
-            {{ item.title }}
-            {% if item.product.variants.size == 1 %}
-              {% unless item.variant.title contains 'Default' %}
-               - {{ item.variant.title }}
-              {% endunless %}
-            {% endif %}
-            </a>
-          </h2> {% comment %} Line Item Properties {% endcomment %} {% if item.properties.size > 0 %}
-                                <div class="item_properties">
-                                    {% for p in item.properties %} {% unless p.last == blank %} {{ p.first }}: {% if p.last contains '/uploads/' %}
-                                    <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a> {% else %} {{ p.last }} {% endif %}
-                                    <br /> {% endunless %} {% endfor %}
-                                </div>
+            <form action="/cart" method="post" class="" class="form-inline">
+                <div class="cart-list">
+                    <table id="shopping-cart-table" class="data-table cart-table">
+                        <colgroup>
+                            <col width="9%">
+                            <col width="60%">
+                            <col width="7%">
+                            <col width="6%">
+                            <col width="7%">
+                            <col width="5%">
+                        </colgroup>
+                        <thead>
+                            <tr class="first last">
+                                <th rowspan="1">&nbsp;</th>
+                                <th rowspan="2"><span class="nobr">Product Name</span></th>
+                                <th class="a-center">Unit Price</th>
+                                <th rowspan="1" class="a-center">Qty</th>
+                                <th class="a-center" colspan="1">Total</th>
+                                <th rowspan="1" class="a-center">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart.items %} 
+                                {% comment %} Determining the handle of the collection that was last seen for the 'continue shopping' link. {% endcomment %} 
+                                {% if forloop.first %} 
+                                    {% assign collection_url = item.product.collections.first.url %} 
+                                    {% if collection_url == '/collections/frontpage' or collection_url == '' %}
+                                        {% assign collection_url = '/collections/all' %}
+                                    {% endif %} 
                                 {% endif %}
-                                <h3 class="item_vendor">{{ item.vendor }}</h3>
-                            </td>
-                            <td class="a-right hidden-table">
-                                <span class="money">{{ item.price | money }}</span>
-                            </td>
-                            <td class="a-center movewishlist">
-                                <label for="updates[]">
-                                    <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" class="form-control input-small" min="1"  />
-                                </label>
-                            </td>
-                            <td class="a-right movewishlist">
-                                <span class="money">{{ item.line_price | money }}</span>
-                            </td>
-                            <td class="a-center last">
-                                <div class="item_remove pull-right">
-                                    <a href="/cart/change?line={{ forloop.index }}&quantity=0"></a>
-                                </div>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-            {% comment %} For the checkout and update buttons to work, they need to use a name attribute set to 'checkout' and 'update', respectively. That's case-sensitive. {% endcomment %}
-            <div class="cart_subtotal">
-                <h3>Subtotal <em><span class="money">{{ cart.total_price | money }}</span></em></h3>
-                <p>
-                    <a href="{{ collection_url }}" class="continue_shop">Continue shopping</a>
-                    <span class="or">or</span>
-                    <input type="submit" name="update" value="Update cart" class="update-btn" />
-                    <span class="or">or</span>
-                    <input type="submit" name="checkout" value="Check out" class="check-btn" /> {% comment %}Paypal and Google checkout buttons{% endcomment %} {% if additional_checkout_buttons %}
-                    <p class="additional-checkout-buttons">
-                        {{ content_for_additional_checkout_buttons }}
+                                <tr class="first last odd">
+                                    <td class="image hidden-table">
+                                        <div class="item_image">
+                                            <a href="{{ item.url }}">
+                                                <img src="{{ item | img_url: 'medium' }}" class="preview" alt="{{ item.alt | escape }}" />
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <h2 class="item_title">
+                                            <a href="{{ item.product.url | within: collections.all }}">
+                                                {{ item.title }}
+                                                {% if item.product.variants.size == 1 %}
+                                                    {% unless item.variant.title contains 'Default' %}
+                                                        - {{ item.variant.title }}
+                                                    {% endunless %}
+                                                {% endif %}
+                                            </a>
+                                        </h2> 
+                                        {% comment %} Line Item Properties {% endcomment %} 
+                                        {% if item.properties.size > 0 %}
+                                            <div class="item_properties">
+                                                {% for p in item.properties %} {% unless p.last == blank %} {{ p.first }}: {% if p.last contains '/uploads/' %}
+                                                <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a> {% else %} {{ p.last }} {% endif %}
+                                                <br /> {% endunless %} {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                        <h3 class="item_vendor">{{ item.vendor }}</h3>
+                                    </td>
+                                    <td class="a-right hidden-table">
+                                        <span class="money">{{ item.price | money }}</span>
+                                    </td>
+                                    <td class="a-center movewishlist">
+                                        <label for="updates[]">
+                                            <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" class="form-control input-small" min="1"  />
+                                        </label>
+                                    </td>
+                                    <td class="a-right movewishlist">
+                                        <span class="money">{{ item.line_price | money }}</span>
+                                    </td>
+                                    <td class="a-center last">
+                                        <div class="item_remove pull-right">
+                                            <a href="/cart/change?line={{ forloop.index }}&quantity=0"></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% comment %} For the checkout and update buttons to work, they need to use a name attribute set to 'checkout' and 'update', respectively. That's case-sensitive. {% endcomment %}
+                <div class="cart_subtotal">
+                    <h3>Subtotal <em><span class="money">{{ cart.total_price | money }}</span></em></h3>
+                    <p>
+                        <a href="{{ collection_url }}" class="continue_shop">Continue shopping</a>
+                        <span class="or">or</span>
+                        <input type="submit" name="update" value="Update cart" class="update-btn" />
+                        {% comment %} <span class="or">or</span>
+                        <input type="submit" name="checkout" value="Check out" class="check-btn" />  {% endcomment %}
+                        {% comment %}Paypal and Google checkout buttons{% endcomment %} 
+                        {% if additional_checkout_buttons %}
+                            <p class="additional-checkout-buttons">
+                                {{ content_for_additional_checkout_buttons }}
+                            </p>
+                        {% endif %}
                     </p>
-                    {% endif %}
-                </p>
-            </div>
-            {% include 'local-cart-date' %} {% comment %} For the special instructions to be submitted with order, they need to use a name attribute set to 'note'. That's case-sensitive. {% endcomment %}
-            <div class="cart_instructions">
-                <h3>Add instructions</h3>
-                <textarea class="form-control" name="note">{{ cart.note }}</textarea>
-              <input type="hidden" name="attributes[Market]" value="">
-            </div>
-   
-        </form>
+                </div>
+                {% include 'pt-deliveries-widget' %}
+            </form>
         {% else %}
-        <div>
-            <h2>It appears that your cart is currently empty!</h2>
-            <h3>You can continue browsing <a href="/collections/all">here</a>.</h3>
-        </div>
+            <div>
+                <h2>It appears that your cart is currently empty!</h2>
+                <h3>You can continue browsing <a href="/collections/all">here</a>.</h3>
+            </div>
         {% endif %}
     </div>
     {% include 'widget-payment-methods' %}
 </div>
+
+<script>
+window.location.replace('/');
+</script>
