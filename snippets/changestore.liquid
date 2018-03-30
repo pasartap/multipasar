@@ -30,40 +30,34 @@
 <table id="address" style="display: none;">
   <tr>
     <td class="label">Street address</td>
-    <td class="slimField"><input class="field" id="street_number"
-                                 disabled="true"></td>
-    <td class="wideField" colspan="2"><input class="field" id="route"
-                                             disabled="true"></td>
+    <td class="slimField"><input class="field" id="street_number" disabled="true"></td>
+    <td class="wideField" colspan="2"><input class="field" id="route" disabled="true"></td>
   </tr>
   <tr>
     <td class="label">City</td>
     <!-- Note: Selection of address components in this example is typical.
-You may need to adjust it for the locations relevant to your app. See
-https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
--->
-    <td class="wideField" colspan="3"><input class="field" id="locality"
-                                             disabled="true"></td>
+    You may need to adjust it for the locations relevant to your app. See
+    https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+    -->
+    <td class="wideField" colspan="3"><input class="field" id="locality" disabled="true"></td>
   </tr>
   <tr>
     <td class="label">State</td>
-    <td class="slimField"><input class="field"
-                                 id="administrative_area_level_1" disabled="true"></td>
+    <td class="slimField"><input class="field" id="administrative_area_level_1" disabled="true"></td>
     <td class="label">Zip code</td>
-    <td class="wideField"><input class="field" id="postal_code"
-                                 disabled="true"></td>
+    <td class="wideField"><input class="field" id="postal_code" disabled="true"></td>
   </tr>
   <tr>
     <td class="label">Country</td>
-    <td class="wideField" colspan="3"><input class="field"
-                                             id="country" disabled="true"></td>
+    <td class="wideField" colspan="3"><input class="field" id="country" disabled="true"></td>
   </tr>
 </table>       
 <script>
-  $(document).ready(function(){
-    $(document).on("click",".searchstore",function(){
-      $("#getallprdt").trigger("click");
-    }); 
-   $(document).on("click",".changestore, .mobilemenustore",function(){
+$(document).ready(function(){
+  $(document).on("click",".searchstore",function(){
+    $("#getallprdt").trigger("click");
+  }); 
+  $(document).on("click",".changestore, .mobilemenustore",function(){
     $('#myModal').modal('toggle');
   });
   $(document).on("click",".manualstore.withemptycart li",function(e){
@@ -109,87 +103,87 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
         return false;
       }
     } else {
-        $.cookie("PasarStoreName", markgetstore,{ path: '/' });
-        $.cookie("PasarStoreId", marketid,{ path: '/' });
-        
-        /* Send the value as a cart attribute via the AJAX API */
-        $.ajax({
-          type: "POST",
-          url: '/cart.js',
-          data: {"attributes[market]": markgetstore}, /* We are using an attribute named "market" */
-          success: function(d){
-            /* 
-            On sucess, reload the page.  
-            Warning: If you have scripts on the page that auto trigger the change even the page may reload forever.
-            If you do, be sure to add code to account for that.
-            */
-            window.location.href='{{ shop.url }}';
-          },
-          dataType: 'json'
-        });
+      $.cookie("PasarStoreName", markgetstore,{ path: '/' });
+      $.cookie("PasarStoreId", marketid,{ path: '/' });
+      
+      /* Send the value as a cart attribute via the AJAX API */
+      $.ajax({
+        type: "POST",
+        url: '/cart.js',
+        data: {"attributes[market]": markgetstore}, /* We are using an attribute named "market" */
+        success: function(d){
+          /* 
+          On sucess, reload the page.  
+          Warning: If you have scripts on the page that auto trigger the change even the page may reload forever.
+          If you do, be sure to add code to account for that.
+          */
+          window.location.href='{{ shop.url }}';
+        },
+        dataType: 'json'
+      });
     }
-    });
   });
+});
   
-  var placeSearch, autocomplete;
-      var componentForm = {
-        street_number: 'short_name',
-        route: 'long_name',
-        locality: 'long_name',
-        administrative_area_level_1: 'short_name',
-        country: 'long_name',
-        postal_code: 'short_name'
+var placeSearch, autocomplete;
+var componentForm = {
+  street_number: 'short_name',
+  route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'short_name',
+  country: 'long_name',
+  postal_code: 'short_name'
+};
+
+function initAutocomplete() {
+  // Create the autocomplete object, restricting the search to geographical
+  // location types.
+  autocomplete = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+      {types: ['geocode']});
+
+  // When the user selects an address from the dropdown, populate the address
+  // fields in the form.
+  autocomplete.addListener('place_changed', fillInAddress);
+}
+
+function fillInAddress() {
+  // Get the place details from the autocomplete object.
+  var place = autocomplete.getPlace();
+
+  for (var component in componentForm) {
+    document.getElementById(component).value = '';
+    document.getElementById(component).disabled = false;
+  }
+
+  // Get each component of the address from the place details
+  // and fill the corresponding field on the form.
+  for (var i = 0; i < place.address_components.length; i++) {
+    var addressType = place.address_components[i].types[0];
+    if (componentForm[addressType]) {
+      var val = place.address_components[i][componentForm[addressType]];
+      document.getElementById(addressType).value = val;
+    }
+  }
+}
+
+// Bias the autocomplete object to the user's geographical location,
+// as supplied by the browser's 'navigator.geolocation' object.
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
       };
-
-      function initAutocomplete() {
-        // Create the autocomplete object, restricting the search to geographical
-        // location types.
-        autocomplete = new google.maps.places.Autocomplete(
-            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-            {types: ['geocode']});
-
-        // When the user selects an address from the dropdown, populate the address
-        // fields in the form.
-        autocomplete.addListener('place_changed', fillInAddress);
-      }
-
-      function fillInAddress() {
-        // Get the place details from the autocomplete object.
-        var place = autocomplete.getPlace();
-
-        for (var component in componentForm) {
-          document.getElementById(component).value = '';
-          document.getElementById(component).disabled = false;
-        }
-
-        // Get each component of the address from the place details
-        // and fill the corresponding field on the form.
-        for (var i = 0; i < place.address_components.length; i++) {
-          var addressType = place.address_components[i].types[0];
-          if (componentForm[addressType]) {
-            var val = place.address_components[i][componentForm[addressType]];
-            document.getElementById(addressType).value = val;
-          }
-        }
-      }
-
-      // Bias the autocomplete object to the user's geographical location,
-      // as supplied by the browser's 'navigator.geolocation' object.
-      function geolocate() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var geolocation = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-            var circle = new google.maps.Circle({
-              center: geolocation,
-              radius: position.coords.accuracy
-            });
-            autocomplete.setBounds(circle.getBounds());
-          });
-        }
-      }
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGnfVn3_6jmcMexrqmFVtO_wfRgjA8zQ&libraries&libraries=places&callback=initAutocomplete"
         async defer></script>
