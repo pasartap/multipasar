@@ -655,7 +655,7 @@
                         } else {
                             var msgnostore = 'Sorry, PasarTap does not provide service at this location. Please select a mar' +
                                     'ket below to continue browsing our products.';
-                            $(".manualstore").before(
+                            $(".chooselocation").before(
                                 "<p class='nostoremsg'><strong>" + msgnostore + "</strong></p>"
                             );
                         }
@@ -664,9 +664,9 @@
                     url     : "https://pt-deliveries.herokuapp.com/api/postcode/" + postcode
                 });
             } else {
-                var msgnostore = '<br>Sorry, your location could not be determined. Please select a market manua' +
-                            'lly below.';
-                $(".manualstore").before(
+                var msgnostore = '<br>Sorry, your location could not be determined. Please select a market ' +
+                            'below to continue browsing our products.';
+                $(".chooselocation").before(
                     "<p class='nostoremsg'><strong>" + msgnostore + "</strong></p>"
                 );
             }
@@ -703,10 +703,10 @@
                             var msgnostore = 'Sorry, PasarTap does not provide service at this location. Please select a mar' +
                                     'ket below to continue browsing our products.';
                             if (postcode == '') {
-                                msgnostore = '<br>Sorry, your location could not be determined. Please select a market manua' +
-                                        'lly below.';
+                                msgnostore = '<br>Sorry, your location could not be determined. Please select a market below ' +
+                                        'to continue browsing our products.';
                             }
-                            $(".manualstore").before(
+                            $(".chooselocation").before(
                                 "<p class='nostoremsg'><strong>" + msgnostore + "</strong></p>"
                             );
                             {% comment %} var storelist = '';
