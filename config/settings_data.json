@@ -205,7 +205,7 @@
     "bottom_block_5_title": "Contact Us",
     "bottom_block_5_adr":
       "Jalan Chong Khoon Lin 1,\nUkay Heights, 6800 Ampang Selangor",
-    "bottom_block_5_tel": "+603 4266 6640 / +6017 357 7230",
+    "bottom_block_5_tel": "+603 4266 6640 | +60199872519",
     "bottom_block_5_email": "info@pasartap.com",
     "totop_bg": "#50a746",
     "html_bg_color": "#ffffff",
@@ -219,12 +219,12 @@
     "show_sticky_menu": true,
     "display_header_msg": true,
     "header_msg":
-      "Opening hours: Monday - Saturday, 9am - 7pm | Order before <strong>2pm</strong> for same day delivery",
+      "Opening hours: Monday - Saturday, 11am - 8pm | Order before 1pm for same day delivery",
     "use_logo": true,
     "logo_text": "Pasartap",
     "show_copyright": false,
     "display_header_phone": true,
-    "phone_number": "+603 4266 6640 / +6017 357 7230",
+    "phone_number": "+603 4266 6640 | +60199872519",
     "phone_number_text_color": "#50a746",
     "top_link_color": "#000000",
     "header_text_color": "#50a746",
