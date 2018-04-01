@@ -219,7 +219,7 @@
     "show_sticky_menu": true,
     "display_header_msg": true,
     "header_msg":
-      "Opening hours: Monday - Saturday, 11am - 8pm | Order before 1pm for same day delivery",
+      "Opening hours: Monday - Saturday, 11am - 8pm | Order before <strong>1pm</strong> for same day delivery",
     "use_logo": true,
     "logo_text": "Pasartap",
     "show_copyright": false,
