@@ -18,8 +18,8 @@
       {% assign menu_handle = settings.main_nav_wholesale %}
     {% endif %}
 
-    {% if cart.attributes.market == "Bayan Baru" and settings.main_nav-bayan-baru != blank %}
-      {% assign menu_handle = settings.main_nav-bayan-baru %}
+    {% if cart.attributes.market == "Bayan Baru" and settings.main_nav-bayan_baru != blank %}
+      {% assign menu_handle = settings.main_nav-bayan_baru %}
     {% elsif cart.attributes.market == "Serdang" and settings.main_nav-serdang != blank %}
       {% assign menu_handle = settings.main_nav-serdang %}
     {% endif %}

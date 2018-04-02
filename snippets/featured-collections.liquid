@@ -3,12 +3,12 @@
 {% assign featured_collections = 'all' %}
 {% assign coll_num = 1 %}
 
-{% if cart.attributes.market == "Bayan Baru" and settings.feat_coll_bayan_baru != blank %}
+{% if cart.attributes.market == "Bayan Baru" and settings.display_feat_coll_bayan_baru and settings.feat_coll_bayan_baru != blank %}
   {% assign featured_collections = settings.feat_coll_bayan_baru | split:"," %}
-{% elsif cart.attributes.market == "Serdang" and settings.feat_coll_serdang != blank %}
+{% elsif cart.attributes.market == "Chow Kit" and settings.display_feat_coll_chow_kit and settings.feat_coll_chow_kit != blank %}
+  {% assign featured_collections = settings.feat_coll_chow_kit | split:"," %}
+{% elsif cart.attributes.market == "Serdang" and settings.display_feat_coll_serdang and settings.feat_coll_serdang != blank %}
   {% assign featured_collections = settings.feat_coll_serdang | split:"," %}
-{% else settings.homepage_featured_collections != blank %}
-  {% assign featured_collections = settings.homepage_featured_collections | split:"," %}
 {% endif %}
 
 {% if settings.display_featured_collections == true and featured_collections.size > 0 %}

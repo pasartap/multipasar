@@ -2,7 +2,7 @@
   {% include 'homepage.bayan-baru' %}
 {% elsif cart.attributes.market == "Serdang" %}
   {% include 'homepage.serdang' %}
-{% else %}
+{% elsif cart.attributes.market == "Chow Kit" %}
   {% include 'homepage.chow-kit' %}
 {% endif %}
 
