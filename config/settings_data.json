@@ -677,7 +677,7 @@
     "checkout_accent_color": "#439537",
     "checkout_button_color": "#439537",
     "checkout_error_color": "#ff6d6d",
-    "no_matches": "The collection could not be found.",
+    "no_matches": "No products are available for this collection currently.",
     "featured_collections_limit": 15,
     "display_footer_block_1": false,
     "bottom_block_1_title": "About our store",
