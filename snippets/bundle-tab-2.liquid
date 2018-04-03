@@ -1,0 +1,23 @@
+{% if settings.home-tab-two-category != blank %}
+  <ul class="pdt-list products-grid">
+    {% for product in collections[settings.home-tab-two-category].products limit:4 %}
+      {% if collections[settings.home-tab-two-category].all_products_count == 1 %}
+        <li class="item" style="width: 50% !important;">
+      {% else %}
+        <li class="item">
+      {% endif %}     
+        {% include 'product-grid-item' with 'listing_cols' with 'image_size' %}
+        </li>         
+    {% endfor %}
+  </ul> 
+{% endif %}
+
+<script type="text/javascript">
+
+window.onload = function() {
+
+var bundle-2 = 10;
+localStorage.setItem("bundle-number",bundle-2);
+
+}
+</script>

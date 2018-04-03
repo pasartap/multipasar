@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-sm-2">
        <span style="color:grey">
         {% if product.first_available_variant.option1 != nil and product.first_available_variant.option1 != 'Default Title' %}
           {{ product.first_available_variant.option1 }}
@@ -31,14 +31,16 @@
       {% include 'color-switch' %}
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-sm-2">
           <div id="product_description"> {{ product.description | truncatewords: 35 }} </div>
     </div>
-
+  <div class="col-sm-2">
+          <div class="qty-wrap"><input type="number" class='qty' value ='1' /></div>
+    </div>
     <div class="col-sm-3 col-md-">
-      <div id="purchase">                                  
+      <div id="purchase">                               
          {% include 'rfq_button' %}  
-      </div>
+      </div> 
     </div>
 
        

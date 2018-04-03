@@ -196,7 +196,7 @@
         "id": "slide2_button2_link_bayan_baru",
         "label": "Button Link"
       },
-      {
+     {
         "type": "header",
         "content": "Slide 3"
       },
@@ -212,8 +212,7 @@
         "label": "Image",
         "max-width": 600,
         "max-height": 500,
-        "info":
-          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+        "info": "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
       },
       {
         "type": "text",
@@ -1413,6 +1412,157 @@
       }
     ]
   },
+
+  {
+    "name": "Bundles / Hot bundles",
+    "settings": [
+    {
+        "type": "checkbox",
+        "id": "display_hot_bundle_with_tabs",
+        "label": "Display?",
+        "default": true
+    },
+    {
+        "type": "header",
+        "content": "Hot Bundle"
+    },
+    {
+        "type": "product",
+        "id": "hot-bundle_cat",
+        "label": "Please select the hot product."
+    },
+    {
+        "type": "text",
+        "id": "start_sale_date",
+        "label": "Start date in Y\/M\/D format"
+    },
+    {
+        "type": "text",
+        "id": "end_sale_date",
+        "label": "End date in Y\/M\/D format"
+    },
+    {
+        "type": "text",
+        "id": "hot_bundle_discount",
+        "label": "Discount in percentage"
+    },
+    {
+        "type": "header",
+        "content": "Hot Bundle Colors"
+    },
+    {
+        "type": "color",
+        "id": "discount-box-txt-color",
+        "label": "Discount box text color"
+    },
+    {
+        "type": "color",
+        "id": "discount-box-background-color",
+        "label": "Discount box background color"
+    },
+    {
+        "type": "color",
+        "id": "date-box-txt-color",
+        "label": "Date box text color"
+    },
+    {
+        "type": "color",
+        "id": "date-box-background-color",
+        "label": "Date box background color"
+    },
+    {
+        "type": "color",
+        "id": "timer-box-txt-color",
+        "label": "Timer box text color"
+    },
+    {
+        "type": "color",
+        "id": "timer-box-background-color",
+        "label": "Timer box bg color"
+    },
+    {
+        "type": "header",
+        "content": "Bundle description"
+      },
+      {
+        "type": "paragraph",
+        "content": "The bundle description is disabled."
+    },
+      {
+        "type": "text",
+        "id": "bundle-description",
+        "label": "bundle description"
+      },
+      {
+        "type": "text",
+        "id": "bundle-item-1",
+        "label": "bundle item 1 name"
+      },      
+      {
+        "type": "text",
+        "id": "bundle-item-2",
+        "label": "bundle item 2 name"
+      },
+      {
+        "type": "text",
+        "id": "bundle-item-3",
+        "label": "bundle item 3 name"
+      },
+    {
+        "type": "header",
+        "content": "Tab Section"
+    },
+    {
+        "type": "text",
+        "id": "home-tab-title",
+        "label": "Tab Section Title"
+    },
+    {
+        "type": "header",
+        "content": "Tab Section Colors"
+    },
+    {
+        "type": "color",
+        "id": "tab-txt-color",
+        "label": "Tab text color"
+    },
+    {
+        "type": "color",
+        "id": "tab-background-color",
+        "label": "Tab background color"
+    },
+    {
+        "type": "header",
+        "content": "Tab 1"
+    },
+    {
+        "type": "text",
+        "id": "tab-one-header",
+        "label": "Tab 1 Header"
+    },
+    {
+        "type": "collection",
+        "id": "home-tab-one-category",
+        "label": "Tab 1 Collection",
+        "info": "Max 4 items only in a collection"
+    },
+    {
+        "type": "header",
+        "content": "Tab 2"
+    },
+    {
+        "type": "text",
+        "id": "tab-two-header",
+        "label": "Tab 2 Header"
+    },
+    {
+        "type": "collection",
+        "id": "home-tab-two-category",
+        "label": "Tab 2 Collection",
+        "info": "Max 4 items only in a collection"
+    }]
+},
+
   {
     "name": "Featured Collections",
     "settings": [
