@@ -1,26 +1,21 @@
 <center>
   <div class="bannercontainer">
-    <h1 class="landingtitle">Save time and leave the <br>groceries to us.</h1>
-    <h3 class="landingsubtitle">Find the stores near by you!</h3>
     <div class="formlocation text-left" >
-      <p class="currentlocation">You are currently shopping in <span class="locationname"><strong>{{keyAndValue}}</strong></span></p>
+      <p class="currentlocation">You are currently shopping in <span class="locationname"><strong>{{keyAndValue}}</strong>.</span></p>
       <div id="locationField">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         <input id="autocomplete" placeholder="Enter your address" type="text" class="form-control autocomplete currentlocation" />
         <button class="btn btn-success " id="getallprdt"> Use address</button>
       </div>      
-      
-      
-      
       <h4 class="chooselocation"> Or use <i class="fa fa-map-marker" aria-hidden="true"></i> <a href="javascript:" class="getlocation">current location</a></h4>
       <p id='latitudeAndLongitude'></p>
       <p id='address'></p>
       <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#home">Market</a></li>
+        <li class="active"><a data-toggle="tab" href="#home">Markets</a></li>
       </ul>
       <div class="tab-content">
         <div id="home" class="tab-pane fade in active">
-          <h3>Select Market to start shopping!</h3>
+          <h3>Switch manually to a different market below.</h3>
           <ul class="manualstore withemptycart">
           </ul>
         </div>
@@ -35,40 +30,34 @@
 <table id="address" style="display: none;">
   <tr>
     <td class="label">Street address</td>
-    <td class="slimField"><input class="field" id="street_number"
-                                 disabled="true"></td>
-    <td class="wideField" colspan="2"><input class="field" id="route"
-                                             disabled="true"></td>
+    <td class="slimField"><input class="field" id="street_number" disabled="true"></td>
+    <td class="wideField" colspan="2"><input class="field" id="route" disabled="true"></td>
   </tr>
   <tr>
     <td class="label">City</td>
     <!-- Note: Selection of address components in this example is typical.
-You may need to adjust it for the locations relevant to your app. See
-https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
--->
-    <td class="wideField" colspan="3"><input class="field" id="locality"
-                                             disabled="true"></td>
+    You may need to adjust it for the locations relevant to your app. See
+    https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+    -->
+    <td class="wideField" colspan="3"><input class="field" id="locality" disabled="true"></td>
   </tr>
   <tr>
     <td class="label">State</td>
-    <td class="slimField"><input class="field"
-                                 id="administrative_area_level_1" disabled="true"></td>
+    <td class="slimField"><input class="field" id="administrative_area_level_1" disabled="true"></td>
     <td class="label">Zip code</td>
-    <td class="wideField"><input class="field" id="postal_code"
-                                 disabled="true"></td>
+    <td class="wideField"><input class="field" id="postal_code" disabled="true"></td>
   </tr>
   <tr>
     <td class="label">Country</td>
-    <td class="wideField" colspan="3"><input class="field"
-                                             id="country" disabled="true"></td>
+    <td class="wideField" colspan="3"><input class="field" id="country" disabled="true"></td>
   </tr>
 </table>       
 <script>
-  $(document).ready(function(){
-    $(document).on("click",".searchstore",function(){
-      $("#getallprdt").trigger("click");
-    }); 
-   $(document).on("click",".changestore, .mobilemenustore",function(){
+$(document).ready(function(){
+  $(document).on("click",".searchstore",function(){
+    $("#getallprdt").trigger("click");
+  }); 
+  $(document).on("click",".changestore, .mobilemenustore",function(){
     $('#myModal').modal('toggle');
   });
   $(document).on("click",".manualstore.withemptycart li",function(e){
@@ -76,9 +65,15 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
     var url      = window.location.href;
     var cartitm = $("#cart-count").text();    
     var markgetstore = $(this).text();
-     var marketid = $(this).attr("data-id");
+    var marketid = $(this).attr("data-id");
+    
+    if (markgetstore == $.cookie('PasarStoreName')) {
+      $('#myModal').modal('toggle');
+      return;
+    }
+
     if(cartitm != 0){
-    if (confirm('You have items in your shopping cart. Switching to a different market will empty the shopping cart. Do you want to proceed?')) {
+      if (confirm('You have items in your shopping cart. Switching to a different market will empty the shopping cart. Do you want to proceed?')) {
         $.ajax({
           type: "POST",
           dataType: 'json',
@@ -86,80 +81,109 @@ https://developers.google.com/maps/documentation/javascript/examples/places-auto
           success: function(){
             $.cookie("PasarStoreName", markgetstore,{ path: '/' });    
             $.cookie("PasarStoreId", marketid,{ path: '/' });   
-            window.location.href='{{ shop.url }}';
+
+            /* Send the value as a cart attribute via the AJAX API */
+            $.ajax({
+              type: "POST",
+              url: '/cart.js',
+              data: {"attributes[market]": markgetstore}, /* We are using an attribute named "market" */
+              success: function(d){
+                /* 
+                On sucess, reload the page.  
+                Warning: If you have scripts on the page that auto trigger the change even the page may reload forever.
+                If you do, be sure to add code to account for that.
+                */
+                window.location.href='{{ shop.url }}';
+              },
+              dataType: 'json'
+            });
           }      
         });
       }else{
         return false;
       }
-    }else{
-        $.cookie("PasarStoreName", markgetstore,{ path: '/' });
-        $.cookie("PasarStoreId", marketid,{ path: '/' });
-        window.location.href='{{ shop.url }}';
-    
+    } else {
+      $.cookie("PasarStoreName", markgetstore,{ path: '/' });
+      $.cookie("PasarStoreId", marketid,{ path: '/' });
+      
+      /* Send the value as a cart attribute via the AJAX API */
+      $.ajax({
+        type: "POST",
+        url: '/cart.js',
+        data: {"attributes[market]": markgetstore}, /* We are using an attribute named "market" */
+        success: function(d){
+          /* 
+          On sucess, reload the page.  
+          Warning: If you have scripts on the page that auto trigger the change even the page may reload forever.
+          If you do, be sure to add code to account for that.
+          */
+          window.location.href='{{ shop.url }}';
+        },
+        dataType: 'json'
+      });
     }
-    });
   });
+});
   
-  var placeSearch, autocomplete;
-      var componentForm = {
-        street_number: 'short_name',
-        route: 'long_name',
-        locality: 'long_name',
-        administrative_area_level_1: 'short_name',
-        country: 'long_name',
-        postal_code: 'short_name'
+var placeSearch, autocomplete;
+var componentForm = {
+  street_number: 'short_name',
+  route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'short_name',
+  country: 'long_name',
+  postal_code: 'short_name'
+};
+
+function initAutocomplete() {
+  // Create the autocomplete object, restricting the search to geographical
+  // location types.
+  autocomplete = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+      {types: ['geocode']});
+
+  // When the user selects an address from the dropdown, populate the address
+  // fields in the form.
+  autocomplete.addListener('place_changed', fillInAddress);
+}
+
+function fillInAddress() {
+  // Get the place details from the autocomplete object.
+  var place = autocomplete.getPlace();
+
+  for (var component in componentForm) {
+    document.getElementById(component).value = '';
+    document.getElementById(component).disabled = false;
+  }
+
+  // Get each component of the address from the place details
+  // and fill the corresponding field on the form.
+  for (var i = 0; i < place.address_components.length; i++) {
+    var addressType = place.address_components[i].types[0];
+    if (componentForm[addressType]) {
+      var val = place.address_components[i][componentForm[addressType]];
+      document.getElementById(addressType).value = val;
+    }
+  }
+}
+
+// Bias the autocomplete object to the user's geographical location,
+// as supplied by the browser's 'navigator.geolocation' object.
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
       };
-
-      function initAutocomplete() {
-        // Create the autocomplete object, restricting the search to geographical
-        // location types.
-        autocomplete = new google.maps.places.Autocomplete(
-            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-            {types: ['geocode']});
-
-        // When the user selects an address from the dropdown, populate the address
-        // fields in the form.
-        autocomplete.addListener('place_changed', fillInAddress);
-      }
-
-      function fillInAddress() {
-        // Get the place details from the autocomplete object.
-        var place = autocomplete.getPlace();
-
-        for (var component in componentForm) {
-          document.getElementById(component).value = '';
-          document.getElementById(component).disabled = false;
-        }
-
-        // Get each component of the address from the place details
-        // and fill the corresponding field on the form.
-        for (var i = 0; i < place.address_components.length; i++) {
-          var addressType = place.address_components[i].types[0];
-          if (componentForm[addressType]) {
-            var val = place.address_components[i][componentForm[addressType]];
-            document.getElementById(addressType).value = val;
-          }
-        }
-      }
-
-      // Bias the autocomplete object to the user's geographical location,
-      // as supplied by the browser's 'navigator.geolocation' object.
-      function geolocate() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var geolocation = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-            var circle = new google.maps.Circle({
-              center: geolocation,
-              radius: position.coords.accuracy
-            });
-            autocomplete.setBounds(circle.getBounds());
-          });
-        }
-      }
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCGnfVn3_6jmcMexrqmFVtO_wfRgjA8zQ&libraries&libraries=places&callback=initAutocomplete"
         async defer></script>

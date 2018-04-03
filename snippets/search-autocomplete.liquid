@@ -17,16 +17,20 @@ $(function() {
         $('<ul class="search-result-ajax"></ul>').css({ 'position': 'absolute', 'left': '0px', 'top': offSet }).appendTo($(this)).hide();
         // Listening to keyup and change on the text field within these search forms.
         input.attr('autocomplete', 'off').bind('keyup change', function() {
+            // What's the current market
+            var market = $.cookie("PasarStoreName").toLowerCase();
             // What's the search term?
             var term = $(this).val();
             // What's the search form?
             var form = $(this).closest('form');
             // What's the search URL?
-            var searchURL = '/search?type=product&q=' + term;
+            var searchURL = '/search?type=product&q=' + term + ' ' + market;
             // What's the search results list?
             var resultsList = form.find('.search-result-ajax');
+            // What's the max # of search results items?
+            var searchItemsMax = 5;
             // If that's a new term and it contains at least 3 characters.
-            if (term.length > 1 && term != $(this).attr('data-old-term')) {
+            if (term.length > 3 && term != $(this).attr('data-old-term')) {
                 // Saving old query.
                 $(this).attr('data-old-term', term);
                 // Killing any Ajax request that's currently being processed.
@@ -43,26 +47,10 @@ $(function() {
                     } else {
                         // If we have results.
                         var count = 0;
-                      var newcount = 0;
+                        //console.log(data);
                         $.each(data.results, function(index, item) {
-
-                            var show = false;
-
-                            {% assign tags = customer.tags | downcase %}
-                            {% if customer and tags contains 'wholesale' %}
-                                if (item.tags.indexOf('wholesale') !== -1) {
-                                    show = true;
-                                    count++;
-                                }
-                            {% else %}
-                                if (item.tags.indexOf('wholesale') !== -1) {
-                                } else {
-                                    show = true;
-                                    count++;
-                                }
-                            {% endif %}
-								
-                            if (show && index < 5) {
+                               
+                            if (count < searchItemsMax) {
                                 var price = Shopify.formatMoney(item.price, window.formatMoney);
                                 var link = $('<a></a>').attr('href', item.url);
                                 
@@ -88,37 +76,18 @@ $(function() {
                                     var reg = new RegExp('('+ term + ')', 'gi');
                                     item.title = item.title.replace(reg, '<span class="search-highlight">$1</span>');
                                 }
-                              	var tagsall = '';
-                              	
-                              	$.each(item.tags,function(i,v){
-                                  if(v == $.cookie("PasarStoreName").toLowerCase()){
-                                    
-                                	 link.append('<span class="thumbnail"><img src="' + item.thumbnail + '" /></span>');
-                                     link.append('<span class="title">' + item.title + '</span>');
-                                     link.append('<span style="width:auto;float:right;padding-right:5px;font-weight:bold">' + price + '</span>');
-                                     link.wrap('<li class='+tagsall+'></li>');
-                                     resultsList.append(link.parent()); 
-                                    newcount++;
-                                  }else{
-                                  	console.log(v+' 2 '+$.cookie("PasarStoreName"));
-                                  }
-                              	
-                              	});
-                                
-                               
-                            }                           
+
+                              	link.append('<span class="thumbnail"><img src="' + item.thumbnail + '" /></span>');
+                                link.append('<span class="title">' + item.title + '</span>');
+                                link.append('<span style="width:auto;float:right;padding-right:5px;font-weight:bold">' + price + '</span>');
+                                link.wrap('<li></li>');
+
+                                resultsList.append(link.parent()); 
+                                count++;
+                            }                         
                         });                       
 
-                        if (count == 0) {
-                            resultsList.html('<li><span class="title">No results.</span></li>');
-                        }
-
-                        // The Ajax request will return at the most 5 results.
-                        // If there are more than 5, let's link to the search results page.
-                        if (count > 5) {
-                            resultsList.append('<li><span class="title"><a href="' + searchURL + '">See all results (' + newcount + ')</a></span></li>');
-                        }                       
-
+                        resultsList.append('<li><span class="title"><a href="' + searchURL + '">See all results (' + data.results_count + ')</a></span></li>');        
                         resultsList.fadeIn(200);
                     }
                 });

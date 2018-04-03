@@ -1,13 +1,10 @@
-{% comment %} 
-  <div class="container">
-    <div class="row"> {% include 'hot-product' %}
-      {% include 'home-tabs' %} </div>
-  </div>
-  
-  {% include 'widget-best-sellers' %}
-{% endcomment %}
-{% include 'hot-bundle-with-tabs' %}
-{% include 'featured-collections' %}
-{% include 'meal-kits' %}  
+{% if cart.attributes.market == "Bayan Baru" %}
+  {% include 'homepage.bayan-baru' %}
+{% elsif cart.attributes.market == "Serdang" %}
+  {% include 'homepage.serdang' %}
+{% elsif cart.attributes.market == "Chow Kit" %}
+  {% include 'homepage.chow-kit' %}
+{% endif %}
+
 {% include 'home-bottom-banner' %}
-{% include 'widget-logo_brand' %} 
+{% include 'widget-logo_brand' %}

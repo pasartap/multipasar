@@ -1,18 +1,767 @@
 [
   {
-    "name": "Welcome",
+    "name": "Bayan Baru",
     "settings": [
       {
-        "type": "paragraph",
-        "content": "Theme settings allow you to customize the look and feel of your shop without having to delve into HTML or CSS code. Please see our [help page on theme settings](http:\/\/eclipse-8.myshopify.com\/pages\/documentation) to learn more about how to customize your store."
+        "type": "header",
+        "content": "General Settings"
       },
       {
-        "type": "paragraph",
-        "content": "In case of any issues with the theme feel free to contact our team at [support@magikcommerce.com](support@magikcommerce.com)"
+        "type": "text",
+        "id": "order_minimum-bayan_baru",
+        "label": "Order minimum"
       },
       {
-        "type": "paragraph",
-        "content": "We also offer theme customization services. You can contact our team to discuss estimate."
+        "type": "text",
+        "id": "main_nav-bayan_baru",
+        "label": "Navigation handle"
+      },
+      {
+        "type": "text",
+        "id": "promo_items_limit_bayan_baru",
+        "label": "Promo items limit per cart",
+        "default": "1"
+      },
+      {
+        "type": "header",
+        "content": "Slider & Banners"
+      },
+      {
+        "type": "header",
+        "content": "Slide 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider1_bayan_baru",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_1_image_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_line2_bayan_baru",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide1_small_caption_color_bayan_baru",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_line1_bayan_baru",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide1_large_caption_color_bayan_baru",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_text_bayan_baru",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide1_normal_text_color_bayan_baru",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide1_button_display_bayan_baru",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide1_button1_text_bayan_baru",
+        "label": "Button 1"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_border_bayan_baru",
+        "label": "Button 1 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_text_color_bayan_baru",
+        "label": "Button 1 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_bgcolor_bayan_baru",
+        "label": "Button 1 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_bghover_bayan_baru",
+        "label": "Button 1 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide1_button1_link_bayan_baru",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider2_bayan_baru",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_2_image_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_line2_bayan_baru",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide2_small_caption_color_bayan_baru",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_line1_bayan_baru",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide2_large_caption_color_bayan_baru",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_text_bayan_baru",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide2_normal_text_color_bayan_baru",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide2_button_display_bayan_baru",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide2_button2_text_bayan_baru",
+        "label": "Button 2"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_border_bayan_baru",
+        "label": "Button 2 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_text_color_bayan_baru",
+        "label": "Button 2 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_bgcolor_bayan_baru",
+        "label": "Button 2 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_bghover_bayan_baru",
+        "label": "Button 2 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide2_button2_link_bayan_baru",
+        "label": "Button Link"
+      },
+     {
+        "type": "header",
+        "content": "Slide 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider3_bayan_baru",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_3_image_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info": "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_line2_bayan_baru",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide3_small_caption_color_bayan_baru",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_line1_bayan_baru",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide3_large_caption_color_bayan_baru",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_text_bayan_baru",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide3_normal_text_color_bayan_baru",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide3_button_display_bayan_baru",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide3_button3_text_bayan_baru",
+        "label": "Button 3"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_border_bayan_baru",
+        "label": "Button 3 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_text_color_bayan_baru",
+        "label": "Button 3 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_bgcolor_bayan_baru",
+        "label": "Button 3 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_bghover_bayan_baru",
+        "label": "Button 3 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide3_button3_link_bayan_baru",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider4_bayan_baru",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_4_image_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_line2_bayan_baru",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide4_small_caption_color_bayan_baru",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_line1_bayan_baru",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide4_large_caption_color_bayan_baru",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_text_bayan_baru",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide4_normal_text_color_bayan_baru",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide4_button_display_bayan_baru",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_text_bayan_baru",
+        "label": "Button 4"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_border_bayan_baru",
+        "label": "Button 4 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_text_color_bayan_baru",
+        "label": "Button 4 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_bgcolor_bayan_baru",
+        "label": "Button 4 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_bghover_bayan_baru",
+        "label": "Button 4 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_link_bayan_baru",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Middle Banner 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_middle_banner_bayan_baru",
+        "label": "Display Middle Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "mid-banner1_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_normal_text_bayan_baru",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_normal_text_color_bayan_baru",
+        "label": "Middle banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_title_text_bayan_baru",
+        "label": "Middle banner title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_title_text_color_bayan_baru",
+        "label": "Middle banner title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner1_link_bayan_baru",
+        "label": "Middle banner1 link"
+      },
+      {
+        "type": "header",
+        "content": "Middle Banner 2"
+      },
+      {
+        "type": "image",
+        "id": "mid-banner2_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_normal_text_bayan_baru",
+        "label": "Middle banner2 normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_normal_text_color_bayan_baru",
+        "label": "Middle banner2 normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_title_text_bayan_baru",
+        "label": "Middle banner2 title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_title_text_color_bayan_baru",
+        "label": "Middle banner2 title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_link_bayan_baru",
+        "label": "Middle banner2 link"
+      },
+      {
+        "type": "header",
+        "content": "Home Right Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_right_banner_bayan_baru",
+        "label": "Display Home Right Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "right-banner_bayan_baru.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_title_text_bayan_baru",
+        "label": "Home Right banner title text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_title_text_color_bayan_baru",
+        "label": "Home Right banner title text color"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_line_color_bayan_baru",
+        "label": "Home Right banner line color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_normal_text_bayan_baru",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_normal_text_color_bayan_baru",
+        "label": "Home Right banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner1_link_bayan_baru",
+        "label": "Home Right banner1 link"
+      },
+      {
+        "type": "header",
+        "content": "Featured collections"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_feat_coll_bayan_baru",
+        "label": "Display featured collections?",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "feat_coll_bayan_baru",
+        "label": "Collections",
+        "info": "Comma-separated collections using handle. Example: meat,poultry,chicken,fish-seafood"
+      }
+    ]
+  },
+  {
+    "name": "Best Sellers",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "display_bestseller",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "bestseller_title",
+        "label": "Bestseller Title"
+      },
+      {
+        "type": "color",
+        "id": "bestseller_title-text-color",
+        "label": "Bestseller Title Text Color"
+      },
+      {
+        "type": "color",
+        "id": "bestseller_title-border-color",
+        "label": "Bestseller Title Border Color"
+      },
+      {
+        "type": "color",
+        "id": "bestseller_title-text-bg-color",
+        "label": "Bestseller Title Text BG Color"
+      },
+      {
+        "type": "collection",
+        "id": "bestsellers_cat",
+        "label":
+          "Please select collection that will be displayed in Best Sellers block"
+      }
+    ]
+  },
+  {
+    "name": "Brand Logo",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "display_brandlogo",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "brand_logo_bg_color",
+        "label": "Background color"
+      },
+      {
+        "type": "image",
+        "id": "b-logo1.png",
+        "label": "Logo1"
+      },
+      {
+        "type": "text",
+        "id": "logo1_link",
+        "label": "Logo1 link"
+      },
+      {
+        "type": "image",
+        "id": "b-logo3.png",
+        "label": "Logo2"
+      },
+      {
+        "type": "text",
+        "id": "logo2_link",
+        "label": "Logo2 link"
+      },
+      {
+        "type": "image",
+        "id": "b-logo2.png",
+        "label": "Logo3"
+      },
+      {
+        "type": "text",
+        "id": "logo3_link",
+        "label": "Logo3 link"
+      },
+      {
+        "type": "image",
+        "id": "b-logo4.png",
+        "label": "Logo4"
+      },
+      {
+        "type": "text",
+        "id": "logo4_link",
+        "label": "Logo4 link"
+      },
+      {
+        "type": "image",
+        "id": "b-logo5.png",
+        "label": "Logo5"
+      },
+      {
+        "type": "text",
+        "id": "logo5_link",
+        "label": "Logo5 link"
+      },
+      {
+        "type": "image",
+        "id": "b-logo6.png",
+        "label": "Logo6"
+      },
+      {
+        "type": "text",
+        "id": "logo6_link",
+        "label": "Logo6 link"
+      },
+      {
+        "type": "image",
+        "id": "b-logo7.png",
+        "label": "Logo7"
+      },
+      {
+        "type": "text",
+        "id": "logo7_link",
+        "label": "Logo7 link"
+      },
+      {
+        "type": "image",
+        "id": "b-logo8.png",
+        "label": "Logo8"
+      },
+      {
+        "type": "text",
+        "id": "logo8_link",
+        "label": "Logo8 link"
+      }
+    ]
+  },
+  {
+    "name": "Breadcrumbs",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "display_breadcrumbs",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "breadcrumbs_txt",
+        "label": "Breadcrumbs Text Color"
+      }
+    ]
+  },
+  {
+    "name": "Buttons",
+    "settings": [
+      {
+        "type": "color",
+        "id": "btn_primary_color",
+        "label": "Button bg color"
+      },
+      {
+        "type": "color",
+        "id": "btn_primary_color_hover",
+        "label": "Button bg hover"
+      },
+      {
+        "type": "color",
+        "id": "btn_txt_color",
+        "label": "Button text color"
+      },
+      {
+        "type": "color",
+        "id": "btn_txt_color_hover",
+        "label": "Button text color hover"
+      },
+      {
+        "type": "color",
+        "id": "btn_border_color",
+        "label": "Button border color"
+      },
+      {
+        "type": "color",
+        "id": "btn_border_color_hover",
+        "label": "Button border hover color"
+      },
+      {
+        "type": "color",
+        "id": "btn_act_color",
+        "label": "Button active background"
+      },
+      {
+        "type": "color",
+        "id": "btn_act_border_color",
+        "label": "Button active border"
+      },
+      {
+        "type": "header",
+        "content": "Continue Shopping Button"
+      },
+      {
+        "type": "color",
+        "id": "cont_shop_bg",
+        "label": "Background color"
+      },
+      {
+        "type": "color",
+        "id": "cont_shop_border",
+        "label": "Border color"
+      },
+      {
+        "type": "color",
+        "id": "cont_shop_txt",
+        "label": "Text color"
+      },
+      {
+        "type": "header",
+        "content": "Update Cart Button"
+      },
+      {
+        "type": "color",
+        "id": "update_cart_bg",
+        "label": "Background color"
+      },
+      {
+        "type": "color",
+        "id": "update_cart_border",
+        "label": "Border color"
+      },
+      {
+        "type": "color",
+        "id": "update_cart_txt",
+        "label": "Text color"
+      },
+      {
+        "type": "header",
+        "content": "Checkout Button"
+      },
+      {
+        "type": "color",
+        "id": "check_btn_bg",
+        "label": "Background color"
+      },
+      {
+        "type": "color",
+        "id": "check_btn_txt",
+        "label": "Text color"
+      },
+      {
+        "type": "color",
+        "id": "check_btn_border",
+        "label": "Border color"
       }
     ]
   },
@@ -27,7 +776,7 @@
         "type": "checkbox",
         "id": "use_custom_logo",
         "label": "Use Custom Logo?",
-        "info": "Note: Duplicate logo_green.png and logo_white.png in the \/assets folder and customize accordingly."
+        "info": "Note: Duplicate logo_green.png and logo_white.png in the /assets folder and customize accordingly."
       },
       {
         "type": "image",
@@ -148,521 +897,1140 @@
     ]
   },
   {
-    "name": "PTWholesale",
+    "name": "Chow Kit",
     "settings": [
       {
-        "type": "textarea",
-        "id": "wholesale_homepage_featured_collections",
-        "label": "Featured collections",
-        "info": "Comma-separated collections using handle. Example: meat,poultry,chicken,fish-seafood"
+        "type": "header",
+        "content": "Navigation"
       },
       {
         "type": "text",
-        "id": "order_minimum_wholesale",
+        "id": "order_minimum-chow_kit",
         "label": "Order minimum"
       },
       {
         "type": "text",
-        "id": "wholesale_time_slots",
-        "label": "Time slots",
-        "info": "Comma-separated time slots. Example: 11AM - 2PM,2PM - 5PM"
+        "id": "main_nav-chow_kit",
+        "label": "Navigation handle"
       },
-     {
+      {
+        "type": "text",
+        "id": "promo_items_limit_chow_kit",
+        "label": "Promo items limit per cart",
+        "default": "1"
+      },
+      {
         "type": "header",
-        "content": "Slide show"
-    },
-{
-        "type": "checkbox",
-        "id": "display_home_slide",
-        "label": "Display Slider?",
-        "default": true
-    },
-    {
+        "content": "Slider & Banners"
+      },
+      {
         "type": "header",
         "content": "Slide 1"
-    },
-    {
+      },
+      {
         "type": "checkbox",
-        "id": "display_home_slide1",
+        "id": "display_home_slider1_chow_kit",
         "label": "Enable slide:",
         "default": true
-    },
-    {
+      },
+      {
         "type": "image",
-        "id": "slide_one_image.jpg",
+        "id": "slide_1_image_chow_kit.jpg",
         "label": "Image",
-       "info": "Maximum slide image dimensions are 1080px wide by 539px high. Your uploaded file will be resized to fit within those constraints."
-    },
-    {
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
         "type": "text",
-        "id": "slide_one_caption_line2",
+        "id": "slide_1_caption_line2_chow_kit",
         "label": "Caption small"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_one_small_caption_color",
+        "id": "slide1_small_caption_color_chow_kit",
         "label": "Caption small text color"
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_one_caption_line1",
+        "id": "slide_1_caption_line1_chow_kit",
         "label": "Caption large"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_one_large_caption_color",
+        "id": "slide1_large_caption_color_chow_kit",
         "label": "Caption large text color"
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_one_caption_text",
+        "id": "slide_1_caption_text_chow_kit",
         "label": "Caption normal text"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_one_normal_text_color",
+        "id": "slide1_normal_text_color_chow_kit",
         "label": "Caption normal text color"
-    },
-    {
+      },
+      {
         "type": "checkbox",
-        "id": "slide_one_button_display",
+        "id": "slide1_button_display_chow_kit",
         "label": "Display buttons?",
         "default": true
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_one_button1_text",
+        "id": "slide1_button1_text_chow_kit",
         "label": "Button 1"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_one_button1_border",
+        "id": "slide1_button1_border_chow_kit",
         "label": "Button 1 border color"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_one_button1_text_color",
+        "id": "slide1_button1_text_color_chow_kit",
         "label": "Button 1 text color"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_one_button1_bgcolor",
+        "id": "slide1_button1_bgcolor_chow_kit",
         "label": "Button 1 background color"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_one_button1_bghover",
+        "id": "slide1_button1_bghover_chow_kit",
         "label": "Button 1 background hover"
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_one_button1_link",
+        "id": "slide1_button1_link_chow_kit",
         "label": "Button Link"
-    },
-    {
+      },
+      {
         "type": "header",
         "content": "Slide 2"
-    },
-    {
+      },
+      {
         "type": "checkbox",
-        "id": "display_home_slide2",
+        "id": "display_home_slider2_chow_kit",
         "label": "Enable slide:",
         "default": true
-    },
-    {
+      },
+      {
         "type": "image",
-        "id": "slide_two_image.jpg",
+        "id": "slide_2_image_chow_kit.jpg",
         "label": "Image",
-       "info": "Maximum slide image dimensions are 1080px wide by 539px high. Your uploaded file will be resized to fit within those constraints."
-    },
-    {
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
         "type": "text",
-        "id": "slide_two_caption_line2",
+        "id": "slide_2_caption_line2_chow_kit",
         "label": "Caption small"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_two_small_caption_color",
+        "id": "slide2_small_caption_color_chow_kit",
         "label": "Caption small text color"
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_two_caption_line1",
+        "id": "slide_2_caption_line1_chow_kit",
         "label": "Caption large"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_two_large_caption_color",
+        "id": "slide2_large_caption_color_chow_kit",
         "label": "Caption large text color"
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_two_caption_text",
+        "id": "slide_2_caption_text_chow_kit",
         "label": "Caption normal text"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_two_normal_text_color",
+        "id": "slide2_normal_text_color_chow_kit",
         "label": "Caption normal text color"
-    },
-    {
+      },
+      {
         "type": "checkbox",
-        "id": "slide_two_button_display",
+        "id": "slide2_button_display_chow_kit",
         "label": "Display buttons?",
         "default": true
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_two_button2_text",
+        "id": "slide2_button2_text_chow_kit",
         "label": "Button 2"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_two_button2_border",
+        "id": "slide2_button2_border_chow_kit",
         "label": "Button 2 border color"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_two_button2_text_color",
+        "id": "slide2_button2_text_color_chow_kit",
         "label": "Button 2 text color"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_two_button2_bgcolor",
+        "id": "slide2_button2_bgcolor_chow_kit",
         "label": "Button 2 background color"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_two_button2_bghover",
+        "id": "slide2_button2_bghover_chow_kit",
         "label": "Button 2 background hover"
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide-two_button2_link",
+        "id": "slide2_button2_link_chow_kit",
         "label": "Button Link"
-    },
-    {
+      },
+      {
         "type": "header",
         "content": "Slide 3"
-    },
-    {
+      },
+      {
         "type": "checkbox",
-        "id": "display_home_slide3",
+        "id": "display_home_slider3_chow_kit",
         "label": "Enable slide:",
         "default": true
-    },
-    {
+      },
+      {
         "type": "image",
-        "id": "slide_three_image.jpg",
+        "id": "slide_3_image_chow_kit.jpg",
         "label": "Image",
-       "info": "Maximum slide image dimensions are 1080px wide by 539px high. Your uploaded file will be resized to fit within those constraints."
-    },
-    {
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
         "type": "text",
-        "id": "slide_three_caption_line2",
+        "id": "slide_3_caption_line2_chow_kit",
         "label": "Caption small"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_three_small_caption_color",
+        "id": "slide3_small_caption_color_chow_kit",
         "label": "Caption small text color"
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_three_caption_line1",
+        "id": "slide_3_caption_line1_chow_kit",
         "label": "Caption large"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_three_large_caption_color",
+        "id": "slide3_large_caption_color_chow_kit",
         "label": "Caption large text color"
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_three_caption_text",
+        "id": "slide_3_caption_text_chow_kit",
         "label": "Caption normal text"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_three_normal_text_color",
+        "id": "slide3_normal_text_color_chow_kit",
         "label": "Caption normal text color"
-    },
-    {
+      },
+      {
         "type": "checkbox",
-        "id": "slide_three_button_display",
+        "id": "slide3_button_display_chow_kit",
         "label": "Display buttons?",
         "default": true
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_three_button3_text",
+        "id": "slide3_button3_text_chow_kit",
         "label": "Button 3"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_three_button3_border",
+        "id": "slide3_button3_border_chow_kit",
         "label": "Button 3 border color"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_three_button3_text_color",
+        "id": "slide3_button3_text_color_chow_kit",
         "label": "Button 3 text color"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_three_button3_bgcolor",
+        "id": "slide3_button3_bgcolor_chow_kit",
         "label": "Button 3 background color"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_three_button3_bghover",
+        "id": "slide3_button3_bghover_chow_kit",
         "label": "Button 3 background hover"
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_three_button3_link",
+        "id": "slide3_button3_link_chow_kit",
         "label": "Button Link"
-    },
-    {
+      },
+      {
         "type": "header",
         "content": "Slide 4"
-    },
-    {
+      },
+      {
         "type": "checkbox",
-        "id": "display_home_slide4",
+        "id": "display_home_slider4_chow_kit",
         "label": "Enable slide:",
         "default": true
-    },
-    {
+      },
+      {
         "type": "image",
-        "id": "slide_four_image.jpg",
+        "id": "slide_4_image_chow_kit.jpg",
         "label": "Image",
-       "info": "Maximum slide image dimensions are 1080px wide by 539px high. Your uploaded file will be resized to fit within those constraints."
-    },
-    {
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
         "type": "text",
-        "id": "slide_four_caption_line2",
+        "id": "slide_4_caption_line2_chow_kit",
         "label": "Caption small"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_four_small_caption_color",
+        "id": "slide4_small_caption_color_chow_kit",
         "label": "Caption small text color"
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_four_caption_line1",
+        "id": "slide_4_caption_line1_chow_kit",
         "label": "Caption large"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_four_large_caption_color",
+        "id": "slide4_large_caption_color_chow_kit",
         "label": "Caption large text color"
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_four_caption_text",
+        "id": "slide_4_caption_text_chow_kit",
         "label": "Caption normal text"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_four_normal_text_color",
+        "id": "slide4_normal_text_color_chow_kit",
         "label": "Caption normal text color"
-    },
-    {
+      },
+      {
         "type": "checkbox",
-        "id": "slide_four_button_display",
+        "id": "slide4_button_display_chow_kit",
         "label": "Display buttons?",
         "default": true
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide_four_button_text",
+        "id": "slide4_button_text_chow_kit",
         "label": "Button 4"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_four_button_border",
+        "id": "slide4_button_border_chow_kit",
         "label": "Button 4 border color"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_four_button_text_color",
+        "id": "slide4_button_text_color_chow_kit",
         "label": "Button 4 text color"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_four_button_bgcolor",
+        "id": "slide4_button_bgcolor_chow_kit",
         "label": "Button 4 background color"
-    },
-    {
+      },
+      {
         "type": "color",
-        "id": "slide_four_button_bghover",
+        "id": "slide4_button_bghover_chow_kit",
         "label": "Button 4 background hover"
-    },
-    {
+      },
+      {
         "type": "text",
-        "id": "slide-four_button_link",
+        "id": "slide4_button_link_chow_kit",
         "label": "Button Link"
-    },
-
-    {
+      },
+      {
         "type": "header",
-        "content": "ads banner"
-    },
-     {
+        "content": "Middle Banner 1"
+      },
+      {
         "type": "checkbox",
-        "id": "display_ads_banner",
-        "label": "Display ads Banner",
+        "id": "display_middle_banner_chow_kit",
+        "label": "Display Middle Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "mid-banner1_chow_kit.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_normal_text_chow_kit",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_normal_text_color_chow_kit",
+        "label": "Middle banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_title_text_chow_kit",
+        "label": "Middle banner title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_title_text_color_chow_kit",
+        "label": "Middle banner title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner1_link_chow_kit",
+        "label": "Middle banner1 link"
+      },
+      {
+        "type": "header",
+        "content": "Middle Banner 2"
+      },
+      {
+        "type": "image",
+        "id": "mid-banner2_chow_kit.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_normal_text_chow_kit",
+        "label": "Middle banner2 normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_normal_text_color_chow_kit",
+        "label": "Middle banner2 normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_title_text_chow_kit",
+        "label": "Middle banner2 title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_title_text_color_chow_kit",
+        "label": "Middle banner2 title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_link_chow_kit",
+        "label": "Middle banner2 link"
+      },
+      {
+        "type": "header",
+        "content": "Home Right Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_right_banner_chow_kit",
+        "label": "Display Home Right Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "right-banner_chow_kit.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_title_text_chow_kit",
+        "label": "Home Right banner title text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_title_text_color_chow_kit",
+        "label": "Home Right banner title text color"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_line_color_chow_kit",
+        "label": "Home Right banner line color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_normal_text_chow_kit",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_normal_text_color_chow_kit",
+        "label": "Home Right banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner1_link_chow_kit",
+        "label": "Home Right banner1 link"
+      },
+      {
+        "type": "header",
+        "content": "Featured collections"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_feat_coll_chow_kit",
+        "label": "Display featured collections?",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "feat_coll_chow_kit",
+        "label": "Collections",
+        "info": "Comma-separated collections using handle. Example: meat,poultry,chicken,fish-seafood"
+      }
+    ]
+  },
+
+  {
+    "name": "Bundles / Hot bundles",
+    "settings": [
+    {
+        "type": "checkbox",
+        "id": "display_hot_bundle_with_tabs",
+        "label": "Display?",
         "default": true
     },
     {
-        "type": "image",
-        "id": "ads-banner1.jpg",
-        "label": "Image",
-        "max-width": 285,
-        "max-height": 500,
-        "info": "Maximum slide image dimensions are 285px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+        "type": "header",
+        "content": "Hot Bundle"
+    },
+    {
+        "type": "product",
+        "id": "hot-bundle_cat",
+        "label": "Please select the hot product."
     },
     {
         "type": "text",
-        "id": "ads_banner_title_txt",
-        "label": "ads banner title text"
-    },
-    {
-        "type": "color",
-        "id": "ads_banner_title_txt_color",
-        "label": "ads banner title text color"
-    },
-    {
-        "type": "color",
-        "id": "ads_banner_line_color",
-        "label": "ads banner line color"
+        "id": "start_sale_date",
+        "label": "Start date in Y\/M\/D format"
     },
     {
         "type": "text",
-        "id": "ads_banner_normal_txt",
-        "label": "ads banner normal text"
-    },
-    {
-        "type": "color",
-        "id": "ads_banner_normal_txt_color",
-        "label": "ads banner normal text color"
+        "id": "end_sale_date",
+        "label": "End date in Y\/M\/D format"
     },
     {
         "type": "text",
-        "id": "ads_banner1_link",
-        "label": "Home Right banner1 link"
+        "id": "hot_bundle_discount",
+        "label": "Discount in percentage"
     },
+    {
+        "type": "header",
+        "content": "Hot Bundle Colors"
+    },
+    {
+        "type": "color",
+        "id": "discount-box-txt-color",
+        "label": "Discount box text color"
+    },
+    {
+        "type": "color",
+        "id": "discount-box-background-color",
+        "label": "Discount box background color"
+    },
+    {
+        "type": "color",
+        "id": "date-box-txt-color",
+        "label": "Date box text color"
+    },
+    {
+        "type": "color",
+        "id": "date-box-background-color",
+        "label": "Date box background color"
+    },
+    {
+        "type": "color",
+        "id": "timer-box-txt-color",
+        "label": "Timer box text color"
+    },
+    {
+        "type": "color",
+        "id": "timer-box-background-color",
+        "label": "Timer box bg color"
+    },
+    {
+        "type": "header",
+        "content": "Bundle description"
+      },
+      {
+        "type": "paragraph",
+        "content": "The bundle description is disabled."
+    },
+      {
+        "type": "text",
+        "id": "bundle-description",
+        "label": "bundle description"
+      },
+      {
+        "type": "text",
+        "id": "bundle-item-1",
+        "label": "bundle item 1 name"
+      },      
+      {
+        "type": "text",
+        "id": "bundle-item-2",
+        "label": "bundle item 2 name"
+      },
+      {
+        "type": "text",
+        "id": "bundle-item-3",
+        "label": "bundle item 3 name"
+      },
+    {
+        "type": "header",
+        "content": "Tab Section"
+    },
+    {
+        "type": "text",
+        "id": "home-tab-title",
+        "label": "Tab Section Title"
+    },
+    {
+        "type": "header",
+        "content": "Tab Section Colors"
+    },
+    {
+        "type": "color",
+        "id": "tab-txt-color",
+        "label": "Tab text color"
+    },
+    {
+        "type": "color",
+        "id": "tab-background-color",
+        "label": "Tab background color"
+    },
+    {
+        "type": "header",
+        "content": "Tab 1"
+    },
+    {
+        "type": "text",
+        "id": "tab-one-header",
+        "label": "Tab 1 Header"
+    },
+    {
+        "type": "collection",
+        "id": "home-tab-one-category",
+        "label": "Tab 1 Collection",
+        "info": "Max 4 items only in a collection"
+    },
+    {
+        "type": "header",
+        "content": "Tab 2"
+    },
+    {
+        "type": "text",
+        "id": "tab-two-header",
+        "label": "Tab 2 Header"
+    },
+    {
+        "type": "collection",
+        "id": "home-tab-two-category",
+        "label": "Tab 2 Collection",
+        "info": "Max 4 items only in a collection"
+    }]
+},
 
-     {
-        "type": "image",
-        "id": "ads-banner2.jpg",
-        "label": "Image",
-        "max-width": 285,
-        "max-height": 500,
-        "info": "Maximum slide image dimensions are 285px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
-    },
-    {
-        "type": "text",
-        "id": "ads_banner2_title_txt",
-        "label": "ads banner title text"
-    },
-    {
-        "type": "color",
-        "id": "ads_banner2_title_txt_color",
-        "label": "ads banner title text color"
-    },
-    {
-        "type": "color",
-        "id": "ads_banner2_line_color",
-        "label": "ads banner line color"
-    },
-    {
-        "type": "text",
-        "id": "ads_banner2_normal_txt",
-        "label": "ads banner normal text"
-    },
-    {
-        "type": "color",
-        "id": "ads_banner2_normal_txt_color",
-        "label": "ads banner normal text color"
-    },
-    {
-        "type": "text",
-        "id": "ads_banner2_link",
-        "label": "ads banner1 link"
-    }
-     ]
-  },
   {
-    "name": "Spend Rules",
+    "name": "Featured Collections",
     "settings": [
       {
         "type": "checkbox",
-        "id": "enable_spend_rules",
-        "label": "Enable spend rules?",
-        "default": false
-      },
-      {
-        "type": "header",
-        "content": "Tier 1"
-      },
-      {
-        "type": "text",
-        "id": "tier_1_target_amount",
-        "label": "Tier 1 Target Amount"
-      },
-      {
-        "type": "text",
-        "id": "tier_1_linklist_handle",
-        "label": "Tier 1 Linklist Handle"
+        "id": "display_featured_collections",
+        "label": "Display?",
+        "default": true
       },
       {
         "type": "textarea",
-        "id": "tier_1_text",
-        "label": "Tier 1 Free Product Text",
-        "info": "Spend RMX.XX more <free_product_text>"
+        "id": "homepage_featured_collections",
+        "label": "Featured collections",
+        "info":
+          "Comma-separated collections using handle. Example: meat,poultry,chicken,fish-seafood"
+      }
+    ]
+  },
+  {
+    "name": "Featured Products",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "display_featured_products",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "featured_title",
+        "label": "featured Title"
+      },
+      {
+        "type": "color",
+        "id": "featured_title-text-color",
+        "label": "featured Title Text Color"
+      },
+      {
+        "type": "image",
+        "label": "featured BG Image",
+        "id": "featured-bg.jpg"
+      },
+      {
+        "type": "collection",
+        "id": "featured-category",
+        "label":
+          "Please select collection that will be displayed in Featured block"
+      },
+      {
+        "type": "text",
+        "id": "featured_pretext_text",
+        "label": "featured pretext text"
+      },
+      {
+        "type": "text",
+        "id": "featured_button_text",
+        "label": "featured view all button text"
+      },
+      {
+        "type": "color",
+        "id": "featured_view_all_button_text_color",
+        "label": "featured view all button text color"
+      },
+      {
+        "type": "color",
+        "id": "featured_view_all_button_bg_color",
+        "label": "featured view all button bg color"
+      },
+      {
+        "type": "color",
+        "id": "featured_view_all_button_border_color",
+        "label": "featured view all button border color"
+      },
+      {
+        "type": "color",
+        "id": "featured_view_all_button_hover_text_color",
+        "label": "featured view all button hover text color"
+      },
+      {
+        "type": "color",
+        "id": "featured_view_all_button_hover_bg_color",
+        "label": "featured view all button hover bg color"
+      },
+      {
+        "type": "color",
+        "id": "featured_view_all_button_hover_border_color",
+        "label": "featured view all button hover border color"
+      },
+      {
+        "type": "text",
+        "id": "featured_link",
+        "label": "featured view button link"
+      }
+    ]
+  },
+  {
+    "name": "Features Block",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "display_offer_block",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "offer_block_bg",
+        "label": "Block background Color"
+      },
+      {
+        "type": "color",
+        "id": "block_text_color",
+        "label": "All Block text color"
+      },
+      {
+        "type": "text",
+        "id": "block_1_text",
+        "label": "Block 1 text"
+      },
+      {
+        "type": "text",
+        "id": "block_1_icon",
+        "label": "Block 1 icon unicode",
+        "info": "you can use fontawesome icon unicode except '\\' this."
+      },
+      {
+        "type": "color",
+        "id": "block_1_icon_color",
+        "label": "Block 1 icon color"
+      },
+      {
+        "type": "text",
+        "id": "block_2_text",
+        "label": "Block 2 text"
+      },
+      {
+        "type": "text",
+        "id": "block_2_icon",
+        "label": "Block 2 icon unicode",
+        "info": "you can use fontawesome icon unicode except '\\' this."
+      },
+      {
+        "type": "color",
+        "id": "block_2_icon_color",
+        "label": "Block 2 icon color"
+      },
+      {
+        "type": "text",
+        "id": "block_3_text",
+        "label": "Block 3 text"
+      },
+      {
+        "type": "text",
+        "id": "block_3_icon",
+        "label": "Block 3 icon unicode",
+        "info": "you can use fontawesome icon unicode except '\\' this."
+      },
+      {
+        "type": "color",
+        "id": "block_3_icon_color",
+        "label": "Block 3 icon color"
+      },
+      {
+        "type": "text",
+        "id": "block_4_text",
+        "label": "Block 4 text"
+      },
+      {
+        "type": "text",
+        "id": "block_4_icon",
+        "label": "Block 4 icon unicode",
+        "info": "you can use fontawesome icon unicode except '\\' this."
+      },
+      {
+        "type": "color",
+        "id": "block_4_icon_color",
+        "label": "Block 4 icon color"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "color",
+        "id": "footer_bg_color",
+        "label": "Footer background color"
+      },
+      {
+        "type": "color",
+        "id": "footer_text_color",
+        "label": "Text Color"
+      },
+      {
+        "type": "color",
+        "id": "footer-link-color",
+        "label": "Link text color"
+      },
+      {
+        "type": "color",
+        "id": "footer-link-color-hover",
+        "label": "Link text color hover"
+      },
+      {
+        "type": "color",
+        "id": "footer-heading-color",
+        "label": "Heading color"
       },
       {
         "type": "header",
-        "content": "Tier 2"
+        "content": "Social links"
       },
       {
         "type": "text",
-        "id": "tier_2_target_amount",
-        "label": "Tier 2 Target Amount"
+        "id": "social-title",
+        "label": "Social Title"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_twitter",
+        "label": "Twitter",
+        "default": true
       },
       {
         "type": "text",
-        "id": "tier_2_linklist_handle",
-        "label": "Tier 2 Linklist Handle"
+        "id": "header_social_1_twi"
       },
       {
-        "type": "textarea",
-        "id": "tier_2_text",
-        "label": "Tier 2 Free Product Text",
-        "info": "Spend RMX.XX more <free_product_text>"
+        "type": "checkbox",
+        "id": "show_gplus",
+        "label": "Google+",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "header_social_2_gpl"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_facebook",
+        "label": "Facebook",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "header_social_3_fcb"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_pin",
+        "label": "Pinterest",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "header_social_4_pin"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_rss",
+        "label": "RSS",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "header_social_4_rss"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_linkedin",
+        "label": "Linkedin",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "header_social_4_linkedin"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_youtube",
+        "label": "Youtube",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "header_social_4_youtube"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_instagram1",
+        "label": "Instagram",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "header_social_4_instagram"
       },
       {
         "type": "header",
-        "content": "Tier 3"
+        "content": "Logo block"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_logo_block",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "footer-logo.png",
+        "label": "Logo img",
+        "info":
+          "Maximum showcase image dimensions are 1920px wide by 280px high. Your uploaded file will be resized to fit within those constraints."
       },
       {
         "type": "text",
-        "id": "tier_3_target_amount",
-        "label": "Tier 3 Target Amount"
+        "id": "bottom_block_1_content",
+        "label": "Bottom block 1"
+      },
+      {
+        "type": "header",
+        "content": "block 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_footer_block1",
+        "label": "Display?",
+        "default": true
       },
       {
         "type": "text",
-        "id": "tier_3_linklist_handle",
-        "label": "Tier 3 Linklist Handle"
+        "id": "bottom_block_2_title",
+        "label": "Bottom block 2"
+      },
+      {
+        "type": "link_list",
+        "id": "bottom_block_2_list"
+      },
+      {
+        "type": "header",
+        "content": "block 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_footer_block2",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "bottom_block_3_title",
+        "label": "Bottom block 3"
+      },
+      {
+        "type": "link_list",
+        "id": "bottom_block_3_list"
+      },
+      {
+        "type": "header",
+        "content": "block 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_footer_block3",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "bottom_block_4_title",
+        "label": "Bottom block 4"
+      },
+      {
+        "type": "link_list",
+        "id": "bottom_block_4_list"
+      },
+      {
+        "type": "header",
+        "content": "Company info"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_co_info",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "bottom_block_5_title",
+        "label": "Bottom block 5"
       },
       {
         "type": "textarea",
-        "id": "tier_3_text",
-        "label": "Tier 3 Free Product Text",
-        "info": "Spend RMX.XX more <free_product_text>"
+        "id": "bottom_block_5_adr",
+        "label": "Address"
+      },
+      {
+        "type": "text",
+        "id": "bottom_block_5_tel",
+        "label": "Phone"
+      },
+      {
+        "type": "text",
+        "id": "bottom_block_5_email",
+        "label": "Email"
+      }
+    ]
+  },
+  {
+    "name": "General",
+    "settings": [
+      {
+        "type": "color",
+        "id": "totop_bg",
+        "label": "scroll box background"
+      },
+      {
+        "type": "color",
+        "id": "html_bg_color",
+        "label": "HTML background color"
+      },
+      {
+        "type": "image",
+        "id": "background-img.png",
+        "label": "HTML background image"
+      },
+      {
+        "type": "color",
+        "id": "font_color",
+        "label": "Base font Color"
+      },
+      {
+        "type": "color",
+        "id": "headings_color",
+        "label": "Headings font Color"
+      },
+      {
+        "type": "color",
+        "id": "link_color",
+        "label": "Link text color"
+      },
+      {
+        "type": "color",
+        "id": "link_color_act",
+        "label": "Link text active color"
+      },
+      {
+        "type": "paragraph",
+        "content": "Select color for link text on regular and hover conditions"
+      }
+    ]
+  },
+  {
+    "name": "Google Map",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "google-map-address",
+        "label": "Enter your address"
+      },
+      {
+        "type": "text",
+        "id": "google-map-api",
+        "label": "Google Map API Key"
       }
     ]
   },
@@ -896,738 +2264,38 @@
     ]
   },
   {
-    "name": "Navigation",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Mega Menu"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_megamenu",
-        "label": "Display Mega Menu?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "megamenu_items",
-        "label": "Mega Menu Items",
-        "default": "Vegetables",
-        "info": "Use \",\" to separate mega menu items if you have multiple mega menus. For ex: Shop, Collections"
-      },
-      {
-        "type": "image",
-        "id": "menu_image.jpg",
-        "label": "Upload a new image",
-        "max-width": 2000,
-        "max-height": 2000,
-        "info": "420px x 375px recommended"
-      },
-      {
-        "type": "text",
-        "id": "menu_link_image",
-        "label": "Link image"
-      }
-    ]
-  },
-  {
-    "name": "Slide Show",
+    "name": "Home Bottom Banner",
     "settings": [
       {
         "type": "checkbox",
-        "id": "display_home_slider",
-        "label": "Display Slider?",
-        "default": true
-      },
-      {
-        "type": "header",
-        "content": "Slide 1"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_home_slider1",
-        "label": "Enable slide:",
-        "default": true
-      },
-      {
-        "type": "image",
-        "id": "slide_1_image.jpg",
-        "label": "Image",
-        "max-width": 600,
-        "max-height": 500,
-        "info": "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
-      },
-      {
-        "type": "text",
-        "id": "slide_1_caption_line2",
-        "label": "Caption small"
-      },
-      {
-        "type": "color",
-        "id": "slide1_small_caption_color",
-        "label": "Caption small text color"
-      },
-      {
-        "type": "text",
-        "id": "slide_1_caption_line1",
-        "label": "Caption large"
-      },
-      {
-        "type": "color",
-        "id": "slide1_large_caption_color",
-        "label": "Caption large text color"
-      },
-      {
-        "type": "text",
-        "id": "slide_1_caption_text",
-        "label": "Caption normal text"
-      },
-      {
-        "type": "color",
-        "id": "slide1_normal_text_color",
-        "label": "Caption normal text color"
-      },
-      {
-        "type": "checkbox",
-        "id": "slide1_button_display",
-        "label": "Display buttons?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "slide1_button1_text",
-        "label": "Button 1"
-      },
-      {
-        "type": "color",
-        "id": "slide1_button1_border",
-        "label": "Button 1 border color"
-      },
-      {
-        "type": "color",
-        "id": "slide1_button1_text_color",
-        "label": "Button 1 text color"
-      },
-      {
-        "type": "color",
-        "id": "slide1_button1_bgcolor",
-        "label": "Button 1 background color"
-      },
-      {
-        "type": "color",
-        "id": "slide1_button1_bghover",
-        "label": "Button 1 background hover"
-      },
-      {
-        "type": "text",
-        "id": "slide1_button1_link",
-        "label": "Button Link"
-      },
-      {
-        "type": "header",
-        "content": "Slide 2"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_home_slider2",
-        "label": "Enable slide:",
-        "default": true
-      },
-      {
-        "type": "image",
-        "id": "slide_2_image.jpg",
-        "label": "Image",
-        "max-width": 600,
-        "max-height": 500,
-        "info": "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
-      },
-      {
-        "type": "text",
-        "id": "slide_2_caption_line2",
-        "label": "Caption small"
-      },
-      {
-        "type": "color",
-        "id": "slide2_small_caption_color",
-        "label": "Caption small text color"
-      },
-      {
-        "type": "text",
-        "id": "slide_2_caption_line1",
-        "label": "Caption large"
-      },
-      {
-        "type": "color",
-        "id": "slide2_large_caption_color",
-        "label": "Caption large text color"
-      },
-      {
-        "type": "text",
-        "id": "slide_2_caption_text",
-        "label": "Caption normal text"
-      },
-      {
-        "type": "color",
-        "id": "slide2_normal_text_color",
-        "label": "Caption normal text color"
-      },
-      {
-        "type": "checkbox",
-        "id": "slide2_button_display",
-        "label": "Display buttons?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "slide2_button2_text",
-        "label": "Button 2"
-      },
-      {
-        "type": "color",
-        "id": "slide2_button2_border",
-        "label": "Button 2 border color"
-      },
-      {
-        "type": "color",
-        "id": "slide2_button2_text_color",
-        "label": "Button 2 text color"
-      },
-      {
-        "type": "color",
-        "id": "slide2_button2_bgcolor",
-        "label": "Button 2 background color"
-      },
-      {
-        "type": "color",
-        "id": "slide2_button2_bghover",
-        "label": "Button 2 background hover"
-      },
-      {
-        "type": "text",
-        "id": "slide2_button2_link",
-        "label": "Button Link"
-      },
-      {
-        "type": "header",
-        "content": "Slide 3"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_home_slider3",
-        "label": "Enable slide:",
-        "default": true
-      },
-      {
-        "type": "image",
-        "id": "slide_3_image.jpg",
-        "label": "Image",
-        "max-width": 600,
-        "max-height": 500,
-        "info": "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
-      },
-      {
-        "type": "text",
-        "id": "slide_3_caption_line2",
-        "label": "Caption small"
-      },
-      {
-        "type": "color",
-        "id": "slide3_small_caption_color",
-        "label": "Caption small text color"
-      },
-      {
-        "type": "text",
-        "id": "slide_3_caption_line1",
-        "label": "Caption large"
-      },
-      {
-        "type": "color",
-        "id": "slide3_large_caption_color",
-        "label": "Caption large text color"
-      },
-      {
-        "type": "text",
-        "id": "slide_3_caption_text",
-        "label": "Caption normal text"
-      },
-      {
-        "type": "color",
-        "id": "slide3_normal_text_color",
-        "label": "Caption normal text color"
-      },
-      {
-        "type": "checkbox",
-        "id": "slide3_button_display",
-        "label": "Display buttons?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "slide3_button3_text",
-        "label": "Button 3"
-      },
-      {
-        "type": "color",
-        "id": "slide3_button3_border",
-        "label": "Button 3 border color"
-      },
-      {
-        "type": "color",
-        "id": "slide3_button3_text_color",
-        "label": "Button 3 text color"
-      },
-      {
-        "type": "color",
-        "id": "slide3_button3_bgcolor",
-        "label": "Button 3 background color"
-      },
-      {
-        "type": "color",
-        "id": "slide3_button3_bghover",
-        "label": "Button 3 background hover"
-      },
-      {
-        "type": "text",
-        "id": "slide3_button3_link",
-        "label": "Button Link"
-      },
-      {
-        "type": "header",
-        "content": "Slide 4"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_home_slider4",
-        "label": "Enable slide:",
-        "default": true
-      },
-      {
-        "type": "image",
-        "id": "slide_4_image.jpg",
-        "label": "Image",
-        "max-width": 600,
-        "max-height": 500,
-        "info": "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
-      },
-      {
-        "type": "text",
-        "id": "slide_4_caption_line2",
-        "label": "Caption small"
-      },
-      {
-        "type": "color",
-        "id": "slide4_small_caption_color",
-        "label": "Caption small text color"
-      },
-      {
-        "type": "text",
-        "id": "slide_4_caption_line1",
-        "label": "Caption large"
-      },
-      {
-        "type": "color",
-        "id": "slide4_large_caption_color",
-        "label": "Caption large text color"
-      },
-      {
-        "type": "text",
-        "id": "slide_4_caption_text",
-        "label": "Caption normal text"
-      },
-      {
-        "type": "color",
-        "id": "slide4_normal_text_color",
-        "label": "Caption normal text color"
-      },
-      {
-        "type": "checkbox",
-        "id": "slide4_button_display",
-        "label": "Display buttons?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "slide4_button_text",
-        "label": "Button 4"
-      },
-      {
-        "type": "color",
-        "id": "slide4_button_border",
-        "label": "Button 4 border color"
-      },
-      {
-        "type": "color",
-        "id": "slide4_button_text_color",
-        "label": "Button 4 text color"
-      },
-      {
-        "type": "color",
-        "id": "slide4_button_bgcolor",
-        "label": "Button 4 background color"
-      },
-      {
-        "type": "color",
-        "id": "slide4_button_bghover",
-        "label": "Button 4 background hover"
-      },
-      {
-        "type": "text",
-        "id": "slide4_button_link",
-        "label": "Button Link"
-      },
-      {
-        "type": "header",
-        "content": "Middle Banner 1"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_middle_banner",
-        "label": "Display Middle Banner",
-        "default": true
-      },
-      {
-        "type": "image",
-        "id": "mid-banner1.jpg",
-        "label": "Image",
-        "max-width": 285,
-        "max-height": 237,
-        "info": "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
-      },
-      {
-        "type": "text",
-        "id": "middle_banner_normal_text",
-        "label": "Middle banner normal text"
-      },
-      {
-        "type": "color",
-        "id": "middle_banner_normal_text_color",
-        "label": "Middle banner normal text color"
-      },
-      {
-        "type": "text",
-        "id": "middle_banner_title_text",
-        "label": "Middle banner title text"
-      },
-      {
-        "type": "color",
-        "id": "middle_banner_title_text_color",
-        "label": "Middle banner title text color"
-      },
-      {
-        "type": "text",
-        "id": "middle_banner1_link",
-        "label": "Middle banner1 link"
-      },
-      {
-        "type": "header",
-        "content": "Middle Banner 2"
-      },
-      {
-        "type": "image",
-        "id": "mid-banner2.jpg",
-        "label": "Image",
-        "max-width": 285,
-        "max-height": 237,
-        "info": "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
-      },
-      {
-        "type": "text",
-        "id": "middle_banner2_normal_text",
-        "label": "Middle banner2 normal text"
-      },
-      {
-        "type": "color",
-        "id": "middle_banner2_normal_text_color",
-        "label": "Middle banner2 normal text color"
-      },
-      {
-        "type": "text",
-        "id": "middle_banner2_title_text",
-        "label": "Middle banner2 title text"
-      },
-      {
-        "type": "color",
-        "id": "middle_banner2_title_text_color",
-        "label": "Middle banner2 title text color"
-      },
-      {
-        "type": "text",
-        "id": "middle_banner2_link",
-        "label": "Middle banner2 link"
-      },
-      {
-        "type": "header",
-        "content": "Home Right Banner"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_home_right_banner",
-        "label": "Display Home Right Banner",
-        "default": true
-      },
-      {
-        "type": "image",
-        "id": "right-banner.jpg",
-        "label": "Image",
-        "max-width": 285,
-        "max-height": 500,
-        "info": "Maximum slide image dimensions are 285px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
-      },
-      {
-        "type": "text",
-        "id": "home_right_banner_title_text",
-        "label": "Home Right banner title text"
-      },
-      {
-        "type": "color",
-        "id": "home_right_banner_title_text_color",
-        "label": "Home Right banner title text color"
-      },
-      {
-        "type": "color",
-        "id": "home_right_banner_line_color",
-        "label": "Home Right banner line color"
-      },
-      {
-        "type": "text",
-        "id": "home_right_banner_normal_text",
-        "label": "Middle banner normal text"
-      },
-      {
-        "type": "color",
-        "id": "home_right_banner_normal_text_color",
-        "label": "Home Right banner normal text color"
-      },
-      {
-        "type": "text",
-        "id": "home_right_banner1_link",
-        "label": "Home Right banner1 link"
-      }
-    ]
-  },
-
-  {
-    "name": "Bundles / Hot bundles",
-    "settings": [
-    {
-        "type": "checkbox",
-        "id": "display_hot_bundle_with_tabs",
-        "label": "Display?",
-        "default": true
-    },
-    {
-        "type": "header",
-        "content": "Hot Bundle"
-    },
-    {
-        "type": "product",
-        "id": "hot-bundle_cat",
-        "label": "Please select the hot product."
-    },
-    {
-        "type": "text",
-        "id": "start_sale_date",
-        "label": "Start date in Y\/M\/D format"
-    },
-    {
-        "type": "text",
-        "id": "end_sale_date",
-        "label": "End date in Y\/M\/D format"
-    },
-    {
-        "type": "text",
-        "id": "hot_bundle_discount",
-        "label": "Discount in percentage"
-    },
-    {
-        "type": "header",
-        "content": "Hot Bundle Colors"
-    },
-    {
-        "type": "color",
-        "id": "discount-box-txt-color",
-        "label": "Discount box text color"
-    },
-    {
-        "type": "color",
-        "id": "discount-box-background-color",
-        "label": "Discount box background color"
-    },
-    {
-        "type": "color",
-        "id": "date-box-txt-color",
-        "label": "Date box text color"
-    },
-    {
-        "type": "color",
-        "id": "date-box-background-color",
-        "label": "Date box background color"
-    },
-    {
-        "type": "color",
-        "id": "timer-box-txt-color",
-        "label": "Timer box text color"
-    },
-    {
-        "type": "color",
-        "id": "timer-box-background-color",
-        "label": "Timer box bg color"
-    },
-    {
-        "type": "header",
-        "content": "Bundle description"
-      },
-      {
-        "type": "paragraph",
-        "content": "The bundle description is disabled."
-    },
-      {
-        "type": "text",
-        "id": "bundle-description",
-        "label": "bundle description"
-      },
-      {
-        "type": "text",
-        "id": "bundle-item-1",
-        "label": "bundle item 1 name"
-      },      
-      {
-        "type": "text",
-        "id": "bundle-item-2",
-        "label": "bundle item 2 name"
-      },
-      {
-        "type": "text",
-        "id": "bundle-item-3",
-        "label": "bundle item 3 name"
-      },
-    {
-        "type": "header",
-        "content": "Tab Section"
-    },
-    {
-        "type": "text",
-        "id": "home-tab-title",
-        "label": "Tab Section Title"
-    },
-    {
-        "type": "header",
-        "content": "Tab Section Colors"
-    },
-    {
-        "type": "color",
-        "id": "tab-txt-color",
-        "label": "Tab text color"
-    },
-    {
-        "type": "color",
-        "id": "tab-background-color",
-        "label": "Tab background color"
-    },
-    {
-        "type": "header",
-        "content": "Tab 1"
-    },
-    {
-        "type": "text",
-        "id": "tab-one-header",
-        "label": "Tab 1 Header"
-    },
-    {
-        "type": "collection",
-        "id": "home-tab-one-category",
-        "label": "Tab 1 Collection",
-        "info": "Max 4 items only in a collection"
-    },
-    {
-        "type": "header",
-        "content": "Tab 2"
-    },
-    {
-        "type": "text",
-        "id": "tab-two-header",
-        "label": "Tab 2 Header"
-    },
-    {
-        "type": "collection",
-        "id": "home-tab-two-category",
-        "label": "Tab 2 Collection",
-        "info": "Max 4 items only in a collection"
-    }]
-},
-
-  {
-    "name": "Hot Product",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "display_hot-product",
+        "id": "display_bottom_banner_section",
         "label": "Display?",
         "default": true
       },
       {
-        "type": "product",
-        "id": "hot-product_cat",
-        "label": "Please select collection that will be displayed in Hot product block"
+        "type": "image",
+        "id": "bottom-banner.jpg"
       },
       {
         "type": "text",
-        "id": "start_date",
-        "label": "Start date in Y\/M\/D format"
+        "id": "home_bottom_banner_link",
+        "label": "Home bottom banner link"
+      }
+    ]
+  },
+  {
+    "name": "Home Latest Blog",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "display_home-latest-blog",
+        "label": "Display?",
+        "default": true
       },
       {
         "type": "text",
-        "id": "end_date",
-        "label": "End date in Y\/M\/D format"
-      },
-      {
-        "type": "header",
-        "content": "Timer"
-      },
-      {
-        "type": "color",
-        "id": "date-box-text-color",
-        "label": "Date box text color"
-      },
-      {
-        "type": "color",
-        "id": "date-box-bg-color",
-        "label": "Date box bg color"
-      },
-      {
-        "type": "color",
-        "id": "date-box-border-color",
-        "label": "Date box border color"
-      },
-      {
-        "type": "color",
-        "id": "timer-box-text-color",
-        "label": "Timer box text color"
-      },
-      {
-        "type": "color",
-        "id": "timer-box-bg-color",
-        "label": "Timer box bg color"
-      },
-      {
-        "type": "color",
-        "id": "timer-box-border-color",
-        "label": "Timer box border color"
-      },
-      {
-        "type": "color",
-        "id": "timer-cart-btn-text-color",
-        "label": "Timer cart btn text color"
-      },
-      {
-        "type": "color",
-        "id": "timer-cart-btn-bg-color",
-        "label": "Timer cart btn bg color"
-      },
-      {
-        "type": "color",
-        "id": "timer-cart-btn-border-color",
-        "label": "Timer cart btn border color"
+        "id": "home-blog-header",
+        "label": "Blog Header"
       }
     ]
   },
@@ -1672,7 +2340,8 @@
       {
         "type": "collection",
         "id": "home-tab-1-category",
-        "label": "Please select collection that will be displayed in Tab 1 Category block"
+        "label":
+          "Please select collection that will be displayed in Tab 1 Category block"
       },
       {
         "type": "text",
@@ -1682,7 +2351,8 @@
       {
         "type": "collection",
         "id": "home-tab-2-category",
-        "label": "Please select collection that will be displayed in Tab 2 Category block"
+        "label":
+          "Please select collection that will be displayed in Tab 2 Category block"
       },
       {
         "type": "text",
@@ -1692,7 +2362,8 @@
       {
         "type": "collection",
         "id": "home-tab-3-category",
-        "label": "Please select collection that will be displayed in Tab 3 Category block"
+        "label":
+          "Please select collection that will be displayed in Tab 3 Category block"
       },
       {
         "type": "text",
@@ -1702,7 +2373,8 @@
       {
         "type": "collection",
         "id": "home-tab-4-category",
-        "label": "Please select collection that will be displayed in Tab 4 Category block"
+        "label":
+          "Please select collection that will be displayed in Tab 4 Category block"
       },
       {
         "type": "select",
@@ -1759,167 +2431,78 @@
     ]
   },
   {
-    "name": "Best Sellers",
+    "name": "Hot Product",
     "settings": [
       {
         "type": "checkbox",
-        "id": "display_bestseller",
+        "id": "display_hot-product",
         "label": "Display?",
         "default": true
       },
       {
-        "type": "text",
-        "id": "bestseller_title",
-        "label": "Bestseller Title"
-      },
-      {
-        "type": "color",
-        "id": "bestseller_title-text-color",
-        "label": "Bestseller Title Text Color"
-      },
-      {
-        "type": "color",
-        "id": "bestseller_title-border-color",
-        "label": "Bestseller Title Border Color"
-      },
-      {
-        "type": "color",
-        "id": "bestseller_title-text-bg-color",
-        "label": "Bestseller Title Text BG Color"
-      },
-      {
-        "type": "collection",
-        "id": "bestsellers_cat",
-        "label": "Please select collection that will be displayed in Best Sellers block"
-      }
-    ]
-  },
-  {
-    "name": "Featured Collections",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "display_featured_collections",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "textarea",
-        "id": "homepage_featured_collections",
-        "label": "Featured collections",
-        "info": "Comma-separated collections using handle. Example: meat,poultry,chicken,fish-seafood"
-      }
-    ]
-  },
-  {
-    "name": "Featured Products",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "display_featured_products",
-        "label": "Display?",
-        "default": true
+        "type": "product",
+        "id": "hot-product_cat",
+        "label":
+          "Please select collection that will be displayed in Hot product block"
       },
       {
         "type": "text",
-        "id": "featured_title",
-        "label": "featured Title"
-      },
-      {
-        "type": "color",
-        "id": "featured_title-text-color",
-        "label": "featured Title Text Color"
-      },
-      {
-        "type": "image",
-        "label": "featured BG Image",
-        "id": "featured-bg.jpg"
-      },
-      {
-        "type": "collection",
-        "id": "featured-category",
-        "label": "Please select collection that will be displayed in Featured block"
+        "id": "start_date",
+        "label": "Start date in Y/M/D format"
       },
       {
         "type": "text",
-        "id": "featured_pretext_text",
-        "label": "featured pretext text"
+        "id": "end_date",
+        "label": "End date in Y/M/D format"
       },
       {
-        "type": "text",
-        "id": "featured_button_text",
-        "label": "featured view all button text"
-      },
-      {
-        "type": "color",
-        "id": "featured_view_all_button_text_color",
-        "label": "featured view all button text color"
+        "type": "header",
+        "content": "Timer"
       },
       {
         "type": "color",
-        "id": "featured_view_all_button_bg_color",
-        "label": "featured view all button bg color"
+        "id": "date-box-text-color",
+        "label": "Date box text color"
       },
       {
         "type": "color",
-        "id": "featured_view_all_button_border_color",
-        "label": "featured view all button border color"
+        "id": "date-box-bg-color",
+        "label": "Date box bg color"
       },
       {
         "type": "color",
-        "id": "featured_view_all_button_hover_text_color",
-        "label": "featured view all button hover text color"
+        "id": "date-box-border-color",
+        "label": "Date box border color"
       },
       {
         "type": "color",
-        "id": "featured_view_all_button_hover_bg_color",
-        "label": "featured view all button hover bg color"
+        "id": "timer-box-text-color",
+        "label": "Timer box text color"
       },
       {
         "type": "color",
-        "id": "featured_view_all_button_hover_border_color",
-        "label": "featured view all button hover border color"
+        "id": "timer-box-bg-color",
+        "label": "Timer box bg color"
       },
       {
-        "type": "text",
-        "id": "featured_link",
-        "label": "featured view button link"
-      }
-    ]
-  },
-  {
-    "name": "Home Bottom Banner",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "display_bottom_banner_section",
-        "label": "Display?",
-        "default": true
+        "type": "color",
+        "id": "timer-box-border-color",
+        "label": "Timer box border color"
       },
       {
-        "type": "image",
-        "id": "bottom-banner.jpg"
+        "type": "color",
+        "id": "timer-cart-btn-text-color",
+        "label": "Timer cart btn text color"
       },
       {
-        "type": "text",
-        "id": "home_bottom_banner_link",
-        "label": "Home bottom banner link"
-      }
-    ]
-  },
-  {
-    "name": "Home Latest Blog",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "display_home-latest-blog",
-        "label": "Display?",
-        "default": true
+        "type": "color",
+        "id": "timer-cart-btn-bg-color",
+        "label": "Timer cart btn bg color"
       },
       {
-        "type": "text",
-        "id": "home-blog-header",
-        "label": "Blog Header"
+        "type": "color",
+        "id": "timer-cart-btn-border-color",
+        "label": "Timer cart btn border color"
       }
     ]
   },
@@ -1997,7 +2580,8 @@
         "type": "text",
         "id": "client-id",
         "label": "Client Id",
-        "info": "[Where do I find Client ID?](http:\/\/darkwhispering.com\/how-to\/get-a-instagram-client_id-key)"
+        "info":
+          "[Where do I find Client ID?](http://darkwhispering.com/how-to/get-a-instagram-client_id-key)"
       },
       {
         "type": "text",
@@ -2015,7 +2599,8 @@
         "type": "text",
         "id": "user-id",
         "label": "User Id",
-        "info": "Use when Get Image from: 'User'. [Where do I find User ID and Access Token?](http:\/\/www.pinceladasdaweb.com.br\/instagram\/access-token\/)"
+        "info":
+          "Use when Get Image from: 'User'. [Where do I find User ID and Access Token?](http://www.pinceladasdaweb.com.br/instagram/access-token/)"
       },
       {
         "type": "text",
@@ -2078,1181 +2663,6 @@
     ]
   },
   {
-    "name": "Brand Logo",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "display_brandlogo",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "color",
-        "id": "brand_logo_bg_color",
-        "label": "Background color"
-      },
-      {
-        "type": "image",
-        "id": "b-logo1.png",
-        "label": "Logo1"
-      },
-      {
-        "type": "text",
-        "id": "logo1_link",
-        "label": "Logo1 link"
-      },
-      {
-        "type": "image",
-        "id": "b-logo3.png",
-        "label": "Logo2"
-      },
-      {
-        "type": "text",
-        "id": "logo2_link",
-        "label": "Logo2 link"
-      },
-      {
-        "type": "image",
-        "id": "b-logo2.png",
-        "label": "Logo3"
-      },
-      {
-        "type": "text",
-        "id": "logo3_link",
-        "label": "Logo3 link"
-      },
-      {
-        "type": "image",
-        "id": "b-logo4.png",
-        "label": "Logo4"
-      },
-      {
-        "type": "text",
-        "id": "logo4_link",
-        "label": "Logo4 link"
-      },
-      {
-        "type": "image",
-        "id": "b-logo5.png",
-        "label": "Logo5"
-      },
-      {
-        "type": "text",
-        "id": "logo5_link",
-        "label": "Logo5 link"
-      },
-      {
-        "type": "image",
-        "id": "b-logo6.png",
-        "label": "Logo6"
-      },
-      {
-        "type": "text",
-        "id": "logo6_link",
-        "label": "Logo6 link"
-      },
-      {
-        "type": "image",
-        "id": "b-logo7.png",
-        "label": "Logo7"
-      },
-      {
-        "type": "text",
-        "id": "logo7_link",
-        "label": "Logo7 link"
-      },
-      {
-        "type": "image",
-        "id": "b-logo8.png",
-        "label": "Logo8"
-      },
-      {
-        "type": "text",
-        "id": "logo8_link",
-        "label": "Logo8 link"
-      }
-    ]
-  },
-  {
-    "name": "Newsletter",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "display_newsletter",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "color",
-        "id": "newsletter_bg",
-        "label": "background color"
-      },
-      {
-        "type": "color",
-        "id": "newsletter_text",
-        "label": "Newsletter Text"
-      },
-      {
-        "type": "color",
-        "id": "newsletter_button_bg",
-        "label": "Newsletter button"
-      },
-      {
-        "type": "color",
-        "id": "newsletter_button_text",
-        "label": "Newsletter button Text"
-      }
-    ]
-  },
-  {
-    "name": "Newsletter Popup",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "display_newsletter-popup",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "image",
-        "id": "newsletter-bg.jpg"
-      },
-      {
-        "type": "color",
-        "id": "newsletter-bg-color",
-        "label": "Newsletter BG color"
-      },
-      {
-        "type": "text",
-        "id": "newsletter-title",
-        "label": "Newsletter title"
-      },
-      {
-        "type": "color",
-        "id": "newsletter-title-text-color",
-        "label": "Newsletter Text color"
-      },
-      {
-        "type": "text",
-        "id": "newsletter-desc",
-        "label": "Description"
-      },
-      {
-        "type": "color",
-        "id": "newsletter-desc-color",
-        "label": "Newsletter desc color"
-      },
-      {
-        "type": "color",
-        "id": "newsletter-bnt-text-color",
-        "label": "Newsletter bnt text color"
-      },
-      {
-        "type": "color",
-        "id": "newsletter-bnt-bg-hover-text-color",
-        "label": "Newsletter bnt BG hover text color"
-      },
-      {
-        "type": "color",
-        "id": "newsletter-bnt-bg-color",
-        "label": "Newsletter bnt BG"
-      },
-      {
-        "type": "color",
-        "id": "newsletter-bnt-bg-hover-color",
-        "label": "Newsletter bnt BG hover color"
-      },
-      {
-        "type": "color",
-        "id": "newsletter-input-text-color",
-        "label": "Newsletter text color"
-      },
-      {
-        "type": "color",
-        "id": "newsletter-input-bg-color",
-        "label": "Newsletter input BG"
-      },
-      {
-        "type": "text",
-        "id": "newsletter-msg",
-        "label": "Description"
-      },
-      {
-        "type": "color",
-        "id": "newsletter-msg-color",
-        "label": "Newsletter msg color"
-      }
-    ]
-  },
-  {
-    "name": "Product Item",
-    "settings": [
-      {
-        "type": "select",
-        "id": "pro_title_transform",
-        "label": "Product title Transform",
-        "options": [
-          {
-            "value": "uppercase",
-            "label": "Uppercase"
-          },
-          {
-            "value": "capitalize",
-            "label": "Capitalize"
-          },
-          {
-            "value": "lowercase",
-            "label": "Lowercase"
-          },
-          {
-            "value": "full-width",
-            "label": "Full-width"
-          }
-        ],
-        "default": "capitalize",
-        "info": "Default Value: Capitalize"
-      },
-      {
-        "type": "color",
-        "id": "pro_price_color",
-        "label": "Procuct price color"
-      },
-      {
-        "type": "header",
-        "content": "Quick View"
-      },
-      {
-        "type": "color",
-        "id": "quickview_bg",
-        "label": "Background color"
-      },
-      {
-        "type": "color",
-        "id": "quickview_bg_hover",
-        "label": "Background color hover"
-      },
-      {
-        "type": "color",
-        "id": "quickview_text",
-        "label": "Quickview text color"
-      },
-      {
-        "type": "header",
-        "content": "Sale Badge"
-      },
-      {
-        "type": "color",
-        "id": "badge-bg",
-        "label": "Sale badge background"
-      },
-      {
-        "type": "color",
-        "id": "badge-text",
-        "label": "Sale badge text"
-      }
-    ]
-  },
-  {
-    "name": "Buttons",
-    "settings": [
-      {
-        "type": "color",
-        "id": "btn_primary_color",
-        "label": "Button bg color"
-      },
-      {
-        "type": "color",
-        "id": "btn_primary_color_hover",
-        "label": "Button bg hover"
-      },
-      {
-        "type": "color",
-        "id": "btn_txt_color",
-        "label": "Button text color"
-      },
-      {
-        "type": "color",
-        "id": "btn_txt_color_hover",
-        "label": "Button text color hover"
-      },
-      {
-        "type": "color",
-        "id": "btn_border_color",
-        "label": "Button border color"
-      },
-      {
-        "type": "color",
-        "id": "btn_border_color_hover",
-        "label": "Button border hover color"
-      },
-      {
-        "type": "color",
-        "id": "btn_act_color",
-        "label": "Button active background"
-      },
-      {
-        "type": "color",
-        "id": "btn_act_border_color",
-        "label": "Button active border"
-      },
-      {
-        "type": "header",
-        "content": "Continue Shopping Button"
-      },
-      {
-        "type": "color",
-        "id": "cont_shop_bg",
-        "label": "Background color"
-      },
-      {
-        "type": "color",
-        "id": "cont_shop_border",
-        "label": "Border color"
-      },
-      {
-        "type": "color",
-        "id": "cont_shop_txt",
-        "label": "Text color"
-      },
-      {
-        "type": "header",
-        "content": "Update Cart Button"
-      },
-      {
-        "type": "color",
-        "id": "update_cart_bg",
-        "label": "Background color"
-      },
-      {
-        "type": "color",
-        "id": "update_cart_border",
-        "label": "Border color"
-      },
-      {
-        "type": "color",
-        "id": "update_cart_txt",
-        "label": "Text color"
-      },
-      {
-        "type": "header",
-        "content": "Checkout Button"
-      },
-      {
-        "type": "color",
-        "id": "check_btn_bg",
-        "label": "Background color"
-      },
-      {
-        "type": "color",
-        "id": "check_btn_txt",
-        "label": "Text color"
-      },
-      {
-        "type": "color",
-        "id": "check_btn_border",
-        "label": "Border color"
-      }
-    ]
-  },
-  {
-    "name": "Product Detail",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Product Info Content"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_product_quantity",
-        "label": "Show Quantity",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_product_sku",
-        "label": "Show SKU",
-        "default": true
-      },
-      {
-        "type": "header",
-        "content": "Cart Button"
-      },
-      {
-        "type": "color",
-        "id": "cart_bg_color",
-        "label": "Background color"
-      },
-      {
-        "type": "color",
-        "id": "cart_text_color",
-        "label": "Text color"
-      },
-      {
-        "type": "header",
-        "content": "Product Social links"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_social_icon",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "icon_socal_1",
-        "label": "icon 1",
-        "default": "<i class='fa fa-facebook'><\/i>",
-        "info": "Icon Facebook"
-      },
-      {
-        "type": "text",
-        "id": "icon_socal_2",
-        "label": "icon 2",
-        "default": "<i class='fa fa-twitter'><\/i>",
-        "info": "Icon twitter"
-      },
-      {
-        "type": "text",
-        "id": "icon_socal_3",
-        "label": "icon 3",
-        "default": "<i class='fa fa-pinterest'><\/i>",
-        "info": "Icon pinterest"
-      },
-      {
-        "type": "text",
-        "id": "icon_socal_4",
-        "label": "icon 4",
-        "default": "<i class='fa fa-google-plus'><\/i>",
-        "info": "Icon google plus"
-      },
-      {
-        "type": "text",
-        "id": "icon_socal_5",
-        "label": "icon 5",
-        "default": "<i class='fa fa-linkedin'><\/i>",
-        "info": "Icon linkedin"
-      },
-      {
-        "type": "header",
-        "content": "Product tabs"
-      },
-      {
-        "type": "color",
-        "id": "active_text_color",
-        "label": "Active tab text color"
-      },
-      {
-        "type": "color",
-        "id": "active_line_color",
-        "label": "Active tab line color"
-      },
-      {
-        "type": "color",
-        "id": "tab_text_color",
-        "label": "Tab text color"
-      },
-      {
-        "type": "color",
-        "id": "tab_text_hover_color",
-        "label": "Tab text hover color"
-      },
-      {
-        "type": "header",
-        "content": "Product Description"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_pro_desc",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "pro-desc-title",
-        "label": "Product Desc title"
-      },
-      {
-        "type": "header",
-        "content": "Shipping and Returns"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_shipping",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "shipping-title",
-        "label": "Shipping title"
-      },
-      {
-        "type": "textarea",
-        "id": "shipping-desc",
-        "label": "Shipping description (HTML Code)"
-      },
-      {
-        "type": "header",
-        "content": "Size Chart"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_sizechart",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "sizechart-title",
-        "label": "Size chart title"
-      },
-      {
-        "type": "textarea",
-        "id": "sizechart-desc",
-        "label": "Size chart description (HTML Code)"
-      },
-      {
-        "type": "image",
-        "id": "sizechart-img.jpg",
-        "label": "Size chart img",
-        "info": "Maximum image dimensions are 1140px wide. Your uploaded file will be resized to fit within those constraints."
-      },
-      {
-        "type": "header",
-        "content": "Customer Review"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_review",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "review-title",
-        "label": "Review title"
-      },
-      {
-        "type": "header",
-        "content": "Related Products"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_other_pro",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "related_title",
-        "label": "Related Title"
-      },
-      {
-        "type": "color",
-        "id": "related_title-text-color",
-        "label": "Related Title Text Color"
-      },
-      {
-        "type": "color",
-        "id": "related_title-text-bg-color",
-        "label": "Related Title Text BG Color"
-      },
-      {
-        "type": "text",
-        "id": "related_pretext_text",
-        "label": "pretext text"
-      },
-      {
-        "type": "text",
-        "id": "related_view_all_button_text",
-        "label": "view all button text"
-      },
-      {
-        "type": "text",
-        "id": "related_view_all_link",
-        "label": "view button link"
-      }
-    ]
-  },
-  {
-    "name": "Breadcrumbs",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "display_breadcrumbs",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "color",
-        "id": "breadcrumbs_txt",
-        "label": "Breadcrumbs Text Color"
-      }
-    ]
-  },
-  {
-    "name": "Sidebar",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Categores Header"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_categores",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "category_heading",
-        "label": "heading text"
-      },
-      {
-        "type": "color",
-        "id": "cate-heading-bg",
-        "label": "categores heading background"
-      },
-      {
-        "type": "color",
-        "id": "cate-heading-txt",
-        "label": "categores heading text"
-      },
-      {
-        "type": "header",
-        "content": "Filter"
-      },
-      {
-        "type": "checkbox",
-        "id": "collection_sidebar_filters",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "filters_heading",
-        "label": "Filters heading text"
-      },
-      {
-        "type": "color",
-        "id": "filters-heading-bg",
-        "label": "Filters heading background"
-      },
-      {
-        "type": "color",
-        "id": "filters-heading-txt-color",
-        "label": "Filters heading text color"
-      },
-      {
-        "type": "header",
-        "content": "Best Seller"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_best-seller",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "best_sellers_heading",
-        "label": "heading text"
-      },
-      {
-        "type": "color",
-        "id": "best-heading-bg",
-        "label": "best heading background"
-      },
-      {
-        "type": "color",
-        "id": "best-heading-txt",
-        "label": "best heading text color"
-      },
-      {
-        "type": "header",
-        "content": "Product Types"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_product_types",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "product_types_heading",
-        "label": "heading text"
-      },
-      {
-        "type": "color",
-        "id": "product-types-heading-bg",
-        "label": "product types heading background"
-      },
-      {
-        "type": "color",
-        "id": "product-types-heading-txt-color",
-        "label": "product types heading text color"
-      },
-      {
-        "type": "header",
-        "content": "Top Sale"
-      },
-      {
-        "type": "collection",
-        "id": "top_sale_cat",
-        "label": "Please select collection that will be displayed in Top Sale block"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_top-sale",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "header",
-        "content": "Custom banner"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_custom_banner",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "image",
-        "id": "custom_banner.jpg",
-        "label": "Banner image",
-        "max-width": 300,
-        "info": "Maximum showcase image dimensions are 300px wide. Your uploaded file will be resized to fit within those constraints."
-      },
-      {
-        "type": "text",
-        "id": "custom_banner_link",
-        "label": "Banner link"
-      },
-      {
-        "type": "header",
-        "content": "Custom CMS block"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_cms_block",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "cms_block_heading",
-        "label": "Block heading"
-      },
-      {
-        "type": "color",
-        "id": "cms-heading-bg",
-        "label": "cms heading background"
-      },
-      {
-        "type": "color",
-        "id": "cms-heading-txt",
-        "label": "cms heading text color"
-      },
-      {
-        "type": "text",
-        "id": "cms-desc",
-        "label": "Description"
-      }
-    ]
-  },
-  {
-    "name": "Typography",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Base Font"
-      },
-      {
-        "type": "select",
-        "id": "regular_font_family",
-        "label": "Font family",
-        "options": [
-          {
-            "value": "Raleway, sans-serif",
-            "label": "Raleway, sans-serif"
-          },
-          {
-            "value": "Arial, Helvetica, sans-serif",
-            "label": "Arial, Helvetica, sans-serif"
-          },
-          {
-            "value": "Arial Black, Gadget, sans-serif",
-            "label": "Arial Black, Gadget, sans-serif"
-          },
-          {
-            "value": "'Open Sans', sans-serif",
-            "label": "Open Sans, sans-serif"
-          },
-          {
-            "value": "Georgia, serif",
-            "label": "Georgia, serif"
-          },
-          {
-            "value": "Impact, Charcoal, sans-serif",
-            "label": "Impact, Charcoal, sans-serif"
-          },
-          {
-            "value": "Monaco, monospace",
-            "label": "Monaco, monospace"
-          },
-          {
-            "value": "Lucida Grande, sans-serif",
-            "label": "Lucida Grande, sans-serif"
-          },
-          {
-            "value": "Palatino Linotype, Book Antiqua, Palatino, serif",
-            "label": "Palatino Linotype, Book Antiqua, Palatino, serif"
-          },
-          {
-            "value": "Tahoma, Geneva, sans-serif",
-            "label": "Tahoma, Geneva, sans-serif"
-          },
-          {
-            "value": "Times New Roman, Times, serif",
-            "label": "Times New Roman, Times, serif"
-          },
-          {
-            "value": "Trebuchet MS, sans-serif",
-            "label": "Trebuchet MS, sans-serif"
-          },
-          {
-            "value": "Verdana, Geneva, sans-serif",
-            "label": "Verdana, Geneva, sans-serif"
-          },
-          {
-            "value": "MS Serif, New York, serif",
-            "label": "MS Serif, New York, serif"
-          },
-          {
-            "value": "MS Sans Serif, Geneva, sans-serif",
-            "label": "MS Sans Serif, Geneva, sans-serif"
-          },
-          {
-            "value": "Helvetica, Arial, sans-serif",
-            "label": "Helvetica\/Arial",
-            "group": "Sans-serif"
-          },
-          {
-            "value": "Impact, Charcoal, Helvetica, Arial, sans-serif",
-            "label": "Impact",
-            "group": "Sans-serif"
-          },
-          {
-            "value": "'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif",
-            "label": "Lucida Grande",
-            "group": "Sans-serif"
-          },
-          {
-            "value": "Verdana, Helvetica, Arial, sans-serif",
-            "label": "Verdana",
-            "group": "Sans-serif"
-          },
-          {
-            "value": "Garamond, Baskerville, Caslon, serif",
-            "label": "Garamond",
-            "group": "Serif"
-          },
-          {
-            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
-            "label": "Georgia",
-            "group": "Serif"
-          },
-          {
-            "value": "Palatino, 'Palatino Linotype', 'Book Antiqua', serif",
-            "label": "Palatino",
-            "group": "Serif"
-          },
-          {
-            "value": "'Times New Roman', Times, serif",
-            "label": "Times New Roman",
-            "group": "Serif"
-          },
-          {
-            "value": "'Courier New', Courier, monospace",
-            "label": "Courier New",
-            "group": "Monospace"
-          },
-          {
-            "value": "Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace",
-            "label": "Monaco\/Lucida Console",
-            "group": "Monospace"
-          }
-        ],
-        "default": "Raleway, sans-serif"
-      },
-      {
-        "type": "text",
-        "id": "regular_font_size",
-        "label": "Font Size",
-        "default": "14px"
-      },
-      {
-        "type": "text",
-        "id": "regular_line_height",
-        "label": "Line Height",
-        "default": "21px"
-      },
-      {
-        "type": "header",
-        "content": "Heading tags"
-      },
-      {
-        "type": "select",
-        "id": "heading_font_family",
-        "label": "Font family",
-        "options": [
-          {
-            "value": "Raleway, sans-serif",
-            "label": "Raleway, sans-serif"
-          },
-          {
-            "value": "Arial, Helvetica, sans-serif",
-            "label": "Arial, Helvetica, sans-serif"
-          },
-          {
-            "value": "Arial Black, Gadget, sans-serif",
-            "label": "Arial Black, Gadget, sans-serif"
-          },
-          {
-            "value": "Courier New, monospace",
-            "label": "Courier New, monospace"
-          },
-          {
-            "value": "Georgia, serif",
-            "label": "Georgia, serif"
-          },
-          {
-            "value": "Impact, Charcoal, sans-serif",
-            "label": "Impact, Charcoal, sans-serif"
-          },
-          {
-            "value": "Monaco, monospace",
-            "label": "Monaco, monospace"
-          },
-          {
-            "value": "Lucida Grande, sans-serif",
-            "label": "Lucida Grande, sans-serif"
-          },
-          {
-            "value": "Palatino Linotype, Book Antiqua, Palatino, serif",
-            "label": "Palatino Linotype, Book Antiqua, Palatino, serif"
-          },
-          {
-            "value": "Tahoma, Geneva, sans-serif",
-            "label": "Tahoma, Geneva, sans-serif"
-          },
-          {
-            "value": "Times New Roman, Times, serif",
-            "label": "Times New Roman, Times, serif"
-          },
-          {
-            "value": "Trebuchet MS, sans-serif",
-            "label": "Trebuchet MS, sans-serif"
-          },
-          {
-            "value": "Verdana, Geneva, sans-serif",
-            "label": "Verdana, Geneva, sans-serif"
-          },
-          {
-            "value": "MS Serif, New York, serif",
-            "label": "MS Serif, New York, serif"
-          },
-          {
-            "value": "MS Sans Serif, Geneva, sans-serif",
-            "label": "MS Sans Serif, Geneva, sans-serif"
-          },
-          {
-            "value": "Helvetica, Arial, sans-serif",
-            "label": "Helvetica\/Arial",
-            "group": "Sans-serif"
-          },
-          {
-            "value": "Impact, Charcoal, Helvetica, Arial, sans-serif",
-            "label": "Impact",
-            "group": "Sans-serif"
-          },
-          {
-            "value": "'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif",
-            "label": "Lucida Grande",
-            "group": "Sans-serif"
-          },
-          {
-            "value": "Verdana, Helvetica, Arial, sans-serif",
-            "label": "Verdana",
-            "group": "Sans-serif"
-          },
-          {
-            "value": "Garamond, Baskerville, Caslon, serif",
-            "label": "Garamond",
-            "group": "Serif"
-          },
-          {
-            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
-            "label": "Georgia",
-            "group": "Serif"
-          },
-          {
-            "value": "Palatino, 'Palatino Linotype', 'Book Antiqua', serif",
-            "label": "Palatino",
-            "group": "Serif"
-          },
-          {
-            "value": "'Times New Roman', Times, serif",
-            "label": "Times New Roman",
-            "group": "Serif"
-          },
-          {
-            "value": "'Courier New', Courier, monospace",
-            "label": "Courier New",
-            "group": "Monospace"
-          },
-          {
-            "value": "Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace",
-            "label": "Monaco\/Lucida Console",
-            "group": "Monospace"
-          }
-        ],
-        "default": "Raleway, sans-serif"
-      },
-      {
-        "type": "checkbox",
-        "id": "heading_family_use_custom",
-        "label": "Use custom font family"
-      },
-      {
-        "type": "textarea",
-        "id": "heading_custom_font_code",
-        "label": "Google Font embed code"
-      },
-      {
-        "type": "text",
-        "id": "heading_custom_font_family",
-        "label": "Google Font family"
-      },
-      {
-        "type": "paragraph",
-        "content": "H1"
-      },
-      {
-        "type": "text",
-        "id": "h1_fsize",
-        "label": "H1 font size"
-      },
-      {
-        "type": "text",
-        "id": "h1_lheight",
-        "label": "H1 line height"
-      },
-      {
-        "type": "text",
-        "id": "h1_weight",
-        "label": "H1 weight"
-      },
-      {
-        "type": "paragraph",
-        "content": "H2"
-      },
-      {
-        "type": "text",
-        "id": "h2_fsize",
-        "label": "H2 font size"
-      },
-      {
-        "type": "text",
-        "id": "h2_lheight",
-        "label": "H2 line height"
-      },
-      {
-        "type": "text",
-        "id": "h2_weight",
-        "label": "H2 weight"
-      },
-      {
-        "type": "paragraph",
-        "content": "H3"
-      },
-      {
-        "type": "text",
-        "id": "h3_fsize",
-        "label": "H3 font size"
-      },
-      {
-        "type": "text",
-        "id": "h3_lheight",
-        "label": "H3 line height"
-      },
-      {
-        "type": "text",
-        "id": "h3_weight",
-        "label": "H3 weight"
-      },
-      {
-        "type": "paragraph",
-        "content": "H4"
-      },
-      {
-        "type": "text",
-        "id": "h4_fsize",
-        "label": "H4 font size"
-      },
-      {
-        "type": "text",
-        "id": "h4_lheight",
-        "label": "H4 line height"
-      },
-      {
-        "type": "text",
-        "id": "h4_weight",
-        "label": "H4 weight"
-      },
-      {
-        "type": "paragraph",
-        "content": "H5"
-      },
-      {
-        "type": "text",
-        "id": "h5_fsize",
-        "label": "H5 font size"
-      },
-      {
-        "type": "text",
-        "id": "h5_lheight",
-        "label": "H5 line height"
-      },
-      {
-        "type": "text",
-        "id": "h5_weight",
-        "label": "H5 weight"
-      },
-      {
-        "type": "paragraph",
-        "content": "H6"
-      },
-      {
-        "type": "text",
-        "id": "h6_fsize",
-        "label": "H6 font size"
-      },
-      {
-        "type": "text",
-        "id": "h6_lheight",
-        "label": "H6 line height"
-      },
-      {
-        "type": "text",
-        "id": "h6_weight",
-        "label": "H6 weight"
-      }
-    ]
-  },
-  {
     "name": "Layout Settings",
     "settings": [
       {
@@ -3269,7 +2679,8 @@
         "type": "image",
         "id": "category-banner.jpg",
         "label": "Top banner img",
-        "info": "Maximum showcase image dimensions are 915px wide by 390px high. Your uploaded file will be resized to fit within those constraints."
+        "info":
+          "Maximum showcase image dimensions are 915px wide by 390px high. Your uploaded file will be resized to fit within those constraints."
       },
       {
         "type": "text",
@@ -3412,56 +2823,35 @@
         "id": "content_width",
         "label": "Content width",
         "default": "8",
-        "info": "Select content with in columns. Full website with is 12 columns. If sidebars enabled, content equals 12 - sidebars_width"
+        "info":
+          "Select content with in columns. Full website with is 12 columns. If sidebars enabled, content equals 12 - sidebars_width"
       }
     ]
   },
   {
-    "name": "General",
+    "name": "Mailing List",
     "settings": [
       {
-        "type": "color",
-        "id": "totop_bg",
-        "label": "scroll box background"
-      },
-      {
-        "type": "color",
-        "id": "html_bg_color",
-        "label": "HTML background color"
-      },
-      {
-        "type": "image",
-        "id": "background-img.png",
-        "label": "HTML background image"
-      },
-      {
-        "type": "color",
-        "id": "font_color",
-        "label": "Base font Color"
-      },
-      {
-        "type": "color",
-        "id": "headings_color",
-        "label": "Headings font Color"
-      },
-      {
-        "type": "color",
-        "id": "link_color",
-        "label": "Link text color"
-      },
-      {
-        "type": "color",
-        "id": "link_color_act",
-        "label": "Link text active color"
+        "type": "textarea",
+        "id": "mailchimp_form_action",
+        "label":
+          "MailChimp Form Action [( ? )](http://support.shopify.com/customer/portal/articles/640278)"
       },
       {
         "type": "paragraph",
-        "content": "Select color for link text on regular and hover conditions"
+        "content":
+          "[Where do I get my MailChimp Form Action?](http://support.shopify.com/customer/portal/articles/640278)"
+      },
+      {
+        "type": "text",
+        "id": "mailing_list_title",
+        "label": "Mailing List Title",
+        "default": "Newsletter"
       }
     ]
   },
   {
-    "name": "Money options",
+    "name": "Money Options",
     "settings": [
       {
         "type": "checkbox",
@@ -3470,7 +2860,8 @@
       },
       {
         "type": "paragraph",
-        "content": "Although you will be able to display prices on your store front in different currencies, Shopify will still process orders in your shop's currency."
+        "content":
+          "Although you will be able to display prices on your store front in different currencies, Shopify will still process orders in your shop's currency."
       },
       {
         "type": "select",
@@ -3502,362 +2893,160 @@
       },
       {
         "type": "paragraph",
-        "content": "Separate your currency codes with a space. Use the ISO 4217 3-letter currency code. Click [here](http:\/\/www.xe.com\/iso4217.php) for a complete list of currency codes. Example: CAD USD."
+        "content":
+          "Separate your currency codes with a space. Use the ISO 4217 3-letter currency code. Click [here](http://www.xe.com/iso4217.php) for a complete list of currency codes. Example: CAD USD."
       },
       {
         "type": "paragraph",
-        "content": "* For this functionality to work in your shop, you are required to edit your money formats as per [these instructions](http:\/\/wiki.shopify.com\/Do_Tell_Where_The_Money_Is) (“Do tell where the money is”)."
+        "content":
+          "* For this functionality to work in your shop, you are required to edit your money formats as per [these instructions](http://wiki.shopify.com/Do_Tell_Where_The_Money_Is) (“Do tell where the money is”)."
       }
     ]
   },
   {
-    "name": "Footer",
+    "name": "Navigation",
     "settings": [
       {
         "type": "header",
-        "content": "General"
+        "content": "Mega Menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_megamenu",
+        "label": "Display Mega Menu?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "megamenu_items",
+        "label": "Mega Menu Items",
+        "default": "Vegetables",
+        "info":
+          "Use \",\" to separate mega menu items if you have multiple mega menus. For ex: Shop, Collections"
+      },
+      {
+        "type": "image",
+        "id": "menu_image.jpg",
+        "label": "Upload a new image",
+        "max-width": 2000,
+        "max-height": 2000,
+        "info": "420px x 375px recommended"
+      },
+      {
+        "type": "text",
+        "id": "menu_link_image",
+        "label": "Link image"
+      }
+    ]
+  },
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "display_newsletter",
+        "label": "Display?",
+        "default": true
       },
       {
         "type": "color",
-        "id": "footer_bg_color",
-        "label": "Footer background color"
+        "id": "newsletter_bg",
+        "label": "background color"
       },
       {
         "type": "color",
-        "id": "footer_text_color",
-        "label": "Text Color"
+        "id": "newsletter_text",
+        "label": "Newsletter Text"
       },
       {
         "type": "color",
-        "id": "footer-link-color",
-        "label": "Link text color"
+        "id": "newsletter_button_bg",
+        "label": "Newsletter button"
       },
       {
         "type": "color",
-        "id": "footer-link-color-hover",
-        "label": "Link text color hover"
-      },
-      {
-        "type": "color",
-        "id": "footer-heading-color",
-        "label": "Heading color"
-      },
-      {
-        "type": "header",
-        "content": "Social links"
-      },
-      {
-        "type": "text",
-        "id": "social-title",
-        "label": "Social Title"
-      },
+        "id": "newsletter_button_text",
+        "label": "Newsletter button Text"
+      }
+    ]
+  },
+  {
+    "name": "Newsletter Popup",
+    "settings": [
       {
         "type": "checkbox",
-        "id": "show_twitter",
-        "label": "Twitter",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "header_social_1_twi"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_gplus",
-        "label": "Google+",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "header_social_2_gpl"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_facebook",
-        "label": "Facebook",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "header_social_3_fcb"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_pin",
-        "label": "Pinterest",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "header_social_4_pin"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_rss",
-        "label": "RSS",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "header_social_4_rss"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_linkedin",
-        "label": "Linkedin",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "header_social_4_linkedin"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_youtube",
-        "label": "Youtube",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "header_social_4_youtube"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_instagram1",
-        "label": "Instagram",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "header_social_4_instagram"
-      },
-      {
-        "type": "header",
-        "content": "Logo block"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_logo_block",
+        "id": "display_newsletter-popup",
         "label": "Display?",
         "default": true
       },
       {
         "type": "image",
-        "id": "footer-logo.png",
-        "label": "Logo img",
-        "info": "Maximum showcase image dimensions are 1920px wide by 280px high. Your uploaded file will be resized to fit within those constraints."
-      },
-      {
-        "type": "text",
-        "id": "bottom_block_1_content",
-        "label": "Bottom block 1"
-      },
-      {
-        "type": "header",
-        "content": "block 1"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_footer_block1",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "bottom_block_2_title",
-        "label": "Bottom block 2"
-      },
-      {
-        "type": "link_list",
-        "id": "bottom_block_2_list"
-      },
-      {
-        "type": "header",
-        "content": "block 2"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_footer_block2",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "bottom_block_3_title",
-        "label": "Bottom block 3"
-      },
-      {
-        "type": "link_list",
-        "id": "bottom_block_3_list"
-      },
-      {
-        "type": "header",
-        "content": "block 3"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_footer_block3",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "bottom_block_4_title",
-        "label": "Bottom block 4"
-      },
-      {
-        "type": "link_list",
-        "id": "bottom_block_4_list"
-      },
-      {
-        "type": "header",
-        "content": "Company info"
-      },
-      {
-        "type": "checkbox",
-        "id": "display_co_info",
-        "label": "Display?",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "bottom_block_5_title",
-        "label": "Bottom block 5"
-      },
-      {
-        "type": "textarea",
-        "id": "bottom_block_5_adr",
-        "label": "Address"
-      },
-      {
-        "type": "text",
-        "id": "bottom_block_5_tel",
-        "label": "Phone"
-      },
-      {
-        "type": "text",
-        "id": "bottom_block_5_email",
-        "label": "Email"
-      }
-    ]
-  },
-  {
-    "name": "Features block",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "display_offer_block",
-        "label": "Display?",
-        "default": true
+        "id": "newsletter-bg.jpg"
       },
       {
         "type": "color",
-        "id": "offer_block_bg",
-        "label": "Block background Color"
+        "id": "newsletter-bg-color",
+        "label": "Newsletter BG color"
+      },
+      {
+        "type": "text",
+        "id": "newsletter-title",
+        "label": "Newsletter title"
       },
       {
         "type": "color",
-        "id": "block_text_color",
-        "label": "All Block text color"
+        "id": "newsletter-title-text-color",
+        "label": "Newsletter Text color"
       },
       {
         "type": "text",
-        "id": "block_1_text",
-        "label": "Block 1 text"
-      },
-      {
-        "type": "text",
-        "id": "block_1_icon",
-        "label": "Block 1 icon unicode",
-        "info": "you can use fontawesome icon unicode except '\\' this."
+        "id": "newsletter-desc",
+        "label": "Description"
       },
       {
         "type": "color",
-        "id": "block_1_icon_color",
-        "label": "Block 1 icon color"
-      },
-      {
-        "type": "text",
-        "id": "block_2_text",
-        "label": "Block 2 text"
-      },
-      {
-        "type": "text",
-        "id": "block_2_icon",
-        "label": "Block 2 icon unicode",
-        "info": "you can use fontawesome icon unicode except '\\' this."
+        "id": "newsletter-desc-color",
+        "label": "Newsletter desc color"
       },
       {
         "type": "color",
-        "id": "block_2_icon_color",
-        "label": "Block 2 icon color"
-      },
-      {
-        "type": "text",
-        "id": "block_3_text",
-        "label": "Block 3 text"
-      },
-      {
-        "type": "text",
-        "id": "block_3_icon",
-        "label": "Block 3 icon unicode",
-        "info": "you can use fontawesome icon unicode except '\\' this."
+        "id": "newsletter-bnt-text-color",
+        "label": "Newsletter bnt text color"
       },
       {
         "type": "color",
-        "id": "block_3_icon_color",
-        "label": "Block 3 icon color"
-      },
-      {
-        "type": "text",
-        "id": "block_4_text",
-        "label": "Block 4 text"
-      },
-      {
-        "type": "text",
-        "id": "block_4_icon",
-        "label": "Block 4 icon unicode",
-        "info": "you can use fontawesome icon unicode except '\\' this."
+        "id": "newsletter-bnt-bg-hover-text-color",
+        "label": "Newsletter bnt BG hover text color"
       },
       {
         "type": "color",
-        "id": "block_4_icon_color",
-        "label": "Block 4 icon color"
-      }
-    ]
-  },
-  {
-    "name": "Mailing List",
-    "settings": [
-      {
-        "type": "textarea",
-        "id": "mailchimp_form_action",
-        "label": "MailChimp Form Action [( ? )](http:\/\/support.shopify.com\/customer\/portal\/articles\/640278)"
+        "id": "newsletter-bnt-bg-color",
+        "label": "Newsletter bnt BG"
       },
       {
-        "type": "paragraph",
-        "content": "[Where do I get my MailChimp Form Action?](http:\/\/support.shopify.com\/customer\/portal\/articles\/640278)"
+        "type": "color",
+        "id": "newsletter-bnt-bg-hover-color",
+        "label": "Newsletter bnt BG hover color"
       },
       {
-        "type": "text",
-        "id": "mailing_list_title",
-        "label": "Mailing List Title",
-        "default": "Newsletter"
-      }
-    ]
-  },
-  {
-    "name": "Google Map",
-    "settings": [
+        "type": "color",
+        "id": "newsletter-input-text-color",
+        "label": "Newsletter text color"
+      },
       {
-        "type": "textarea",
-        "id": "google-map-address",
-        "label": "Enter your address"
+        "type": "color",
+        "id": "newsletter-input-bg-color",
+        "label": "Newsletter input BG"
       },
       {
         "type": "text",
-        "id": "google-map-api",
-        "label": "Google Map API Key"
+        "id": "newsletter-msg",
+        "label": "Description"
+      },
+      {
+        "type": "color",
+        "id": "newsletter-msg-color",
+        "label": "Newsletter msg color"
       }
     ]
   },
@@ -3911,6 +3100,2303 @@
         "id": "show_google",
         "label": "Google Checkout",
         "default": true
+      }
+    ]
+  },
+  {
+    "name": "Product Detail",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Product Info Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_product_quantity",
+        "label": "Show Quantity",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_product_sku",
+        "label": "Show SKU",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Cart Button"
+      },
+      {
+        "type": "color",
+        "id": "cart_bg_color",
+        "label": "Background color"
+      },
+      {
+        "type": "color",
+        "id": "cart_text_color",
+        "label": "Text color"
+      },
+      {
+        "type": "header",
+        "content": "Product Social links"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_social_icon",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "icon_socal_1",
+        "label": "icon 1",
+        "default": "<i class='fa fa-facebook'></i>",
+        "info": "Icon Facebook"
+      },
+      {
+        "type": "text",
+        "id": "icon_socal_2",
+        "label": "icon 2",
+        "default": "<i class='fa fa-twitter'></i>",
+        "info": "Icon twitter"
+      },
+      {
+        "type": "text",
+        "id": "icon_socal_3",
+        "label": "icon 3",
+        "default": "<i class='fa fa-pinterest'></i>",
+        "info": "Icon pinterest"
+      },
+      {
+        "type": "text",
+        "id": "icon_socal_4",
+        "label": "icon 4",
+        "default": "<i class='fa fa-google-plus'></i>",
+        "info": "Icon google plus"
+      },
+      {
+        "type": "text",
+        "id": "icon_socal_5",
+        "label": "icon 5",
+        "default": "<i class='fa fa-linkedin'></i>",
+        "info": "Icon linkedin"
+      },
+      {
+        "type": "header",
+        "content": "Product tabs"
+      },
+      {
+        "type": "color",
+        "id": "active_text_color",
+        "label": "Active tab text color"
+      },
+      {
+        "type": "color",
+        "id": "active_line_color",
+        "label": "Active tab line color"
+      },
+      {
+        "type": "color",
+        "id": "tab_text_color",
+        "label": "Tab text color"
+      },
+      {
+        "type": "color",
+        "id": "tab_text_hover_color",
+        "label": "Tab text hover color"
+      },
+      {
+        "type": "header",
+        "content": "Product Description"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_pro_desc",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "pro-desc-title",
+        "label": "Product Desc title"
+      },
+      {
+        "type": "header",
+        "content": "Shipping and Returns"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_shipping",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "shipping-title",
+        "label": "Shipping title"
+      },
+      {
+        "type": "textarea",
+        "id": "shipping-desc",
+        "label": "Shipping description (HTML Code)"
+      },
+      {
+        "type": "header",
+        "content": "Size Chart"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_sizechart",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sizechart-title",
+        "label": "Size chart title"
+      },
+      {
+        "type": "textarea",
+        "id": "sizechart-desc",
+        "label": "Size chart description (HTML Code)"
+      },
+      {
+        "type": "image",
+        "id": "sizechart-img.jpg",
+        "label": "Size chart img",
+        "info":
+          "Maximum image dimensions are 1140px wide. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "header",
+        "content": "Customer Review"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_review",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "review-title",
+        "label": "Review title"
+      },
+      {
+        "type": "header",
+        "content": "Related Products"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_other_pro",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "related_title",
+        "label": "Related Title"
+      },
+      {
+        "type": "color",
+        "id": "related_title-text-color",
+        "label": "Related Title Text Color"
+      },
+      {
+        "type": "color",
+        "id": "related_title-text-bg-color",
+        "label": "Related Title Text BG Color"
+      },
+      {
+        "type": "text",
+        "id": "related_pretext_text",
+        "label": "pretext text"
+      },
+      {
+        "type": "text",
+        "id": "related_view_all_button_text",
+        "label": "view all button text"
+      },
+      {
+        "type": "text",
+        "id": "related_view_all_link",
+        "label": "view button link"
+      }
+    ]
+  },
+  {
+    "name": "Product Item",
+    "settings": [
+      {
+        "type": "select",
+        "id": "pro_title_transform",
+        "label": "Product title Transform",
+        "options": [
+          {
+            "value": "uppercase",
+            "label": "Uppercase"
+          },
+          {
+            "value": "capitalize",
+            "label": "Capitalize"
+          },
+          {
+            "value": "lowercase",
+            "label": "Lowercase"
+          },
+          {
+            "value": "full-width",
+            "label": "Full-width"
+          }
+        ],
+        "default": "capitalize",
+        "info": "Default Value: Capitalize"
+      },
+      {
+        "type": "color",
+        "id": "pro_price_color",
+        "label": "Procuct price color"
+      },
+      {
+        "type": "header",
+        "content": "Quick View"
+      },
+      {
+        "type": "color",
+        "id": "quickview_bg",
+        "label": "Background color"
+      },
+      {
+        "type": "color",
+        "id": "quickview_bg_hover",
+        "label": "Background color hover"
+      },
+      {
+        "type": "color",
+        "id": "quickview_text",
+        "label": "Quickview text color"
+      },
+      {
+        "type": "header",
+        "content": "Sale Badge"
+      },
+      {
+        "type": "color",
+        "id": "badge-bg",
+        "label": "Sale badge background"
+      },
+      {
+        "type": "color",
+        "id": "badge-text",
+        "label": "Sale badge text"
+      }
+    ]
+  },
+  {
+    "name": "PTWholesale",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "wholesale_homepage_featured_collections",
+        "label": "Featured collections",
+        "info":
+          "Comma-separated collections using handle. Example: meat,poultry,chicken,fish-seafood"
+      },
+      {
+        "type": "text",
+        "id": "order_minimum_wholesale",
+        "label": "Order minimum"
+      },
+      {
+        "type": "text",
+        "id": "wholesale_time_slots",
+        "label": "Time slots",
+        "info": "Comma-separated time slots. Example: 11AM - 2PM,2PM - 5PM"
+      },
+      {
+        "type": "header",
+        "content": "Slide show"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slide",
+        "label": "Display Slider?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Slide 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slide1",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_one_image.jpg",
+        "label": "Image",
+        "max-width": 1229,
+        "max-height": 502,
+        "info":
+          "Maximum slide image dimensions are 1229px wide by 502px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_one_caption_line2",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide_one_small_caption_color",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_one_caption_line1",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide_one_large_caption_color",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_one_caption_text",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide_one_normal_text_color",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_one_button_display",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide_one_button1_text",
+        "label": "Button 1"
+      },
+      {
+        "type": "color",
+        "id": "slide_one_button1_border",
+        "label": "Button 1 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide_one_button1_text_color",
+        "label": "Button 1 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide_one_button1_bgcolor",
+        "label": "Button 1 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide_one_button1_bghover",
+        "label": "Button 1 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide_one_button1_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slide2",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_two_image.jpg",
+        "label": "Image",
+        "max-width": 1229,
+        "max-height": 502,
+        "info":
+          "Maximum slide image dimensions are 1229px wide by 502px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_two_caption_line2",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide_two_small_caption_color",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_two_caption_line1",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide_two_large_caption_color",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_two_caption_text",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide_two_normal_text_color",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_two_button_display",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide_two_button2_text",
+        "label": "Button 2"
+      },
+      {
+        "type": "color",
+        "id": "slide_two_button2_border",
+        "label": "Button 2 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide_two_button2_text_color",
+        "label": "Button 2 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide_two_button2_bgcolor",
+        "label": "Button 2 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide_two_button2_bghover",
+        "label": "Button 2 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide-two_button2_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slide3",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_three_image.jpg",
+        "label": "Image",
+        "max-width": 1229,
+        "max-height": 502,
+        "info":
+          "Maximum slide image dimensions are 1229px wide by 502px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_three_caption_line2",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide_three_small_caption_color",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_three_caption_line1",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide_three_large_caption_color",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_three_caption_text",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide_three_normal_text_color",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_three_button_display",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide_three_button3_text",
+        "label": "Button 3"
+      },
+      {
+        "type": "color",
+        "id": "slide_three_button3_border",
+        "label": "Button 3 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide_three_button3_text_color",
+        "label": "Button 3 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide_three_button3_bgcolor",
+        "label": "Button 3 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide_three_button3_bghover",
+        "label": "Button 3 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide_three_button3_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slide4",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_four_image.jpg",
+        "label": "Image",
+        "max-width": 1229,
+        "max-height": 502,
+        "info":
+          "Maximum slide image dimensions are 1229px wide by 502px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_four_caption_line2",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide_four_small_caption_color",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_four_caption_line1",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide_four_large_caption_color",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_four_caption_text",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide_four_normal_text_color",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide_four_button_display",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide_four_button_text",
+        "label": "Button 4"
+      },
+      {
+        "type": "color",
+        "id": "slide_four_button_border",
+        "label": "Button 4 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide_four_button_text_color",
+        "label": "Button 4 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide_four_button_bgcolor",
+        "label": "Button 4 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide_four_button_bghover",
+        "label": "Button 4 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide-four_button_link",
+        "label": "Button Link"
+      }
+    ]
+  },
+  {
+    "name": "Serdang",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General Settings"
+      },
+      {
+        "type": "text",
+        "id": "order_minimum-serdang",
+        "label": "Order minimum"
+      },
+      {
+        "type": "text",
+        "id": "main_nav-serdang",
+        "label": "Navigation handle"
+      },
+      {
+        "type": "text",
+        "id": "promo_items_limit_serdang",
+        "label": "Promo items limit per cart",
+        "default": "1"
+      },
+      {
+        "type": "header",
+        "content": "Slider & Banners"
+      },
+      {
+        "type": "header",
+        "content": "Slide 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider1_serdang",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_1_image_serdang.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_line2_serdang",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide1_small_caption_color_serdang",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_line1_serdang",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide1_large_caption_color_serdang",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_text_serdang",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide1_normal_text_color_serdang",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide1_button_display_serdang",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide1_button1_text_serdang",
+        "label": "Button 1"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_border_serdang",
+        "label": "Button 1 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_text_color_serdang",
+        "label": "Button 1 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_bgcolor_serdang",
+        "label": "Button 1 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_bghover_serdang",
+        "label": "Button 1 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide1_button1_link_serdang",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider2_serdang",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_2_image_serdang.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_line2_serdang",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide2_small_caption_color_serdang",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_line1_serdang",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide2_large_caption_color_serdang",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_text_serdang",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide2_normal_text_color_serdang",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide2_button_display_serdang",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide2_button2_text_serdang",
+        "label": "Button 2"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_border_serdang",
+        "label": "Button 2 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_text_color_serdang",
+        "label": "Button 2 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_bgcolor_serdang",
+        "label": "Button 2 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_bghover_serdang",
+        "label": "Button 2 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide2_button2_link_serdang",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider3_serdang",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_3_image_serdang.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_line2_serdang",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide3_small_caption_color_serdang",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_line1_serdang",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide3_large_caption_color_serdang",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_text_serdang",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide3_normal_text_color_serdang",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide3_button_display_serdang",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide3_button3_text_serdang",
+        "label": "Button 3"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_border_serdang",
+        "label": "Button 3 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_text_color_serdang",
+        "label": "Button 3 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_bgcolor_serdang",
+        "label": "Button 3 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_bghover_serdang",
+        "label": "Button 3 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide3_button3_link_serdang",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider4_serdang",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_4_image_serdang.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_line2_serdang",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide4_small_caption_color_serdang",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_line1_serdang",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide4_large_caption_color_serdang",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_text_serdang",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide4_normal_text_color_serdang",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide4_button_display_serdang",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_text_serdang",
+        "label": "Button 4"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_border_serdang",
+        "label": "Button 4 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_text_color_serdang",
+        "label": "Button 4 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_bgcolor_serdang",
+        "label": "Button 4 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_bghover_serdang",
+        "label": "Button 4 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_link_serdang",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Middle Banner 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_middle_banner_serdang",
+        "label": "Display Middle Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "mid-banner1_serdang.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_normal_text_serdang",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_normal_text_color_serdang",
+        "label": "Middle banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_title_text_serdang",
+        "label": "Middle banner title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_title_text_color_serdang",
+        "label": "Middle banner title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner1_link_serdang",
+        "label": "Middle banner1 link"
+      },
+      {
+        "type": "header",
+        "content": "Middle Banner 2"
+      },
+      {
+        "type": "image",
+        "id": "mid-banner2_serdang.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_normal_text_serdang",
+        "label": "Middle banner2 normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_normal_text_color_serdang",
+        "label": "Middle banner2 normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_title_text_serdang",
+        "label": "Middle banner2 title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_title_text_color_serdang",
+        "label": "Middle banner2 title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_link_serdang",
+        "label": "Middle banner2 link"
+      },
+      {
+        "type": "header",
+        "content": "Home Right Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_right_banner_serdang",
+        "label": "Display Home Right Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "right-banner_serdang.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_title_text_serdang",
+        "label": "Home Right banner title text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_title_text_color_serdang",
+        "label": "Home Right banner title text color"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_line_color_serdang",
+        "label": "Home Right banner line color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_normal_text_serdang",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_normal_text_color_serdang",
+        "label": "Home Right banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner1_link_serdang",
+        "label": "Home Right banner1 link"
+      },
+      {
+        "type": "header",
+        "content": "Featured collections"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_feat_coll_serdang",
+        "label": "Display featured collections?",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "feat_coll_serdang",
+        "label": "Collections",
+        "info": "Comma-separated collections using handle. Example: meat,poultry,chicken,fish-seafood"
+      }
+    ]
+  },
+  {
+    "name": "Sidebar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Categores Header"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_categores",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "category_heading",
+        "label": "heading text"
+      },
+      {
+        "type": "color",
+        "id": "cate-heading-bg",
+        "label": "categores heading background"
+      },
+      {
+        "type": "color",
+        "id": "cate-heading-txt",
+        "label": "categores heading text"
+      },
+      {
+        "type": "header",
+        "content": "Filter"
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_sidebar_filters",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "filters_heading",
+        "label": "Filters heading text"
+      },
+      {
+        "type": "color",
+        "id": "filters-heading-bg",
+        "label": "Filters heading background"
+      },
+      {
+        "type": "color",
+        "id": "filters-heading-txt-color",
+        "label": "Filters heading text color"
+      },
+      {
+        "type": "header",
+        "content": "Best Seller"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_best-seller",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "best_sellers_heading",
+        "label": "heading text"
+      },
+      {
+        "type": "color",
+        "id": "best-heading-bg",
+        "label": "best heading background"
+      },
+      {
+        "type": "color",
+        "id": "best-heading-txt",
+        "label": "best heading text color"
+      },
+      {
+        "type": "header",
+        "content": "Product Types"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_product_types",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "product_types_heading",
+        "label": "heading text"
+      },
+      {
+        "type": "color",
+        "id": "product-types-heading-bg",
+        "label": "product types heading background"
+      },
+      {
+        "type": "color",
+        "id": "product-types-heading-txt-color",
+        "label": "product types heading text color"
+      },
+      {
+        "type": "header",
+        "content": "Top Sale"
+      },
+      {
+        "type": "collection",
+        "id": "top_sale_cat",
+        "label":
+          "Please select collection that will be displayed in Top Sale block"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_top-sale",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Custom banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_custom_banner",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "custom_banner.jpg",
+        "label": "Banner image",
+        "max-width": 300,
+        "info":
+          "Maximum showcase image dimensions are 300px wide. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "custom_banner_link",
+        "label": "Banner link"
+      },
+      {
+        "type": "header",
+        "content": "Custom CMS block"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_cms_block",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "cms_block_heading",
+        "label": "Block heading"
+      },
+      {
+        "type": "color",
+        "id": "cms-heading-bg",
+        "label": "cms heading background"
+      },
+      {
+        "type": "color",
+        "id": "cms-heading-txt",
+        "label": "cms heading text color"
+      },
+      {
+        "type": "text",
+        "id": "cms-desc",
+        "label": "Description"
+      }
+    ]
+  },
+  {
+    "name": "Slide Show",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "display_home_slider",
+        "label": "Display Slider?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Slide 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider1",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_1_image.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_line2",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide1_small_caption_color",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_line1",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide1_large_caption_color",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_text",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide1_normal_text_color",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide1_button_display",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide1_button1_text",
+        "label": "Button 1"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_border",
+        "label": "Button 1 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_text_color",
+        "label": "Button 1 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_bgcolor",
+        "label": "Button 1 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_bghover",
+        "label": "Button 1 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide1_button1_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider2",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_2_image.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_line2",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide2_small_caption_color",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_line1",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide2_large_caption_color",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_text",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide2_normal_text_color",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide2_button_display",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide2_button2_text",
+        "label": "Button 2"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_border",
+        "label": "Button 2 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_text_color",
+        "label": "Button 2 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_bgcolor",
+        "label": "Button 2 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_bghover",
+        "label": "Button 2 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide2_button2_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider3",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_3_image.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_line2",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide3_small_caption_color",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_line1",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide3_large_caption_color",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_text",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide3_normal_text_color",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide3_button_display",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide3_button3_text",
+        "label": "Button 3"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_border",
+        "label": "Button 3 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_text_color",
+        "label": "Button 3 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_bgcolor",
+        "label": "Button 3 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_bghover",
+        "label": "Button 3 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide3_button3_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider4",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_4_image.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_line2",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide4_small_caption_color",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_line1",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide4_large_caption_color",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_text",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide4_normal_text_color",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide4_button_display",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_text",
+        "label": "Button 4"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_border",
+        "label": "Button 4 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_text_color",
+        "label": "Button 4 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_bgcolor",
+        "label": "Button 4 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_bghover",
+        "label": "Button 4 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Middle Banner 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_middle_banner",
+        "label": "Display Middle Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "mid-banner1.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_normal_text",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_normal_text_color",
+        "label": "Middle banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_title_text",
+        "label": "Middle banner title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_title_text_color",
+        "label": "Middle banner title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner1_link",
+        "label": "Middle banner1 link"
+      },
+      {
+        "type": "header",
+        "content": "Middle Banner 2"
+      },
+      {
+        "type": "image",
+        "id": "mid-banner2.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_normal_text",
+        "label": "Middle banner2 normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_normal_text_color",
+        "label": "Middle banner2 normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_title_text",
+        "label": "Middle banner2 title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_title_text_color",
+        "label": "Middle banner2 title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_link",
+        "label": "Middle banner2 link"
+      },
+      {
+        "type": "header",
+        "content": "Home Right Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_right_banner",
+        "label": "Display Home Right Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "right-banner.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_title_text",
+        "label": "Home Right banner title text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_title_text_color",
+        "label": "Home Right banner title text color"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_line_color",
+        "label": "Home Right banner line color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_normal_text",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_normal_text_color",
+        "label": "Home Right banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner1_link",
+        "label": "Home Right banner1 link"
+      }
+    ]
+  },
+  {
+    "name": "Spend Rules",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_spend_rules",
+        "label": "Enable spend rules?",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Tier 1"
+      },
+      {
+        "type": "text",
+        "id": "tier_1_target_amount",
+        "label": "Tier 1 Target Amount"
+      },
+      {
+        "type": "text",
+        "id": "tier_1_linklist_handle",
+        "label": "Tier 1 Linklist Handle"
+      },
+      {
+        "type": "textarea",
+        "id": "tier_1_text",
+        "label": "Tier 1 Free Product Text",
+        "info": "Spend RMX.XX more <free_product_text>"
+      },
+      {
+        "type": "header",
+        "content": "Tier 2"
+      },
+      {
+        "type": "text",
+        "id": "tier_2_target_amount",
+        "label": "Tier 2 Target Amount"
+      },
+      {
+        "type": "text",
+        "id": "tier_2_linklist_handle",
+        "label": "Tier 2 Linklist Handle"
+      },
+      {
+        "type": "textarea",
+        "id": "tier_2_text",
+        "label": "Tier 2 Free Product Text",
+        "info": "Spend RMX.XX more <free_product_text>"
+      },
+      {
+        "type": "header",
+        "content": "Tier 3"
+      },
+      {
+        "type": "text",
+        "id": "tier_3_target_amount",
+        "label": "Tier 3 Target Amount"
+      },
+      {
+        "type": "text",
+        "id": "tier_3_linklist_handle",
+        "label": "Tier 3 Linklist Handle"
+      },
+      {
+        "type": "textarea",
+        "id": "tier_3_text",
+        "label": "Tier 3 Free Product Text",
+        "info": "Spend RMX.XX more <free_product_text>"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Base Font"
+      },
+      {
+        "type": "select",
+        "id": "regular_font_family",
+        "label": "Font family",
+        "options": [
+          {
+            "value": "Raleway, sans-serif",
+            "label": "Raleway, sans-serif"
+          },
+          {
+            "value": "Arial, Helvetica, sans-serif",
+            "label": "Arial, Helvetica, sans-serif"
+          },
+          {
+            "value": "Arial Black, Gadget, sans-serif",
+            "label": "Arial Black, Gadget, sans-serif"
+          },
+          {
+            "value": "'Open Sans', sans-serif",
+            "label": "Open Sans, sans-serif"
+          },
+          {
+            "value": "Georgia, serif",
+            "label": "Georgia, serif"
+          },
+          {
+            "value": "Impact, Charcoal, sans-serif",
+            "label": "Impact, Charcoal, sans-serif"
+          },
+          {
+            "value": "Monaco, monospace",
+            "label": "Monaco, monospace"
+          },
+          {
+            "value": "Lucida Grande, sans-serif",
+            "label": "Lucida Grande, sans-serif"
+          },
+          {
+            "value": "Palatino Linotype, Book Antiqua, Palatino, serif",
+            "label": "Palatino Linotype, Book Antiqua, Palatino, serif"
+          },
+          {
+            "value": "Tahoma, Geneva, sans-serif",
+            "label": "Tahoma, Geneva, sans-serif"
+          },
+          {
+            "value": "Times New Roman, Times, serif",
+            "label": "Times New Roman, Times, serif"
+          },
+          {
+            "value": "Trebuchet MS, sans-serif",
+            "label": "Trebuchet MS, sans-serif"
+          },
+          {
+            "value": "Verdana, Geneva, sans-serif",
+            "label": "Verdana, Geneva, sans-serif"
+          },
+          {
+            "value": "MS Serif, New York, serif",
+            "label": "MS Serif, New York, serif"
+          },
+          {
+            "value": "MS Sans Serif, Geneva, sans-serif",
+            "label": "MS Sans Serif, Geneva, sans-serif"
+          },
+          {
+            "value": "Helvetica, Arial, sans-serif",
+            "label": "Helvetica/Arial",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Impact, Charcoal, Helvetica, Arial, sans-serif",
+            "label": "Impact",
+            "group": "Sans-serif"
+          },
+          {
+            "value":
+              "'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif",
+            "label": "Lucida Grande",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Verdana, Helvetica, Arial, sans-serif",
+            "label": "Verdana",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Garamond, Baskerville, Caslon, serif",
+            "label": "Garamond",
+            "group": "Serif"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Serif"
+          },
+          {
+            "value": "Palatino, 'Palatino Linotype', 'Book Antiqua', serif",
+            "label": "Palatino",
+            "group": "Serif"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Serif"
+          },
+          {
+            "value": "'Courier New', Courier, monospace",
+            "label": "Courier New",
+            "group": "Monospace"
+          },
+          {
+            "value": "Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace",
+            "label": "Monaco/Lucida Console",
+            "group": "Monospace"
+          }
+        ],
+        "default": "Raleway, sans-serif"
+      },
+      {
+        "type": "text",
+        "id": "regular_font_size",
+        "label": "Font Size",
+        "default": "14px"
+      },
+      {
+        "type": "text",
+        "id": "regular_line_height",
+        "label": "Line Height",
+        "default": "21px"
+      },
+      {
+        "type": "header",
+        "content": "Heading tags"
+      },
+      {
+        "type": "select",
+        "id": "heading_font_family",
+        "label": "Font family",
+        "options": [
+          {
+            "value": "Raleway, sans-serif",
+            "label": "Raleway, sans-serif"
+          },
+          {
+            "value": "Arial, Helvetica, sans-serif",
+            "label": "Arial, Helvetica, sans-serif"
+          },
+          {
+            "value": "Arial Black, Gadget, sans-serif",
+            "label": "Arial Black, Gadget, sans-serif"
+          },
+          {
+            "value": "Courier New, monospace",
+            "label": "Courier New, monospace"
+          },
+          {
+            "value": "Georgia, serif",
+            "label": "Georgia, serif"
+          },
+          {
+            "value": "Impact, Charcoal, sans-serif",
+            "label": "Impact, Charcoal, sans-serif"
+          },
+          {
+            "value": "Monaco, monospace",
+            "label": "Monaco, monospace"
+          },
+          {
+            "value": "Lucida Grande, sans-serif",
+            "label": "Lucida Grande, sans-serif"
+          },
+          {
+            "value": "Palatino Linotype, Book Antiqua, Palatino, serif",
+            "label": "Palatino Linotype, Book Antiqua, Palatino, serif"
+          },
+          {
+            "value": "Tahoma, Geneva, sans-serif",
+            "label": "Tahoma, Geneva, sans-serif"
+          },
+          {
+            "value": "Times New Roman, Times, serif",
+            "label": "Times New Roman, Times, serif"
+          },
+          {
+            "value": "Trebuchet MS, sans-serif",
+            "label": "Trebuchet MS, sans-serif"
+          },
+          {
+            "value": "Verdana, Geneva, sans-serif",
+            "label": "Verdana, Geneva, sans-serif"
+          },
+          {
+            "value": "MS Serif, New York, serif",
+            "label": "MS Serif, New York, serif"
+          },
+          {
+            "value": "MS Sans Serif, Geneva, sans-serif",
+            "label": "MS Sans Serif, Geneva, sans-serif"
+          },
+          {
+            "value": "Helvetica, Arial, sans-serif",
+            "label": "Helvetica/Arial",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Impact, Charcoal, Helvetica, Arial, sans-serif",
+            "label": "Impact",
+            "group": "Sans-serif"
+          },
+          {
+            "value":
+              "'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif",
+            "label": "Lucida Grande",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Verdana, Helvetica, Arial, sans-serif",
+            "label": "Verdana",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Garamond, Baskerville, Caslon, serif",
+            "label": "Garamond",
+            "group": "Serif"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Serif"
+          },
+          {
+            "value": "Palatino, 'Palatino Linotype', 'Book Antiqua', serif",
+            "label": "Palatino",
+            "group": "Serif"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Serif"
+          },
+          {
+            "value": "'Courier New', Courier, monospace",
+            "label": "Courier New",
+            "group": "Monospace"
+          },
+          {
+            "value": "Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace",
+            "label": "Monaco/Lucida Console",
+            "group": "Monospace"
+          }
+        ],
+        "default": "Raleway, sans-serif"
+      },
+      {
+        "type": "checkbox",
+        "id": "heading_family_use_custom",
+        "label": "Use custom font family"
+      },
+      {
+        "type": "textarea",
+        "id": "heading_custom_font_code",
+        "label": "Google Font embed code"
+      },
+      {
+        "type": "text",
+        "id": "heading_custom_font_family",
+        "label": "Google Font family"
+      },
+      {
+        "type": "paragraph",
+        "content": "H1"
+      },
+      {
+        "type": "text",
+        "id": "h1_fsize",
+        "label": "H1 font size"
+      },
+      {
+        "type": "text",
+        "id": "h1_lheight",
+        "label": "H1 line height"
+      },
+      {
+        "type": "text",
+        "id": "h1_weight",
+        "label": "H1 weight"
+      },
+      {
+        "type": "paragraph",
+        "content": "H2"
+      },
+      {
+        "type": "text",
+        "id": "h2_fsize",
+        "label": "H2 font size"
+      },
+      {
+        "type": "text",
+        "id": "h2_lheight",
+        "label": "H2 line height"
+      },
+      {
+        "type": "text",
+        "id": "h2_weight",
+        "label": "H2 weight"
+      },
+      {
+        "type": "paragraph",
+        "content": "H3"
+      },
+      {
+        "type": "text",
+        "id": "h3_fsize",
+        "label": "H3 font size"
+      },
+      {
+        "type": "text",
+        "id": "h3_lheight",
+        "label": "H3 line height"
+      },
+      {
+        "type": "text",
+        "id": "h3_weight",
+        "label": "H3 weight"
+      },
+      {
+        "type": "paragraph",
+        "content": "H4"
+      },
+      {
+        "type": "text",
+        "id": "h4_fsize",
+        "label": "H4 font size"
+      },
+      {
+        "type": "text",
+        "id": "h4_lheight",
+        "label": "H4 line height"
+      },
+      {
+        "type": "text",
+        "id": "h4_weight",
+        "label": "H4 weight"
+      },
+      {
+        "type": "paragraph",
+        "content": "H5"
+      },
+      {
+        "type": "text",
+        "id": "h5_fsize",
+        "label": "H5 font size"
+      },
+      {
+        "type": "text",
+        "id": "h5_lheight",
+        "label": "H5 line height"
+      },
+      {
+        "type": "text",
+        "id": "h5_weight",
+        "label": "H5 weight"
+      },
+      {
+        "type": "paragraph",
+        "content": "H6"
+      },
+      {
+        "type": "text",
+        "id": "h6_fsize",
+        "label": "H6 font size"
+      },
+      {
+        "type": "text",
+        "id": "h6_lheight",
+        "label": "H6 line height"
+      },
+      {
+        "type": "text",
+        "id": "h6_weight",
+        "label": "H6 weight"
       }
     ]
   }

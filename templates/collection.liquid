@@ -46,7 +46,7 @@
         {% include 'product-grid-item' %}
       {% else %} 
         <div class="grid-item">
-          <p>{{ 'collections.general.no_matches' | t }}</p>
+          <p style="margin-left:10px">{{ settings.no_matches }}</p>
         </div>
       {% endfor %}  
     </div>
@@ -70,15 +70,18 @@
 
 <script>
   function reload_collection() {
-      var collectionurl = window.location.href;
-      var addtg = $.trim($.cookie('PasarStoreName')).toLowerCase().replace(/\s+/g, "-");
+      let collection_url = window.location.href;
+      let market_tag = $.trim($.cookie('PasarStoreName')).toLowerCase().replace(/\s+/g, "-");
       
-      if(collectionurl.indexOf(addtg) != -1){
-          console.log("found");
-      }else{
-          window.location.href = collectionurl+"/"+addtg;
+      if (collection_url.indexOf(market_tag) == -1) {
+        let append_char = "/";
+        let split_url = collection_url.split("collections/");
+
+        if (split_url.length > 0 && split_url[1].search("/") != -1) {
+            append_char = "+";              
+        }
+        window.location.href = collection_url + append_char + market_tag;
       }
-    
     }
   
   </script>

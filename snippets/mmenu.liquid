@@ -45,23 +45,27 @@
             </ul>
         </li>
         {% if settings.main_nav != blank %}
+            {% assign menu_handle = settings.main_nav %}
+            {% assign customer_tags = customer.tags | downcase %}
+
+            {% if customer and customer_tags contains 'wholesale' and settings.main_nav_wholesale != blank %}
+                {% assign menu_handle = settings.main_nav_wholesale %}
+            {% endif %}
+
+            {% if cart.attributes.market == "Bayan Baru" and settings.main_nav-bayan_baru != blank %}
+                {% assign menu_handle = settings.main_nav-bayan_baru %}
+            {% elsif cart.attributes.market == "Serdang" and settings.main_nav-serdang != blank %}
+                {% assign menu_handle = settings.main_nav-serdang %}
+            {% endif %}
+
             <li><span>Products</span>
                 <ul>
-                    {% for link in linklists[settings.main_nav].links %}
+                    {% for link in linklists[menu_handle].links %}
                         <li><a href="{{ link.url }}"><span>{{ link.title }}</span></a>                       
                             {% if linklists[link.handle].links.size > 0 %}
                                 <ul>
                                     {% for childlink in linklists[link.handle].links %}
                                         <li><a href="{{ childlink.url }}"><span>{{ childlink.title }}</span></a>
-                                            {% if linklists[childlink.handle].links.size > 0 %}
-                                                <ul>
-                                                    {% for childlink2 in linklists.childlink.handle.links %}
-                                                        <li>
-                                                            <a href="{{ childlink2.url }}" ><span>{{ childlink2.title }}</span></a>
-                                                        </li>
-                                                    {% endfor %}
-                                                </ul>
-                                            {% endif %}
                                         </li> 
                                     {% endfor %}
                                 </ul>
@@ -107,7 +111,7 @@
                     <p>{{ settings.cart_information }}</p>
                 </div>  
                 
-                {% include 'local-cart-date' %}
+                {% include 'pt-deliveries-widget' %}
                 {% comment %}
                 For the special instructions to be submitted with order,
                 they need to use a name attribute set to 'note'. That's case-sensitive.
@@ -118,7 +122,7 @@
                   <textarea class="form-control" rows="1" id="cart-note" name="note">{{ cart.note }}</textarea>
                 </div>
                 <div class="actions">
-                    <button class="btn-checkout-mobile" style="width:100%" onclick="window.location='/checkout'" disabled="disabled">Checkout</button>
+                    <button class="btn-checkout btn-checkout-mobile" style="width:100%" onclick="window.location='/checkout'" disabled="disabled">Checkout</button>
                     {% comment %}<p class="text-cart"><a href="/cart">View Cart</a></p>{% endcomment %}
                 </div>          
             </div>
@@ -142,6 +146,7 @@ $(document).ready(function(){
         }
     }
 
+    // Button click handlers
     $('#sticky-cart-button').click(function(){
         if ($("#toTop").is(':visible')) {
             $("#toTop").hide();
@@ -152,6 +157,7 @@ $(document).ready(function(){
         $("#toTop").show();
     });
 
+    // Sticky menu initialization
     $("#sticky-menu").mmenu({
         extensions: [
             "theme-white",
@@ -185,6 +191,7 @@ $(document).ready(function(){
         }
     });
 
+    // Sticky cart initialization
     $("#sticky-cart").mmenu({
         extensions: [
             "theme-white",
@@ -224,6 +231,6 @@ $(document).ready(function(){
     $("#sticky-cart").find('.mm-navbars-top').addClass("mobile-shadow");
 
     // remove quick view class
-    $('li').removeClass('sca-qv-image');
+    $('li').removeClass('sca-qv-image'); 
 });
 </script>

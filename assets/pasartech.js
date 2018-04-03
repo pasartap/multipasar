@@ -12,7 +12,7 @@ jQuery(document).ready(function() {
         this.trigger(ev);
 
         
-          if ($(this).is('#timeDiv')) {
+          if ($(this).is('.pt-time')) {
             var totalPrice  = parseFloat(document.querySelector('.money').innerHTML.replace('RM', ''));        
             var order_minimum = parseFloat(20).toFixed(2);
             if (ev == 'show' && totalPrice >= order_minimum) {

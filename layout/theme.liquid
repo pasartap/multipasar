@@ -154,24 +154,12 @@
 
     <!-- main content -->
     <!-- IF frontpage -->    
-    {% if page == pages.frontpage %} 
-      <!-- slider -->    
-      {% if customer and customer_tags contains 'wholesale' %}
-      {% else %}
-        {% include 'home-slider' %} 
-      {% endif %}
-
+    {% if template == 'index' %}
       <div id="main_content" class="col-main col-sm-12 col-sm-push-3-{{ content_width }}"> 
-      {% if template == 'collection' %}
-        {% include 'collection.list' %}
-      {% else %}
-        {{ content_for_layout }}
-      {% endif %} 
+        {{ content_for_layout }} 
       </div>
-    {% endif %} 
-    
-    <!-- IF NOT frontpage -->         
-    {% if template != 'index' %}
+    {% else %}    
+      <!-- IF NOT frontpage -->    
       {% if settings.enable_breadcrumbs %}
         <div class="breadcrumbs">{% include 'snippet-breadcrumbs' %}</div>
       {% endif %}
@@ -322,7 +310,7 @@
 
   {% include 'rw-js' %} 
 
-  <script>
+<script>
   jQuery(function() {
     jQuery('.swatch :radio').change(function() {
     var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
@@ -336,103 +324,32 @@
     });
   });
     
-    //Date and time local cart
-    
-     $(document).ready(function(){
-      var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
-      var shop_name = "pasartap-dev.myshopify.com";
-      var disabledate = '';
-        $.ajax({
-            url: appurl+"ajax_get_date.php",
-            type: "POST",
-            data: {shop_name: shop_name},
-            dataType: "json",
-            success: function(response) {
-             GetDatePicker(response); 
-            }  
-        });
-    });
-    function GetDatePicker(disabledate){
-      var array = disabledate;
-    $( ".datepicker" ).datepicker({
-      startDate: new Date(), 
-      dateFormat: "D, dd/mm/yy",
-      minDate: 0,
-      firstDay: 1 ,
-      beforeShowDay: function(date){
-        var day = date.getDay();
-		    return [day != 0,''];
-        {% comment %} var string = jQuery.datepicker.formatDate('D, dd/mm/yy', date);
-        return [ array.indexOf(string) == -1 ]  {% endcomment %}
-        
-    }, 
-      onSelect: function(dateText, inst) {  
-        $('.orderdate').val(dateText);
-        $('.loadingtime').show();
-         var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
-        var date = $.datepicker.parseDate(inst.settings.dateFormat || $.datepicker._defaults.dateFormat, dateText, inst.settings);
-        var dateText = $.datepicker.formatDate("DD", date, inst.settings);
-        var date = $.datepicker.formatDate("mm/dd/yy", date, inst.settings);
-         $.ajax({
-            url: appurl+"ajax_get_date_time.php",
-            type: "POST",
-           data: {day: dateText,date:date,marketid:$.cookie('PasarStoreName')},
-            dataType: "json",
-            success: function(response) {
-              $('.loadingtime').hide();
-              $('.errormsg').remove();
-              if(response.result =='true'){
-                $('.selecttimeslot').show();
-                 $(".ordertimelist option").remove();
-                 $.each(response.time, function( index, value ) {                 
-                   $(".ordertimelist").append("<option >"+ value+"</option>" );
-                 });
-                $(".ordertimelist").show();
-              }else if(response.result =='false' && response.msg != ''){
-              	$('.selecttimeslot ,.ordertimelist').hide();
-                $('.ordertimelist').before("<p class='errormsg'>"+response.msg+"</p>");
-              }else{
-                $('.selecttimeslot ,.ordertimelist').hide();
-                $('.ordertimelist').before("<p class='errormsg'>We do not delivery on "+dateText+"</p>");
-              }
-            }
-        });
-    }
-    });
-    }
- 
-  
-  </script> 
+</script> 
 
   {% include 'linked-options' %}
   {% include 'search-autocomplete' %}
- {% include 'sweettooth-initializer' %}
-
- {% include 'sweettooth-tab-widget' %}
+  {% include 'sweettooth-initializer' %}
+  {% include 'sweettooth-tab-widget' %}
 
 </body>
   <script>
   $(window).load(function() {  
-    $( ".item " ).each(function( index ) {
-      {% comment %} if(!$(this).hasClass($.cookie('PasarStoreName'))){
-      	$(this).parent(".product-item").remove();
-        $(this).remove();
-      } {% endcomment %}
-    });
-
-    {% comment %} {% if  template != 'product' %}
- 	    $( ".product-item " ).each(function( index ) {
-        if(!$(this).hasClass($.cookie('PasarStoreName'))){
-          $(this).remove();
-        }
+    hideLoading();  
+    
+    {% if cart.attributes.market == blank %}
+      $("input[name='attributes[market]']").val($.cookie('PasarStoreName'));
+      /* Send the value as a cart attribute via the AJAX API */
+      $.ajax({
+        type: "POST",
+        url: '/cart.js',
+        data: {"attributes[market]": $.cookie('PasarStoreName')}, /* We are using an attribute named "market" */
+        success: function(d){
+          console.log($.cookie('PasarStoreName') + ' assigned as cart.attributes.market.');
+        },
+        dataType: 'json'
       });
-    {% endif %} {% endcomment %}
-
-    {% if template != 'index' %}
-      hideLoading();
     {% endif %}
 
-    $("input[name='attributes[Market]']").val($.cookie('PasarStoreName'));
     $(document).on("click",".homeaddtocart",function(e){
     	e.preventDefault();
       $(this).closest(".single-add-to-cart-button").hide();

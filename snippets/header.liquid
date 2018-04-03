@@ -48,7 +48,7 @@
                   {% endif %}
                 {% endif %}
                 
-                {% if settings.display_wishlist_link %}
+                {% comment %} {% if settings.display_wishlist_link %}
                   {% if settings.display_wishlist_link != blank %}
                     <div class="wishlist"> 
                       {% if customer %} 
@@ -64,7 +64,7 @@
                   {% if settings.display_checkout_link != blank %}
                     <div class="check"><a href="/checkout" title="Checkout"><span>Checkout</span></a></div>
                   {% endif %} 
-                {% endif %} 
+                {% endif %}  {% endcomment %}
                 
                 {% if settings.display_login_link %}
                   {% if settings.display_login_link != blank %}
@@ -165,9 +165,9 @@
                       </div>
                       <p class="cart-info">{{ settings.cart_information }}</p>
                       
-                      {% include 'local-cart-date' %}
-        				      {% comment %}
-                      {% include 'local-delivery-cart' %}
+                      {% include 'pt-deliveries-widget' %}
+        				      
+                      {% comment %}
         				      For the special instructions to be submitted with order,
         				      they need to use a name attribute set to 'note'. That's case-sensitive.
         				      {% endcomment %}
@@ -177,7 +177,7 @@
                                 <input type="hidden" name="attributes[Market]" value="{{keyAndValue}}">
         				      </div>
                       <div class="actions" style="padding:0 10px">
-                        <button class="btn" style="width:100%;margin-bottom:10px;" type="submit" id="checkout" disabled="disabled">Checkout</button>
+                        <button class="btn btn-checkout" style="width:100%;margin-bottom:10px;" type="submit" id="checkout" disabled="disabled">Checkout</button>
                         {% comment %}<p class="text-cart"><a href="/cart">View Cart</a></p>{% endcomment %}
                       </div>              		  
                     </div>
@@ -292,16 +292,24 @@ jQuery(document).ready(function() {
 					e(n).fadeOut(500)
 				}, 5e3)
 			},
-      checkSpentAmount: function(n) {
-        // hide spend notification/disable checkout button
-        if ($('#timeDiv').css('display') === 'none') {
-            $("#dropdown-cart").find('.btn').attr('disabled', 'disabled');
-            $("#mobile-cart").find('.btn-checkout-mobile').attr('disabled', 'disabled');
-        } else {
-            $("#dropdown-cart").find('.btn').removeAttr('disabled');
-            $("#mobile-cart").find('.btn-checkout-mobile').removeAttr('disabled');
-        }
+      toggleCheckoutButton: function() {
+        $('.btn-checkout').attr('disabled', 'disabled');   
+        
+        if ($('.pt-date').val() !== '' && $('.pt-time').is(":visible") && $('.pt-time').val() !== 'Timeslot') {
+          $('.btn-checkout').removeAttr('disabled'); 
+        } 
 
+        {% if settings.order_minimum != blank %}
+          var totalPrice  = parseFloat(document.querySelector('.money').innerHTML.replace('RM', ''));        
+          var order_minimum = parseFloat({{ settings.order_minimum }}).toFixed(2);
+
+          if (totalPrice < order_minimum) {
+            $('.btn-checkout').attr('disabled', 'disabled');   
+          } 
+        {% endif %}
+      },
+      checkSpentAmount: function(n) {
+        // hide spend notification
         e(".spend-notification").hide();
         
         if ($("#sticky-cart").find('.mm-panels').hasClass("no-spend-notification")) { 
@@ -317,10 +325,7 @@ jQuery(document).ready(function() {
           // show spend notification if total price less than order minimum
           var order_minimum = {{ settings.order_minimum | times: 100 }};
   				if (n.total_price > 0 && n.total_price < order_minimum) {
-  					$("#dropdown-cart").find('.btn').attr('disabled', 'disabled');
-            $("#mobile-cart").find('.btn-checkout-mobile').attr('disabled', 'disabled');
-
-          	var remaining_amount = parseFloat(order_minimum) - parseFloat(n.total_price);
+  					var remaining_amount = parseFloat(order_minimum) - parseFloat(n.total_price);
           	var amount = Shopify.formatMoney(remaining_amount, window.formatMoney);
           	var order_minimum = Shopify.formatMoney(order_minimum ,window.formatMoney);
           	var spend_text = '<p class="spend-notification-text">Spend <span class="remaining-amount money">' +  amount + '</span> more to reach the order minimum of <span class ="order-minimum money">' +  order_minimum + '</span></p>';
@@ -344,6 +349,8 @@ jQuery(document).ready(function() {
           t.applySpendRules(n);
 
         {% endif %}
+
+        t.toggleCheckoutButton();
 			},
       applySpendRules: function(n) {
         // spend rules

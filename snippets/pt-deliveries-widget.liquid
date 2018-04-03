@@ -1,0 +1,123 @@
+<div id="order-delivery">  
+    <h3 class="heading--add-small">DELIVERY DATE & TIME</h3>      
+    <div id="order-delivery-form-wrapper" class="clearfix">
+        <p class="cart-total__info clearfix">When would you like your order delivered?</p>
+        <div>
+            <input id="datepicker" class="form-control pt-date" type="text" name="attributes[delivery_date]" value="{{ cart.attributes.delivery_date }}" placeholder="Date" readonly="readonly" />
+            <select class="form-control pt-time" name="attributes[delivery_time]" value="{{ cart.attributes.delivery_time }}" style="display:none;"> 
+            </select> 
+        </div> 
+    </div> 
+</div> 
+
+<script>
+/* Datepicker initialization */
+/* ------------------------- */
+// Set query parameters 
+var market_id = $.cookie("PasarStoreId");
+var currentDate = new Date();
+var currentHours = currentDate.getHours().toString();
+var currentMinutes = currentDate.getMinutes().toString();
+
+if (currentHours < 10) {
+  currentHours = '0' + currentHours;
+}
+if (currentMinutes < 10) {
+  currentMinutes = '0' + currentMinutes;
+}
+var currentTime = currentHours + currentMinutes;
+
+$(document).ready(function(){
+    // Get timeslots
+    $.ajax({
+        url: 'https://pt-deliveries.herokuapp.com/api/timeslots',
+        type: "GET",
+        data: {
+                shop_id: 1,
+                market_id: market_id,
+                time: currentTime
+            },
+        dataType: "json",
+        success: function(response) {
+            initDatePicker(response); 
+            loadTimeslots(response.timeslots);
+        }  
+    });
+
+    // Toggle checkout button enablement when timeslot is changed
+    $('.pt-time').change(function(){
+        toggleCheckoutButton();
+    }); 
+});
+
+function initDatePicker(response){  
+    $( "#datepicker" ).datepicker({
+        startDate: new Date(), 
+        dateFormat: "D, dd/mm/yy",
+        minDate: response.min_date,
+        maxDate: 21,
+        firstDay: 1 ,
+        beforeShowDay: function(date){
+        var dayId = date.getDay();
+        var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        return [ response.blackout_days.indexOf(dateString) == -1 && response.inactive_days.indexOf(dayId) == -1 ]    
+        }, 
+        onSelect: function(dateText, inst) {  
+            // Get timeslots
+            var appurl = 'https://pt-deliveries.herokuapp.com/api/timeslots/';
+            var date = $.datepicker.parseDate(inst.settings.dateFormat || $.datepicker._defaults.dateFormat, dateText, inst.settings);
+            var day = $.datepicker.formatDate("DD", date, inst.settings);
+            var date = $.datepicker.formatDate("y-mm-dd", date, inst.settings);       
+            
+            $.ajax({
+                url: appurl + day,
+                type: "GET",
+                data: { 
+                        shop_id: 1,
+                        market_id: $.cookie('PasarStoreId'),
+                        date: date
+                    },
+                dataType: "json",
+                success: function(response) {
+                    loadTimeslots(response);
+                }
+            });
+        }
+    }).position({
+        my: "left top",
+        at: "left bottom",
+        of: $("#datepicker"),
+        collision: "none"
+    });
+}
+
+function loadTimeslots (timeslots) {
+    $(".pt-time").hide();
+    $(".pt-time option").remove();
+    $(".pt-time").append("<option >Timeslot</option>" );
+
+    $.each(timeslots, function( index, timeslot ) { 
+        $(".pt-time").append("<option >" + timeslot + "</option>" );
+    });
+    
+    $(".pt-time").show();
+    $('.btn-checkout').attr('disabled', 'disabled');   
+}
+
+function toggleCheckoutButton () {
+    $('.btn-checkout').attr('disabled', 'disabled');   
+        
+    if ($('.pt-date').val() !== '' && $('.pt-time').is(":visible") && $('.pt-time').val() !== 'Timeslot') {
+        $('.btn-checkout').removeAttr('disabled'); 
+    } 
+
+    {% if settings.order_minimum != blank %}
+        var totalPrice  = parseFloat(document.querySelector('.money').innerHTML.replace('RM', ''));        
+        var order_minimum = parseFloat({{ settings.order_minimum }}).toFixed(2);
+
+        if (totalPrice < order_minimum) {
+            $('.btn-checkout').attr('disabled', 'disabled');   
+        } 
+    {% endif %}
+}
+</script>

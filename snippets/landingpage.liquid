@@ -150,6 +150,7 @@
     }
     .bannercontainer {
         max-width: 850px;
+        padding-bottom: 40px;
     }
     .top-banner {
         background: url("{{ 'landing_page_top_banner.png' | asset_url }}");
@@ -345,7 +346,7 @@
             color: #fff;
             max-width: 30px;
             float: right;
-            margin-top: 12px;
+            margin-top: 10px;
             width: 30px !important;
             display: inline-block;
             cursor: pointer;
@@ -392,7 +393,7 @@
             color: #fff;
             max-width: 30px;
             float: right;
-            margin-top: 12px;
+            margin-top: 10px;
             width: 30px !important;
             display: inline-block;
             cursor: pointer;
@@ -531,14 +532,28 @@
             $(".landingpagediv").remove();
         }
 
-        var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
-        showLoading()
+        showLoading();
         $(document).on("click", ".manualstore li", function () {
             var url = window.location.href;
             if (!$(this).parent("ul").hasClass("withemptycart")) {
                 $.cookie("PasarStoreName", $(this).text());
                 $.cookie("PasarStoreId", $(this).attr("data-id"));
-                window.location.href = url;
+                
+                /* Send the value as a cart attribute via the AJAX API */
+                $.ajax({
+                    type: "POST",
+                    url: '/cart.js',
+                    data: { "attributes[market]": $(this).text() }, /* We are using an attribute named "market" */
+                    success: function(d){
+                        /* 
+                        On sucess, reload the page.  
+                        Warning: If you have scripts on the page that auto trigger the change even the page may reload forever.
+                        If you do, be sure to add code to account for that.
+                        */
+                        window.location.href= url;
+                    },
+                    dataType: 'json'
+                });
             }
         });
         $(document).on("click", ".getlocation", function () {
@@ -609,48 +624,92 @@
             $(".nostoremsg").remove();
             var tag = $("#autocomplete").val();
             var postcode = $("#postal_code").val();
-            if (tag != '') {
+
+            if (postcode != '') {
                 $.ajax({
                     data    : {
-                        postcode : postcode,
-                        shop_name: "1",
-                        tag      : tag
+                        shop_id: "1"
+                    },
+                    dataType: "json",
+                    success : function(response) {
+                        console.log(response);
+                        
+                        if (response.data != null) {
+                            var storelist = '';
+                            {% comment %} if (response.slot != 'No') {
+                                var timeslot = 'Next available slot ' + response.slot;
+                                $(".changestore")
+                                    .find("span")
+                                    .html(timeslot);
+                            } else {
+                                var timeslot = '';
+                            } {% endcomment %}
+
+                            var timeslot = '';
+                            storelist = '<li data-id=' + response.data.market_id + '><strong>' + response.data.market_name + '</strong><br><span>' +
+                                        timeslot + '</span></li>';
+
+                            console.log(storelist);
+                            $(".manualstore").html(storelist);
+                            $("ul.manualstore li:first-child").click();
+                        } else {
+                            var msgnostore = 'Sorry, PasarTap does not provide service at this location. Please select a mar' +
+                                    'ket below to continue browsing our products.';
+                            $(".chooselocation").before(
+                                "<p class='nostoremsg'><strong>" + msgnostore + "</strong></p>"
+                            );
+                        }
+                    },
+                    type    : "GET",
+                    url     : "https://pt-deliveries.herokuapp.com/api/postcode/" + postcode
+                });
+            } else {
+                var msgnostore = '<br>Sorry, your location could not be determined. Please select a market ' +
+                            'below to continue browsing our products.';
+                $(".chooselocation").before(
+                    "<p class='nostoremsg'><strong>" + msgnostore + "</strong></p>"
+                );
+            }
+
+            {% comment %} if (tag != '') {
+                $.ajax({
+                    data    : {
+                        shop_id: "1"
                     },
                     dataType: "json",
                     success : function (response) {
                         console.log(response);
-
-                        var total = response.data.length;
-                        if (response.result == "true") {
+                        
+                        if (response.data.length > 0) {
                             var storelist = '';
-                            if (response.slot != 'No') {
+                            {% comment %} if (response.slot != 'No') {
                                 var timeslot = 'Next available slot ' + response.slot;
                                 $(".changestore")
                                     .find("span")
                                     .html(timeslot);
                             } else {
                                 var timeslot = '';
-                            }
-                            $.each(response.data, function (i, item) {
-                                storelist += '<li data-id=' + item.id + '><strong>' + item.market + '</strong><br><span>' +
+                            } {% endcomment %}
+
+                            storelist = '<li data-id=' + response.data.market_id + '><strong>' + response.data.market_name + '</strong><br><span>' +
                                         timeslot + '</span></li>';
-                            });
-                            //console.log(storelist);
+
+                            console.log(storelist);
                             $(".manualstore").html(storelist);
-                            if (total == 1) {
+                            {% comment %} if (total == 1) {
                                 $("ul.manualstore li:first-child").click();
-                            }
+                            } {% endcomment %}
                         } else {
                             var msgnostore = 'Sorry, PasarTap does not provide service at this location. Please select a mar' +
                                     'ket below to continue browsing our products.';
                             if (postcode == '') {
-                                msgnostore = '<br>Sorry, your location could not be determined. Please select a market manua' +
-                                        'lly below.';
+                                msgnostore = '<br>Sorry, your location could not be determined. Please select a market below ' +
+                                        'to continue browsing our products.';
                             }
-                            $(".manualstore").before(
+                            $(".chooselocation").before(
                                 "<p class='nostoremsg'><strong>" + msgnostore + "</strong></p>"
                             );
-                            var storelist = '';
+                            {% comment %} var storelist = '';
                             if (response.slot != 'No') {
                                 var timeslot = 'Next available slot ' + response.slot;
                                 $(".changestore")
@@ -663,55 +722,21 @@
                                 storelist += '<li data-id=' + item.id + '><strong>' + item.market + '</strong><br><span>' +
                                         timeslot + '</span></li>';
                             });
-                            //console.log(storelist);
-                            $(".manualstore").html(storelist);
+                            console.log(storelist);
+                            $(".manualstore").html(storelist); {% endcomment %}
                         }
                     },
-                    type    : "POST",
-                    url     : appurl + "ajax_store.php"
+                    type    : "GET",
+                    url     : "https://pt-deliveries.herokuapp.com/api/postcode/" + postcode
                 });
-            }
+            } {% endcomment %}
         });
+
         if ($("input[type='hidden'][name='market']").val() == '' && $.cookie('PasarStoreName') != undefined) {
             $("input[type='hidden'][name='market']").val($.cookie('PasarStoreName'))
         }
     });
     $(window).load(function () {
-
-        {% comment %} var appurl = 'https://www.shopifyappexperts.com/localdelivery/';
-        $.ajax({
-            data    : {
-                shop_name: "1"
-            },
-            dataType: "json",
-            success : function (response) {
-                if (response.result == "true") {
-                    var storelist = '';
-                    if (response.slot != 'No') {
-                        var timeslot = 'Next available slot ' + response.slot;
-                        $(".changestore")
-                            .find("span")
-                            .html(timeslot);
-                    } else {
-                        var timeslot = '';
-                    }
-                    $.each(response.data, function (i, item) {
-                        storelist += '<li data-id=' + item.id + '><strong>' + item.market + '</strong><br><span>' +
-                                timeslot + '</span></li>';
-                        $(".coll-filter option").each(function () {
-                            if (this.text == item.market) {
-                                $(this).remove();
-                            }
-
-                        });
-                    });
-                    //console.log(storelist);
-                    $(".manualstore").html(storelist);
-                }
-            },
-            type    : "POST",
-            url     : appurl + "ajax_get_stores.php"
-        }); {% endcomment %}
 
         // Get next available timeslots
         var now = new Date(Date.now());
@@ -760,7 +785,6 @@
             $(".mm-page").addClass("padding0high");
             $("#myModal").remove();
             $(".innerpagepost").remove();
-
         } else {
             $(".sitecontainers").addClass("showall");
             $(".landingpage").addClass("hideall");
@@ -777,6 +801,8 @@
                 .find("strong")
                 .text($.cookie('PasarStoreName'));
         }
+
+        hideLoading();
     });
     function showLoading() {
         $(".loading").show();
@@ -785,18 +811,21 @@
         $(".loading").hide();
     }
     function reload_collection() {
-        var collectionurl = window.location.href;
-        var addtg = $
+        let collection_url = window.location.href;
+        let market_tag = $
             .trim($.cookie('PasarStoreName'))
             .toLowerCase()
             .replace(/\s+/g, "-");
 
-        if (collectionurl.indexOf(addtg) != -1) {
-            console.log("found");
-        } else {
-            window.location.href = collectionurl + "/" + addtg;
-        }
+        if (collection_url.indexOf(market_tag) == -1) {
+            let append_char = "/";
+            let split_url = collection_url.split("collections/");
 
+            if (split_url.length > 0 && split_url[1].search("/") != -1) {
+                append_char = "+";              
+            }
+            window.location.href = collection_url + append_char + market_tag;
+        }
     }
     {% if  template == 'collection' %}
         reload_collection();

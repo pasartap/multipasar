@@ -2,8 +2,13 @@
 {% assign image_size = 'original' %}
 {% assign featured_collections = 'all' %}
 {% assign coll_num = 1 %}
-{% if settings.homepage_featured_collections != blank %}
-  {% assign featured_collections = settings.homepage_featured_collections | split:"," %}
+
+{% if cart.attributes.market == "Bayan Baru" and settings.display_feat_coll_bayan_baru and settings.feat_coll_bayan_baru != blank %}
+  {% assign featured_collections = settings.feat_coll_bayan_baru | split:"," %}
+{% elsif cart.attributes.market == "Chow Kit" and settings.display_feat_coll_chow_kit and settings.feat_coll_chow_kit != blank %}
+  {% assign featured_collections = settings.feat_coll_chow_kit | split:"," %}
+{% elsif cart.attributes.market == "Serdang" and settings.display_feat_coll_serdang and settings.feat_coll_serdang != blank %}
+  {% assign featured_collections = settings.feat_coll_serdang | split:"," %}
 {% endif %}
 
 {% if settings.display_featured_collections == true and featured_collections.size > 0 %}
@@ -29,11 +34,22 @@
               <div id="featured-slider_{{ coll_num }}" class="product-flexslider hidden-buttons">
                 <div class="slider-items slider-width-col4 products-grid block-content"> 
                   <!-- Item --> 
-                  {% for product in collections[coll].products limit:1000 %}                      
-                    <div class="item txtpk {% for tag in product.tags %}  {{tag}} {% endfor %} ">                      
-                      {% include 'product-grid-item' with 'listing_cols' with 'image_size' %} </div>
-                     
+                  <!-- Important! paginate by 250 is required to ensure the specific market collection is shown -->
+                  {% assign product_count = 1 %}
+                  {% paginate collections[coll].products by 250 %}
+                  
+                  {% for product in collections[coll].products %} 
+                    {% if product_count > settings.featured_collections_limit %}
+                      {% break %}
+                    {% endif %}
+
+                    {% if product.tags contains cart.attributes.market %}                     
+                      <div class="item txtpk {% for tag in product.tags %}  {{tag}} {% endfor %} ">                      
+                        {% include 'product-grid-item' with 'listing_cols' with 'image_size' %} </div>
+                      {% assign product_count = product_count | plus: 1 %}
+                    {% endif %}
                   {% endfor %} 
+                  {% endpaginate %}
                 </div>
               </div>
             </div>
@@ -42,53 +58,10 @@
       </section>      
       <script type="text/javascript">
         $(document).ready(function(){
-          var collectionno = '{{ collections[coll].id }}';
-          var tag = $.cookie('PasarStoreId');
-          var appendplace = '.newslider{{ forloop.index }}';
-          ajaxCall++;
-          
-              $.ajax({
-                url: "https://www.shopifyappexperts.com/localdelivery/ajax_home_feature.php",
-                type: "POST",
-                data: {tag: tag,collectionno:collectionno},
-                dataType: "json",
-                success: function(response) {
-                  if(response.true != ''){
-                   var html{{ coll_num }} = '';
-                   $.each(response.data, function( index, value ) {   
-                   var imgthum = 'https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif';
-                     if(value['image'] != null){
-                     	imgthum = value['image']['src'];
-                     }
-                   html{{ coll_num }} += '<div class="item '+value['tags']+'">'           
-                     html{{ coll_num }} += '<div data-id='+value['id']+' class=" '+value['tags']+'   product-'+value['id']+' product product__product-grid-item product-item col-sm-12 item_odd step3-1 step4-1">';
-                       html{{ coll_num }} += '<div class="item-inner">';
-                         html{{ coll_num }} += '<div class="product_image-wrap item-img">';
-                         html{{ coll_num }} += '<a href="/products/'+value['handle']+'" class="product-grid-image" ><img src='+imgthum+' title="'+value['title']+'" alt="'+value['title']+'"></a>';
-                         html{{ coll_num }} +='</div>';
-                         html{{ coll_num }} +='<div class="box-hover"><ul class="add-to-links"><li></li></ul></div><div class="color-swich"></div>';
-                         html{{ coll_num }} +=' <div class="product_title-wrap"><a href="/products/'+value['handle']+'" class="product_title">'+value['title']+'</a></div>'
-                         html{{ coll_num }} += '<span style="color:grey">'+value['options'][0]['values'][0]+'</span>';
-                         html{{ coll_num }} +='<div class="product_price"><span class="money">RM'+value['variants'][0]['price']+'</span></div>';
-                         html{{ coll_num }} +='<form id="addToCartContainer" action="/cart/add" method="post" enctype="multipart/form-data" data-id="'+value['id']+'" class="addToCartForm product-actions-'+value['id']+'"><div class="cart-buttons" style="display:none"><input type="hidden" name="id" value="'+value['variants'][0]['id']+'"><button type="submit" name="minus" class="btn-remove-from-cart"><i class="fa fa-minus" aria-hidden="true"></i></button><input type="text" id="quantity" name="quantity" value="1" class="add-to-cart-quantity-cart" readonly=""><button type="submit" name="add" class="btn-add-to-cart"><i class="fa fa-plus" aria-hidden="true"></i></button></div><div class="single-add-to-cart-button" style=""> <input type="hidden" name="id" value="'+value['variants'][0]['id']+'"><button type="submit" name="add" class="btn btn-primary addToCart add-to-cart-btn homeaddtocart"><span class="addToCartText">Add to cart</span></button></div></form>';
-                          html{{ coll_num }} +='</div>';
-                       html{{ coll_num }} +='</div>';
-                     html{{ coll_num }} +='</div>';
-                   }); 
-                    
-                  $("#featured-slider_{{ coll_num }}").find(".slider-items").html(html{{ coll_num }});
-                  ajaxSuccess++;
-                }
-                  
-                  if(ajaxCall == ajaxSuccess) {
-                    InitCarousal();
-                    hideLoading();
-                  }
-                }
-              }); 
-            });   
-        
-            </script>
+          InitCarousal();
+          hideLoading();
+        });
+      </script>
       {% assign coll_num = coll_num | plus: 1 %}
     {% endif %}
   {% endfor %}
