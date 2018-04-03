@@ -1,0 +1,173 @@
+{% assign listing_cols = '1' %}
+{% assign image_size = 'original' %}
+{% assign display = false %}
+
+{% if cart.attributes.market == "Bayan Baru" and settings.display_hot_bundle_with_tabs-bayan_baru %}
+  {% assign display = true %}
+  {% assign handle = settings.hot-bundle_cat-bayan_baru %}
+  {% assign start_sale_date = settings.start_sale_date-bayan_baru %}
+  {% assign end_sale_date = settings.end_sale_date-bayan_baru %}
+  {% assign home_tab_title = settings.home-tab-title-bayan_baru %}
+  {% assign tab_one_header = settings.tab-one-header-bayan_baru %}
+  {% assign tab_two_header = settings.tab-two-header-bayan_baru %}
+  {% assign bundle_txt = settings.bundle-txt-bayan_baru %}
+  {% assign home_tab_one_category = settings.home-tab-one-category-bayan_baru %}
+  {% assign home_tab_two_category = settings.home-tab-two-category-bayan_baru %}
+{% elsif cart.attributes.market == "Chow Kit" and settings.display_hot_bundle_with_tabs-chow_kit %}
+  {% assign display = true %}
+  {% assign handle = settings.hot-bundle_cat-chow_kit %}
+  {% assign start_sale_date = settings.start_sale_date-chow_kit %}
+  {% assign end_sale_date = settings.end_sale_date-chow_kit %}
+  {% assign home_tab_title = settings.home-tab-title-chow_kit %}
+  {% assign tab_one_header = settings.tab-one-header-chow_kit %}
+  {% assign tab_two_header = settings.tab-two-header-chow_kit %}
+  {% assign bundle_txt = settings.bundle-txt-chow_kit %}
+  {% assign home_tab_one_category = settings.home-tab-one-category-chow_kit %}
+  {% assign home_tab_two_category = settings.home-tab-two-category-chow_kit %}
+{% elsif cart.attributes.market == "Serdang" and settings.display_hot_bundle_with_tabs-serdang %}
+  {% assign display = true %}
+  {% assign handle = settings.hot-bundle_cat-serdang %}
+  {% assign start_sale_date = settings.start_sale_date-serdang %}
+  {% assign end_sale_date = settings.end_sale_date-serdang %}
+  {% assign home_tab_title = settings.home-tab-title-serdang %}
+  {% assign tab_one_header = settings.tab-one-header-serdang %}
+  {% assign tab_two_header = settings.tab-two-header-serdang %}
+  {% assign bundle_txt = settings.bundle-txt-serdang %}
+  {% assign home_tab_one_category = settings.home-tab-one-category-serdang %}
+  {% assign home_tab_two_category = settings.home-tab-two-category-serdang %}
+{% endif %}
+
+{% if display == true %}
+  <div class="container">
+    <div class="row"> 
+      <!-- Start Hot Bundle Widget -->
+      <div class="col-md-4 col-xs-12 hot-deal">
+        <div class="widget widget__hot-product">  
+          <div class="widget_header"></div>
+          <div class="widget_content">
+            <div class="product-listing product-listing__hot-product">
+            <!-- Item -->
+            {% assign product = all_products[handle] %}
+            {% assign date_now = 'now' | date:'%Y/%m/%d' %}      
+              
+              <div class="item">
+                <div class="hot-label hot-top-left">Hot</div>
+                {% include 'product-grid-item' with 'listing_cols' with 'image_size' %}     
+                {% if start_sale_date != blank and end_sale_date != blank  %}
+                  <div class="box-timer">
+                    <div class="timer-grid countbox_1" data-time="{{ settings.end_sale_date }}">
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Hot Product Widget -->
+
+      <!-- Start Tab Section Widget -->
+      <div id="home-tab-section">    
+        <div class="home-tab col-md-8 column col-xs-12">
+          <div class="category-product">
+            <ul class="nav home-nav-tabs home-product-tabs">
+              <li> <div class="new_title center"> <h2><strong>{{ home_tab_title }}</h2> </strong></div> </li>  
+
+              <!-- Display the tabs that are not empty -->
+              {% if tab_one_header != blank %}
+                <li class="active"><a href="#home-tab-one" data-toggle="tab" aria-expanded="false">{{ tab_one_header }}</a></li> 
+              {% endif %}
+
+              {% if tab_two_header != blank %}
+                <li class=""> <a href="#home-tab-two" data-toggle="tab" aria-expanded="false">{{ tab_two_header }}</a> </li>
+              {% endif %} 
+              {% comment %} 
+              <!-- Bundle description --> 
+              <li>
+              <div class="bundle-description">
+              {{ settings.bundle-description }}
+              {{ settings.bundle-txt }}
+              <br  />
+              <p>
+              {{ settings.bundle-item-1 }}
+              <br  />
+              {{ settings.bundle-item-2 }}
+              <br  />
+              {{ settings.bundle-item-3 }}
+              </p>
+              </div>
+              </li>
+              <!-- End Bundle description -->
+              {% endcomment %}
+            </ul>
+            <div id="productTabContent" class="tab-content">
+              <div class="tab-pane fade active in" id="home-tab-one">
+                <div class="new_title left"> <h3>{{ bundle_txt }}</h3></div>
+                  <div class="best-seller-pro">
+                    {% if home_tab_one_category != blank %}
+                      <ul class="pdt-list products-grid">
+                        {% for product in collections[home_tab_one_category].products limit:4 %}
+                          {% if collections[home_tab_one_category].all_products_count == 1 %}
+                            <li class="item" style="width: 50% !important;">
+                          {% else %}
+                            <li class="item">
+                          {% endif %}     
+                            {% include 'product-grid-item' with 'listing_cols' with 'image_size' %}
+                            </li>         
+                        {% endfor %}
+                      </ul>
+                    {% endif %} 
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="home-tab-two">
+                  <div class="new-arrivals-products-pro">
+                    {% if home_tab_two_category != blank %}
+                      <ul class="pdt-list products-grid">
+                        {% for product in collections[home_tab_two_category].products limit:4 %}
+                          {% if collections[home_tab_two_category].all_products_count == 1 %}
+                            <li class="item" style="width: 50% !important;">
+                          {% else %}
+                            <li class="item">
+                          {% endif %}     
+                            {% include 'product-grid-item' with 'listing_cols' with 'image_size' %}
+                            </li>         
+                        {% endfor %}
+                      </ul> 
+                    {% endif %}
+                  </div>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- End Tab Section Widget -->
+    </div>
+  </div>
+{% endif %}
+
+<script type="text/javascript">
+ //countdown js filter
+jQuery('.timer-grid').each(function(){
+    var countTime=jQuery(this).attr('data-time');
+    jQuery(this).countdown(countTime,function(event){jQuery(this).html('<div id="box-discount" class="day box-time-date"><span class="number">{{ settings.hot_bundle_discount }}%</span>OFF!</div><div class="day box-time-date"><span class="number">'+event.strftime('%D')+' </span>days</div><div class="hour box-time-date"><span class="number">'+event.strftime('%H')+'</span>Hrs</div><div class="min box-time-date"><span class="number">'+event.strftime('%M')+'</span> MINS</div><div class="sec box-time-date"><span class="number">'+event.strftime('%S')+' </span>SEC</div>');});
+});
+
+jQuery(document).ready(function() {
+	jQuery(".tab_content_best-seller").hide();
+	jQuery(".tab_content_best-seller:first").show(); 
+
+	jQuery("ul.tabs-best-seller li").click(function() {
+		jQuery("ul.tabs-best-seller li").removeClass("active");
+		jQuery(this).addClass("active");
+		jQuery(".tab_content_best-seller").hide();
+		var activeTab = $jq(this).attr("rel"); 
+		jQuery("#"+activeTab).fadeIn(); 
+	});
+});
+
+window.onload = function() {
+  var bundle-2 = 10;
+  localStorage.setItem("bundle-number",bundle-2);
+}
+</script>
+
