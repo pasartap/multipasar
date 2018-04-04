@@ -2,6 +2,7 @@
   "current": {
     "order_minimum-bayan_baru": "30",
     "main_nav-bayan_baru": "main-menu-bayan-baru",
+    "promo_items_limit_bayan_baru": "1",
     "display_meal_kits_bayan_baru": true,
     "display_hot_bundle_with_tabs-bayan_baru": false,
     "hot-bundle_cat-bayan_baru":
@@ -107,6 +108,7 @@
     "home_right_banner1_link_bayan_baru": "#",
     "order_minimum-chow_kit": "30",
     "main_nav-chow_kit": "main-menu",
+    "promo_items_limit_chow_kit": "1",
     "display_meal_kits_chow_kit": true,
     "display_hot_bundle_with_tabs-chow_kit": true,
     "hot-bundle_cat-chow_kit": "chow-kit-ayam-segar-seekor-fresh-chicken-whole",
@@ -581,6 +583,7 @@
     "slide-four_button_link": "",
     "order_minimum-serdang": "30",
     "main_nav-serdang": "main-menu-serdang",
+    "promo_items_limit_serdang": "1",
     "display_feat_coll_serdang": true,
     "display_meal_kits_serdang": true,
     "display_hot_bundle_with_tabs-serdang": false,

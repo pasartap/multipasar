@@ -1163,7 +1163,7 @@ jQuery(document).ready(function() {
 
             // Remove links & buttons if line item is a max-1 product
             Shopify.getProduct(n.items[i].handle, function(product) {
-              if (product.tags.toLowerCase().indexOf("max-1") != -1) {
+              if (product.tags.indexOf("Max-1") != -1) {
                 var product_action_class = '.product-actions-' + product.id;              
                 
                 // Remove buttons in cart
@@ -1184,7 +1184,7 @@ jQuery(document).ready(function() {
             // Check if max-1 product quantity is more than 1
             if (n.items[i].quantity > 1) {
               Shopify.getProduct(n.items[i].handle, function(product) {
-                if (product.tags.toLowerCase().indexOf("max-1") != -1) {
+                if (product.tags.indexOf("Max-1") != -1) {
                   $("#max_1_check").val(product.title);
                 } 
               })

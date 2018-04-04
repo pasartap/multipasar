@@ -17,12 +17,6 @@
         "label": "Navigation handle"
       },
       {
-        "type": "text",
-        "id": "promo_items_limit_bayan_baru",
-        "label": "Promo items limit per cart",
-        "default": "1"
-      },
-      {
         "type": "header",
         "content": "Slider & Banners"
       },
@@ -1017,12 +1011,6 @@
         "type": "text",
         "id": "main_nav-chow_kit",
         "label": "Navigation handle"
-      },
-      {
-        "type": "text",
-        "id": "promo_items_limit_chow_kit",
-        "label": "Promo items limit per cart",
-        "default": "1"
       },
       {
         "type": "header",
@@ -2839,12 +2827,6 @@
         "type": "text",
         "id": "main_nav-serdang",
         "label": "Navigation handle"
-      },
-      {
-        "type": "text",
-        "id": "promo_items_limit_serdang",
-        "label": "Promo items limit per cart",
-        "default": "1"
       },
       {
         "type": "header",
