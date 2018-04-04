@@ -111,13 +111,21 @@ function toggleCheckoutButton () {
         $('.btn-checkout').removeAttr('disabled'); 
     } 
 
-    {% if settings.order_minimum != blank %}
-        var totalPrice  = parseFloat(document.querySelector('.money').innerHTML.replace('RM', ''));        
-        var order_minimum = parseFloat({{ settings.order_minimum }}).toFixed(2);
-
-        if (totalPrice < order_minimum) {
-            $('.btn-checkout').attr('disabled', 'disabled');   
-        } 
+    // Check if cart total has reached the order minimum
+    {% assign order_minimum = "0" %}
+    {% if cart.attributes.market == "Bayan Baru" and settings.order_minimum-bayan_baru != blank %}
+        {% assign order_minimum = settings.order_minimum-bayan_baru %}
+    {% elsif cart.attributes.market == "Chow Kit" and settings.order_minimum-chow_kit != blank %}
+        {% assign order_minimum = settings.order_minimum-chow_kit %}
+    {% elsif cart.attributes.market == "Serdang" and settings.order_minimum-serdang != blank %}
+        {% assign order_minimum = settings.order_minimum-serdang %}
     {% endif %}
+
+    var totalPrice  = parseFloat(document.querySelector('.money').innerHTML.replace('RM', ''));        
+    var order_minimum = parseFloat({{ order_minimum }}).toFixed(2);
+
+    if (totalPrice < order_minimum) {
+        $('.btn-checkout').attr('disabled', 'disabled');   
+    } 
 }
 </script>

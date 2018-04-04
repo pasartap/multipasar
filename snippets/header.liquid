@@ -299,14 +299,22 @@ jQuery(document).ready(function() {
           $('.btn-checkout').removeAttr('disabled'); 
         } 
 
-        {% if settings.order_minimum != blank %}
-          var totalPrice  = parseFloat(document.querySelector('.money').innerHTML.replace('RM', ''));        
-          var order_minimum = parseFloat({{ settings.order_minimum }}).toFixed(2);
-
-          if (totalPrice < order_minimum) {
-            $('.btn-checkout').attr('disabled', 'disabled');   
-          } 
+        // Check if cart total has reached the order minimum
+        {% assign order_minimum = "0" %}
+        {% if cart.attributes.market == "Bayan Baru" and settings.order_minimum-bayan_baru != blank %}
+            {% assign order_minimum = settings.order_minimum-bayan_baru %}
+        {% elsif cart.attributes.market == "Chow Kit" and settings.order_minimum-chow_kit != blank %}
+            {% assign order_minimum = settings.order_minimum-chow_kit %}
+        {% elsif cart.attributes.market == "Serdang" and settings.order_minimum-serdang != blank %}
+            {% assign order_minimum = settings.order_minimum-serdang %}
         {% endif %}
+
+        var totalPrice  = parseFloat(document.querySelector('.money').innerHTML.replace('RM', ''));        
+        var order_minimum = parseFloat({{ order_minimum }}).toFixed(2);
+
+        if (totalPrice < order_minimum) {
+          $('.btn-checkout').attr('disabled', 'disabled');   
+        } 
       },
       checkSpentAmount: function(n) {
         // hide spend notification
@@ -321,66 +329,64 @@ jQuery(document).ready(function() {
           $("#sticky-cart").find('.mm-panels').removeClass("has-spend-notification");
         }
 
-        {% if settings.order_minimum != blank %}
-          // show spend notification if total price less than order minimum
-          var order_minimum = {{ settings.order_minimum | times: 100 }};
-  				if (n.total_price > 0 && n.total_price < order_minimum) {
-  					var remaining_amount = parseFloat(order_minimum) - parseFloat(n.total_price);
-          	var amount = Shopify.formatMoney(remaining_amount, window.formatMoney);
-          	var order_minimum = Shopify.formatMoney(order_minimum ,window.formatMoney);
-          	var spend_text = '<p class="spend-notification-text">Spend <span class="remaining-amount money">' +  amount + '</span> more to reach the order minimum of <span class ="order-minimum money">' +  order_minimum + '</span></p>';
-          	e(".spend-notification").html(spend_text);
-          	e(".spend-notification").show();
-
-          	if ($("#sticky-cart").find('.spend-notification').length == 0 ) {
-          		$("#sticky-cart").find('.mm-navbar').after('<div class="spend-notification">' + spend_text + '</div>');
-         		}   	
-
-         		if ($("#sticky-cart").find('.mm-panels').hasClass("has-spend-notification")) {
-         		} else {
-         			$("#sticky-cart").find('.mm-panels').addClass("has-spend-notification");
-         		}
-
-         		if ($("#sticky-cart").find('.mm-panels').hasClass("no-spend-notification")) {
-         			$("#sticky-cart").find('.mm-panels').removeClass("no-spend-notification");
-         		}
-    	    }
-
-          t.applySpendRules(n);
-
+        // Check if cart total has reached the order minimum
+        {% assign order_minimum = "0" %}
+        {% if cart.attributes.market == "Bayan Baru" and settings.order_minimum-bayan_baru != blank %}
+            {% assign order_minimum = settings.order_minimum-bayan_baru %}
+        {% elsif cart.attributes.market == "Chow Kit" and settings.order_minimum-chow_kit != blank %}
+            {% assign order_minimum = settings.order_minimum-chow_kit %}
+        {% elsif cart.attributes.market == "Serdang" and settings.order_minimum-serdang != blank %}
+            {% assign order_minimum = settings.order_minimum-serdang %}
         {% endif %}
 
+        // show spend notification if total price less than order minimum
+        var order_minimum = {{ order_minimum | times: 100 }};
+        if (n.total_price > 0 && n.total_price < order_minimum) {
+          var remaining_amount = parseFloat(order_minimum) - parseFloat(n.total_price);
+          var amount = Shopify.formatMoney(remaining_amount, window.formatMoney);
+          order_minimum = Shopify.formatMoney(order_minimum ,window.formatMoney);
+          var spend_text = '<p class="spend-notification-text">Spend <span class="remaining-amount money">' +  amount + '</span> more to reach the order minimum of <span class ="order-minimum money">' +  order_minimum + '</span></p>';
+          e(".spend-notification").html(spend_text);
+          e(".spend-notification").show();
+
+          if ($("#sticky-cart").find('.spend-notification').length == 0 ) {
+            $("#sticky-cart").find('.mm-navbar').after('<div class="spend-notification">' + spend_text + '</div>');
+          }   	
+
+          if ($("#sticky-cart").find('.mm-panels').hasClass("has-spend-notification")) {
+          } else {
+            $("#sticky-cart").find('.mm-panels').addClass("has-spend-notification");
+          }
+
+          if ($("#sticky-cart").find('.mm-panels').hasClass("no-spend-notification")) {
+            $("#sticky-cart").find('.mm-panels').removeClass("no-spend-notification");
+          }
+        }
+
+        t.applySpendRules(n, order_minimum);
         t.toggleCheckoutButton();
 			},
-      applySpendRules: function(n) {
-        // spend rules
+      applySpendRules: function(n, order_minimum) {
+        // Spend rules
         {% assign tier_1_linklist = linklists[settings.tier_1_linklist_handle] %} 
         {% assign tier_2_linklist = linklists[settings.tier_2_linklist_handle] %} 
         {% assign tier_3_linklist = linklists[settings.tier_3_linklist_handle] %} 
 
-        {% if settings.enable_spend_rules == true and settings.order_minimum != blank %}
-
+        {% if settings.enable_spend_rules == true %}
           // Tier 1
-          {% if tier_1_linklist.links.size > 0  and settings.tier_1_target_amount != blank and settings.tier_1_text != blank %}
-            
-            t.applyTier(1, {{ settings.order_minimum }}, {{ settings.tier_1_target_amount }}, '{{ settings.tier_1_text }}', n);
-
+          {% if tier_1_linklist.links.size > 0  and settings.tier_1_target_amount != blank and settings.tier_1_text != blank %}     
+            t.applyTier(1, order_minimum, {{ settings.tier_1_target_amount }}, '{{ settings.tier_1_text }}', n);
           {% endif %}
 
           // Tier 2
-          {% if settings.tier_1_target_amount != blank and tier_2_linklist.links.size > 0  and settings.tier_2_target_amount != blank and settings.tier_2_text != blank %}
-            
+          {% if settings.tier_1_target_amount != blank and tier_2_linklist.links.size > 0  and settings.tier_2_target_amount != blank and settings.tier_2_text != blank %}           
             t.applyTier(2, {{ settings.tier_1_target_amount }}, {{ settings.tier_2_target_amount }}, '{{ settings.tier_2_text }}', n);
-
           {% endif %}
 
           // Tier 3
-          {% if settings.tier_2_target_amount != blank and tier_3_linklist.links.size > 0  and settings.tier_3_target_amount != blank and settings.tier_3_text != blank %}
-            
+          {% if settings.tier_2_target_amount != blank and tier_3_linklist.links.size > 0  and settings.tier_3_target_amount != blank and settings.tier_3_text != blank %}          
             t.applyTier(3, {{ settings.tier_2_target_amount }}, {{ settings.tier_3_target_amount }}, '{{ settings.tier_3_text }}', n);
-
           {% endif %}
-
         {% endif %}
       },
       applyTier: function(tier_number, lower_tier_amt, upper_tier_amt, free_product_text, n) {
