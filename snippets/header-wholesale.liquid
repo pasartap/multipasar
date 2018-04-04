@@ -560,7 +560,7 @@ jQuery(document).ready(function() {
 
             // Remove links & buttons if line item is a max-1 product
             Shopify.getProduct(n.items[i].handle, function(product) {
-              if (product.tags.indexOf("Max-1") != -1) {
+              if (product.tags.toLowerCase().indexOf("max-1") != -1) {
                 var product_action_class = '.product-actions-' + product.id;              
                 
                 // Remove buttons in cart

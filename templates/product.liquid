@@ -166,7 +166,7 @@
                         });
                       </script>
                     </div>{% endcomment %}
-                    <input type="number" min=1 id="quantity" name="quantity" value="1" style="{% if product.tags contains 'Max-1' %}display:none;{% endif %}">                   
+                    <input type="number" min=1 id="quantity" name="quantity" value="1" style="{% assign product_tags = product.tags | downcase %}{% if product_tags contains 'max-1' %}display:none;{% endif %}">                   
                     <button title="Add to Cart" type="submit" name="add" id="add-to-cart" value="Add to Cart" style="{% if product.tags contains 'Max-1' %}margin-left:0px;{% endif %}">
                       <span>Add to Cart</span>
                     </button>

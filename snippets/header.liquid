@@ -567,7 +567,8 @@ jQuery(document).ready(function() {
             // Get the product ids of max-1 products in the cart
             var max_1_product_ids = [];
             {% for item in cart.items %}
-              {% if item.product.tags contains "Max-1" %}
+              {% assign product_tags = item.product.tags | downcase %}
+              {% if product_tags contains "max-1" %}
                 max_1_product_ids.push({{ item.id }});
               {% endif %}
             {% endfor %}
@@ -579,6 +580,9 @@ jQuery(document).ready(function() {
                 $(product_page_class + ' #purchase #quantity').removeClass('disabled').removeAttr('disabled', 'disabled');
                 $(product_page_class + ' #purchase #add-to-cart').removeClass('disabled').removeAttr('disabled', 'disabled');
               }
+
+              // Reset max_1_check
+              $("#max_1_check").val(null);
             }
 
 					  /* Plus button in cart event handler */
@@ -691,7 +695,8 @@ jQuery(document).ready(function() {
             // Get the product ids of max-1 products in the cart
             var max_1_product_ids = [];
             {% for item in cart.items %}
-              {% if item.product.tags contains "Max-1" %}
+              {% assign product_tags = item.product.tags | downcase %}
+              {% if product_tags contains "max-1" %}
                 max_1_product_ids.push({{ item.id }});
               {% endif %}
             {% endfor %}
@@ -703,6 +708,9 @@ jQuery(document).ready(function() {
                 $(product_page_class + ' #purchase #quantity').removeClass('disabled').removeAttr('disabled', 'disabled');
                 $(product_page_class + ' #purchase #add-to-cart').removeClass('disabled').removeAttr('disabled', 'disabled');
               }
+
+              // Reset max_1_check
+              $("#max_1_check").val(null);
             }				
 					})
 				})
@@ -913,11 +921,25 @@ jQuery(document).ready(function() {
 								t.doAjaxUpdateCart(s, quantity, u, a);
 								
 								if (quantity < 1) {
-						          	e(this).parent().hide();
-							  		e(this).closest('form').find('.single-add-to-cart-button').show();
-						        } else {
-						        	e(".product-actions-" + i + " input[name=quantity]").val(quantity);
-						        }
+                  e(this).parent().hide();
+                  e(this).closest('form').find('.single-add-to-cart-button').show();
+                } else {
+                  e(".product-actions-" + i + " input[name=quantity]").val(quantity);
+                }
+
+                // Get the product ids of max-1 products in the cart
+                var max_1_product_ids = [];
+                {% for item in cart.items %}
+                  {% assign product_tags = item.product.tags | downcase %}
+                  {% if product_tags contains "max-1" %}
+                    max_1_product_ids.push({{ item.id }});
+                  {% endif %}
+                {% endfor %}
+
+                if (quantity <= 1 && max_1_product_ids.length == 0 || !$.inArray(i, max_1_product_ids) != -1) {
+                  // Reset max_1_check
+                  $("#max_1_check").val(null);
+                }     
 							}						
 						}
 						return false;
@@ -964,6 +986,21 @@ jQuery(document).ready(function() {
 						return false;
 					})
 				}  
+
+        /* Checkout button event handler */
+        if (e(".btn-checkout").length > 0) {
+          e(".btn-checkout").click(function(n) {
+            n.preventDefault();
+            // Check for max-1 product
+            var max_1_check = $("#max_1_check").val();
+            if (max_1_check) {
+              alert('You added more than 1 item of ' +  max_1_check + ' to your cart. You may only add 1 item of the promotional product.');
+              return false;
+            }
+
+            $("#cart-form").submit();
+          })
+        }  
 			},
 			showLoading: function() {
 				e(".loading-modal").show()
@@ -1120,7 +1157,7 @@ jQuery(document).ready(function() {
 
             // Remove links & buttons if line item is a max-1 product
             Shopify.getProduct(n.items[i].handle, function(product) {
-              if (product.tags.indexOf("Max-1") != -1) {
+              if (product.tags.toLowerCase().indexOf("max-1") != -1) {
                 var product_action_class = '.product-actions-' + product.id;              
                 
                 // Remove buttons in cart
@@ -1137,6 +1174,15 @@ jQuery(document).ready(function() {
                 $(product_action_class + ' .cart-buttons .btn-add-to-cart').attr('disabled', 'disabled');
               }
             })
+
+            // Check if max-1 product quantity is more than 1
+            if (n.items[i].quantity > 1) {
+              Shopify.getProduct(n.items[i].handle, function(product) {
+                if (product.tags.toLowerCase().indexOf("max-1") != -1) {
+                  $("#max_1_check").val(product.title);
+                } 
+              })
+            }
 					}
 				}
 
