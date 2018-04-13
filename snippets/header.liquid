@@ -1026,7 +1026,7 @@ jQuery(document).ready(function() {
                 url: '/cart.js',
                 data: {"attributes[delivery_time]": delivery_time}, /* We are using an attribute named "delivery_time" */
                 success: function(d){
-                  console.log(delivery_time + ' assigned as cart.attributes.market.');
+                  console.log(delivery_time + ' assigned as cart.attributes.delivery_time.');
                 },
                 dataType: 'json'
               });
