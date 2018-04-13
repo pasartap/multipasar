@@ -1004,6 +1004,34 @@ jQuery(document).ready(function() {
               return false;
             }
 
+            {% if cart.attributes.delivery_date == blank %}
+              let delivery_date = $("input[name='attributes[delivery_date]']").val();
+              /* Send the value as a cart attribute via the AJAX API */
+              $.ajax({
+                type: "POST",
+                url: '/cart.js',
+                data: {"attributes[delivery_date]": delivery_date}, /* We are using an attribute named "delivery_date" */
+                success: function(d){
+                  console.log(delivery_date + ' assigned as cart.attributes.delivery_date.');
+                },
+                dataType: 'json'
+              });
+            {% endif %}
+
+            {% if cart.attributes.delivery_time == blank %}
+              let delivery_time = $("select[name='attributes[delivery_time]']").val();
+              /* Send the value as a cart attribute via the AJAX API */
+              $.ajax({
+                type: "POST",
+                url: '/cart.js',
+                data: {"attributes[delivery_time]": delivery_time}, /* We are using an attribute named "delivery_time" */
+                success: function(d){
+                  console.log(delivery_time + ' assigned as cart.attributes.market.');
+                },
+                dataType: 'json'
+              });
+            {% endif %}
+
             $("#cart-form").submit();
           })
         }  
