@@ -20,8 +20,9 @@
 
     {% if cart.attributes.market == "Bayan Baru" and settings.main_nav-bayan_baru != blank %}
       {% assign menu_handle = settings.main_nav-bayan_baru %}
+    {% elsif cart.attributes.market == "Chow Kit" and settings.main_nav-chow_kit != blank %}
+      {% assign menu_handle = settings.main_nav-chow_kit %}
     {% elsif cart.attributes.market == "Serdang" and settings.main_nav-serdang != blank %}
-      {% assign menu_handle = settings.main_nav-serdang %}
     {% endif %}
     
     {% for link in linklists[menu_handle].links %}

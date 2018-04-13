@@ -628,7 +628,7 @@
             if (postcode != '') {
                 $.ajax({
                     data    : {
-                        shop_id: "1"
+                        shop_id: window.location.href.indexOf('dev') != -1 ? 0 : 1,
                     },
                     dataType: "json",
                     success : function(response) {
@@ -674,7 +674,7 @@
             {% comment %} if (tag != '') {
                 $.ajax({
                     data    : {
-                        shop_id: "1"
+                        shop_id: window.location.href.indexOf('dev') != -1 ? 0 : 1
                     },
                     dataType: "json",
                     success : function (response) {

@@ -33,7 +33,7 @@ $(document).ready(function(){
         url: 'https://pt-deliveries.herokuapp.com/api/timeslots',
         type: "GET",
         data: {
-                shop_id: 1,
+                shop_id: window.location.href.indexOf('dev') != -1 ? 0 : 1,
                 market_id: market_id,
                 time: currentTime
             },
@@ -73,7 +73,7 @@ function initDatePicker(response){
                 url: appurl + day,
                 type: "GET",
                 data: { 
-                        shop_id: 1,
+                        shop_id: window.location.href.indexOf('dev') != -1 ? 0 : 1,
                         market_id: $.cookie('PasarStoreId'),
                         date: date
                     },
