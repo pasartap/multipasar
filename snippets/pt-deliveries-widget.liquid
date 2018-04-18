@@ -14,7 +14,6 @@
 /* Datepicker initialization */
 /* ------------------------- */
 // Set query parameters 
-var market_id = $.cookie("PasarStoreId");
 var currentDate = new Date();
 var currentHours = currentDate.getHours().toString();
 var currentMinutes = currentDate.getMinutes().toString();
@@ -34,7 +33,7 @@ $(document).ready(function(){
         type: "GET",
         data: {
                 shop_id: window.location.href.indexOf('dev') != -1 ? 0 : 1,
-                market_id: market_id,
+                market_id: window.location.href.indexOf('dev') != -1 ? $.cookie("DevPasarStoreId") : $.cookie("PasarStoreId"),
                 time: currentTime
             },
         dataType: "json",
@@ -74,7 +73,7 @@ function initDatePicker(response){
                 type: "GET",
                 data: { 
                         shop_id: window.location.href.indexOf('dev') != -1 ? 0 : 1,
-                        market_id: $.cookie('PasarStoreId'),
+                        market_id: window.location.href.indexOf('dev') != -1 ? $.cookie("DevPasarStoreId") : $.cookie("PasarStoreId"),
                         date: date
                     },
                 dataType: "json",

@@ -66,6 +66,7 @@ $(document).ready(function(){
     var cartitm = $("#cart-count").text();    
     var markgetstore = $(this).text();
     var marketid = $(this).attr("data-id");
+    var cookieName = window.location.href.indexOf('dev') != -1 ? "DevPasarStoreId" : "PasarStoreId";
     
     if (markgetstore == $.cookie('PasarStoreName')) {
       $('#myModal').modal('toggle');
@@ -80,7 +81,7 @@ $(document).ready(function(){
           url: '/cart/clear.js',
           success: function(){
             $.cookie("PasarStoreName", markgetstore,{ path: '/' });    
-            $.cookie("PasarStoreId", marketid,{ path: '/' });   
+            $.cookie(cookieName, marketid,{ path: '/' });   
 
             /* Send the value as a cart attribute via the AJAX API */
             $.ajax({
@@ -104,7 +105,7 @@ $(document).ready(function(){
       }
     } else {
       $.cookie("PasarStoreName", markgetstore,{ path: '/' });
-      $.cookie("PasarStoreId", marketid,{ path: '/' });
+      $.cookie(cookieName, marketid,{ path: '/' });
       
       /* Send the value as a cart attribute via the AJAX API */
       $.ajax({

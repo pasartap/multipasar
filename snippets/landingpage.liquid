@@ -535,9 +535,11 @@
         showLoading();
         $(document).on("click", ".manualstore li", function () {
             var url = window.location.href;
+            var cookieName = url.indexOf('dev') != -1 ? "DevPasarStoreId" : "PasarStoreId"
+
             if (!$(this).parent("ul").hasClass("withemptycart")) {
                 $.cookie("PasarStoreName", $(this).text());
-                $.cookie("PasarStoreId", $(this).attr("data-id"));
+                $.cookie(cookieName, $(this).attr("data-id"));
                 
                 /* Send the value as a cart attribute via the AJAX API */
                 $.ajax({
