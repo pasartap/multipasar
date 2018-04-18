@@ -494,7 +494,7 @@
     "display_feat_coll_serdang": true,
     "feat_coll_serdang": "deals,meat,poultry,fish-seafood,vegetables-ulam,fruits,cooking-ingredients,spices,noodles-beancurd-cooking-supplements,fruit-vegetables-juices",
     "display_meal_kits_serdang": false,
-    "enable_spend_rules": true,
+    "enable_spend_rules": false,
     "tier_1_target_amount": "50",
     "tier_1_linklist_handle": "free-product-4",
     "tier_1_text": "to get a <strong>FREE whole chicken!<\/strong>",
