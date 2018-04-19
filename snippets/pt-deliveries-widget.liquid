@@ -27,21 +27,24 @@ if (currentMinutes < 10) {
 var currentTime = currentHours + currentMinutes;
 
 $(document).ready(function(){
+
     // Get timeslots
-    $.ajax({
-        url: 'https://pt-deliveries.herokuapp.com/api/timeslots',
-        type: "GET",
-        data: {
-                shop_id: window.location.href.indexOf('dev') != -1 ? 0 : 1,
-                market_name: $.cookie("PasarStoreName"),
-                time: currentTime
-            },
-        dataType: "json",
-        success: function(response) {
-            initDatePicker(response); 
-            loadTimeslots(response.timeslots);
-        }  
-    });
+    if ($.cookie("PasarStoreName")) {
+        $.ajax({
+            url: 'https://pt-deliveries.herokuapp.com/api/timeslots',
+            type: "GET",
+            data: {
+                    shop_id: window.location.href.indexOf('dev') != -1 ? 0 : 1,
+                    market_name: $.cookie("PasarStoreName"),
+                    time: currentTime
+                },
+            dataType: "json",
+            success: function(response) {
+                initDatePicker(response); 
+                loadTimeslots(response.timeslots);
+            }  
+        });
+    }  
 
     // Toggle checkout button enablement when timeslot is changed
     $('.pt-time').change(function(){
