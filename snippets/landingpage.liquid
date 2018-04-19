@@ -748,7 +748,8 @@
 
         var date = now.getFullYear() + '-' + month + '-' + now.getDate();
         var formattedDateTime = date + "/" + hours + minutes;
-
+        var shop_id = window.location.href.indexOf('dev') != -1 ? "0" : "1";
+        
         $.ajax({
             dataType: "json",
             success : function (response) {
@@ -776,7 +777,7 @@
                 $(".manualstore").html(storelist);
             },
             type    : "GET",
-            url     : "https://pt-deliveries.herokuapp.com/api/markets/1"
+            url     : "https://pt-deliveries.herokuapp.com/api/markets/" + shop_id
         });
 
         if ($.cookie('PasarStoreName') == undefined) {
