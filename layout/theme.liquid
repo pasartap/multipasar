@@ -337,17 +337,18 @@
     hideLoading();  
     
     {% if cart.attributes.market == blank %}
-      $("input[name='attributes[market]']").val($.cookie('PasarStoreName'));
       /* Send the value as a cart attribute via the AJAX API */
-      $.ajax({
-        type: "POST",
-        url: '/cart.js',
-        data: {"attributes[market]": $.cookie('PasarStoreName')}, /* We are using an attribute named "market" */
-        success: function(d){
-          console.log($.cookie('PasarStoreName') + ' assigned as cart.attributes.market.');
-        },
-        dataType: 'json'
-      });
+      if ($.cookie('PasarStoreName')) {
+        $.ajax({
+          type: "POST",
+          url: '/cart.js',
+          data: {"attributes[market]": $.cookie('PasarStoreName')}, /* We are using an attribute named "market" */
+          success: function(d){
+            console.log($.cookie('PasarStoreName') + ' assigned as cart.attributes.market.');
+          },
+          dataType: 'json'
+        });
+      }
     {% endif %}
 
     $(document).on("click",".homeaddtocart",function(e){

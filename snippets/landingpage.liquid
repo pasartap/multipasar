@@ -542,20 +542,22 @@
                 $.cookie(cookieName, $(this).attr("data-id"));
                 
                 /* Send the value as a cart attribute via the AJAX API */
-                $.ajax({
-                    type: "POST",
-                    url: '/cart.js',
-                    data: { "attributes[market]": $(this).text() }, /* We are using an attribute named "market" */
-                    success: function(d){
-                        /* 
-                        On sucess, reload the page.  
-                        Warning: If you have scripts on the page that auto trigger the change even the page may reload forever.
-                        If you do, be sure to add code to account for that.
-                        */
-                        window.location.href= url;
-                    },
-                    dataType: 'json'
-                });
+                if ($(this).text()) {
+                    $.ajax({
+                        type: "POST",
+                        url: '/cart.js',
+                        data: { "attributes[market]": $(this).text() }, /* We are using an attribute named "market" */
+                        success: function(d){
+                            /* 
+                            On sucess, reload the page.  
+                            Warning: If you have scripts on the page that auto trigger the change even the page may reload forever.
+                            If you do, be sure to add code to account for that.
+                            */
+                            window.location.href= url;
+                        },
+                        dataType: 'json'
+                    });
+                }             
             }
         });
         $(document).on("click", ".getlocation", function () {
