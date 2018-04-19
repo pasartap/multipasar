@@ -173,8 +173,8 @@
         				      {% endcomment %}
         				      <div class="cart_instructions" style="padding:0 10px">
         					      <h3>Add instructions</h3>
-        					      <textarea class="form-control" rows="1" id="cart-note" name="note">{{ cart.note }}</textarea>
-                                <input type="hidden" name="attributes[Market]" value="{{keyAndValue}}">
+        					      <textarea class="form-control" rows="1" id="cart-note" name="attributes[note]">{{ cart.note }}</textarea>
+                        <input type="hidden" name="attributes[market]" value="{{keyAndValue}}">
         				      </div>
                       <div class="actions" style="padding:0 10px">
                         <button class="btn btn-checkout" style="width:100%;margin-bottom:10px;" type="submit" id="checkout" disabled="disabled">Checkout</button>
