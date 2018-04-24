@@ -60,24 +60,37 @@ function initDatePicker(response){
         maxDate: 21,
         firstDay: 1 ,
         beforeShowDay: function(date){
-        var dayId = date.getDay();
-        var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
-        return [ response.blackout_days.indexOf(dateString) == -1 && response.inactive_days.indexOf(dayId) == -1 ]    
-        }, 
+            var dayId = date.getDay();
+            var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [ response.blackout_days.indexOf(dateString) == -1 && response.inactive_days.indexOf(dayId) == -1 ]    
+        },
         onSelect: function(dateText, inst) {  
             // Get timeslots
             var appurl = 'https://pt-deliveries.herokuapp.com/api/timeslots/';
             var date = $.datepicker.parseDate(inst.settings.dateFormat || $.datepicker._defaults.dateFormat, dateText, inst.settings);
             var day = $.datepicker.formatDate("DD", date, inst.settings);
-            var date = $.datepicker.formatDate("y-mm-dd", date, inst.settings);       
+            var date = $.datepicker.formatDate("y-mm-dd", date, inst.settings);  
             
+            let currentDate = new Date();
+            let currentHours = currentDate.getHours().toString();
+            let currentMinutes = currentDate.getMinutes().toString();
+
+            if (currentHours < 10) {
+                currentHours = '0' + currentHours;
+            }
+            if (currentMinutes < 10) {
+                currentMinutes = '0' + currentMinutes;
+            }
+            let currentTime = currentHours + currentMinutes;  
+
             $.ajax({
                 url: appurl + day,
                 type: "GET",
                 data: { 
                         shop_id: window.location.href.indexOf('dev') != -1 ? 0 : 1,
                         market_name: $.cookie("PasarStoreName"),
-                        date: date
+                        date: date,
+                        time: currentTime
                     },
                 dataType: "json",
                 success: function(response) {
