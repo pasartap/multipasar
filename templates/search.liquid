@@ -48,9 +48,27 @@ selectors inside search.css.
         <p class="alert alert-error">Your search did not yield any results.</p>
       {% else %}
         <ul class="search-results grid-uniform">
-          {% assign listing_cols = settings.collection_listing_cols %}         
+          {% assign listing_cols = settings.collection_listing_cols %} 
+          {% assign count = 0 %}
+
           {% for product in search.results %} 
-            {% include 'product-grid-item' %}
+            {% assign show = false %}
+            {% assign product_tags = product.tags | downcase %}
+            {% assign customer_tags = customer.tags | downcase %}
+            {% assign market = cart.attributes.market | downcase %}
+
+            {% if customer and customer_tags contains 'wholesale' and product_tags contains 'wholesale' %}
+              {% assign show = true %}
+            {% endif %}   
+
+            {% if product_tags contains market %}
+              {% assign show = true %}
+            {% endif %}   
+
+            {% if show %}
+              {% include 'product-grid-item' %}
+              {% assign count = count | plus: 1 %}
+            {% endif %}
           {% endfor %}
         </ul>
       {% endif %}    
@@ -69,38 +87,39 @@ selectors inside search.css.
 
 </div>
 <script type="text/javascript">
-$('.product_title').each(function() {
-  var product_title = $(this).html();
-  var term = $('.search-result-highlight').html();
+  $('.product_title').each(function() {
+    var product_title = $(this).html();
+    var term = $('.search-result-highlight').html();
 
-  if (term.indexOf(',') !== -1) {
-      var terms = term.split(',');
-      for (var i = 0; i < terms.length; i++) {
-          var trimmed_term = terms[i].trim();
-          if (trimmed_term != '') {
-              var reg = new RegExp('('+ trimmed_term + ')', 'gi');
-              product_title = product_title.replace(reg, '<span class="search-highlight">$1</span>');
-          }
-      }
-  } else if (term.indexOf(' ') !== -1) {
-      var terms = term.split(' ');
-      for (var i = 0; i < terms.length; i++) {
-          var trimmed_term = terms[i].trim();
-          if (trimmed_term != '') {
-              var reg = new RegExp('('+ trimmed_term + ')', 'gi');
-              product_title = product_title.replace(reg, '<span class="search-highlight">$1</span>');
-          }
-      }
-  } else {
-      var reg = new RegExp('('+ term + ')', 'gi');
-      product_title = product_title.replace(reg, '<span class="search-highlight">$1</span>');
-  }
+    if (term.indexOf(',') !== -1) {
+        var terms = term.split(',');
+        for (var i = 0; i < terms.length; i++) {
+            var trimmed_term = terms[i].trim();
+            if (trimmed_term != '') {
+                var reg = new RegExp('('+ trimmed_term + ')', 'gi');
+                product_title = product_title.replace(reg, '<span class="search-highlight">$1</span>');
+            }
+        }
+    } else if (term.indexOf(' ') !== -1) {
+        var terms = term.split(' ');
+        for (var i = 0; i < terms.length; i++) {
+            var trimmed_term = terms[i].trim();
+            if (trimmed_term != '') {
+                var reg = new RegExp('('+ trimmed_term + ')', 'gi');
+                product_title = product_title.replace(reg, '<span class="search-highlight">$1</span>');
+            }
+        }
+    } else {
+        var reg = new RegExp('('+ term + ')', 'gi');
+        product_title = product_title.replace(reg, '<span class="search-highlight">$1</span>');
+    }
 
-  $(this).html(product_title);
-});
+    $(this).html(product_title);
+    $('.search-result-count .search-result-highlight').html('{{ count }}');
+  });
 
-var market = $.cookie("PasarStoreName").toLowerCase();
-var html = $('.search-result-title span').html();
-html = html.replace(' ' + market, '');
-$('.search-result-title span').html(html);
+  var market = $.cookie("PasarStoreName").toLowerCase();
+  var html = $('.search-result-title span').html();
+  html = html.replace(' ' + market, '');
+  $('.search-result-title span').html(html);
 </script>
