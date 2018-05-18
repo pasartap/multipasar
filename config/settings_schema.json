@@ -13,6 +13,12 @@
       },
       {
         "type": "text",
+        "id": "slot1-cutoff-time-bayan_baru",
+        "label": "Cutoff time for Slot 1",
+        "info": "Value should be in 24-hr format with no separator. Example: 9:00PM = 2100"
+      },
+      {
+        "type": "text",
         "id": "main_nav-bayan_baru",
         "label": "Navigation handle"
       },
@@ -1006,6 +1012,12 @@
         "type": "text",
         "id": "order_minimum-chow_kit",
         "label": "Order minimum"
+      },
+      {
+        "type": "text",
+        "id": "slot1-cutoff-time-chow_kit",
+        "label": "Cutoff time for Slot 1",
+        "info": "Value should be in 24-hr format with no separator. Example: 9:00PM = 2100"
       },
       {
         "type": "text",
@@ -2822,6 +2834,12 @@
         "type": "text",
         "id": "order_minimum-serdang",
         "label": "Order minimum"
+      },
+      {
+        "type": "text",
+        "id": "slot1-cutoff-time-serdang",
+        "label": "Cutoff time for Slot 1",
+        "info": "Value should be in 24-hr format with no separator. Example: 9:00PM = 2100"
       },
       {
         "type": "text",

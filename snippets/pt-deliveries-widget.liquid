@@ -93,8 +93,24 @@ function initDatePicker(response){
                         time: currentTime
                     },
                 dataType: "json",
-                success: function(response) {
-                    loadTimeslots(response);
+                success: function(response) {   
+                    let today = moment(new Date()).format("YY-MM-DD"); 
+                    let tomorrow  = moment(new Date()).add(1,'days').format("YY-MM-DD"); 
+                    let cutoffTime = '2100';
+
+                    {% if cart.attributes.market == "Bayan Baru" and settings.slot1-cutoff-time-bayan_baru != blank %}
+                        cutoffTime = {{ settings.slot1-cutoff-time-bayan_baru }}
+                    {% elsif cart.attributes.market == "Chow Kit" and settings.slot1-cutoff-time-chow_kit != blank %}
+                        cutoffTime = {{ settings.slot1-cutoff-time-chow_kit }}
+                    {% elsif cart.attributes.market == "Serdang" and settings.slot1-cutoff-time-serdang != blank %}
+                        cutoffTime = {{ settings.slot1-cutoff-time-serdang }}
+                    {% endif %}
+                    
+                    if ((currentTime < '1000' && date == today) || (currentTime > cutoffTime && date == tomorrow)) {
+                        response.splice(0, 1);
+                    }
+
+                    loadTimeslots(response, currentTime, date);
                 }
             });
         }
@@ -106,7 +122,7 @@ function initDatePicker(response){
     });
 }
 
-function loadTimeslots (timeslots) {
+function loadTimeslots (timeslots, currentTime, selectedDate) {
     $(".pt-time").hide();
     $(".pt-time option").remove();
     $(".pt-time").append("<option >Timeslot</option>" );
@@ -116,7 +132,7 @@ function loadTimeslots (timeslots) {
     });
     
     $(".pt-time").show();
-    $('.btn-checkout').attr('disabled', 'disabled');   
+    $('.btn-checkout').attr('disabled', 'disabled'); 
 }
 
 function toggleCheckoutButton () {

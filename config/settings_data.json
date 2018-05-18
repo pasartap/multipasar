@@ -1,6 +1,7 @@
 {
   "current": {
     "order_minimum-bayan_baru": "30",
+    "slot1-cutoff-time-bayan_baru": "",
     "main_nav-bayan_baru": "main-menu-bayan-baru",
     "display_home_slider1_bayan_baru": true,
     "slide_1_caption_line2_bayan_baru": "",
@@ -146,6 +147,7 @@
     "feat_coll_header_button_icon_color": "#dcdcdc",
     "feat_coll_header_button_hover_color": "#50a746",
     "order_minimum-chow_kit": "30",
+    "slot1-cutoff-time-chow_kit": "2100",
     "main_nav-chow_kit": "main-menu-chow-kit",
     "display_home_slider1_chow_kit": true,
     "slide_1_caption_line2_chow_kit": "",
@@ -394,6 +396,7 @@
     "order_minimum_wholesale": "150",
     "wholesale_time_slots": "11AM - 5PM,5PM - 10PM,,",
     "order_minimum-serdang": "30",
+    "slot1-cutoff-time-serdang": "2100",
     "main_nav-serdang": "main-menu-serdang",
     "display_home_slider1_serdang": true,
     "slide_1_caption_line2_serdang": "",
