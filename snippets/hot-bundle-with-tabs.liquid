@@ -35,6 +35,17 @@
   {% assign bundle_txt = settings.bundle-txt-serdang %}
   {% assign home_tab_one_category = settings.home-tab-one-category-serdang %}
   {% assign home_tab_two_category = settings.home-tab-two-category-serdang %}
+{% elsif cart.attributes.market == "Meru" and settings.display_hot_bundle_with_tabs-meru %}
+  {% assign display = true %}
+  {% assign handle = settings.hot-bundle_cat-meru %}
+  {% assign start_sale_date = settings.start_sale_date-meru %}
+  {% assign end_sale_date = settings.end_sale_date-meru %}
+  {% assign home_tab_title = settings.home-tab-title-meru %}
+  {% assign tab_one_header = settings.tab-one-header-meru %}
+  {% assign tab_two_header = settings.tab-two-header-meru %}
+  {% assign bundle_txt = settings.bundle-txt-meru %}
+  {% assign home_tab_one_category = settings.home-tab-one-category-meru %}
+  {% assign home_tab_two_category = settings.home-tab-two-category-meru %}
 {% endif %}
 
 {% if display == true %}

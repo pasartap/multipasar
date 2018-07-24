@@ -104,6 +104,8 @@ function initDatePicker(response){
                         cutoffTime = {{ settings.slot1-cutoff-time-chow_kit }}
                     {% elsif cart.attributes.market == "Serdang" and settings.slot1-cutoff-time-serdang != blank %}
                         cutoffTime = {{ settings.slot1-cutoff-time-serdang }}
+                    {% elsif cart.attributes.market == "Meru" and settings.slot1-cutoff-time-meru != blank %}
+                        cutoffTime = {{ settings.slot1-cutoff-time-meru }}
                     {% endif %}
                     
                     if ((currentTime < '1000' && date == today) || (currentTime > cutoffTime && date == tomorrow)) {
@@ -150,6 +152,8 @@ function toggleCheckoutButton () {
         {% assign order_minimum = settings.order_minimum-chow_kit %}
     {% elsif cart.attributes.market == "Serdang" and settings.order_minimum-serdang != blank %}
         {% assign order_minimum = settings.order_minimum-serdang %}
+    {% elsif cart.attributes.market == "Meru" and settings.order_minimum-meru != blank %}
+        {% assign order_minimum = settings.order_minimum-meru %}
     {% endif %}
 
     var totalPrice  = parseFloat(document.querySelector('.money').innerHTML.replace('RM', ''));        

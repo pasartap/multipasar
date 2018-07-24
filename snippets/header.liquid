@@ -306,6 +306,8 @@ jQuery(document).ready(function() {
             {% assign order_minimum = settings.order_minimum-chow_kit %}
         {% elsif cart.attributes.market == "Serdang" and settings.order_minimum-serdang != blank %}
             {% assign order_minimum = settings.order_minimum-serdang %}
+        {% elsif cart.attributes.market == "Meru" and settings.order_minimum-meru != blank %}
+            {% assign order_minimum = settings.order_minimum-meru %}
         {% endif %}
 
         var totalPrice  = parseFloat(document.querySelector('.money').innerHTML.replace('RM', ''));        
@@ -334,8 +336,10 @@ jQuery(document).ready(function() {
             {% assign order_minimum = settings.order_minimum-bayan_baru %}
         {% elsif cart.attributes.market == "Chow Kit" and settings.order_minimum-chow_kit != blank %}
             {% assign order_minimum = settings.order_minimum-chow_kit %}
-        {% elsif cart.attributes.market == "Serdang" and settings.order_minimum-serdang != blank %}
+        {% elsif cart.attributes.market == "" and settings.order_minimum-serdang != blank %}
             {% assign order_minimum = settings.order_minimum-serdang %}
+        {% elsif cart.attributes.market == "Meru" and settings.order_minimum-meru != blank %}
+            {% assign order_minimum = settings.order_minimum-meru %}
         {% endif %}
 
         // show spend notification if total price less than order minimum

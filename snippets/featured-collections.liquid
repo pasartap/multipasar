@@ -9,6 +9,8 @@
   {% assign featured_collections = settings.feat_coll_chow_kit | split:"," %}
 {% elsif cart.attributes.market == "Serdang" and settings.display_feat_coll_serdang and settings.feat_coll_serdang != blank %}
   {% assign featured_collections = settings.feat_coll_serdang | split:"," %}
+{% elsif cart.attributes.market == "Meru" and settings.display_feat_coll_meru and settings.feat_coll_meru != blank %}
+  {% assign featured_collections = settings.feat_coll_meru | split:"," %}
 {% endif %}
 
 {% if settings.display_featured_collections == true and featured_collections.size > 0 %}

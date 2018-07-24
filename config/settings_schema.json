@@ -2579,6 +2579,678 @@
     ]
   },
   {
+    "name": "Meru",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Navigation"
+      },
+      {
+        "type": "text",
+        "id": "order_minimum-meru",
+        "label": "Order minimum"
+      },
+      {
+        "type": "text",
+        "id": "slot1-cutoff-time-meru",
+        "label": "Cutoff time for Slot 1",
+        "info": "Value should be in 24-hr format with no separator. Example: 9:00PM = 2100"
+      },
+      {
+        "type": "text",
+        "id": "main_nav-meru",
+        "label": "Navigation handle"
+      },
+      {
+        "type": "header",
+        "content": "Slider & Banners"
+      },
+      {
+        "type": "header",
+        "content": "Slide 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider1_meru",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_1_image_meru.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_line2_meru",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide1_small_caption_color_meru",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_line1_meru",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide1_large_caption_color_meru",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_caption_text_meru",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide1_normal_text_color_meru",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide1_button_display_meru",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide1_button1_text_meru",
+        "label": "Button 1"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_border_meru",
+        "label": "Button 1 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_text_color_meru",
+        "label": "Button 1 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_bgcolor_meru",
+        "label": "Button 1 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide1_button1_bghover_meru",
+        "label": "Button 1 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide1_button1_link_meru",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider2_meru",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_2_image_meru.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_line2_meru",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide2_small_caption_color_meru",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_line1_meru",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide2_large_caption_color_meru",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_caption_text_meru",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide2_normal_text_color_meru",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide2_button_display_meru",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide2_button2_text_meru",
+        "label": "Button 2"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_border_meru",
+        "label": "Button 2 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_text_color_meru",
+        "label": "Button 2 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_bgcolor_meru",
+        "label": "Button 2 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide2_button2_bghover_meru",
+        "label": "Button 2 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide2_button2_link_meru",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider3_meru",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_3_image_meru.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_line2_meru",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide3_small_caption_color_meru",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_line1_meru",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide3_large_caption_color_meru",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_caption_text_meru",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide3_normal_text_color_meru",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide3_button_display_meru",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide3_button3_text_meru",
+        "label": "Button 3"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_border_meru",
+        "label": "Button 3 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_text_color_meru",
+        "label": "Button 3 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_bgcolor_meru",
+        "label": "Button 3 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide3_button3_bghover_meru",
+        "label": "Button 3 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide3_button3_link_meru",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Slide 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_slider4_meru",
+        "label": "Enable slide:",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slide_4_image_meru.jpg",
+        "label": "Image",
+        "max-width": 600,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 600px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_line2_meru",
+        "label": "Caption small"
+      },
+      {
+        "type": "color",
+        "id": "slide4_small_caption_color_meru",
+        "label": "Caption small text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_line1_meru",
+        "label": "Caption large"
+      },
+      {
+        "type": "color",
+        "id": "slide4_large_caption_color_meru",
+        "label": "Caption large text color"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_caption_text_meru",
+        "label": "Caption normal text"
+      },
+      {
+        "type": "color",
+        "id": "slide4_normal_text_color_meru",
+        "label": "Caption normal text color"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide4_button_display_meru",
+        "label": "Display buttons?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_text_meru",
+        "label": "Button 4"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_border_meru",
+        "label": "Button 4 border color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_text_color_meru",
+        "label": "Button 4 text color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_bgcolor_meru",
+        "label": "Button 4 background color"
+      },
+      {
+        "type": "color",
+        "id": "slide4_button_bghover_meru",
+        "label": "Button 4 background hover"
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_link_meru",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Middle Banner 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_middle_banner_meru",
+        "label": "Display Middle Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "mid-banner1_meru.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_normal_text_meru",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_normal_text_color_meru",
+        "label": "Middle banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner_title_text_meru",
+        "label": "Middle banner title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner_title_text_color_meru",
+        "label": "Middle banner title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner1_link_meru",
+        "label": "Middle banner1 link"
+      },
+      {
+        "type": "header",
+        "content": "Middle Banner 2"
+      },
+      {
+        "type": "image",
+        "id": "mid-banner2_meru.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 237,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 237px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_normal_text_meru",
+        "label": "Middle banner2 normal text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_normal_text_color_meru",
+        "label": "Middle banner2 normal text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_title_text_meru",
+        "label": "Middle banner2 title text"
+      },
+      {
+        "type": "color",
+        "id": "middle_banner2_title_text_color_meru",
+        "label": "Middle banner2 title text color"
+      },
+      {
+        "type": "text",
+        "id": "middle_banner2_link_meru",
+        "label": "Middle banner2 link"
+      },
+      {
+        "type": "header",
+        "content": "Home Right Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_home_right_banner_meru",
+        "label": "Display Home Right Banner",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "right-banner_meru.jpg",
+        "label": "Image",
+        "max-width": 285,
+        "max-height": 500,
+        "info":
+          "Maximum slide image dimensions are 285px wide by 500px high. Your uploaded file will be resized to fit within those constraints."
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_title_text_meru",
+        "label": "Home Right banner title text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_title_text_color_meru",
+        "label": "Home Right banner title text color"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_line_color_meru",
+        "label": "Home Right banner line color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner_normal_text_meru",
+        "label": "Middle banner normal text"
+      },
+      {
+        "type": "color",
+        "id": "home_right_banner_normal_text_color_meru",
+        "label": "Home Right banner normal text color"
+      },
+      {
+        "type": "text",
+        "id": "home_right_banner1_link_meru",
+        "label": "Home Right banner1 link"
+      },
+      {
+        "type": "header",
+        "content": "Hot Bundle with Tabs"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_hot_bundle_with_tabs-meru",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "product",
+        "id": "hot-bundle_cat-meru",
+        "label": "Please select the hot product."
+      },
+      {
+        "type": "text",
+        "id": "start_sale_date-meru",
+        "label": "Start date in Y/M/D format"
+      },
+      {
+        "type": "text",
+        "id": "end_sale_date-meru",
+        "label": "End date in Y/M/D format"
+      },
+      {
+        "type": "text",
+        "id": "hot_bundle_discount-meru",
+        "label": "Discount in percentage"
+      },
+      {
+        "type": "header",
+        "content": "Hot Bundle Colors"
+      },
+      {
+        "type": "color",
+        "id": "discount-box-txt-color-meru",
+        "label": "Discount box text color"
+      },
+      {
+        "type": "color",
+        "id": "discount-box-background-color-meru",
+        "label": "Discount box background color"
+      },
+      {
+        "type": "color",
+        "id": "date-box-txt-color-meru",
+        "label": "Date box text color"
+      },
+      {
+        "type": "color",
+        "id": "date-box-background-color-meru",
+        "label": "Date box background color"
+      },
+      {
+        "type": "color",
+        "id": "timer-box-txt-color-meru",
+        "label": "Timer box text color"
+      },
+      {
+        "type": "color",
+        "id": "timer-box-background-color-meru",
+        "label": "Timer box bg color"
+      },
+      {
+        "type": "header",
+        "content": "Bundle description"
+      },
+      {
+        "type": "paragraph",
+        "content": "The bundle description is disabled."
+      },
+      {
+        "type": "text",
+        "id": "bundle-description-meru",
+        "label": "bundle description"
+      },
+      {
+        "type": "text",
+        "id": "bundle-item-1-meru",
+        "label": "bundle item 1 name"
+      },
+      {
+        "type": "text",
+        "id": "bundle-item-2-meru",
+        "label": "bundle item 2 name"
+      },
+      {
+        "type": "text",
+        "id": "bundle-item-3-meru",
+        "label": "bundle item 3 name"
+      },
+      {
+        "type": "header",
+        "content": "Tab Section"
+      },
+      {
+        "type": "text",
+        "id": "home-tab-title-meru",
+        "label": "Tab Section Title"
+      },
+      {
+        "type": "header",
+        "content": "Tab Section Colors"
+      },
+      {
+        "type": "color",
+        "id": "tab-txt-color-meru",
+        "label": "Tab text color"
+      },
+      {
+        "type": "color",
+        "id": "tab-background-color-meru",
+        "label": "Tab background color"
+      },
+      {
+        "type": "header",
+        "content": "Tab 1"
+      },
+      {
+        "type": "text",
+        "id": "tab-one-header-meru",
+        "label": "Tab 1 Header"
+      },
+      {
+        "type": "collection",
+        "id": "home-tab-one-category-meru",
+        "label": "Tab 1 Collection",
+        "info": "Max 4 items only in a collection"
+      },
+      {
+        "type": "header",
+        "content": "Tab 2"
+      },
+      {
+        "type": "text",
+        "id": "tab-two-header-meru",
+        "label": "Tab 2 Header"
+      },
+      {
+        "type": "collection",
+        "id": "home-tab-two-category-meru",
+        "label": "Tab 2 Collection",
+        "info": "Max 4 items only in a collection"
+      },
+      {
+        "type": "header",
+        "content": "Featured collections"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_feat_coll_meru",
+        "label": "Display?",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "feat_coll_meru",
+        "label": "Collections",
+        "info":
+          "Comma-separated collections using handle. Example: meat,poultry,chicken,fish-seafood"
+      },
+      {
+        "type": "header",
+        "content": "Meal Kits"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_meal_kits_meru",
+        "label": "Display?",
+        "default": false
+      }
+    ]
+  },
+  {
     "name": "Money Options",
     "settings": [
       {

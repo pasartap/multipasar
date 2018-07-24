@@ -8,6 +8,8 @@
   {% assign display = true %}
 {% elsif cart.attributes.market == "Serdang" and settings.display_meal_kits_serdang %}
   {% assign display = true %}
+{% elsif cart.attributes.market == "Meru" and settings.display_meal_kits_meru %}
+  {% assign display = true %}
 {% endif %}
 
 {% if display == true %} 

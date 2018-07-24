@@ -24,6 +24,8 @@
       {% assign menu_handle = settings.main_nav-chow_kit %}
     {% elsif cart.attributes.market == "Serdang" and settings.main_nav-serdang != blank %}
       {% assign menu_handle = settings.main_nav-serdang %}
+    {% elsif cart.attributes.market == "Meru" and settings.main_nav-meru != blank %}
+      {% assign menu_handle = settings.main_nav-meru %}
     {% endif %}
     
     {% for link in linklists[menu_handle].links %}
